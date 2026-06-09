@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -224,20 +225,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: .6rem;
-      font-size: 1.35rem;
-      font-weight: 900;
-      letter-spacing: -.02em;
     }
-    .logo-mark {
-      width: 30px; height: 30px;
-      background: linear-gradient(135deg, var(--green), #009e3d);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .logo-mark svg { width: 16px; height: 16px; color: #030f06; }
-    .logo-text { color: var(--white); }
-    .logo-text span { color: var(--green); }
 
     /* Links de navegação */
     .nav-links {
@@ -927,10 +915,31 @@
   <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
   <nav id="navbar">
     <a href="#hero" class="logo">
-      <div class="logo-mark">
-        <i data-lucide="zap"></i>
-      </div>
-      <span class="logo-text">Ory<span>ga</span></span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" height="34" aria-label="Oryga">
+        <defs>
+          <filter id="nav-gb" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="nav-gg" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="nav-tg" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3d8bff"/>
+            <stop offset="100%" stop-color="#00C853"/>
+          </linearGradient>
+        </defs>
+        <path d="M 22 16.1 A 16 16 0 0 1 43.9 38"
+              stroke="#3d8bff" stroke-width="5.5" fill="none" stroke-linecap="round"
+              filter="url(#nav-gb)"/>
+        <path d="M 38 43.9 A 16 16 0 0 1 16.1 22"
+              stroke="#00C853" stroke-width="5.5" fill="none" stroke-linecap="round"
+              filter="url(#nav-gg)"/>
+        <line x1="62" y1="14" x2="62" y2="46" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <text x="72" y="40" font-family="'Inter', sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5" fill="url(#nav-tg)">O</text>
+        <text x="90" y="40" font-family="'Inter', sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5" fill="#eef2ff">ryga</text>
+      </svg>
     </a>
 
     <ul class="nav-links" id="navLinks">
