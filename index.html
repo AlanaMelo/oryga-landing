@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oryga — Consultoria que transforma tecnologia em valor. Estratégia para empresas tech e automação para qualquer negócio.">
+  <title>Oryga — Transformamos Tecnologia em Valor</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* ───────────────────────────────────────────────────────
+       Variáveis & Reset
+    ─────────────────────────────────────────────────────── */
+    :root {
+      /* Cores base */
+      --bg:          #090912;
+      --bg-section:  #0c0c18;
+      --bg-card:     #111120;
+      --bg-card2:    #0f0f1c;
+
+      /* Verde — Automação */
+      --green:       #00C853;
+      --green-light: #33d068;
+      --green-dim:   rgba(0, 200, 83, .12);
+      --green-glow:  rgba(0, 200, 83, .22);
+      --green-border:rgba(0, 200, 83, .25);
+
+      /* Azul — Estratégia */
+      --blue:        #3d8bff;
+      --blue-light:  #6aacff;
+      --blue-dim:    rgba(61, 139, 255, .12);
+      --blue-glow:   rgba(61, 139, 255, .22);
+      --blue-border: rgba(61, 139, 255, .25);
+
+      /* Texto */
+      --white:       #eef2ff;
+      --gray:        #7a8499;
+      --gray-light:  #aab0c2;
+
+      /* Bordas & sombras */
+      --border:      rgba(255, 255, 255, .06);
+      --border-md:   rgba(255, 255, 255, .1);
+      --shadow-card: 0 4px 32px rgba(0, 0, 0, .45);
+
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+    svg { display: block; flex-shrink: 0; }
+
+    /* ───────────────────────────────────────────────────────
+       Utilitários
+    ─────────────────────────────────────────────────────── */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section { padding: 6rem 1.5rem; }
+
+    /* Animação de entrada */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* Badges de seção */
+    .sec-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 50px;
+      margin-bottom: 1.25rem;
+    }
+    .sec-tag.green {
+      color: var(--green);
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+    }
+    .sec-tag.blue {
+      color: var(--blue);
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+    }
+    .sec-tag.white {
+      color: var(--gray-light);
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border-md);
+    }
+
+    .sec-title {
+      font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+    .sec-desc {
+      color: var(--gray-light);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 560px;
+    }
+    .sec-head {
+      margin-bottom: 3.5rem;
+    }
+
+    /* Botões */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .875rem 1.75rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .93rem;
+      border: none;
+      transition: all .25s ease;
+      white-space: nowrap;
+    }
+    .btn svg { width: 17px; height: 17px; }
+
+    .btn-green {
+      background: var(--green);
+      color: #030f06;
+    }
+    .btn-green:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--green-glow);
+    }
+
+    .btn-blue {
+      background: var(--blue);
+      color: #fff;
+    }
+    .btn-blue:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--blue-glow);
+    }
+
+    .btn-outline-green {
+      background: transparent;
+      color: var(--green);
+      border: 2px solid var(--green-border);
+    }
+    .btn-outline-green:hover {
+      background: var(--green-dim);
+      border-color: var(--green);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--border-md);
+    }
+    .btn-outline-white:hover {
+      border-color: rgba(255,255,255,.3);
+      background: rgba(255,255,255,.05);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.06);
+      color: var(--gray-light);
+      border: 1px solid var(--border-md);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.1);
+      color: var(--white);
+    }
+
+    /* ───────────────────────────────────────────────────────
+       NAVBAR
+    ─────────────────────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2rem;
+      background: rgba(9, 9, 18, .85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: padding .3s, border-color .3s, box-shadow .3s;
+    }
+    #navbar.scrolled {
+      padding: .75rem 2rem;
+      border-color: var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,.4);
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+    .logo-mark {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, var(--green), #009e3d);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-mark svg { width: 16px; height: 16px; color: #030f06; }
+    .logo-text { color: var(--white); }
+    .logo-text span { color: var(--green); }
+
+    /* Links de navegação */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--gray);
+      font-size: .87rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--green);
+      color: #030f06 !important;
+      padding: .45rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--green-light) !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 23px; height: 2px;
+      background: var(--white);
+      transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .nav-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.65);
+      z-index: 898;
+    }
+    .nav-overlay.open { display: block; }
+
+    /* ───────────────────────────────────────────────────────
+       HERO
+    ─────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 9rem 1.5rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Grade tech de fundo */
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 200, 83, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 83, .04) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    /* Brilho central */
+    .hero-glow {
+      position: absolute;
+      top: 20%; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,200,83,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(0,200,83,.1);
+      border: 1px solid rgba(0,200,83,.3);
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+    }
+    .hero-badge svg { width: 14px; height: 14px; }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.75rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .hl-green { color: var(--green); }
+    .hero-title .hl-blue  { color: var(--blue); }
+
+    .hero-sub {
+      color: var(--gray-light);
+      font-size: clamp(.97rem, 1.5vw, 1.12rem);
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Parceiros / prova social mínima */
+    .hero-proof {
+      margin-top: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-proof-label {
+      color: var(--gray);
+      font-size: .78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .proof-pills {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .proof-pill {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: .35rem .9rem;
+      font-size: .78rem;
+      color: var(--gray-light);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .proof-pill svg { width: 13px; height: 13px; color: var(--green); }
+
+    /* ───────────────────────────────────────────────────────
+       ORYGA ESTRATÉGIA
+    ─────────────────────────────────────────────────────── */
+    #estrategia {
+      background: linear-gradient(180deg, var(--bg) 0%, #0b0b1f 50%, var(--bg) 100%);
+      padding: 6rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #estrategia::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue-border), transparent);
+    }
+    #estrategia::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue-border), transparent);
+    }
+
+    /* Brilho sutil de fundo azul */
+    .strat-glow {
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(61,139,255,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .strat-layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .strat-aside { position: sticky; top: 7rem; }
+
+    .strat-audience {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .strat-audience-label {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gray);
+      margin-bottom: .25rem;
+    }
+    .aud-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      border-radius: 8px;
+      padding: .45rem .875rem;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--blue-light);
+      width: fit-content;
+    }
+    .aud-pill svg { width: 14px; height: 14px; }
+
+    /* Cards de serviço — Estratégia */
+    .strat-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .strat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .strat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .strat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue-border);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35), 0 0 0 1px var(--blue-border);
+    }
+    .strat-card:hover::before { opacity: 1; }
+
+    .sc-icon {
+      width: 44px; height: 44px;
+      background: var(--blue-dim);
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .sc-icon svg { width: 20px; height: 20px; color: var(--blue); }
+
+    .strat-card h3 { font-size: .97rem; font-weight: 700; margin-bottom: .45rem; }
+    .strat-card p  { font-size: .84rem; color: var(--gray-light); line-height: 1.65; }
+
+    .strat-cta { margin-top: 2rem; }
+
+    /* ───────────────────────────────────────────────────────
+       ORYGA AUTOMAÇÃO
+    ─────────────────────────────────────────────────────── */
+    #automacao {
+      background: linear-gradient(180deg, var(--bg) 0%, #050f08 50%, var(--bg) 100%);
+      padding: 6rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #automacao::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-border), transparent);
+    }
+    #automacao::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-border), transparent);
+    }
+
+    .auto-glow {
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(0,200,83,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .auto-layout {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .auto-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .auto-header-left { max-width: 560px; }
+
+    /* Badge "Novo" */
+    .new-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: var(--green);
+      color: #030f06;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .2rem .6rem;
+      border-radius: 50px;
+      vertical-align: middle;
+      margin-left: .5rem;
+    }
+
+    /* Cards de serviço — Automação */
+    .auto-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .auto-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .auto-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .auto-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--green-border);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35), 0 0 0 1px var(--green-border);
+    }
+    .auto-card:hover::before { opacity: 1; }
+
+    .ac-icon {
+      width: 44px; height: 44px;
+      background: var(--green-dim);
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .auto-card h3 { font-size: .97rem; font-weight: 700; margin-bottom: .45rem; }
+    .auto-card p  { font-size: .84rem; color: var(--gray-light); line-height: 1.65; }
+
+    /* Nichos */
+    .niches-label {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+    .niches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .625rem;
+      margin-bottom: 2rem;
+    }
+    .niche {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      border-radius: 50px;
+      padding: .35rem .9rem;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--green-light);
+    }
+
+    /* ───────────────────────────────────────────────────────
+       POR QUE A ORYGA
+    ─────────────────────────────────────────────────────── */
+    #diferenciais {
+      padding: 6rem 1.5rem;
+      background: var(--bg-section);
+    }
+
+    .dif-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .dif-header {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .dif-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .dif-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.25rem 2rem;
+      text-align: center;
+      transition: transform .3s, border-color .3s;
+    }
+    .dif-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-md);
+    }
+    .dif-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .dif-icon.g { background: var(--green-dim); }
+    .dif-icon.b { background: var(--blue-dim); }
+    .dif-icon.w { background: rgba(255,255,255,.06); }
+    .dif-icon svg { width: 26px; height: 26px; }
+    .dif-icon.g svg { color: var(--green); }
+    .dif-icon.b svg { color: var(--blue); }
+    .dif-icon.w svg { color: var(--gray-light); }
+
+    .dif-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: .625rem;
+    }
+    .dif-card p {
+      font-size: .88rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+    }
+
+    /* ───────────────────────────────────────────────────────
+       CTA FINAL
+    ─────────────────────────────────────────────────────── */
+    #cta-final {
+      padding: 7rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-glow-left {
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(ellipse, rgba(0,200,83,.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-glow-right {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(ellipse, rgba(61,139,255,.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Linha decorativa de topo */
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-border), var(--blue-border), transparent);
+    }
+
+    .cta-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -.02em;
+    }
+    .cta-sub {
+      color: var(--gray-light);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 2.75rem;
+    }
+    .cta-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ───────────────────────────────────────────────────────
+       RODAPÉ
+    ─────────────────────────────────────────────────────── */
+    footer {
+      background: var(--bg-section);
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 3rem;
+      align-items: start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .footer-brand p {
+      color: var(--gray);
+      font-size: .85rem;
+      line-height: 1.7;
+      margin-top: .875rem;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gray);
+      margin-bottom: 1.1rem;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: .625rem; }
+    .footer-col ul a {
+      color: var(--gray-light);
+      font-size: .87rem;
+      transition: color .2s;
+    }
+    .footer-col ul a:hover { color: var(--green); }
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p { color: var(--gray); font-size: .82rem; }
+    .footer-social {
+      display: flex;
+      gap: .625rem;
+    }
+    .social-btn {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+      color: var(--gray-light);
+    }
+    .social-btn svg { width: 16px; height: 16px; }
+    .social-btn:hover {
+      background: rgba(255,255,255,.1);
+      color: var(--white);
+      border-color: var(--border-md);
+    }
+
+    /* WhatsApp flutuante */
+    .wa-float {
+      position: fixed;
+      bottom: 1.75rem; right: 1.75rem;
+      z-index: 800;
+      width: 54px; height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform .25s, box-shadow .25s;
+      animation: waPulse 2.5s ease-in-out infinite;
+    }
+    .wa-float svg { width: 26px; height: 26px; color: white; }
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,.6);
+      animation: none;
+    }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 4px 32px rgba(37,211,102,.7); }
+    }
+
+    /* ───────────────────────────────────────────────────────
+       RESPONSIVO
+    ─────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .strat-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .strat-aside  { position: static; }
+      .strat-cards  { grid-template-columns: repeat(2, 1fr); }
+      .auto-cards   { grid-template-columns: repeat(2, 1fr); }
+      .dif-grid     { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .section, #estrategia, #automacao, #diferenciais, #cta-final { padding: 4.5rem 1.25rem; }
+
+      /* Navbar mobile */
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        height: 100vh; width: 265px;
+        background: #0d0d1e;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.75rem;
+        padding: 2rem;
+        border-left: 1px solid var(--border);
+        transition: right .3s ease;
+        z-index: 1000;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1rem; }
+      .hamburger { display: flex; }
+
+      .hero-title    { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+      .strat-cards   { grid-template-columns: 1fr; }
+      .auto-cards    { grid-template-columns: 1fr; }
+      .dif-grid      { grid-template-columns: 1fr; }
+      .footer-inner  { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .btn       { justify-content: center; }
+      .cta-btns  { flex-direction: column; align-items: stretch; }
+      .strat-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+  <nav id="navbar">
+    <a href="#hero" class="logo">
+      <div class="logo-mark">
+        <i data-lucide="zap"></i>
+      </div>
+      <span class="logo-text">Ory<span>ga</span></span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#estrategia">Estratégia</a></li>
+      <li><a href="#automacao">Automação</a></li>
+      <li><a href="#diferenciais">Por que a Oryga</a></li>
+      <li><a href="https://wa.me/5537998019444" target="_blank" rel="noopener" class="nav-cta">Falar Agora</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ════════════════════════ HERO ════════════════════════ -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+
+    <div class="hero-inner">
+      <div class="hero-badge reveal">
+        <i data-lucide="sparkles"></i>
+        Consultoria de Tecnologia &amp; Automação
+      </div>
+
+      <h1 class="hero-title reveal d1">
+        Transformamos tecnologia em <span class="hl-green">valor</span> — para empresas que querem <span class="hl-blue">crescer de verdade</span>
+      </h1>
+
+      <p class="hero-sub reveal d2">
+        Consultoria estratégica para negócios tech e automação de processos para qualquer nicho. Da startup ao salão de beleza — a Oryga entrega resultado.
+      </p>
+
+      <div class="hero-btns reveal d3">
+        <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20uma%20consultoria%20com%20a%20Oryga."
+           target="_blank" rel="noopener" class="btn btn-green">
+          <i data-lucide="message-circle"></i>
+          Quero uma consultoria
+        </a>
+        <a href="#automacao" class="btn btn-outline-white">
+          <i data-lucide="cpu"></i>
+          Quero automatizar meu negócio
+        </a>
+      </div>
+
+      <!-- Prova social sutil -->
+      <div class="hero-proof reveal d4">
+        <span class="hero-proof-label">Atendemos</span>
+        <div class="proof-pills">
+          <div class="proof-pill"><i data-lucide="rocket"></i> Startups</div>
+          <div class="proof-pill"><i data-lucide="trending-up"></i> Scale-ups</div>
+          <div class="proof-pill"><i data-lucide="scissors"></i> Salões</div>
+          <div class="proof-pill"><i data-lucide="stethoscope"></i> Clínicas</div>
+          <div class="proof-pill"><i data-lucide="store"></i> Comércio local</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ ORYGA ESTRATÉGIA ══════════════════ -->
+  <section id="estrategia">
+    <div class="strat-glow"></div>
+    <div class="strat-layout">
+
+      <!-- Coluna esquerda: cabeçalho sticky -->
+      <div class="strat-aside reveal">
+        <span class="sec-tag blue">
+          <i data-lucide="bar-chart-2"></i>
+          Oryga Estratégia
+        </span>
+        <h2 class="sec-title">
+          Estruturamos produtos, processos e times para crescer
+        </h2>
+        <p class="sec-desc">
+          Combinamos visão estratégica com execução prática para resolver gargalos e acelerar resultados. Não vendemos decks — entregamos transformação real.
+        </p>
+
+        <div class="strat-audience">
+          <p class="strat-audience-label">Quem atendemos</p>
+          <div class="aud-pill"><i data-lucide="rocket"></i> Startups em crescimento</div>
+          <div class="aud-pill"><i data-lucide="trending-up"></i> Scale-ups em escala</div>
+          <div class="aud-pill"><i data-lucide="building-2"></i> Empresas em transformação digital</div>
+        </div>
+
+        <div class="strat-cta">
+          <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20consultor%20da%20Oryga%20Estrat%C3%A9gia."
+             target="_blank" rel="noopener" class="btn btn-blue">
+            <i data-lucide="message-circle"></i>
+            Falar com um consultor
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna direita: cards de serviços -->
+      <div class="strat-cards">
+        <div class="strat-card reveal d1">
+          <div class="sc-icon"><i data-lucide="search"></i></div>
+          <h3>Diagnóstico Organizacional</h3>
+          <p>Mapeamos seus processos, pessoas e tecnologia para identificar gargalos e oportunidades de crescimento com clareza.</p>
+        </div>
+        <div class="strat-card reveal d2">
+          <div class="sc-icon"><i data-lucide="layers"></i></div>
+          <h3>Gestão de Produto e Projetos</h3>
+          <p>Estruturamos roadmaps, rituais ágeis e métricas para times de produto entregarem mais rápido com menos desperdício.</p>
+        </div>
+        <div class="strat-card reveal d3">
+          <div class="sc-icon"><i data-lucide="settings-2"></i></div>
+          <h3>Reestruturação de Processos</h3>
+          <p>Redesenhamos fluxos operacionais para eliminar retrabalho, reduzir custos e aumentar a previsibilidade das entregas.</p>
+        </div>
+        <div class="strat-card reveal d4">
+          <div class="sc-icon"><i data-lucide="users"></i></div>
+          <h3>Desenvolvimento de Times e Lideranças</h3>
+          <p>Treinamos líderes e equipes técnicas para que sua empresa cresça com autonomia, cultura forte e alta performance.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════ ORYGA AUTOMAÇÃO ═══════════════════ -->
+  <section id="automacao">
+    <div class="auto-glow"></div>
+    <div class="auto-layout">
+
+      <div class="auto-header">
+        <div class="auto-header-left">
+          <div>
+            <span class="sec-tag green">
+              <i data-lucide="cpu"></i>
+              Oryga Automação
+            </span>
+            <span class="new-badge">Novo</span>
+          </div>
+          <h2 class="sec-title reveal">
+            Automatizamos seu operacional para você focar no que importa
+          </h2>
+          <p class="sec-desc reveal d1">
+            A Oryga automatiza o operacional do seu negócio — atendimento, cobranças, campanhas e relatórios — para que você pare de perder tempo com tarefas manuais e foque em crescer.
+          </p>
+        </div>
+        <div class="reveal d2" style="align-self: flex-end; padding-bottom: .25rem;">
+          <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20automatizar%20meu%20neg%C3%B3cio%20com%20a%20Oryga."
+             target="_blank" rel="noopener" class="btn btn-green">
+            <i data-lucide="zap"></i>
+            Quero automatizar meu negócio
+          </a>
+        </div>
+      </div>
+
+      <!-- Cards de automação -->
+      <div class="auto-cards">
+        <div class="auto-card reveal">
+          <div class="ac-icon">🤖</div>
+          <h3>Bot de atendimento e agendamento no WhatsApp</h3>
+          <p>Responde clientes, agenda horários e confirma atendimentos automaticamente — 24h por dia, 7 dias por semana.</p>
+        </div>
+        <div class="auto-card reveal d1">
+          <div class="ac-icon">💰</div>
+          <h3>Régua de cobrança e follow-up automático</h3>
+          <p>Lembretes de pagamento, confirmação de pedidos e sequências de acompanhamento sem precisar enviar nada manualmente.</p>
+        </div>
+        <div class="auto-card reveal d2">
+          <div class="ac-icon">📲</div>
+          <h3>Campanhas de reativação de clientes</h3>
+          <p>Reative clientes inativos com mensagens personalizadas por WhatsApp, e-mail ou SMS — no momento certo.</p>
+        </div>
+        <div class="auto-card reveal d3">
+          <div class="ac-icon">📊</div>
+          <h3>Relatórios e processos no piloto automático</h3>
+          <p>Dashboards, relatórios e fluxos internos rodando sozinhos para que sua equipe foque no que gera valor.</p>
+        </div>
+      </div>
+
+      <!-- Nichos -->
+      <div class="reveal">
+        <p class="niches-label">Nichos atendidos</p>
+        <div class="niches">
+          <div class="niche"><i data-lucide="scissors"></i> Salões de beleza</div>
+          <div class="niche"><i data-lucide="stethoscope"></i> Clínicas</div>
+          <div class="niche"><i data-lucide="utensils"></i> Restaurantes</div>
+          <div class="niche"><i data-lucide="briefcase"></i> Escritórios</div>
+          <div class="niche"><i data-lucide="shopping-bag"></i> Comércio local</div>
+          <div class="niche"><i data-lucide="plus-circle"></i> E muito mais</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════ POR QUE A ORYGA ══════════════════ -->
+  <section id="diferenciais">
+    <div class="dif-wrap">
+      <div class="dif-header">
+        <span class="sec-tag white reveal">
+          <i data-lucide="star"></i>
+          Por que a Oryga?
+        </span>
+        <h2 class="sec-title reveal d1">Diferenciais que fazem a diferença</h2>
+        <p class="sec-desc reveal d2">Não somos mais uma consultoria de apresentação. Somos parceiros de execução.</p>
+      </div>
+      <div class="dif-grid">
+        <div class="dif-card reveal">
+          <div class="dif-icon g"><i data-lucide="target"></i></div>
+          <h3>Visão estratégica + execução prática</h3>
+          <p>Chegamos no problema, entendemos o contexto e saímos com soluções implementadas — não apenas recomendadas.</p>
+        </div>
+        <div class="dif-card reveal d1">
+          <div class="dif-icon b"><i data-lucide="arrow-left-right"></i></div>
+          <h3>Do negócio local à empresa tech</h3>
+          <p>Falamos a língua de quem tem um salão de beleza e a de quem é CTO de uma startup. A Oryga se adapta ao seu mundo.</p>
+        </div>
+        <div class="dif-card reveal d2">
+          <div class="dif-icon w"><i data-lucide="puzzle"></i></div>
+          <h3>Soluções sob medida, não receitas prontas</h3>
+          <p>Cada negócio é único. Nosso diagnóstico é personalizado e nossa entrega é moldada para a sua realidade — não para um template.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ CTA FINAL ═══════════════════════ -->
+  <section id="cta-final">
+    <div class="cta-glow-left"></div>
+    <div class="cta-glow-right"></div>
+    <div class="cta-inner">
+      <span class="sec-tag green reveal" style="margin: 0 auto 1.5rem;">
+        <i data-lucide="handshake"></i>
+        Vamos conversar
+      </span>
+      <h2 class="cta-title reveal d1">
+        Pronto para transformar <span style="color:var(--green)">seu negócio?</span>
+      </h2>
+      <p class="cta-sub reveal d2">
+        Fale com a gente e descubra como a Oryga pode ajudar — seja você dono de salão ou CTO de startup. A primeira conversa é gratuita.
+      </p>
+      <div class="cta-btns reveal d3">
+        <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Oryga."
+           target="_blank" rel="noopener" class="btn btn-green">
+          <i data-lucide="message-circle"></i>
+          WhatsApp
+        </a>
+        <a href="mailto:oryga.contato@gmail.com" class="btn btn-ghost">
+          <i data-lucide="mail"></i>
+          E-mail
+        </a>
+        <a href="https://www.linkedin.com/company/oryga-consultoria"
+           target="_blank" rel="noopener" class="btn btn-ghost">
+          <i data-lucide="linkedin"></i>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ RODAPÉ ════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <!-- Marca -->
+      <div class="footer-brand">
+        <a href="#hero" class="logo">
+          <div class="logo-mark">
+            <i data-lucide="zap"></i>
+          </div>
+          <span class="logo-text">Ory<span>ga</span></span>
+        </a>
+        <p>Consultoria que transforma tecnologia em valor — para empresas tech e negócios locais de qualquer nicho.</p>
+      </div>
+
+      <!-- Navegação -->
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#estrategia">Oryga Estratégia</a></li>
+          <li><a href="#automacao">Oryga Automação</a></li>
+          <li><a href="#diferenciais">Por que a Oryga</a></li>
+          <li><a href="#cta-final">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li>
+            <a href="https://wa.me/5537998019444" target="_blank" rel="noopener">
+              +55 37 9801-9444
+            </a>
+          </li>
+          <li>
+            <a href="mailto:oryga.contato@gmail.com">
+              oryga.contato@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/oryga-consultoria" target="_blank" rel="noopener">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Oryga. Todos os direitos reservados.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/5537998019444" target="_blank" rel="noopener"
+           class="social-btn" aria-label="WhatsApp">
+          <i data-lucide="message-circle"></i>
+        </a>
+        <a href="mailto:oryga.contato@gmail.com"
+           class="social-btn" aria-label="E-mail">
+          <i data-lucide="mail"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/oryga-consultoria"
+           target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+          <i data-lucide="linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Oryga."
+     target="_blank" rel="noopener noreferrer"
+     class="wa-float" aria-label="Falar no WhatsApp">
+    <i data-lucide="message-circle"></i>
+  </a>
+
+  <script>
+    /* ── Inicializa ícones Lucide ─────────────────────────── */
+    lucide.createIcons();
+
+    /* ── Navbar: efeito ao rolar ─────────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Menu mobile ─────────────────────────────────────── */
+    const hamburger  = document.getElementById('hamburger');
+    const navLinks   = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu(open) {
+      const isOpen = open !== undefined ? open : !navLinks.classList.contains('open');
+      navLinks.classList.toggle('open', isOpen);
+      navOverlay.classList.toggle('open', isOpen);
+      hamburger.classList.toggle('open', isOpen);
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu());
+    navOverlay.addEventListener('click', () => toggleMenu(false));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => toggleMenu(false))
+    );
+
+    /* ── Scroll reveal via IntersectionObserver ──────────── */
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ── Âncora suave para hero (logo click) ─────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

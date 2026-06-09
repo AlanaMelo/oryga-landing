@@ -1,0 +1,72 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="torch" />
+          <option value="annotated-doc" />
+          <option value="annotated-types" />
+          <option value="anyio" />
+          <option value="av" />
+          <option value="certifi" />
+          <option value="cffi" />
+          <option value="click" />
+          <option value="colorama" />
+          <option value="ctranslate2" />
+          <option value="distro" />
+          <option value="fastapi" />
+          <option value="faster-whisper" />
+          <option value="filelock" />
+          <option value="flatbuffers" />
+          <option value="fsspec" />
+          <option value="h11" />
+          <option value="hf-xet" />
+          <option value="httpcore" />
+          <option value="httpx" />
+          <option value="huggingface_hub" />
+          <option value="idna" />
+          <option value="Jinja2" />
+          <option value="jiter" />
+          <option value="markdown-it-py" />
+          <option value="MarkupSafe" />
+          <option value="mdurl" />
+          <option value="mpmath" />
+          <option value="networkx" />
+          <option value="numpy" />
+          <option value="onnxruntime" />
+          <option value="openai" />
+          <option value="packaging" />
+          <option value="protobuf" />
+          <option value="pycparser" />
+          <option value="pydantic" />
+          <option value="pydantic_core" />
+          <option value="Pygments" />
+          <option value="python-dotenv" />
+          <option value="PyYAML" />
+          <option value="rich" />
+          <option value="shellingham" />
+          <option value="silero-vad" />
+          <option value="sniffio" />
+          <option value="sounddevice" />
+          <option value="starlette" />
+          <option value="sympy" />
+          <option value="tokenizers" />
+          <option value="torchaudio" />
+          <option value="tqdm" />
+          <option value="typer" />
+          <option value="typing-inspection" />
+          <option value="typing_extensions" />
+          <option value="uvicorn" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="selenium.webdriver.chrome.service" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
