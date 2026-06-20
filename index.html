@@ -251,6 +251,23 @@
     }
     .nav-cta:hover { background: var(--green-light) !important; }
 
+    /* Lang toggle */
+    .lang-toggle {
+      background: transparent;
+      color: var(--gray);
+      border: 1px solid var(--border-md);
+      padding: .32rem .7rem;
+      border-radius: 7px;
+      font-size: .78rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .07em;
+      transition: color .2s, border-color .2s;
+      line-height: 1;
+      margin-left: .75rem;
+    }
+    .lang-toggle:hover { color: var(--white); border-color: var(--green-border); }
+
     /* Hamburger */
     .hamburger {
       display: none;
@@ -260,6 +277,7 @@
       border: none;
       padding: 4px;
       z-index: 1001;
+      margin-left: .5rem;
     }
     .hamburger span {
       display: block;
@@ -919,13 +937,14 @@
     </a>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#estrategia">Estratégia</a></li>
-      <li><a href="#automacao">Automação</a></li>
-      <li><a href="#diferenciais">Por que a Oryga</a></li>
-      <li><a href="/alana-melo">Fundadora</a></li>
-      <li><a href="https://wa.me/5537998019444" target="_blank" rel="noopener" class="nav-cta">Falar Agora</a></li>
+      <li><a href="#estrategia" data-en="Strategy">Estratégia</a></li>
+      <li><a href="#automacao" data-en="Automation">Automação</a></li>
+      <li><a href="#diferenciais" data-en="Why Oryga">Por que a Oryga</a></li>
+      <li><a href="/alana-melo" data-en="Founder">Fundadora</a></li>
+      <li><a href="https://wa.me/5537998019444" target="_blank" rel="noopener" class="nav-cta" data-en="Talk Now">Falar Agora</a></li>
     </ul>
 
+    <button class="lang-toggle" onclick="toggleLang()">EN</button>
     <button class="hamburger" id="hamburger" aria-label="Abrir menu">
       <span></span><span></span><span></span>
     </button>
@@ -940,14 +959,14 @@
     <div class="hero-inner">
       <div class="hero-badge reveal">
         <i data-lucide="sparkles"></i>
-        Consultoria de Tecnologia &amp; Automação
+        <span data-en="Technology &amp; Automation Consulting">Consultoria de Tecnologia &amp; Automação</span>
       </div>
 
-      <h1 class="hero-title reveal d1">
+      <h1 class="hero-title reveal d1" data-en="We turn technology into <span class='hl-green'>value</span> — for companies that want to <span class='hl-blue'>truly grow</span>">
         Transformamos tecnologia em <span class="hl-green">valor</span> — para empresas que querem <span class="hl-blue">crescer de verdade</span>
       </h1>
 
-      <p class="hero-sub reveal d2">
+      <p class="hero-sub reveal d2" data-en="Strategic consulting for tech businesses and process automation for any niche. From startups to beauty salons — Oryga delivers results.">
         Consultoria estratégica para negócios tech e automação de processos para qualquer nicho. Da startup ao salão de beleza — a Oryga entrega resultado.
       </p>
 
@@ -955,23 +974,23 @@
         <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20uma%20consultoria%20com%20a%20Oryga."
            target="_blank" rel="noopener" class="btn btn-green">
           <i data-lucide="message-circle"></i>
-          Quero uma consultoria
+          <span data-en="I want a consultation">Quero uma consultoria</span>
         </a>
         <a href="#automacao" class="btn btn-outline-white">
           <i data-lucide="cpu"></i>
-          Quero automatizar meu negócio
+          <span data-en="I want to automate my business">Quero automatizar meu negócio</span>
         </a>
       </div>
 
       <!-- Prova social sutil -->
       <div class="hero-proof reveal d4">
-        <span class="hero-proof-label">Atendemos</span>
+        <span class="hero-proof-label" data-en="We serve">Atendemos</span>
         <div class="proof-pills">
-          <div class="proof-pill"><i data-lucide="rocket"></i> Startups</div>
-          <div class="proof-pill"><i data-lucide="trending-up"></i> Scale-ups</div>
-          <div class="proof-pill"><i data-lucide="scissors"></i> Salões</div>
-          <div class="proof-pill"><i data-lucide="stethoscope"></i> Clínicas</div>
-          <div class="proof-pill"><i data-lucide="store"></i> Comércio local</div>
+          <div class="proof-pill"><i data-lucide="rocket"></i> <span>Startups</span></div>
+          <div class="proof-pill"><i data-lucide="trending-up"></i> <span>Scale-ups</span></div>
+          <div class="proof-pill"><i data-lucide="scissors"></i> <span data-en="Salons">Salões</span></div>
+          <div class="proof-pill"><i data-lucide="stethoscope"></i> <span data-en="Clinics">Clínicas</span></div>
+          <div class="proof-pill"><i data-lucide="store"></i> <span data-en="Local businesses">Comércio local</span></div>
         </div>
       </div>
     </div>
@@ -986,27 +1005,27 @@
       <div class="strat-aside reveal">
         <span class="sec-tag blue">
           <i data-lucide="bar-chart-2"></i>
-          Oryga Estratégia
+          <span data-en="Oryga Strategy">Oryga Estratégia</span>
         </span>
-        <h2 class="sec-title">
+        <h2 class="sec-title" data-en="We structure products, processes, and teams to grow">
           Estruturamos produtos, processos e times para crescer
         </h2>
-        <p class="sec-desc">
+        <p class="sec-desc" data-en="We combine strategic vision with practical execution to resolve bottlenecks and accelerate results. We don't sell decks — we deliver real transformation.">
           Combinamos visão estratégica com execução prática para resolver gargalos e acelerar resultados. Não vendemos decks — entregamos transformação real.
         </p>
 
         <div class="strat-audience">
-          <p class="strat-audience-label">Quem atendemos</p>
-          <div class="aud-pill"><i data-lucide="rocket"></i> Startups em crescimento</div>
-          <div class="aud-pill"><i data-lucide="trending-up"></i> Scale-ups em escala</div>
-          <div class="aud-pill"><i data-lucide="building-2"></i> Empresas em transformação digital</div>
+          <p class="strat-audience-label" data-en="Who we serve">Quem atendemos</p>
+          <div class="aud-pill"><i data-lucide="rocket"></i> <span data-en="Growing startups">Startups em crescimento</span></div>
+          <div class="aud-pill"><i data-lucide="trending-up"></i> <span data-en="Scaling scale-ups">Scale-ups em escala</span></div>
+          <div class="aud-pill"><i data-lucide="building-2"></i> <span data-en="Companies in digital transformation">Empresas em transformação digital</span></div>
         </div>
 
         <div class="strat-cta">
           <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20consultor%20da%20Oryga%20Estrat%C3%A9gia."
              target="_blank" rel="noopener" class="btn btn-blue">
             <i data-lucide="message-circle"></i>
-            Falar com um consultor
+            <span data-en="Talk to a consultant">Falar com um consultor</span>
           </a>
         </div>
       </div>
@@ -1015,23 +1034,23 @@
       <div class="strat-cards">
         <div class="strat-card reveal d1">
           <div class="sc-icon"><i data-lucide="search"></i></div>
-          <h3>Diagnóstico Organizacional</h3>
-          <p>Mapeamos seus processos, pessoas e tecnologia para identificar gargalos e oportunidades de crescimento com clareza.</p>
+          <h3 data-en="Organizational Diagnosis">Diagnóstico Organizacional</h3>
+          <p data-en="We map your processes, people, and technology to identify bottlenecks and growth opportunities with clarity.">Mapeamos seus processos, pessoas e tecnologia para identificar gargalos e oportunidades de crescimento com clareza.</p>
         </div>
         <div class="strat-card reveal d2">
           <div class="sc-icon"><i data-lucide="layers"></i></div>
-          <h3>Gestão de Produto e Projetos</h3>
-          <p>Estruturamos roadmaps, rituais ágeis e métricas para times de produto entregarem mais rápido com menos desperdício.</p>
+          <h3 data-en="Product and Project Management">Gestão de Produto e Projetos</h3>
+          <p data-en="We structure roadmaps, agile rituals, and metrics so product teams deliver faster with less waste.">Estruturamos roadmaps, rituais ágeis e métricas para times de produto entregarem mais rápido com menos desperdício.</p>
         </div>
         <div class="strat-card reveal d3">
           <div class="sc-icon"><i data-lucide="settings-2"></i></div>
-          <h3>Reestruturação de Processos</h3>
-          <p>Redesenhamos fluxos operacionais para eliminar retrabalho, reduzir custos e aumentar a previsibilidade das entregas.</p>
+          <h3 data-en="Process Restructuring">Reestruturação de Processos</h3>
+          <p data-en="We redesign operational flows to eliminate rework, reduce costs, and increase delivery predictability.">Redesenhamos fluxos operacionais para eliminar retrabalho, reduzir custos e aumentar a previsibilidade das entregas.</p>
         </div>
         <div class="strat-card reveal d4">
           <div class="sc-icon"><i data-lucide="users"></i></div>
-          <h3>Desenvolvimento de Times e Lideranças</h3>
-          <p>Treinamos líderes e equipes técnicas para que sua empresa cresça com autonomia, cultura forte e alta performance.</p>
+          <h3 data-en="Team and Leadership Development">Desenvolvimento de Times e Lideranças</h3>
+          <p data-en="We train leaders and technical teams so your company grows with autonomy, strong culture, and high performance.">Treinamos líderes e equipes técnicas para que sua empresa cresça com autonomia, cultura forte e alta performance.</p>
         </div>
       </div>
 
@@ -1048,14 +1067,14 @@
           <div>
             <span class="sec-tag green">
               <i data-lucide="cpu"></i>
-              Oryga Automação
+              <span data-en="Oryga Automation">Oryga Automação</span>
             </span>
-            <span class="new-badge">Novo</span>
+            <span class="new-badge" data-en="New">Novo</span>
           </div>
-          <h2 class="sec-title reveal">
+          <h2 class="sec-title reveal" data-en="We automate your operations so you can focus on what matters">
             Automatizamos seu operacional para você focar no que importa
           </h2>
-          <p class="sec-desc reveal d1">
+          <p class="sec-desc reveal d1" data-en="Oryga automates your business operations — customer service, billing, campaigns, and reports — so you stop losing time on manual tasks and focus on growing.">
             A Oryga automatiza o operacional do seu negócio — atendimento, cobranças, campanhas e relatórios — para que você pare de perder tempo com tarefas manuais e foque em crescer.
           </p>
         </div>
@@ -1063,7 +1082,7 @@
           <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20automatizar%20meu%20neg%C3%B3cio%20com%20a%20Oryga."
              target="_blank" rel="noopener" class="btn btn-green">
             <i data-lucide="zap"></i>
-            Quero automatizar meu negócio
+            <span data-en="I want to automate my business">Quero automatizar meu negócio</span>
           </a>
         </div>
       </div>
@@ -1072,36 +1091,36 @@
       <div class="auto-cards">
         <div class="auto-card reveal">
           <div class="ac-icon">🤖</div>
-          <h3>Bot de atendimento e agendamento no WhatsApp</h3>
-          <p>Responde clientes, agenda horários e confirma atendimentos automaticamente — 24h por dia, 7 dias por semana.</p>
+          <h3 data-en="WhatsApp chatbot for customer service and scheduling">Bot de atendimento e agendamento no WhatsApp</h3>
+          <p data-en="Responds to customers, schedules appointments, and confirms bookings automatically — 24 hours a day, 7 days a week.">Responde clientes, agenda horários e confirma atendimentos automaticamente — 24h por dia, 7 dias por semana.</p>
         </div>
         <div class="auto-card reveal d1">
           <div class="ac-icon">💰</div>
-          <h3>Régua de cobrança e follow-up automático</h3>
-          <p>Lembretes de pagamento, confirmação de pedidos e sequências de acompanhamento sem precisar enviar nada manualmente.</p>
+          <h3 data-en="Automated billing and follow-up sequences">Régua de cobrança e follow-up automático</h3>
+          <p data-en="Payment reminders, order confirmations, and follow-up sequences without sending anything manually.">Lembretes de pagamento, confirmação de pedidos e sequências de acompanhamento sem precisar enviar nada manualmente.</p>
         </div>
         <div class="auto-card reveal d2">
           <div class="ac-icon">📲</div>
-          <h3>Campanhas de reativação de clientes</h3>
-          <p>Reative clientes inativos com mensagens personalizadas por WhatsApp, e-mail ou SMS — no momento certo.</p>
+          <h3 data-en="Customer reactivation campaigns">Campanhas de reativação de clientes</h3>
+          <p data-en="Re-engage inactive customers with personalized messages via WhatsApp, email, or SMS — at the right moment.">Reative clientes inativos com mensagens personalizadas por WhatsApp, e-mail ou SMS — no momento certo.</p>
         </div>
         <div class="auto-card reveal d3">
           <div class="ac-icon">📊</div>
-          <h3>Relatórios e processos no piloto automático</h3>
-          <p>Dashboards, relatórios e fluxos internos rodando sozinhos para que sua equipe foque no que gera valor.</p>
+          <h3 data-en="Reports and processes on autopilot">Relatórios e processos no piloto automático</h3>
+          <p data-en="Dashboards, reports, and internal flows running on their own so your team can focus on what creates value.">Dashboards, relatórios e fluxos internos rodando sozinhos para que sua equipe foque no que gera valor.</p>
         </div>
       </div>
 
       <!-- Nichos -->
       <div class="reveal">
-        <p class="niches-label">Nichos atendidos</p>
+        <p class="niches-label" data-en="Niches served">Nichos atendidos</p>
         <div class="niches">
-          <div class="niche"><i data-lucide="scissors"></i> Salões de beleza</div>
-          <div class="niche"><i data-lucide="stethoscope"></i> Clínicas</div>
-          <div class="niche"><i data-lucide="utensils"></i> Restaurantes</div>
-          <div class="niche"><i data-lucide="briefcase"></i> Escritórios</div>
-          <div class="niche"><i data-lucide="shopping-bag"></i> Comércio local</div>
-          <div class="niche"><i data-lucide="plus-circle"></i> E muito mais</div>
+          <div class="niche"><i data-lucide="scissors"></i> <span data-en="Beauty salons">Salões de beleza</span></div>
+          <div class="niche"><i data-lucide="stethoscope"></i> <span data-en="Clinics">Clínicas</span></div>
+          <div class="niche"><i data-lucide="utensils"></i> <span data-en="Restaurants">Restaurantes</span></div>
+          <div class="niche"><i data-lucide="briefcase"></i> <span data-en="Offices">Escritórios</span></div>
+          <div class="niche"><i data-lucide="shopping-bag"></i> <span data-en="Local commerce">Comércio local</span></div>
+          <div class="niche"><i data-lucide="plus-circle"></i> <span data-en="And much more">E muito mais</span></div>
         </div>
       </div>
 
@@ -1114,26 +1133,26 @@
       <div class="dif-header">
         <span class="sec-tag white reveal">
           <i data-lucide="star"></i>
-          Por que a Oryga?
+          <span data-en="Why Oryga?">Por que a Oryga?</span>
         </span>
-        <h2 class="sec-title reveal d1">Diferenciais que fazem a diferença</h2>
-        <p class="sec-desc reveal d2">Não somos mais uma consultoria de apresentação. Somos parceiros de execução.</p>
+        <h2 class="sec-title reveal d1" data-en="Differentiators that make a difference">Diferenciais que fazem a diferença</h2>
+        <p class="sec-desc reveal d2" data-en="We're not just another consulting firm. We're execution partners.">Não somos mais uma consultoria de apresentação. Somos parceiros de execução.</p>
       </div>
       <div class="dif-grid">
         <div class="dif-card reveal">
           <div class="dif-icon g"><i data-lucide="target"></i></div>
-          <h3>Visão estratégica + execução prática</h3>
-          <p>Chegamos no problema, entendemos o contexto e saímos com soluções implementadas — não apenas recomendadas.</p>
+          <h3 data-en="Strategic vision + practical execution">Visão estratégica + execução prática</h3>
+          <p data-en="We dive into the problem, understand the context, and leave with implemented solutions — not just recommendations.">Chegamos no problema, entendemos o contexto e saímos com soluções implementadas — não apenas recomendadas.</p>
         </div>
         <div class="dif-card reveal d1">
           <div class="dif-icon b"><i data-lucide="arrow-left-right"></i></div>
-          <h3>Do negócio local à empresa tech</h3>
-          <p>Falamos a língua de quem tem um salão de beleza e a de quem é CTO de uma startup. A Oryga se adapta ao seu mundo.</p>
+          <h3 data-en="From local business to tech company">Do negócio local à empresa tech</h3>
+          <p data-en="We speak the language of beauty salon owners and startup CTOs alike. Oryga adapts to your world.">Falamos a língua de quem tem um salão de beleza e a de quem é CTO de uma startup. A Oryga se adapta ao seu mundo.</p>
         </div>
         <div class="dif-card reveal d2">
           <div class="dif-icon w"><i data-lucide="puzzle"></i></div>
-          <h3>Soluções sob medida, não receitas prontas</h3>
-          <p>Cada negócio é único. Nosso diagnóstico é personalizado e nossa entrega é moldada para a sua realidade — não para um template.</p>
+          <h3 data-en="Custom solutions, not ready-made recipes">Soluções sob medida, não receitas prontas</h3>
+          <p data-en="Every business is unique. Our diagnosis is personalized and our delivery is shaped for your reality — not a template.">Cada negócio é único. Nosso diagnóstico é personalizado e nossa entrega é moldada para a sua realidade — não para um template.</p>
         </div>
       </div>
     </div>
@@ -1146,12 +1165,12 @@
     <div class="cta-inner">
       <span class="sec-tag green reveal" style="margin: 0 auto 1.5rem;">
         <i data-lucide="handshake"></i>
-        Vamos conversar
+        <span data-en="Let's talk">Vamos conversar</span>
       </span>
-      <h2 class="cta-title reveal d1">
+      <h2 class="cta-title reveal d1" data-en="Ready to transform <span style='color:var(--green)'>your business?</span>">
         Pronto para transformar <span style="color:var(--green)">seu negócio?</span>
       </h2>
-      <p class="cta-sub reveal d2">
+      <p class="cta-sub reveal d2" data-en="Talk to us and discover how Oryga can help — whether you're a salon owner or a startup CTO. The first conversation is free.">
         Fale com a gente e descubra como a Oryga pode ajudar — seja você dono de salão ou CTO de startup. A primeira conversa é gratuita.
       </p>
       <div class="cta-btns reveal d3">
@@ -1181,18 +1200,18 @@
         <a href="#hero" class="logo">
           <img src="logo-nome-nobg.png" alt="Oryga" height="34" style="display:block;">
         </a>
-        <p>Consultoria que transforma tecnologia em valor — para empresas tech e negócios locais de qualquer nicho.</p>
+        <p data-en="Consulting that turns technology into value — for tech companies and local businesses of any niche.">Consultoria que transforma tecnologia em valor — para empresas tech e negócios locais de qualquer nicho.</p>
       </div>
 
       <!-- Navegação -->
       <div class="footer-col">
-        <h4>Navegação</h4>
+        <h4 data-en="Navigation">Navegação</h4>
         <ul>
-          <li><a href="#estrategia">Oryga Estratégia</a></li>
-          <li><a href="#automacao">Oryga Automação</a></li>
-          <li><a href="#diferenciais">Por que a Oryga</a></li>
-          <li><a href="#cta-final">Contato</a></li>
-          <li><a href="/alana-melo">Fundadora</a></li>
+          <li><a href="#estrategia" data-en="Oryga Strategy">Oryga Estratégia</a></li>
+          <li><a href="#automacao" data-en="Oryga Automation">Oryga Automação</a></li>
+          <li><a href="#diferenciais" data-en="Why Oryga">Por que a Oryga</a></li>
+          <li><a href="#cta-final" data-en="Contact">Contato</a></li>
+          <li><a href="/alana-melo" data-en="Founder">Fundadora</a></li>
         </ul>
       </div>
 
@@ -1220,7 +1239,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Oryga. Todos os direitos reservados.</p>
+      <p data-en="© 2025 Oryga. All rights reserved.">© 2025 Oryga. Todos os direitos reservados.</p>
       <div class="footer-social">
         <a href="https://wa.me/5537998019444" target="_blank" rel="noopener"
            class="social-btn" aria-label="WhatsApp">
@@ -1299,6 +1318,40 @@
         }
       });
     });
+
+    // ── Language toggle (PT default) ──────────────────────
+    (function () {
+      const STORE = 'lang_oryga';
+      let lang = localStorage.getItem(STORE) || 'pt';
+
+      function saveOriginals() {
+        document.querySelectorAll('[data-en]').forEach(el => {
+          if (!el.hasAttribute('data-pt')) el.setAttribute('data-pt', el.innerHTML);
+        });
+      }
+
+      function applyLang(l) {
+        lang = l;
+        localStorage.setItem(STORE, l);
+        document.querySelectorAll('[data-en]').forEach(el => {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-pt');
+        });
+        document.querySelectorAll('.lang-toggle').forEach(b => b.textContent = l === 'pt' ? 'EN' : 'PT');
+        document.title = l === 'pt'
+          ? 'Oryga — Transformamos Tecnologia em Valor'
+          : 'Oryga — We Turn Technology Into Value';
+        document.documentElement.lang = l === 'pt' ? 'pt-BR' : 'en';
+        // Re-render Lucide icons in case any were inside translated elements
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }
+
+      window.toggleLang = function () { applyLang(lang === 'pt' ? 'en' : 'pt'); };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        saveOriginals();
+        applyLang(lang);
+      });
+    })();
   </script>
 </body>
 </html>

@@ -62,6 +62,8 @@
     .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.05); }
     .nav-cta { background: var(--blue); color: #fff; text-decoration: none; font-size: .875rem; font-weight: 700; padding: .5rem 1.25rem; border-radius: 8px; transition: opacity .2s, transform .2s; }
     .nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+    .lang-toggle { background: transparent; color: var(--muted); border: 1px solid rgba(255,255,255,.12); padding: .32rem .7rem; border-radius: 7px; font-size: .75rem; font-weight: 700; cursor: pointer; font-family: 'JetBrains Mono', monospace; letter-spacing: .08em; transition: color .2s, border-color .2s, background .2s; line-height: 1; margin-left: .5rem; }
+    .lang-toggle:hover { color: var(--text); border-color: var(--blue-b); background: var(--blue-dim); }
 
     /* ── HAMBURGER ── */
     .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: .5rem; background: none; border: none; margin-left: .75rem; }
@@ -73,6 +75,7 @@
     .mobile-menu.open { display: flex; flex-direction: column; gap: .25rem; }
     .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 1rem; font-weight: 500; padding: .75rem 1rem; border-radius: 8px; display: block; transition: color .2s, background .2s; }
     .mobile-menu a:hover { color: var(--text); background: rgba(255,255,255,.05); }
+    .mobile-menu .lang-toggle { margin: .5rem 0 0 1rem; }
 
     /* ── HERO ── */
     #hero {
@@ -244,13 +247,14 @@
   <div class="container nav-inner">
     <a href="#" class="nav-brand">alana<span>.melo</span></a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-pt="Sobre">About</a></li>
+      <li><a href="#experience" data-pt="Experiência">Experience</a></li>
+      <li><a href="#skills" data-pt="Habilidades">Skills</a></li>
+      <li><a href="#projects" data-pt="Projetos">Projects</a></li>
+      <li><a href="#contact" data-pt="Contato">Contact</a></li>
     </ul>
-    <a href="mailto:alanamelo.contact@gmail.com" class="nav-cta">Let's Talk</a>
+    <a href="mailto:alanamelo.contact@gmail.com" class="nav-cta" data-pt="Vamos Conversar">Let's Talk</a>
+    <button class="lang-toggle" onclick="toggleLang()">PT</button>
     <button class="ham" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -258,12 +262,13 @@
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-  <a href="mailto:alanamelo.contact@gmail.com">Let's Talk</a>
+  <a href="#about" data-pt="Sobre">About</a>
+  <a href="#experience" data-pt="Experiência">Experience</a>
+  <a href="#skills" data-pt="Habilidades">Skills</a>
+  <a href="#projects" data-pt="Projetos">Projects</a>
+  <a href="#contact" data-pt="Contato">Contact</a>
+  <a href="mailto:alanamelo.contact@gmail.com" data-pt="Vamos Conversar">Let's Talk</a>
+  <button class="lang-toggle" onclick="toggleLang()">PT</button>
 </div>
 
 <!-- ══ HERO ══ -->
@@ -272,31 +277,31 @@
   <div class="glow g2"></div>
   <div class="glow g3"></div>
   <div class="container" style="position:relative;z-index:1;">
-    <div class="hero-badge"><span class="dot"></span> Open to Engineering Management &amp; remote international opportunities</div>
+    <div class="hero-badge"><span class="dot"></span><span data-pt="Aberta a oportunidades de Engineering Management &amp; remoto internacional"> Open to Engineering Management &amp; remote international opportunities</span></div>
     <h1><span class="name-grad">Alana Melo</span></h1>
-    <p class="hero-role"><strong>Engineering Manager &amp; Product Leader</strong> &nbsp;·&nbsp; AI &amp; Automation &nbsp;·&nbsp; Scalable Systems &nbsp;·&nbsp; Python Backend</p>
-    <p class="hero-tag">12+ years leading software teams, scaling engineering operations, and delivering technology products across <em>SaaS, Data, AI, and Cloud environments</em> — combining technical depth with engineering management and business alignment.</p>
+    <p class="hero-role" data-pt="<strong>Gerente de Engenharia &amp; Líder de Produto</strong> &nbsp;·&nbsp; IA &amp; Automação &nbsp;·&nbsp; Sistemas Escaláveis &nbsp;·&nbsp; Python Backend"><strong>Engineering Manager &amp; Product Leader</strong> &nbsp;·&nbsp; AI &amp; Automation &nbsp;·&nbsp; Scalable Systems &nbsp;·&nbsp; Python Backend</p>
+    <p class="hero-tag" data-pt="12+ anos liderando times de software, escalando operações de engenharia e entregando produtos de tecnologia em ambientes de <em>SaaS, Dados, IA e Cloud</em> — combinando profundidade técnica com gestão de engenharia e alinhamento de negócios.">12+ years leading software teams, scaling engineering operations, and delivering technology products across <em>SaaS, Data, AI, and Cloud environments</em> — combining technical depth with engineering management and business alignment.</p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn-p">View Impact ↓</a>
-      <a href="#contact" class="btn-o">Let's Talk →</a>
-      <a href="Alana%20Melo_cv4.1.0.pdf" download class="btn-o">Download CV ↓</a>
+      <a href="#projects" class="btn-p" data-pt="Ver Impacto ↓">View Impact ↓</a>
+      <a href="#contact" class="btn-o" data-pt="Vamos Conversar →">Let's Talk →</a>
+      <a href="Alana%20Melo_cv4.1.0.pdf" download class="btn-o" data-pt="Baixar CV ↓">Download CV ↓</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-v">12+</div>
-        <div class="stat-l">Years in Tech</div>
+        <div class="stat-l" data-pt="Anos em Tech">Years in Tech</div>
       </div>
       <div class="stat">
         <div class="stat-v">35%</div>
-        <div class="stat-l">Avg. Engineering Efficiency Gain</div>
+        <div class="stat-l" data-pt="Ganho Médio de Eficiência">Avg. Engineering Efficiency Gain</div>
       </div>
       <div class="stat">
         <div class="stat-v">10K+</div>
-        <div class="stat-l">Active Users Supported</div>
+        <div class="stat-l" data-pt="Usuários Ativos">Active Users Supported</div>
       </div>
       <div class="stat">
         <div class="stat-v">60%+</div>
-        <div class="stat-l">Operational Cost Reduction</div>
+        <div class="stat-l" data-pt="Redução de Custo">Operational Cost Reduction</div>
       </div>
     </div>
   </div>
@@ -307,19 +312,19 @@
   <div class="container">
     <div class="about-grid">
       <div class="fade">
-        <span class="eyebrow">// about</span>
-        <h2 class="section-title">From code to<br/>company strategy</h2>
-        <p>Engineering &amp; Product Leader with <span class="hl">12+ years</span> leading software teams, scaling engineering operations, and delivering technology products across SaaS, Data, AI, and Cloud environments.</p>
-        <p>At Sensorweb, I grew from <span class="ac">Senior Software Engineer</span> to <span class="ac">Software Development Manager</span> — leading a team of 14 engineers across Backend, Frontend, and QA — while simultaneously holding <span class="ac">Product Owner</span> and <span class="ac">Product Manager</span> roles. That dual perspective is what makes me effective: I speak the language of engineers and the language of business.</p>
-        <p>Today through <span class="hl">Oryga Consultoria</span>, I lead AI, product operations, and technology strategy for 5+ companies — driving operational scalability through automation, AI-driven solutions, and data-informed execution across product and engineering environments.</p>
-        <p>Strong background in software engineering, product management, delivery, and technology strategy — with hands-on expertise in backend systems, cloud architecture, and operational excellence.</p>
+        <span class="eyebrow" data-pt="// sobre">// about</span>
+        <h2 class="section-title" data-pt="Do código à<br/>estratégia da empresa">From code to<br/>company strategy</h2>
+        <p data-pt="Líder de Engenharia &amp; Produto com <span class='hl'>12+ anos</span> liderando times de software, escalando operações de engenharia e entregando produtos de tecnologia em ambientes SaaS, Dados, IA e Cloud.">Engineering &amp; Product Leader with <span class="hl">12+ years</span> leading software teams, scaling engineering operations, and delivering technology products across SaaS, Data, AI, and Cloud environments.</p>
+        <p data-pt="Na Sensorweb, cresci de <span class='ac'>Engenheira de Software Sênior</span> para <span class='ac'>Gerente de Desenvolvimento de Software</span> — liderando um time de 14 engenheiros em Backend, Frontend e QA — enquanto exercia simultaneamente os papéis de <span class='ac'>Product Owner</span> e <span class='ac'>Product Manager</span>. Essa amplitude é o que me torna eficaz: falo a língua da engenharia e dos negócios.">At Sensorweb, I grew from <span class="ac">Senior Software Engineer</span> to <span class="ac">Software Development Manager</span> — leading a team of 14 engineers across Backend, Frontend, and QA — while simultaneously holding <span class="ac">Product Owner</span> and <span class="ac">Product Manager</span> roles. That dual perspective is what makes me effective: I speak the language of engineers and the language of business.</p>
+        <p data-pt="Hoje através da <span class='hl'>Oryga Consultoria</span>, lidero IA, operações de produto e estratégia de tecnologia para 5+ empresas — impulsionando escalabilidade operacional por meio de automação, soluções orientadas por IA e execução baseada em dados.">Today through <span class="hl">Oryga Consultoria</span>, I lead AI, product operations, and technology strategy for 5+ companies — driving operational scalability through automation, AI-driven solutions, and data-informed execution across product and engineering environments.</p>
+        <p data-pt="Sólida experiência em engenharia de software, gestão de produto, entrega e estratégia de tecnologia — com expertise prática em sistemas backend, arquitetura cloud e excelência operacional.">Strong background in software engineering, product management, delivery, and technology strategy — with hands-on expertise in backend systems, cloud architecture, and operational excellence.</p>
         <div class="pills">
-          <span class="pill">Engineering Management</span>
-          <span class="pill">AI &amp; Automation</span>
-          <span class="pill">Technical Product</span>
+          <span class="pill" data-pt="Gestão de Engenharia">Engineering Management</span>
+          <span class="pill" data-pt="IA &amp; Automação">AI &amp; Automation</span>
+          <span class="pill" data-pt="Produto Técnico">Technical Product</span>
           <span class="pill">Python Backend</span>
-          <span class="pill">Cloud Architecture</span>
-          <span class="pill">Data Engineering</span>
+          <span class="pill" data-pt="Arquitetura Cloud">Cloud Architecture</span>
+          <span class="pill" data-pt="Engenharia de Dados">Data Engineering</span>
         </div>
       </div>
       <div class="fade">
@@ -327,23 +332,23 @@
         <div class="about-cards">
           <div class="acard">
             <div class="acard-icon">🏗️</div>
-            <h4>Systems Thinker</h4>
-            <p>From data pipelines and distributed systems to organizational structures — I design for scalability, reliability, and long-term maintainability at every level.</p>
+            <h4 data-pt="Visão Sistêmica">Systems Thinker</h4>
+            <p data-pt="De pipelines de dados e sistemas distribuídos a estruturas organizacionais — projeto para escalabilidade, confiabilidade e manutenibilidade de longo prazo em todos os níveis.">From data pipelines and distributed systems to organizational structures — I design for scalability, reliability, and long-term maintainability at every level.</p>
           </div>
           <div class="acard">
             <div class="acard-icon">🤖</div>
-            <h4>AI-Native Leader</h4>
-            <p>Early practitioner of AI operations — building and shipping LLM-powered products using Claude and OpenAI APIs, and driving AI-led workflow automation at scale.</p>
+            <h4 data-pt="Líder AI-Nativa">AI-Native Leader</h4>
+            <p data-pt="Praticante pioneira de operações com IA — construindo e entregando produtos com LLMs usando as APIs Claude e OpenAI, e impulsionando automação de fluxos de trabalho com IA em escala.">Early practitioner of AI operations — building and shipping LLM-powered products using Claude and OpenAI APIs, and driving AI-led workflow automation at scale.</p>
           </div>
           <div class="acard">
             <div class="acard-icon">📊</div>
-            <h4>Data-Driven Executor</h4>
-            <p>Defined and monitored 30+ KPIs across engineering and product teams. Decisions backed by metrics — from sprint velocity to delivery predictability to unit economics.</p>
+            <h4 data-pt="Executora Orientada a Dados">Data-Driven Executor</h4>
+            <p data-pt="Defini e monitorei 30+ KPIs em times de engenharia e produto. Decisões baseadas em métricas — de velocidade de sprint à previsibilidade de entrega e economias unitárias.">Defined and monitored 30+ KPIs across engineering and product teams. Decisions backed by metrics — from sprint velocity to delivery predictability to unit economics.</p>
           </div>
           <div class="acard">
             <div class="acard-icon">🌍</div>
-            <h4>Global-Ready</h4>
-            <p>Professional English proficiency. Open to full relocation or remote international roles. Holds International Driving Permit (Cat. B). Comfortable across time zones.</p>
+            <h4 data-pt="Pronta para o Global">Global-Ready</h4>
+            <p data-pt="Proficiência profissional em inglês. Aberta a relocação total ou trabalho remoto internacional. Possui Carteira Internacional de Habilitação (Cat. B). Confortável em diferentes fusos horários.">Professional English proficiency. Open to full relocation or remote international roles. Holds International Driving Permit (Cat. B). Comfortable across time zones.</p>
           </div>
         </div>
       </div>
@@ -354,21 +359,21 @@
 <!-- ══ EXPERIENCE ══ -->
 <section id="experience">
   <div class="container">
-    <span class="eyebrow">// experience</span>
-    <h2 class="section-title">Career Timeline</h2>
-    <p class="section-desc">12+ years growing from engineer to product and engineering leader — across startups, consultancy, research institutions, and enterprise environments.</p>
+    <span class="eyebrow" data-pt="// experiência">// experience</span>
+    <h2 class="section-title" data-pt="Trajetória de Carreira">Career Timeline</h2>
+    <p class="section-desc" data-pt="12+ anos evoluindo de engenheira a líder de produto e engenharia — em startups, consultorias, instituições de pesquisa e ambientes enterprise.">12+ years growing from engineer to product and engineering leader — across startups, consultancy, research institutions, and enterprise environments.</p>
     <div class="timeline">
 
       <div class="titem fade">
         <div class="tmeta">
           <span class="tperiod">May 2025 — Present</span>
-          <span class="tcompany">Oryga Consultoria · Self-employed · Remote</span>
+          <span class="tcompany" data-pt="Oryga Consultoria · Autônoma · Remoto">Oryga Consultoria · Self-employed · Remote</span>
         </div>
-        <div class="trole">Product &amp; Engineering Strategy Consultant</div>
+        <div class="trole" data-pt="Consultora de Estratégia de Produto &amp; Engenharia">Product &amp; Engineering Strategy Consultant</div>
         <ul class="tpoints">
-          <li>Led AI, product operations, and technology strategy for 5+ companies — driving operational scalability and improving engineering delivery performance</li>
-          <li>Increased engineering efficiency by 25–35%, established and monitored 30+ KPIs, and improved delivery predictability through data-driven execution and process optimization</li>
-          <li>Strengthened cross-functional collaboration and enabled scalable product and engineering operations through automation, stakeholder alignment, and AI-driven initiatives</li>
+          <li data-pt="Liderou IA, operações de produto e estratégia de tecnologia para 5+ empresas — impulsionando escalabilidade operacional e melhorando a performance de entrega de engenharia">Led AI, product operations, and technology strategy for 5+ companies — driving operational scalability and improving engineering delivery performance</li>
+          <li data-pt="Aumentou a eficiência de engenharia em 25–35%, estabeleceu e monitorou 30+ KPIs, e melhorou a previsibilidade de entrega por meio de execução baseada em dados e otimização de processos">Increased engineering efficiency by 25–35%, established and monitored 30+ KPIs, and improved delivery predictability through data-driven execution and process optimization</li>
+          <li data-pt="Fortaleceu a colaboração cross-funcional e habilitou operações escaláveis de produto e engenharia por meio de automação, alinhamento de stakeholders e iniciativas orientadas por IA">Strengthened cross-functional collaboration and enabled scalable product and engineering operations through automation, stakeholder alignment, and AI-driven initiatives</li>
         </ul>
         <div class="tags">
           <span class="tag">AI Operations</span><span class="tag">OKRs / KPIs</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Automation</span><span class="tag">Agile</span>
@@ -382,9 +387,9 @@
         </div>
         <div class="trole">Product Manager</div>
         <ul class="tpoints">
-          <li>Led product strategy, roadmap execution, and cross-functional delivery for scalable digital platforms, aligning product initiatives with business goals and customer needs</li>
-          <li>Solved delivery misalignment and product execution bottlenecks by improving prioritization, technical planning, and collaboration between product and engineering teams</li>
-          <li>Improved delivery consistency, reduced rework, and increased team productivity through structured backlog management and data-driven prioritization</li>
+          <li data-pt="Liderou estratégia de produto, execução de roadmap e entrega cross-funcional para plataformas digitais escaláveis, alinhando iniciativas de produto com objetivos de negócio e necessidades dos clientes">Led product strategy, roadmap execution, and cross-functional delivery for scalable digital platforms, aligning product initiatives with business goals and customer needs</li>
+          <li data-pt="Resolveu desalinhamentos de entrega e gargalos de execução de produto melhorando priorização, planejamento técnico e colaboração entre times de produto e engenharia">Solved delivery misalignment and product execution bottlenecks by improving prioritization, technical planning, and collaboration between product and engineering teams</li>
+          <li data-pt="Melhorou consistência de entrega, reduziu retrabalho e aumentou a produtividade do time por meio de gestão estruturada de backlog e priorização orientada por dados">Improved delivery consistency, reduced rework, and increased team productivity through structured backlog management and data-driven prioritization</li>
         </ul>
         <div class="tags">
           <span class="tag">Product Strategy</span><span class="tag">Roadmap</span><span class="tag">Jira</span><span class="tag">Figma</span><span class="tag">AWS</span><span class="tag">Microservices</span><span class="tag">Analytics</span>
@@ -398,9 +403,9 @@
         </div>
         <div class="trole">Product Owner</div>
         <ul class="tpoints">
-          <li>Managed product backlog prioritization, product discovery, and Agile execution — ensuring alignment between business objectives, customer needs, and engineering delivery</li>
-          <li>Solved communication gaps and development inefficiencies by translating business requirements into clear user stories, technical specifications, and actionable engineering tasks</li>
-          <li>Improved sprint planning, delivery consistency, and development clarity while reducing rework through structured backlog management and stakeholder alignment</li>
+          <li data-pt="Gerenciou priorização de backlog de produto, descoberta de produto e execução ágil — garantindo alinhamento entre objetivos de negócio, necessidades dos clientes e entrega de engenharia">Managed product backlog prioritization, product discovery, and Agile execution — ensuring alignment between business objectives, customer needs, and engineering delivery</li>
+          <li data-pt="Resolveu lacunas de comunicação e ineficiências de desenvolvimento traduzindo requisitos de negócio em user stories claras, especificações técnicas e tarefas acionáveis de engenharia">Solved communication gaps and development inefficiencies by translating business requirements into clear user stories, technical specifications, and actionable engineering tasks</li>
+          <li data-pt="Melhorou o planejamento de sprint, consistência de entrega e clareza de desenvolvimento enquanto reduzia retrabalho por meio de gestão estruturada de backlog e alinhamento de stakeholders">Improved sprint planning, delivery consistency, and development clarity while reducing rework through structured backlog management and stakeholder alignment</li>
         </ul>
         <div class="tags">
           <span class="tag">Backlog Management</span><span class="tag">Scrum</span><span class="tag">Kanban</span><span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Analytics</span>
@@ -414,9 +419,9 @@
         </div>
         <div class="trole">Software Development Manager</div>
         <ul class="tpoints">
-          <li>Led and scaled a team of 14 engineers across Backend, Frontend, and QA while driving backend architecture, delivery operations, and technical execution aligned with product and business strategy</li>
-          <li>Mentored engineers through career development plans, performance reviews, and technical coaching — improving team performance and professional growth</li>
-          <li>Improved engineering efficiency and delivery predictability through process optimization, KPI tracking, Agile frameworks, CI/CD automation, and observability tooling (Grafana, Prometheus, ELK)</li>
+          <li data-pt="Liderou e escalou um time de 14 engenheiros em Backend, Frontend e QA enquanto conduzia arquitetura backend, operações de entrega e execução técnica alinhadas com estratégia de produto e negócios">Led and scaled a team of 14 engineers across Backend, Frontend, and QA while driving backend architecture, delivery operations, and technical execution aligned with product and business strategy</li>
+          <li data-pt="Mentorou engenheiros por meio de planos de desenvolvimento de carreira, avaliações de performance e coaching técnico — melhorando performance do time e crescimento profissional">Mentored engineers through career development plans, performance reviews, and technical coaching — improving team performance and professional growth</li>
+          <li data-pt="Melhorou eficiência de engenharia e previsibilidade de entrega por meio de otimização de processos, rastreamento de KPIs, frameworks Ágeis, automação CI/CD e ferramentas de observabilidade (Grafana, Prometheus, ELK)">Improved engineering efficiency and delivery predictability through process optimization, KPI tracking, Agile frameworks, CI/CD automation, and observability tooling (Grafana, Prometheus, ELK)</li>
         </ul>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">Scrum</span><span class="tag">Kanban</span>
@@ -430,8 +435,8 @@
         </div>
         <div class="trole">Scrum Master</div>
         <ul class="tpoints">
-          <li>Facilitated Agile delivery processes, supporting engineering and product teams in improving execution consistency, collaboration, and delivery performance</li>
-          <li>Increased team productivity and delivery predictability through workflow optimization, Agile metrics monitoring, velocity tracking, and cycle time analysis</li>
+          <li data-pt="Facilitou processos ágeis de entrega, apoiando times de engenharia e produto na melhoria de consistência de execução, colaboração e performance de entrega">Facilitated Agile delivery processes, supporting engineering and product teams in improving execution consistency, collaboration, and delivery performance</li>
+          <li data-pt="Aumentou produtividade do time e previsibilidade de entrega por meio de otimização de fluxos, monitoramento de métricas ágeis, rastreamento de velocidade e análise de cycle time">Increased team productivity and delivery predictability through workflow optimization, Agile metrics monitoring, velocity tracking, and cycle time analysis</li>
         </ul>
         <div class="tags">
           <span class="tag">Scrum</span><span class="tag">Kanban</span><span class="tag">Agile Metrics</span><span class="tag">Sprint Planning</span><span class="tag">Retrospectives</span>
@@ -443,10 +448,10 @@
           <span class="tperiod">Oct 2019 — Apr 2024</span>
           <span class="tcompany">Sensorweb · Remote, Florianópolis</span>
         </div>
-        <div class="trole">Data Engineer</div>
+        <div class="trole" data-pt="Engenheira de Dados">Data Engineer</div>
         <ul class="tpoints">
-          <li>Designed scalable data pipelines, ML solutions, and cloud-based architectures — processing millions of records monthly with automated ETL/ELT workflows on AWS and GCP</li>
-          <li>Enabled data-driven product and business decisions by integrating analytics, machine learning, and scalable data solutions into engineering and operational workflows</li>
+          <li data-pt="Projetou pipelines de dados escaláveis, soluções de ML e arquiteturas baseadas em cloud — processando milhões de registros mensalmente com fluxos ETL/ELT automatizados na AWS e GCP">Designed scalable data pipelines, ML solutions, and cloud-based architectures — processing millions of records monthly with automated ETL/ELT workflows on AWS and GCP</li>
+          <li data-pt="Habilitou decisões orientadas por dados de produto e negócios integrando analytics, machine learning e soluções de dados escaláveis nos fluxos de trabalho de engenharia e operações">Enabled data-driven product and business decisions by integrating analytics, machine learning, and scalable data solutions into engineering and operational workflows</li>
         </ul>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">Apache Airflow</span><span class="tag">Apache Spark</span><span class="tag">SQL</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Scikit-learn</span>
@@ -458,10 +463,10 @@
           <span class="tperiod">Oct 2019 — Oct 2020</span>
           <span class="tcompany">Sensorweb · Hybrid, Florianópolis</span>
         </div>
-        <div class="trole">Senior Software Engineer</div>
+        <div class="trole" data-pt="Engenheira de Software Sênior">Senior Software Engineer</div>
         <ul class="tpoints">
-          <li>Led backend engineering initiatives, designing scalable APIs, distributed systems, and cloud-based applications for data-intensive and real-time environments</li>
-          <li>Improved system reliability, deployment efficiency, and operational scalability through CI/CD implementation, cloud optimization, and monitoring enhancements</li>
+          <li data-pt="Liderou iniciativas de engenharia backend, projetando APIs escaláveis, sistemas distribuídos e aplicações baseadas em cloud para ambientes de dados intensivos e tempo real">Led backend engineering initiatives, designing scalable APIs, distributed systems, and cloud-based applications for data-intensive and real-time environments</li>
+          <li data-pt="Melhorou confiabilidade do sistema, eficiência de deploy e escalabilidade operacional por meio de implementação CI/CD, otimização cloud e melhorias de monitoramento">Improved system reliability, deployment efficiency, and operational scalability through CI/CD implementation, cloud optimization, and monitoring enhancements</li>
         </ul>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">Flask</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span>
@@ -471,12 +476,12 @@
       <div class="titem fade">
         <div class="tmeta">
           <span class="tperiod">Feb 2015 — Dec 2020</span>
-          <span class="tcompany">Universidade Federal de Santa Catarina · On-site</span>
+          <span class="tcompany" data-pt="Universidade Federal de Santa Catarina · Presencial">Universidade Federal de Santa Catarina · On-site</span>
         </div>
-        <div class="trole">Software Engineer — AI &amp; Computer Vision Research</div>
+        <div class="trole" data-pt="Engenheira de Software — Pesquisa em IA &amp; Visão Computacional">Software Engineer — AI &amp; Computer Vision Research</div>
         <ul class="tpoints">
-          <li>Built AI-based human gait analysis system using computer vision and ML — implemented low-cost motion capture with Microsoft Kinect for biometric identification</li>
-          <li>Applied neural network models and pattern recognition to classify individuals based on gait behavior, with applications in security and healthcare</li>
+          <li data-pt="Construiu sistema de análise de marcha humana baseado em IA usando visão computacional e ML — implementou captura de movimento de baixo custo com Microsoft Kinect para identificação biométrica">Built AI-based human gait analysis system using computer vision and ML — implemented low-cost motion capture with Microsoft Kinect for biometric identification</li>
+          <li data-pt="Aplicou modelos de redes neurais e reconhecimento de padrões para classificar indivíduos com base no comportamento de marcha, com aplicações em segurança e saúde">Applied neural network models and pattern recognition to classify individuals based on gait behavior, with applications in security and healthcare</li>
         </ul>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Computer Vision</span><span class="tag">SQL</span><span class="tag">Neural Networks</span>
@@ -486,12 +491,12 @@
       <div class="titem fade">
         <div class="tmeta">
           <span class="tperiod">Jan 2014 — Jun 2015</span>
-          <span class="tcompany">HBS Technics · On-site, Divinópolis</span>
+          <span class="tcompany" data-pt="HBS Technics · Presencial, Divinópolis">HBS Technics · On-site, Divinópolis</span>
         </div>
         <div class="trole">Software Engineer</div>
         <ul class="tpoints">
-          <li>Developed backend systems and integrations for real-time surveillance and monitoring platforms used in operational environments</li>
-          <li>Reduced downtime and improved operational continuity through system diagnostics, issue resolution, and deployment support in client environments</li>
+          <li data-pt="Desenvolveu sistemas backend e integrações para plataformas de vigilância e monitoramento em tempo real usadas em ambientes operacionais">Developed backend systems and integrations for real-time surveillance and monitoring platforms used in operational environments</li>
+          <li data-pt="Reduziu downtime e melhorou continuidade operacional por meio de diagnósticos de sistema, resolução de problemas e suporte a deploy em ambientes de clientes">Reduced downtime and improved operational continuity through system diagnostics, issue resolution, and deployment support in client environments</li>
         </ul>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">Backend Development</span><span class="tag">SQL</span><span class="tag">System Integration</span>
@@ -505,18 +510,18 @@
 <!-- ══ SKILLS ══ -->
 <section id="skills">
   <div class="container">
-    <span class="eyebrow">// skills &amp; stack</span>
-    <h2 class="section-title">Technical Breadth</h2>
-    <p class="section-desc">Full-stack technical leadership — from backend architecture and data engineering to AI product development, cloud infrastructure, and engineering management.</p>
+    <span class="eyebrow" data-pt="// habilidades &amp; stack">// skills &amp; stack</span>
+    <h2 class="section-title" data-pt="Amplitude Técnica">Technical Breadth</h2>
+    <p class="section-desc" data-pt="Liderança técnica full-stack — de arquitetura backend e engenharia de dados a desenvolvimento de produtos com IA, infraestrutura cloud e gestão de engenharia.">Full-stack technical leadership — from backend architecture and data engineering to AI product development, cloud infrastructure, and engineering management.</p>
     <div class="skills-grid">
       <div class="scard fade">
-        <div class="scard-head"><span class="scard-icon">🐍</span><h3>Backend Engineering</h3></div>
+        <div class="scard-head"><span class="scard-icon">🐍</span><h3 data-pt="Engenharia Backend">Backend Engineering</h3></div>
         <div class="stags">
           <span class="stag">Python</span><span class="stag">FastAPI</span><span class="stag">Django</span><span class="stag">Flask</span><span class="stag">REST APIs</span><span class="stag">Microservices</span><span class="stag">Distributed Systems</span><span class="stag">SQL</span><span class="stag">SQLAlchemy</span>
         </div>
       </div>
       <div class="scard fade">
-        <div class="scard-head"><span class="scard-icon">☁️</span><h3>Cloud &amp; Infrastructure</h3></div>
+        <div class="scard-head"><span class="scard-icon">☁️</span><h3 data-pt="Cloud &amp; Infraestrutura">Cloud &amp; Infrastructure</h3></div>
         <div class="stags">
           <span class="stag">AWS</span><span class="stag">GCP</span><span class="stag">Kubernetes</span><span class="stag">Docker</span><span class="stag">Terraform</span><span class="stag">CI/CD</span><span class="stag">GitHub Actions</span><span class="stag">GitLab CI</span><span class="stag">12-Factor</span>
         </div>
@@ -528,21 +533,21 @@
         </div>
       </div>
       <div class="scard fade">
-        <div class="scard-head"><span class="scard-icon">📊</span><h3>Data Engineering</h3></div>
+        <div class="scard-head"><span class="scard-icon">📊</span><h3 data-pt="Engenharia de Dados">Data Engineering</h3></div>
         <div class="stags">
           <span class="stag">Apache Airflow</span><span class="stag">Apache Spark</span><span class="stag">Apache Kafka</span><span class="stag">RabbitMQ</span><span class="stag">ETL/ELT</span><span class="stag">Data Modeling</span><span class="stag">Grafana</span><span class="stag">Prometheus</span><span class="stag">ELK Stack</span>
         </div>
       </div>
       <div class="scard fade">
-        <div class="scard-head"><span class="scard-icon">🎯</span><h3>Product &amp; Leadership</h3></div>
+        <div class="scard-head"><span class="scard-icon">🎯</span><h3 data-pt="Produto &amp; Liderança">Product &amp; Leadership</h3></div>
         <div class="stags">
-          <span class="stag">Engineering Management</span><span class="stag">Technical Product Management</span><span class="stag">Product Strategy</span><span class="stag">OKRs / KPIs</span><span class="stag">Roadmapping</span><span class="stag">Hiring &amp; Team Building</span><span class="stag">Stakeholder Management</span>
+          <span class="stag" data-pt="Gestão de Engenharia">Engineering Management</span><span class="stag" data-pt="Gestão de Produto Técnico">Technical Product Management</span><span class="stag" data-pt="Estratégia de Produto">Product Strategy</span><span class="stag">OKRs / KPIs</span><span class="stag">Roadmapping</span><span class="stag" data-pt="Contratação &amp; Construção de Time">Hiring &amp; Team Building</span><span class="stag">Stakeholder Management</span>
         </div>
       </div>
       <div class="scard fade">
-        <div class="scard-head"><span class="scard-icon">⚙️</span><h3>Process &amp; Delivery</h3></div>
+        <div class="scard-head"><span class="scard-icon">⚙️</span><h3 data-pt="Processo &amp; Entrega">Process &amp; Delivery</h3></div>
         <div class="stags">
-          <span class="stag">Agile / Scrum / Kanban</span><span class="stag">SDLC</span><span class="stag">Workflow Automation</span><span class="stag">Process Optimization</span><span class="stag">Jira / Confluence</span><span class="stag">SaaS Operations</span><span class="stag">DevOps</span><span class="stag">IoT Systems</span>
+          <span class="stag">Agile / Scrum / Kanban</span><span class="stag">SDLC</span><span class="stag" data-pt="Automação de Fluxos">Workflow Automation</span><span class="stag" data-pt="Otimização de Processos">Process Optimization</span><span class="stag">Jira / Confluence</span><span class="stag">SaaS Operations</span><span class="stag">DevOps</span><span class="stag">IoT Systems</span>
         </div>
       </div>
     </div>
@@ -552,107 +557,107 @@
 <!-- ══ PROJECTS ══ -->
 <section id="projects">
   <div class="container">
-    <span class="eyebrow">// projects &amp; impact</span>
-    <h2 class="section-title">Key Projects</h2>
-    <p class="section-desc">From AI-powered platforms to cloud-native architectures and operational transformations — real outcomes at real scale.</p>
+    <span class="eyebrow" data-pt="// projetos &amp; impacto">// projects &amp; impact</span>
+    <h2 class="section-title" data-pt="Projetos Principais">Key Projects</h2>
+    <p class="section-desc" data-pt="De plataformas com IA a arquiteturas cloud-native e transformações operacionais — resultados reais em escala real.">From AI-powered platforms to cloud-native architectures and operational transformations — real outcomes at real scale.</p>
     <div class="proj-grid">
 
       <div class="pcard fade">
-        <div class="ptop"><span class="picon">🤖</span><span class="pstatus s-live">Live</span></div>
-        <h3>AI Automation Hub</h3>
+        <div class="ptop"><span class="picon">🤖</span><span class="pstatus s-live" data-pt="Ativo">Live</span></div>
+        <h3 data-pt="Hub de Automação com IA">AI Automation Hub</h3>
         <div class="ptechs">
           <span class="tag">Next.js 15</span><span class="tag">Claude API</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">FastAPI</span><span class="tag">Recharts</span>
         </div>
-        <p>Full-stack platform automating repetitive tasks using the Anthropic Claude API. Features Text Summarizer, Email Generator, Document Analyzer, and Data Extractor — with a live usage dashboard, copy-to-clipboard on all outputs, and a full REST API layer. Designed AI-native UX flows where latency and prompt engineering are first-class product concerns.</p>
+        <p data-pt="Plataforma full-stack que automatiza tarefas repetitivas usando a API Claude da Anthropic. Funcionalidades: Sumarizador de Texto, Gerador de E-mails, Analisador de Documentos e Extrator de Dados — com dashboard de uso ao vivo, copiar-para-clipboard em todas as saídas e camada REST API completa. Projetou fluxos UX AI-native onde latência e engenharia de prompt são preocupações de primeiro nível.">Full-stack platform automating repetitive tasks using the Anthropic Claude API. Features Text Summarizer, Email Generator, Document Analyzer, and Data Extractor — with a live usage dashboard, copy-to-clipboard on all outputs, and a full REST API layer. Designed AI-native UX flows where latency and prompt engineering are first-class product concerns.</p>
         <div class="pmetrics">
-          <div><div class="pm-v">4</div><div class="pm-l">AI Tools</div></div>
+          <div><div class="pm-v">4</div><div class="pm-l" data-pt="Ferramentas de IA">AI Tools</div></div>
           <div><div class="pm-v">6</div><div class="pm-l">REST Endpoints</div></div>
           <div><div class="pm-v">E2E</div><div class="pm-l">Full-stack</div></div>
         </div>
         <div class="plinks">
-          <a href="https://github.com/AlanaMelo/aiautomation-" target="_blank" rel="noopener" class="plink">View Code ↗</a>
+          <a href="https://github.com/AlanaMelo/aiautomation-" target="_blank" rel="noopener" class="plink" data-pt="Ver Código ↗">View Code ↗</a>
         </div>
       </div>
 
       <div class="pcard fade">
-        <div class="ptop"><span class="picon">🏛️</span><span class="pstatus s-prod">Production</span></div>
-        <h3>Cloud-Native Microservices Platform</h3>
+        <div class="ptop"><span class="picon">🏛️</span><span class="pstatus s-prod" data-pt="Produção">Production</span></div>
+        <h3 data-pt="Plataforma Cloud-Native de Microsserviços">Cloud-Native Microservices Platform</h3>
         <div class="ptechs">
           <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker Compose</span><span class="tag">Kubernetes</span><span class="tag">Event-Driven</span>
         </div>
-        <p>4-service distributed system with full Kubernetes manifests implementing production-grade patterns: API Gateway with request tracing (X-Request-ID), Database-per-Service isolation, circuit breaker with 3s timeout, Event-Driven Async simulating Kafka consumers, Readiness/Liveness Probes, and Horizontal Scaling with 2 replicas per service.</p>
+        <p data-pt="Sistema distribuído de 4 serviços com manifestos Kubernetes completos implementando padrões de produção: API Gateway com rastreamento de requests (X-Request-ID), isolamento Database-per-Service, circuit breaker com timeout de 3s, Async orientado a Eventos simulando consumers Kafka, Probes de Prontidão/Liveness e Horizontal Scaling com 2 réplicas por serviço.">4-service distributed system with full Kubernetes manifests implementing production-grade patterns: API Gateway with request tracing (X-Request-ID), Database-per-Service isolation, circuit breaker with 3s timeout, Event-Driven Async simulating Kafka consumers, Readiness/Liveness Probes, and Horizontal Scaling with 2 replicas per service.</p>
         <div class="pmetrics">
-          <div><div class="pm-v">4</div><div class="pm-l">Services</div></div>
-          <div><div class="pm-v">K8s</div><div class="pm-l">Orchestration</div></div>
-          <div><div class="pm-v">HA</div><div class="pm-l">High Availability</div></div>
+          <div><div class="pm-v">4</div><div class="pm-l" data-pt="Serviços">Services</div></div>
+          <div><div class="pm-v">K8s</div><div class="pm-l" data-pt="Orquestração">Orchestration</div></div>
+          <div><div class="pm-v">HA</div><div class="pm-l" data-pt="Alta Disponibilidade">High Availability</div></div>
         </div>
         <div class="plinks">
-          <a href="https://github.com/AlanaMelo" target="_blank" rel="noopener" class="plink">View Code ↗</a>
+          <a href="https://github.com/AlanaMelo" target="_blank" rel="noopener" class="plink" data-pt="Ver Código ↗">View Code ↗</a>
         </div>
       </div>
 
       <div class="pcard fade">
-        <div class="ptop"><span class="picon">🚨</span><span class="pstatus s-prod">Production</span></div>
-        <h3>Alert Management Department — 0 to 1</h3>
+        <div class="ptop"><span class="picon">🚨</span><span class="pstatus s-prod" data-pt="Produção">Production</span></div>
+        <h3 data-pt="Departamento de Gestão de Alertas — do Zero">Alert Management Department — 0 to 1</h3>
         <div class="ptechs">
           <span class="tag">Monitoring</span><span class="tag">Incident Response</span><span class="tag">Workflow Design</span><span class="tag">Escalation Rules</span>
         </div>
-        <p>Designed and implemented an end-to-end alert management system from scratch. Defined escalation workflows, monitoring processes for critical events, and integrated alerting tooling into daily engineering operations. Directly improved incident response time and service reliability across operational and safety indicators.</p>
+        <p data-pt="Projetou e implementou um sistema de gestão de alertas end-to-end do zero. Definiu fluxos de escalação, processos de monitoramento para eventos críticos e integrou ferramentas de alertas nas operações diárias de engenharia. Melhorou diretamente o tempo de resposta a incidentes e a confiabilidade do serviço em indicadores operacionais e de segurança.">Designed and implemented an end-to-end alert management system from scratch. Defined escalation workflows, monitoring processes for critical events, and integrated alerting tooling into daily engineering operations. Directly improved incident response time and service reliability across operational and safety indicators.</p>
         <div class="pmetrics">
-          <div><div class="pm-v">60%+</div><div class="pm-l">Cost Reduction</div></div>
-          <div><div class="pm-v">↓ MTTR</div><div class="pm-l">Response Time</div></div>
-          <div><div class="pm-v">0→1</div><div class="pm-l">Built from Scratch</div></div>
+          <div><div class="pm-v">60%+</div><div class="pm-l" data-pt="Redução de Custo">Cost Reduction</div></div>
+          <div><div class="pm-v">↓ MTTR</div><div class="pm-l" data-pt="Tempo de Resposta">Response Time</div></div>
+          <div><div class="pm-v">0→1</div><div class="pm-l" data-pt="Construído do Zero">Built from Scratch</div></div>
         </div>
         <div class="plinks">
-          <a href="https://github.com/AlanaMelo" target="_blank" rel="noopener" class="plink">View Code ↗</a>
+          <a href="https://github.com/AlanaMelo" target="_blank" rel="noopener" class="plink" data-pt="Ver Código ↗">View Code ↗</a>
         </div>
       </div>
 
       <div class="pcard fade">
-        <div class="ptop"><span class="picon">⚡</span><span class="pstatus s-live">Live</span></div>
-        <h3>Production-Ready URL Shortener API</h3>
+        <div class="ptop"><span class="picon">⚡</span><span class="pstatus s-live" data-pt="Ativo">Live</span></div>
+        <h3 data-pt="API URL Shortener Pronta para Produção">Production-Ready URL Shortener API</h3>
         <div class="ptechs">
           <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLAlchemy</span><span class="tag">Docker</span><span class="tag">Redis-ready</span><span class="tag">Pytest</span>
         </div>
-        <p>Built to practice patterns that make backends actually scale under load — caching, rate limiting, and async processing baked in from day one. TTL Cache layer (Redis-ready interface), Rate Limiting at 20 req/min per IP, Background Tasks for async click tracking, Pagination on all list endpoints, and /health with DB probe ready for k8s readiness probes. 9/9 tests passing.</p>
+        <p data-pt="Construída para praticar padrões que fazem backends escalarem sob carga — caching, rate limiting e processamento assíncrono desde o início. Camada TTL Cache (interface Redis-ready), Rate Limiting a 20 req/min por IP, Background Tasks para rastreamento assíncrono de cliques, Paginação em todos os endpoints de listagem e /health com DB probe pronto para probes de prontidão do k8s. 9/9 testes passando.">Built to practice patterns that make backends actually scale under load — caching, rate limiting, and async processing baked in from day one. TTL Cache layer (Redis-ready interface), Rate Limiting at 20 req/min per IP, Background Tasks for async click tracking, Pagination on all list endpoints, and /health with DB probe ready for k8s readiness probes. 9/9 tests passing.</p>
         <div class="pmetrics">
-          <div><div class="pm-v">9/9</div><div class="pm-l">Tests Passing</div></div>
-          <div><div class="pm-v">Redis</div><div class="pm-l">Cache-Ready</div></div>
-          <div><div class="pm-v">K8s</div><div class="pm-l">Probe-Ready</div></div>
+          <div><div class="pm-v">9/9</div><div class="pm-l" data-pt="Testes Passando">Tests Passing</div></div>
+          <div><div class="pm-v">Redis</div><div class="pm-l" data-pt="Cache-Ready">Cache-Ready</div></div>
+          <div><div class="pm-v">K8s</div><div class="pm-l" data-pt="Probe-Ready">Probe-Ready</div></div>
         </div>
         <div class="plinks">
-          <a href="https://github.com/AlanaMelo/scalable-backend" target="_blank" rel="noopener" class="plink">View Code ↗</a>
+          <a href="https://github.com/AlanaMelo/scalable-backend" target="_blank" rel="noopener" class="plink" data-pt="Ver Código ↗">View Code ↗</a>
         </div>
       </div>
 
       <div class="pcard fade">
-        <div class="ptop"><span class="picon">🌡️</span><span class="pstatus s-prod">Production</span></div>
-        <h3>IoT Monitoring Platform — HVAC Systems</h3>
+        <div class="ptop"><span class="picon">🌡️</span><span class="pstatus s-prod" data-pt="Produção">Production</span></div>
+        <h3 data-pt="Plataforma IoT de Monitoramento — Sistemas HVAC">IoT Monitoring Platform — HVAC Systems</h3>
         <div class="ptechs">
           <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">IoT</span><span class="tag">Real-time</span><span class="tag">REST APIs</span><span class="tag">Data Integration</span>
         </div>
-        <p>Designed and developed a backend system to collect, process, and expose real-time data from internally developed IoT hardware devices. Built APIs to ingest and normalize sensor data — temperature, humidity, voltage, current, and energy consumption — integrating with a centralized monitoring platform to enable predictive maintenance and anomaly detection for HVAC equipment.</p>
+        <p data-pt="Projetou e desenvolveu um sistema backend para coletar, processar e expor dados em tempo real de dispositivos IoT desenvolvidos internamente. Construiu APIs para ingerir e normalizar dados de sensores — temperatura, umidade, tensão, corrente e consumo de energia — integrando com plataforma centralizada de monitoramento para manutenção preditiva e detecção de anomalias em equipamentos HVAC.">Designed and developed a backend system to collect, process, and expose real-time data from internally developed IoT hardware devices. Built APIs to ingest and normalize sensor data — temperature, humidity, voltage, current, and energy consumption — integrating with a centralized monitoring platform to enable predictive maintenance and anomaly detection for HVAC equipment.</p>
         <div class="pmetrics">
-          <div><div class="pm-v">RT</div><div class="pm-l">Real-time Data</div></div>
-          <div><div class="pm-v">IoT</div><div class="pm-l">Hardware Integration</div></div>
-          <div><div class="pm-v">↓</div><div class="pm-l">Downtime Reduction</div></div>
+          <div><div class="pm-v">RT</div><div class="pm-l" data-pt="Dados em Tempo Real">Real-time Data</div></div>
+          <div><div class="pm-v">IoT</div><div class="pm-l" data-pt="Integração de Hardware">Hardware Integration</div></div>
+          <div><div class="pm-v">↓</div><div class="pm-l" data-pt="Redução de Downtime">Downtime Reduction</div></div>
         </div>
       </div>
 
       <div class="pcard fade">
-        <div class="ptop"><span class="picon">☁️</span><span class="pstatus s-prod">Production</span></div>
-        <h3>Cloud-Native Architectures</h3>
+        <div class="ptop"><span class="picon">☁️</span><span class="pstatus s-prod" data-pt="Produção">Production</span></div>
+        <h3 data-pt="Arquiteturas Cloud-Native">Cloud-Native Architectures</h3>
         <div class="ptechs">
           <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">CI/CD</span>
         </div>
-        <p>Reference implementations of cloud-native architectural patterns — infrastructure-as-code, container orchestration, observability stacks, and multi-cloud deployment strategies. Designed as a living portfolio of production-grade infrastructure decisions applied to real workloads.</p>
+        <p data-pt="Implementações de referência de padrões arquiteturais cloud-native — infraestrutura-como-código, orquestração de containers, stacks de observabilidade e estratégias de deploy multi-cloud. Projetado como portfólio vivo de decisões de infraestrutura de nível produção aplicadas a cargas de trabalho reais.">Reference implementations of cloud-native architectural patterns — infrastructure-as-code, container orchestration, observability stacks, and multi-cloud deployment strategies. Designed as a living portfolio of production-grade infrastructure decisions applied to real workloads.</p>
         <div class="pmetrics">
           <div><div class="pm-v">IaC</div><div class="pm-l">Terraform</div></div>
-          <div><div class="pm-v">Multi</div><div class="pm-l">Cloud</div></div>
-          <div><div class="pm-v">K8s</div><div class="pm-l">Orchestration</div></div>
+          <div><div class="pm-v">Multi</div><div class="pm-l" data-pt="Cloud">Cloud</div></div>
+          <div><div class="pm-v">K8s</div><div class="pm-l" data-pt="Orquestração">Orchestration</div></div>
         </div>
         <div class="plinks">
-          <a href="https://github.com/AlanaMelo/cloud-native-architectures" target="_blank" rel="noopener" class="plink">View Code ↗</a>
+          <a href="https://github.com/AlanaMelo/cloud-native-architectures" target="_blank" rel="noopener" class="plink" data-pt="Ver Código ↗">View Code ↗</a>
         </div>
       </div>
 
@@ -667,7 +672,7 @@
       <div class="edu-item fade">
         <div class="edu-icon">🎓</div>
         <div>
-          <div class="edu-degree">Master's in Automation &amp; Systems Engineering</div>
+          <div class="edu-degree" data-pt="Mestrado em Engenharia de Automação e Sistemas">Master's in Automation &amp; Systems Engineering</div>
           <div class="edu-school">Universidade Federal de Santa Catarina — UFSC, Brazil</div>
           <div class="edu-year">2015 – 2016</div>
         </div>
@@ -676,7 +681,7 @@
       <div class="edu-item fade">
         <div class="edu-icon">🎓</div>
         <div>
-          <div class="edu-degree">Bachelor's in Automation &amp; Control Engineering</div>
+          <div class="edu-degree" data-pt="Bacharelado em Engenharia de Automação e Controle">Bachelor's in Automation &amp; Control Engineering</div>
           <div class="edu-school">Faculdade Pitágoras, Brazil</div>
           <div class="edu-year">2009 – 2014</div>
         </div>
@@ -685,9 +690,9 @@
       <div class="edu-item fade">
         <div class="edu-icon">🌐</div>
         <div>
-          <div class="edu-degree">Languages</div>
-          <div class="edu-school">English (Professional) · Portuguese (Native) · Spanish (Working)</div>
-          <div class="edu-year">Open to relocation &amp; remote international</div>
+          <div class="edu-degree" data-pt="Idiomas">Languages</div>
+          <div class="edu-school" data-pt="Inglês (Profissional) · Português (Nativo) · Espanhol (Funcional)">English (Professional) · Portuguese (Native) · Spanish (Working)</div>
+          <div class="edu-year" data-pt="Aberta a relocação &amp; remoto internacional">Open to relocation &amp; remote international</div>
         </div>
       </div>
     </div>
@@ -699,13 +704,13 @@
   <div class="container">
     <div class="contact-grid">
       <div class="fade">
-        <span class="eyebrow">// contact</span>
-        <h2 class="section-title">Let's build<br/>something great</h2>
-        <p>Open to Engineering Management, Software Engineering Management, Technical Delivery Management, Technical Product Management, and Technology Leadership roles — remote international or relocation. Let's talk about how I can drive impact at your organization.</p>
+        <span class="eyebrow" data-pt="// contato">// contact</span>
+        <h2 class="section-title" data-pt="Vamos construir<br/>algo grande">Let's build<br/>something great</h2>
+        <p data-pt="Aberta a oportunidades de Engineering Management, Software Engineering Management, Technical Delivery Management, Technical Product Management e Technology Leadership — remoto internacional ou relocação. Vamos conversar sobre como posso gerar impacto na sua organização.">Open to Engineering Management, Software Engineering Management, Technical Delivery Management, Technical Product Management, and Technology Leadership roles — remote international or relocation. Let's talk about how I can drive impact at your organization.</p>
         <div class="clinks">
           <a href="mailto:alanamelo.contact@gmail.com" class="clink">
             <span class="clink-icon">✉️</span>
-            <div><div class="clink-v">alanamelo.contact@gmail.com</div><div class="clink-l">Primary email</div></div>
+            <div><div class="clink-v">alanamelo.contact@gmail.com</div><div class="clink-l" data-pt="E-mail principal">Primary email</div></div>
           </a>
           <a href="https://linkedin.com/in/alanamelo" target="_blank" rel="noopener" class="clink">
             <span class="clink-icon">💼</span>
@@ -717,19 +722,19 @@
           </a>
           <a href="tel:+5548991620445" class="clink">
             <span class="clink-icon">📱</span>
-            <div><div class="clink-v">+55 48 99162-0445</div><div class="clink-l">WhatsApp / Phone</div></div>
+            <div><div class="clink-v">+55 48 99162-0445</div><div class="clink-l" data-pt="WhatsApp / Telefone">WhatsApp / Phone</div></div>
           </a>
         </div>
       </div>
       <div class="fade">
         <form class="cform" id="cform">
           <div class="form-row">
-            <div class="fg"><label for="f-name">Name</label><input id="f-name" type="text" name="name" class="fi" placeholder="Your name" required /></div>
+            <div class="fg"><label for="f-name" data-pt="Nome">Name</label><input id="f-name" type="text" name="name" class="fi" placeholder="Your name" data-pt-placeholder="Seu nome" required /></div>
             <div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" name="email" class="fi" placeholder="your@email.com" required /></div>
           </div>
-          <div class="fg"><label for="f-company">Company &amp; Role</label><input id="f-company" type="text" name="company" class="fi" placeholder="e.g. Acme Corp — Head of Talent" /></div>
-          <div class="fg"><label for="f-msg">Message</label><textarea id="f-msg" name="message" class="ft" placeholder="Tell me about the opportunity, the team, and what you're building..." required></textarea></div>
-          <button type="submit" class="btn-form" id="sbtn">Send Message →</button>
+          <div class="fg"><label for="f-company" data-pt="Empresa &amp; Cargo">Company &amp; Role</label><input id="f-company" type="text" name="company" class="fi" placeholder="e.g. Acme Corp — Head of Talent" data-pt-placeholder="ex: Acme Corp — Head of Talent" /></div>
+          <div class="fg"><label for="f-msg" data-pt="Mensagem">Message</label><textarea id="f-msg" name="message" class="ft" placeholder="Tell me about the opportunity, the team, and what you're building..." data-pt-placeholder="Conta sobre a oportunidade, o time e o que você está construindo..." required></textarea></div>
+          <button type="submit" class="btn-form" id="sbtn" data-pt="Enviar Mensagem →">Send Message →</button>
         </form>
       </div>
     </div>
@@ -738,7 +743,7 @@
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <p>© 2026 Alana Melo · Engineering Manager &amp; Product Leader · <a href="mailto:alanamelo.contact@gmail.com">alanamelo.contact@gmail.com</a></p>
+  <p data-pt="© 2026 Alana Melo · Gerente de Engenharia &amp; Líder de Produto · <a href='mailto:alanamelo.contact@gmail.com'>alanamelo.contact@gmail.com</a>">© 2026 Alana Melo · Engineering Manager &amp; Product Leader · <a href="mailto:alanamelo.contact@gmail.com">alanamelo.contact@gmail.com</a></p>
 </footer>
 
 <script>
@@ -776,7 +781,7 @@
     });
   });
 
-  // Contact form — replace YOUR_FORMSPREE_ID with your ID from formspree.io
+  // Contact form
   document.getElementById('cform').addEventListener('submit', async e => {
     e.preventDefault();
     const btn = document.getElementById('sbtn');
@@ -804,6 +809,45 @@
       btn.disabled = false;
     }
   });
+
+  // ── Language toggle (EN default) ──────────────────────────
+  (function () {
+    const STORE = 'lang_portfolio';
+    let lang = localStorage.getItem(STORE) || 'en';
+
+    function saveOriginals() {
+      document.querySelectorAll('[data-pt]').forEach(el => {
+        if (!el.hasAttribute('data-en')) el.setAttribute('data-en', el.innerHTML);
+      });
+      document.querySelectorAll('[data-pt-placeholder]').forEach(el => {
+        el.setAttribute('data-en-placeholder', el.placeholder);
+      });
+    }
+
+    function applyLang(l) {
+      lang = l;
+      localStorage.setItem(STORE, l);
+      document.querySelectorAll('[data-pt]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-en');
+      });
+      document.querySelectorAll('[data-pt-placeholder]').forEach(el => {
+        el.placeholder = el.getAttribute('data-' + l + '-placeholder') || el.getAttribute('data-en-placeholder');
+      });
+      const lbl = l === 'en' ? 'PT' : 'EN';
+      document.querySelectorAll('.lang-toggle').forEach(b => b.textContent = lbl);
+      document.title = l === 'en'
+        ? 'Alana Melo — Engineering Manager & Product Leader'
+        : 'Alana Melo — Gerente de Engenharia & Líder de Produto';
+      document.documentElement.lang = l;
+    }
+
+    window.toggleLang = function () { applyLang(lang === 'en' ? 'pt' : 'en'); };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      saveOriginals();
+      applyLang(lang);
+    });
+  })();
 </script>
 </body>
 </html>
