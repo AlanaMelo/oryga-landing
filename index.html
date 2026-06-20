@@ -341,13 +341,58 @@
       align-items: center;
     }
     .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
-    .hero-img-wrap img {
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid var(--green-border);
-      box-shadow: 0 0 0 10px var(--green-dim), 0 30px 70px rgba(0,0,0,.55);
-      display: block;
+    /* ── Image frames ──────────────────────────────────────── */
+    .img-frame {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.04);
     }
+    .img-frame-bar {
+      height: 34px;
+      background: var(--bg-section);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 7px;
+      flex-shrink: 0;
+    }
+    .img-frame-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+    .img-frame-dot.r { background: #ff5f57; }
+    .img-frame-dot.y { background: #febc2e; }
+    .img-frame-dot.g { background: #28c840; }
+    .img-frame img { display: block; width: 100%; height: auto; }
+
+    .hero-img-wrap { position: relative; }
+    .hero-img-wrap .img-frame {
+      box-shadow: 0 0 0 10px rgba(201,168,64,.07), 0 40px 100px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.05);
+    }
+    .hero-float {
+      position: absolute;
+      background: var(--bg-card);
+      border: 1px solid var(--green-border);
+      border-radius: 10px;
+      padding: .6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--white);
+      z-index: 2;
+      box-shadow: 0 8px 24px rgba(0,0,0,.5);
+      white-space: nowrap;
+      backdrop-filter: blur(8px);
+    }
+    .hero-float-icon { color: var(--green); font-size: 1.1rem; }
+    .hero-float.bl { bottom: -1.25rem; left: -1.25rem; }
+    .hero-float.tr { top: -1.25rem; right: -1.25rem; border-color: var(--blue-border); }
+    .hero-float.tr .hero-float-icon { color: var(--blue-light); }
+
+    .strat-img-below { max-width: 820px; margin: 3.5rem auto 0; padding: 0 1.5rem; }
+    .img-frame-contained { max-width: 88%; margin: 0 auto 2.5rem; }
 
     .hero-badge {
       display: inline-flex;
@@ -1203,16 +1248,11 @@
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
 
-    /* Imagens de seção */
-    .section-img {
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      display: block;
-      margin-top: 2rem;
+    @media (max-width: 768px) {
+      .hero-float { display: none; }
+      .strat-img-below { padding: 0; }
+      .img-frame-contained { max-width: 100%; }
     }
-    .strat-img { border-color: var(--blue-border); box-shadow: 0 16px 48px rgba(0,0,0,.4); }
-    .auto-img  { border-color: var(--green-border); box-shadow: 0 16px 48px rgba(0,0,0,.4); margin-top: 0; margin-bottom: 2.5rem; }
 
     @media (max-width: 768px) {
       .section, #estrategia, #automacao, #diferenciais, #cta-final { padding: 4.5rem 1.25rem; }
@@ -1328,7 +1368,22 @@
 
       <!-- Imagem -->
       <div class="hero-img-wrap reveal d2">
-        <img src="images/hero.png" alt="Dashboard de automação e IA" />
+        <div class="hero-float bl">
+          <span class="hero-float-icon">⚡</span>
+          <span data-en="Response in 3s · 24h/day">Resposta em 3s · 24h/dia</span>
+        </div>
+        <div class="img-frame">
+          <div class="img-frame-bar">
+            <span class="img-frame-dot r"></span>
+            <span class="img-frame-dot y"></span>
+            <span class="img-frame-dot g"></span>
+          </div>
+          <img src="images/hero.png" alt="Dashboard de automação e IA" />
+        </div>
+        <div class="hero-float tr">
+          <span class="hero-float-icon">📈</span>
+          <span data-en="60% less operational cost">60% menos custo operacional</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1495,7 +1550,6 @@
             <span data-en="Talk to a consultant">Falar com um consultor</span>
           </a>
         </div>
-        <img src="images/estrategia.png" alt="Equipe analisando métricas" class="section-img strat-img reveal" />
       </div>
 
       <!-- Coluna direita: cards de serviços -->
@@ -1527,6 +1581,18 @@
       </div>
 
     </div>
+
+    <div class="strat-img-below reveal">
+      <div class="img-frame">
+        <div class="img-frame-bar">
+          <span class="img-frame-dot r"></span>
+          <span class="img-frame-dot y"></span>
+          <span class="img-frame-dot g"></span>
+        </div>
+        <img src="images/estrategia.png" alt="Equipe analisando métricas e estratégia" />
+      </div>
+    </div>
+
   </section>
 
   <!-- ══════════════════ ORYGA AUTOMAÇÃO ═══════════════════ -->
@@ -1564,7 +1630,16 @@
         Empresas que automatizam atendimento e cobrança recuperam em média <strong>R$4.200/mês</strong> que estavam sendo perdidos por processo manual — nos primeiros 30 dias de implementação.
       </div>
 
-      <img src="images/automacao.png" alt="Fluxo de automação: WhatsApp, CRM e relatórios" class="section-img auto-img reveal" />
+      <div class="img-frame-contained reveal">
+        <div class="img-frame">
+          <div class="img-frame-bar">
+            <span class="img-frame-dot r"></span>
+            <span class="img-frame-dot y"></span>
+            <span class="img-frame-dot g"></span>
+          </div>
+          <img src="images/automacao.png" alt="Fluxo de automação: WhatsApp, CRM e relatórios" />
+        </div>
+      </div>
 
       <!-- Cards de automação -->
       <div class="auto-cards">
