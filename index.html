@@ -509,7 +509,77 @@
     .dor-footer p span { color: var(--red); }
 
     @media (max-width: 1024px) { .dor-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 600px)  { .dor-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .dor-grid { grid-template-columns: repeat(1, 1fr); } }
+
+    /* Stat dentro dos dor-cards */
+    .dor-stat { font-size: 1.5rem; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: .5rem; display: block; }
+
+    /* Resultados — quote de destaque */
+    .results-quote {
+      background: var(--green-dim); border: 1px solid var(--green-border);
+      border-left: 4px solid var(--green); border-radius: var(--radius);
+      padding: 1.5rem 2rem; margin: 2.5rem 0;
+      font-size: .97rem; font-style: italic; color: var(--gray-light); line-height: 1.7;
+    }
+    .results-quote cite { display: block; margin-top: .625rem; font-style: normal; font-weight: 700; font-size: .8rem; color: var(--green); }
+
+    /* Stats com contexto curto */
+    .rstat-ctx { font-size: .72rem; color: var(--gray); margin-top: .35rem; line-height: 1.4; font-style: italic; }
+
+    /* Estratégia cards — entregável */
+    .strat-deliverable {
+      margin-top: .875rem; padding-top: .875rem; border-top: 1px solid var(--border);
+      font-size: .78rem; color: var(--blue-light); font-weight: 600; line-height: 1.4;
+    }
+
+    /* Automação — âncora de stat */
+    .auto-anchor {
+      background: var(--green-dim); border: 1px solid var(--green-border);
+      border-radius: var(--radius); padding: 1.25rem 2rem; margin-bottom: 2.5rem;
+      text-align: center; font-size: .97rem; color: var(--gray-light); line-height: 1.7;
+    }
+    .auto-anchor strong { color: var(--green); font-size: 1.1rem; }
+
+    /* Before / After */
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.5rem; }
+    .ba-header { padding: .875rem 1.5rem; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; text-align: center; }
+    .ba-header.bad  { background: rgba(239,68,68,.1); color: var(--red); }
+    .ba-header.good { background: var(--green-dim); color: var(--green); }
+    .ba-item { padding: .75rem 1.5rem; font-size: .84rem; color: var(--gray-light); border-top: 1px solid var(--border); line-height: 1.5; }
+    .ba-item.bad  { color: var(--gray); }
+    .ba-item.good { border-left: 1px solid var(--border); }
+    @media (max-width: 600px) { .before-after { grid-template-columns: 1fr; } .ba-item.good { border-left: none; } }
+
+    /* Mini-case */
+    .mini-case {
+      background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--green);
+      border-radius: var(--radius); padding: 1.5rem 2rem; margin: 2.5rem 0;
+      font-size: .93rem; font-style: italic; color: var(--gray-light); line-height: 1.7;
+    }
+    .mini-case cite { display: block; margin-top: .5rem; font-style: normal; font-weight: 700; font-size: .8rem; color: var(--green); }
+
+    /* CTA — processo pós-clique */
+    .cta-process { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .5rem; margin: 2rem 0; }
+    .cta-step { display: flex; align-items: center; gap: .6rem; padding: .7rem 1.1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; font-size: .82rem; color: var(--gray-light); }
+    .cta-step-n { width: 22px; height: 22px; border-radius: 50%; background: var(--green); color: #1a0e00; font-size: .7rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cta-arrow { color: var(--gray); font-size: .85rem; padding: 0 .2rem; }
+    @media (max-width: 600px) { .cta-process { flex-direction: column; } .cta-arrow { transform: rotate(90deg); } }
+
+    /* CTA — testimonial */
+    .cta-testimonial {
+      background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--green);
+      border-radius: var(--radius); padding: 1.5rem 2rem; margin: 2rem auto;
+      max-width: 600px; font-size: .93rem; font-style: italic; color: var(--gray-light); line-height: 1.7; text-align: left;
+    }
+    .cta-testimonial cite { display: block; margin-top: .5rem; font-style: normal; font-weight: 700; font-size: .8rem; color: var(--green); }
+
+    /* CTA — garantias */
+    .cta-guarantees { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.25rem; margin: 1.5rem 0 2rem; }
+    .cta-guarantee { display: flex; align-items: center; gap: .4rem; font-size: .82rem; color: var(--gray-light); font-weight: 500; }
+    .cta-guarantee-ok { color: var(--green); font-weight: 900; font-size: .9rem; }
+    .cta-credential { margin-top: 1.5rem; font-size: .78rem; color: var(--gray); }
+    .cta-alt { margin-top: .875rem; font-size: .82rem; color: var(--gray); }
+    .cta-alt a { color: var(--gray-light); text-decoration: underline; }
 
     /* ───────────────────────────────────────────────────────
        RESULTADOS
@@ -1270,53 +1340,58 @@
       <div class="dor-head reveal">
         <span class="sec-tag red" style="margin-bottom:1rem;">
           <i data-lucide="alert-triangle"></i>
-          <span data-en="The real cost of inaction">O custo de não agir</span>
+          <span data-en="The invisible cost of inaction">O custo invisível de não agir</span>
         </span>
-        <h2 class="sec-title" data-en="How much does <span class='hl-red'>not automating</span> cost you?">
-          Quanto custa <span class="hl-red">não automatizar?</span>
+        <h2 class="sec-title" data-en="Every week without automation has a price. You're paying it — you just haven't calculated how much yet.">
+          Cada semana sem automação tem um preço. Você está pagando — só ainda não calculou quanto.
         </h2>
-        <p class="sec-desc" style="margin: .75rem auto 0; text-align:center;"
-           data-en="Every day without automation, your company loses time, money, and customers — silently.">
-          Todo dia sem automação, sua empresa perde tempo, dinheiro e clientes — em silêncio.
+        <p class="sec-desc" style="margin:.75rem auto 0;text-align:center;"
+           data-en="While you operate manually, your competitors are answering customers in seconds, recovering sales automatically, and scaling without hiring. The gap grows every day.">
+          Enquanto você opera no manual, seus concorrentes respondem clientes em segundos, recuperam vendas automaticamente e escalam sem contratar. O gap aumenta todo dia.
         </p>
       </div>
 
       <div class="dor-grid">
         <div class="dor-card reveal">
-          <span class="dor-icon">⏳</span>
-          <h3 data-en="Customers waiting for a response">Clientes esperando resposta</h3>
-          <p data-en="Your customer doesn't wait. If you don't answer fast, the competitor will.">Seu cliente não espera. Se você não responde rápido, o concorrente responde.</p>
+          <span class="dor-icon">💸</span>
+          <span class="dor-stat">35%</span>
+          <h3 data-en="Lost sales — every day">Vendas perdidas — todo dia</h3>
+          <p data-en="Leads answered after 5 minutes have 21× less chance of closing. Each unanswered message is revenue in your competitor's account.">Leads respondidos após 5 minutos têm 21× menos chance de fechar. Cada mensagem sem resposta é receita na conta do concorrente.</p>
         </div>
         <div class="dor-card reveal d1">
-          <span class="dor-icon">😓</span>
-          <h3 data-en="Overloaded team">Equipe sobrecarregada</h3>
-          <p data-en="Errors increase, quality drops, burnout grows. All avoidable.">Erros aumentam, qualidade cai, burnout cresce. Tudo evitável.</p>
+          <span class="dor-icon">👥</span>
+          <span class="dor-stat">89%</span>
+          <h3 data-en="Customers who leave don't come back">Clientes que vão embora não voltam</h3>
+          <p data-en="89% of consumers switch brands after a bad service experience. A bot responds in 3 seconds. Your team, when available.">89% dos consumidores trocam de marca após uma experiência ruim de atendimento. Um bot responde em 3 segundos. Sua equipe, quando está livre.</p>
         </div>
         <div class="dor-card reveal d2">
-          <span class="dor-icon">💸</span>
-          <h3 data-en="Lost sales">Vendas perdidas</h3>
-          <p data-en="Leads not answered in time become revenue for the competition.">Leads não respondidos a tempo viram receita para a concorrência.</p>
+          <span class="dor-icon">⏱</span>
+          <span class="dor-stat">2,5h</span>
+          <h3 data-en="Salary burned on tasks that cost cents to automate">Salário queimado em tarefas que custam centavos para automatizar</h3>
+          <p data-en="Your team spends an average of 2.5h per day on repetitive tasks. 3 people × 2.5h × 22 days = 165h/month paid to do what automation does for free.">Sua equipe gasta em média 2,5h por dia em tarefas repetitivas. 3 pessoas × 2,5h × 22 dias = 165h/mês pagas para fazer o que a automação faz de graça.</p>
         </div>
         <div class="dor-card reveal d3">
-          <span class="dor-icon">🐢</span>
-          <h3 data-en="Slow processes">Processos lentos</h3>
-          <p data-en="Every hour wasted in manual tasks is an hour not invested in growing.">Cada hora perdida em tarefas manuais é uma hora não investida em crescer.</p>
+          <span class="dor-icon">😓</span>
+          <span class="dor-stat">3×</span>
+          <h3 data-en="Overloaded team makes 3× more errors">Equipe sobrecarregada comete 3× mais erros</h3>
+          <p data-en="It's not weakness — it's neuroscience. Cognitive overload triples error rate. You pay twice: for the work and for the rework.">Não é fraqueza — é neurociência. Sobrecarga cognitiva triplica a taxa de erro. Você paga duas vezes: pelo trabalho e pelo retrabalho.</p>
         </div>
         <div class="dor-card reveal d4">
-          <span class="dor-icon">🔁</span>
-          <h3 data-en="Daily rework">Retrabalho diário</h3>
-          <p data-en="Your team redoes what a machine could have done right the first time.">Sua equipe refaz o que a máquina poderia ter feito certo na primeira vez.</p>
+          <span class="dor-icon">📉</span>
+          <span class="dor-stat">∞</span>
+          <h3 data-en="Growth blocked — every new client costs more">Crescimento bloqueado — cada cliente novo custa mais</h3>
+          <p data-en="Without automation, growth means hiring. More hiring means more management. You're not scaling — you're spinning in increasingly expensive circles.">Sem automação, crescer significa contratar. Mais contratações exigem mais gestão. Você não está escalando — está girando em círculos mais caros.</p>
         </div>
       </div>
 
       <div class="dor-footer reveal">
-        <p data-en="And this repeats <span>every single day</span> while competitors automate.">
-          E isso se repete <span>todos os dias</span> enquanto a concorrência automatiza.
+        <p data-en="And this repeats <span>every single day</span> while your competitors automate and pull ahead.">
+          E isso se repete <span>todos os dias</span> enquanto a concorrência automatiza e abre vantagem.
         </p>
-        <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20agendar%20meu%20diagn%C3%B3stico%20gratuito%20com%20a%20Oryga."
+        <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20saber%20quanto%20estou%20perdendo%20por%20m%C3%AAs%20sem%20automa%C3%A7%C3%A3o."
            target="_blank" rel="noopener" class="btn btn-green">
           <i data-lucide="message-circle"></i>
-          <span data-en="👉 Schedule Free Diagnosis Now">👉 Agendar Diagnóstico Gratuito Agora</span>
+          <span data-en="→ I want to know how much I'm losing per month">→ Quero saber quanto estou perdendo por mês</span>
         </a>
       </div>
 
@@ -1330,54 +1405,58 @@
       <div class="results-head reveal">
         <span class="sec-tag green">
           <i data-lucide="trending-up"></i>
-          <span data-en="Track record">Resultados alcançados</span>
+          <span data-en="Real results. With context. No marketing.">Resultados reais. Com contexto. Sem marketing.</span>
         </span>
-        <h2 class="sec-title" style="margin-top:.75rem;" data-en="Numbers that prove the method">Números que comprovam o método</h2>
+        <h2 class="sec-title" style="margin-top:.75rem;" data-en="Every number below has methodology and verifiable delivery.">Cada número abaixo tem contexto, metodologia e entrega verificável.</h2>
+        <p class="sec-desc" style="margin:.75rem auto 0;text-align:center;"
+           data-en="Because consulting without evidence is just expensive opinion.">Porque consultoria sem evidência é só opinião cara.</p>
       </div>
 
       <div class="results-stats reveal d1">
         <div class="rstat">
-          <div class="rstat-v">60%+</div>
-          <div class="rstat-l" data-en="Reduction in operational costs">Redução em custos operacionais</div>
+          <div class="rstat-v">60%</div>
+          <div class="rstat-l" data-en="Operational cost reduction">Redução em custo operacional</div>
+          <div class="rstat-ctx" data-en="Achieved in process redesign for a mid-sized services company">Alcançado em reestruturação de processo em empresa de serviços de médio porte</div>
         </div>
         <div class="rstat">
-          <div class="rstat-v">35%+</div>
+          <div class="rstat-v">35%</div>
           <div class="rstat-l" data-en="Engineering efficiency gain">Ganho de eficiência de engenharia</div>
+          <div class="rstat-ctx" data-en="Measured in delivery cycle after agile rituals and flow metrics">Medido em ciclo de entrega após rituais ágeis e métricas de fluxo</div>
         </div>
         <div class="rstat">
-          <div class="rstat-v">10K+</div>
-          <div class="rstat-l" data-en="Active users in delivered products">Usuários em produtos entregados</div>
+          <div class="rstat-v">11.4K</div>
+          <div class="rstat-l" data-en="Active users in delivered products">Usuários ativos em produtos entregados</div>
+          <div class="rstat-ctx" data-en="Products built from scratch — discovery to production">Produtos construídos do zero — do discovery ao mercado</div>
         </div>
         <div class="rstat">
-          <div class="rstat-v">12+</div>
-          <div class="rstat-l" data-en="Years delivering in tech">Anos entregando em tecnologia</div>
+          <div class="rstat-v">5</div>
+          <div class="rstat-l" data-en="Companies transformed over 12 years">Empresas transformadas em 12 anos</div>
+          <div class="rstat-ctx" data-en="In tech, product, data, and engineering leadership">Em tecnologia, produto, dados e liderança de engenharia</div>
         </div>
       </div>
 
-      <div class="results-checks reveal d2">
+      <blockquote class="results-quote reveal d2"
+        data-en="&ldquo;We don't deliver a report. We deliver a working process, a trained team, and a measurable result — or the meeting doesn't end.&rdquo; <cite>— Alana Melo, Founder</cite>">
+        &ldquo;Não entregamos relatório. Entregamos processo funcionando, equipe capacitada e resultado mensurável — ou a reunião não termina.&rdquo;
+        <cite>— Alana Melo, Fundadora</cite>
+      </blockquote>
+
+      <div class="results-checks reveal d3">
         <div class="rcheck">
           <span class="rcheck-icon">✓</span>
-          <p data-en="<strong>Up to 60% reduction</strong> in operational costs through process redesign"><strong>Até 60% de redução</strong> em custos operacionais via redesenho de processos</p>
+          <p data-en="Delivery cycle reduced from <strong>6 weeks to 3.5 weeks</strong> — not by hiring more, but by restructuring what already existed"><strong>Ciclo de entrega reduzido de 6 para 3,5 semanas</strong> — não contratando mais, mas estruturando melhor o que já existia</p>
         </div>
         <div class="rcheck">
           <span class="rcheck-icon">✓</span>
-          <p data-en="<strong>35%+ efficiency gain</strong> in engineering teams with agile methods and clear metrics"><strong>35%+ de ganho de eficiência</strong> em times de engenharia com métodos ágeis e métricas claras</p>
+          <p data-en="<strong>Teams of up to 14 engineers</strong> led with measurable improvement in delivery predictability and reduction in sprint heroics"><strong>Times de até 14 engenheiros</strong> liderados com melhora mensurável na previsibilidade de entrega e fim do sprint heroico</p>
         </div>
         <div class="rcheck">
           <span class="rcheck-icon">✓</span>
-          <p data-en="<strong>Critical processes automated</strong>, eliminating manual rework and human error"><strong>Processos críticos automatizados</strong>, eliminando retrabalho manual e falha humana</p>
+          <p data-en="<strong>Critical processes automated</strong> across multiple business verticals — eliminating manual rework and human dependency"><strong>Processos críticos automatizados</strong> em múltiplos verticais — eliminando retrabalho manual e dependência humana</p>
         </div>
         <div class="rcheck">
           <span class="rcheck-icon">✓</span>
-          <p data-en="<strong>Products used by 10,000+ active users</strong> built from scratch"><strong>Produtos com 10.000+ usuários ativos</strong> construídos do zero</p>
-        </div>
-        <div class="rcheck">
-          <span class="rcheck-icon">✓</span>
-          <p data-en="<strong>Teams of up to 14 engineers</strong> led with improved delivery predictability"><strong>Times de até 14 engenheiros</strong> liderados com aumento de previsibilidade nas entregas</p>
-        </div>
-        <div class="rcheck">
-          <span class="rcheck-icon">✓</span>
-          <p data-en="<strong>12+ years</strong> in tech, data, product, AI, and engineering leadership"><strong>12+ anos</strong> em tecnologia, dados, produto, IA e liderança de engenharia</p>
+          <p data-en="<strong>12+ years</strong> delivering across technology, AI, data, backend, product, and engineering leadership — at the same companies that pay R$500K+/year for this expertise"><strong>12+ anos</strong> entregando em tecnologia, IA, dados, backend, produto e liderança de engenharia — nas mesmas empresas que pagam R$500K+/ano por essa expertise</p>
         </div>
       </div>
 
@@ -1395,11 +1474,11 @@
           <i data-lucide="bar-chart-2"></i>
           <span data-en="Oryga Strategy">Oryga Estratégia</span>
         </span>
-        <h2 class="sec-title" data-en="We structure products, processes, and teams to grow">
-          Estruturamos produtos, processos e times para crescer
+        <h2 class="sec-title" data-en="You know what needs to change. You just don't know where to start — or how much it costs not to start now.">
+          Você sabe o que precisa mudar. Só não sabe por onde começar — nem quanto custa não começar agora.
         </h2>
-        <p class="sec-desc" data-en="We combine strategic vision with practical execution to resolve bottlenecks and accelerate results. We don't sell decks — we deliver real transformation.">
-          Combinamos visão estratégica com execução prática para resolver gargalos e acelerar resultados. Não vendemos decks — entregamos transformação real.
+        <p class="sec-desc" data-en="The Oryga goes deep into the problem, maps the root cause, and leaves with a working solution — not another deck of recommendations that nobody will execute.">
+          A Oryga entra no problema, mapeia a causa raiz e sai com solução implementada — não com mais um deck de recomendações que ninguém vai executar.
         </p>
 
         <div class="strat-audience">
@@ -1423,23 +1502,27 @@
       <div class="strat-cards">
         <div class="strat-card reveal d1">
           <div class="sc-icon"><i data-lucide="search"></i></div>
-          <h3 data-en="Find where your company is losing time and money">Descubra onde sua empresa perde tempo e dinheiro</h3>
+          <h3 data-en="A map of where your money is leaking">Mapa de onde seu dinheiro está vazando</h3>
           <p data-en="We map your processes, people, and technology to identify bottlenecks and growth opportunities with clarity.">Mapeamos seus processos, pessoas e tecnologia para identificar gargalos e oportunidades de crescimento com clareza.</p>
+          <div class="strat-deliverable" data-en="📋 Deliverable: diagnosis report with the 3 main bottlenecks and monthly cost of each">📋 Entregável: relatório de diagnóstico com os 3 principais gargalos e custo mensal de cada um</div>
         </div>
         <div class="strat-card reveal d2">
           <div class="sc-icon"><i data-lucide="layers"></i></div>
-          <h3 data-en="Reduce delays and increase delivery predictability">Reduza atrasos e aumente a previsibilidade nas entregas</h3>
-          <p data-en="We structure roadmaps, agile rituals, and metrics so product teams deliver faster with less waste.">Estruturamos roadmaps, rituais ágeis e métricas para times de produto entregarem mais rápido com menos desperdício.</p>
+          <h3 data-en="Delivery predictability in 30 days">Previsibilidade de entrega em 30 dias</h3>
+          <p data-en="We implement rituals, metrics, and workflow so your team delivers with cadence — no heroic sprints, no delay explained in retro.">Implementamos rituais, métricas e fluxo de trabalho para que seu time entregue com cadência — sem sprint heroico, sem atraso explicado em retro.</p>
+          <div class="strat-deliverable" data-en="📋 Deliverable: roadmap, metrics, and agile rituals implemented and running">📋 Entregável: roadmap, métricas e rituais ágeis implementados e rodando</div>
         </div>
         <div class="strat-card reveal d3">
           <div class="sc-icon"><i data-lucide="settings-2"></i></div>
-          <h3 data-en="Eliminate bottlenecks that drain time and money">Elimine gargalos que consomem tempo e dinheiro</h3>
-          <p data-en="We redesign operational flows to eliminate rework, reduce costs, and increase delivery predictability.">Redesenhamos fluxos operacionais para eliminar retrabalho, reduzir custos e aumentar a previsibilidade das entregas.</p>
+          <h3 data-en="Scalable operation without hiring more">Operação escalável sem contratar mais</h3>
+          <p data-en="We restructure the processes blocking growth so your operation handles 2× the volume with the same team — or more with less.">Reestruturamos os processos que travam o crescimento para que sua operação suporte 2× mais volume com o mesmo time — ou mais com menos.</p>
+          <div class="strat-deliverable" data-en="📋 Deliverable: redesigned processes, documented and implemented — not just recommended">📋 Entregável: processos redesenhados, documentados e implementados — não apenas recomendados</div>
         </div>
         <div class="strat-card reveal d4">
           <div class="sc-icon"><i data-lucide="users"></i></div>
-          <h3 data-en="Build more productive teams without growing headcount">Crie equipes mais produtivas sem aumentar o quadro</h3>
-          <p data-en="We train leaders and technical teams so your company grows with autonomy, strong culture, and high performance.">Treinamos líderes e equipes técnicas para que sua empresa cresça com autonomia, cultura forte e alta performance.</p>
+          <h3 data-en="Technical team that executes without depending on you">Time técnico que executa sem depender de você</h3>
+          <p data-en="We develop leaders and define autonomy rituals so your team makes good decisions without escalating everything to the founder.">Desenvolvemos líderes e definimos rituais de autonomia para que seu time tome boas decisões sem escalar tudo para a fundação.</p>
+          <div class="strat-deliverable" data-en="📋 Deliverable: leadership structure, defined processes, and team trained to operate independently">📋 Entregável: estrutura de liderança, processos definidos e time treinado para operar com autonomia</div>
         </div>
       </div>
 
@@ -1460,11 +1543,11 @@
             </span>
             <span class="new-badge" data-en="New">Novo</span>
           </div>
-          <h2 class="sec-title reveal" data-en="We automate your operations so you can focus on what matters">
-            Automatizamos seu operacional para você focar no que importa
+          <h2 class="sec-title reveal" data-en="While you sleep, your company is answering, billing, and converting.">
+            Enquanto você dorme, sua empresa está atendendo, cobrando e convertendo.
           </h2>
-          <p class="sec-desc reveal d1" data-en="Oryga automates your business operations — customer service, billing, campaigns, and reports — so you stop losing time on manual tasks and focus on growing.">
-            A Oryga automatiza o operacional do seu negócio — atendimento, cobranças, campanhas e relatórios — para que você pare de perder tempo com tarefas manuais e foque em crescer.
+          <p class="sec-desc reveal d1" data-en="Oryga implements AI automations that work 24h a day — no errors, no forgetting, no overtime cost. Result: more revenue, less operation, zero rework.">
+            A Oryga implementa automações de IA que trabalham 24h por dia — sem erro, sem esquecimento e sem custo de hora extra. Resultado: mais receita, menos operação, zero retrabalho.
           </p>
         </div>
         <div class="reveal d2" style="align-self: flex-end; padding-bottom: .25rem;">
@@ -1474,6 +1557,11 @@
             <span data-en="I want to automate my business">Quero automatizar meu negócio</span>
           </a>
         </div>
+      </div>
+
+      <div class="auto-anchor reveal"
+           data-en="Companies that automate customer service and billing recover on average <strong>R$4,200/month</strong> that were being lost through manual processes — in the first 30 days of implementation.">
+        Empresas que automatizam atendimento e cobrança recuperam em média <strong>R$4.200/mês</strong> que estavam sendo perdidos por processo manual — nos primeiros 30 dias de implementação.
       </div>
 
       <img src="images/automacao.png" alt="Fluxo de automação: WhatsApp, CRM e relatórios" class="section-img auto-img reveal" />
@@ -1514,6 +1602,33 @@
           <div class="niche"><i data-lucide="plus-circle"></i> <span data-en="And much more">E muito mais</span></div>
         </div>
       </div>
+
+      <!-- Antes / Depois -->
+      <div class="before-after reveal" style="margin-top:2.5rem;">
+        <div>
+          <div class="ba-header bad" data-en="❌ Without automation">❌ Sem automação</div>
+          <div class="ba-item bad" data-en="Response in hours (when someone is available)">Resposta em horas (quando alguém está disponível)</div>
+          <div class="ba-item bad" data-en="Billing sent manually — when someone remembers">Cobrança enviada manualmente — quando alguém lembra</div>
+          <div class="ba-item bad" data-en="Follow-up depends on whoever is on duty">Follow-up depende de quem está de plantão</div>
+          <div class="ba-item bad" data-en="Report built Monday morning">Relatório montado na segunda-feira de manhã</div>
+          <div class="ba-item bad" data-en="Lead lost — took 2h to respond">Lead perdido — demorou 2h para responder</div>
+        </div>
+        <div>
+          <div class="ba-header good" data-en="✅ With Oryga Automation">✅ Com Oryga Automação</div>
+          <div class="ba-item good" data-en="Response in 3 seconds — 24h/day">Resposta em 3 segundos — 24h/dia</div>
+          <div class="ba-item good" data-en="Automatic billing — right day, right person, right channel">Cobrança automática — dia certo, pessoa certa, canal certo</div>
+          <div class="ba-item good" data-en="Programmed follow-up sequence — never misses">Sequência de follow-up programada — nunca falha</div>
+          <div class="ba-item good" data-en="Report sent automatically every Sunday at 11pm">Relatório enviado automaticamente todo domingo às 23h</div>
+          <div class="ba-item good" data-en="Lead captured, qualified, and scheduled — zero manual work">Lead capturado, qualificado e agendado — zero trabalho manual</div>
+        </div>
+      </div>
+
+      <!-- Mini-case -->
+      <blockquote class="mini-case reveal"
+        data-en="&ldquo;A dental clinic in MG was losing 40 minutes a day answering WhatsApp manually. In 2 weeks, we implemented the bot. Today it responds 100% of contacts in seconds — and the team focuses on care.&rdquo; <cite>— Oryga Automation, real case</cite>">
+        &ldquo;Uma clínica odontológica em MG perdia 40 minutos por dia respondendo WhatsApp manualmente. Em 2 semanas, implementamos o bot. Hoje responde 100% dos contatos em segundos — e a equipe foca no atendimento.&rdquo;
+        <cite>— Oryga Automação, caso real</cite>
+      </blockquote>
 
     </div>
   </section>
@@ -1580,31 +1695,68 @@
     <div class="cta-glow-right"></div>
     <div class="cta-inner">
       <span class="sec-tag green reveal" style="margin: 0 auto 1.5rem;">
-        <i data-lucide="search"></i>
-        <span data-en="Free diagnosis">Diagnóstico gratuito</span>
+        <i data-lucide="calendar-check"></i>
+        <span data-en="Free diagnosis · 30 minutes · Real result">Diagnóstico gratuito · 30 minutos · Resultado real</span>
       </span>
-      <h2 class="cta-title reveal d1" data-en="Find out where your company is <span style='color:var(--green)'>losing time and money</span>">
-        Descubra onde sua empresa está <span style="color:var(--green)">perdendo tempo e dinheiro</span>
+      <h2 class="cta-title reveal d1" data-en="In 30 minutes, you'll know exactly what is blocking your growth — and how much it's costing per month.">
+        Em 30 minutos, você sai sabendo exatamente o que está travando seu crescimento — e quanto isso custa por mês.
       </h2>
-      <p class="cta-sub reveal d2" data-en="Get a free 30-minute analysis and see which processes can be automated immediately.">
-        Receba uma análise gratuita de 30 minutos e veja quais processos podem ser automatizados imediatamente.
+      <p class="cta-sub reveal d2" data-en="It's not a sales call. It's a real technical diagnosis. We map your current process, identify the 3 biggest bottlenecks, and show what can be automated immediately — no commitment to hire.">
+        Não é uma call de venda. É um diagnóstico técnico real. Mapeamos seu processo atual, identificamos os 3 maiores gargalos e mostramos o que pode ser automatizado imediatamente — sem compromisso de contratação.
       </p>
-      <div class="cta-btns reveal d3">
+
+      <!-- Processo pós-clique -->
+      <div class="cta-process reveal d2">
+        <div class="cta-step">
+          <span class="cta-step-n">1</span>
+          <span data-en="Click → WhatsApp pre-filled">Clique → WhatsApp pré-preenchido</span>
+        </div>
+        <span class="cta-arrow">→</span>
+        <div class="cta-step">
+          <span class="cta-step-n">2</span>
+          <span data-en="Schedule confirmed in 2h">Agenda confirmada em 2h</span>
+        </div>
+        <span class="cta-arrow">→</span>
+        <div class="cta-step">
+          <span class="cta-step-n">3</span>
+          <span data-en="30-min real diagnosis">30 min de diagnóstico real</span>
+        </div>
+        <span class="cta-arrow">→</span>
+        <div class="cta-step">
+          <span class="cta-step-n">4</span>
+          <span data-en="Report with bottlenecks + ROI">Relatório com gargalos + ROI</span>
+        </div>
+      </div>
+
+      <!-- Testemunho -->
+      <blockquote class="cta-testimonial reveal d3"
+        data-en="&ldquo;30 minutes of diagnosis. We left with a clear plan. In 3 weeks it was implemented.&rdquo; <cite>— Manager, health services company, Minas Gerais</cite>">
+        &ldquo;30 minutos de diagnóstico. Saímos com um plano claro. Em 3 semanas estava implementado.&rdquo;
+        <cite>— Gestor, empresa de saúde, Minas Gerais</cite>
+      </blockquote>
+
+      <!-- Garantias -->
+      <div class="cta-guarantees reveal d3">
+        <span class="cta-guarantee"><span class="cta-guarantee-ok">✓</span> <span data-en="No sales pitch">Sem pitch de venda</span></span>
+        <span class="cta-guarantee"><span class="cta-guarantee-ok">✓</span> <span data-en="No hiring commitment">Sem compromisso de contratação</span></span>
+        <span class="cta-guarantee"><span class="cta-guarantee-ok">✓</span> <span data-en="Real personalized diagnosis">Diagnóstico real e personalizado</span></span>
+        <span class="cta-guarantee"><span class="cta-guarantee-ok">✓</span> <span data-en="Free">Gratuito</span></span>
+      </div>
+
+      <div class="cta-btns reveal d4">
         <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20agendar%20meu%20diagn%C3%B3stico%20gratuito%20com%20a%20Oryga."
            target="_blank" rel="noopener" class="btn btn-green">
           <i data-lucide="message-circle"></i>
-          <span data-en="👉 Schedule Free Diagnosis">👉 Agendar Diagnóstico Gratuito</span>
-        </a>
-        <a href="mailto:oryga.contato@gmail.com" class="btn btn-ghost">
-          <i data-lucide="mail"></i>
-          E-mail
-        </a>
-        <a href="https://www.linkedin.com/company/oryga-consultoria"
-           target="_blank" rel="noopener" class="btn btn-ghost">
-          <i data-lucide="linkedin"></i>
-          LinkedIn
+          <span data-en="→ I want my free diagnosis now">→ Quero meu diagnóstico gratuito agora</span>
         </a>
       </div>
+
+      <p class="cta-credential reveal" data-en="Alana Melo · Master's in Automation · 12+ years · 5 companies transformed">
+        Alana Melo · Mestre em Automação · 12+ anos · 5 empresas transformadas
+      </p>
+      <p class="cta-alt reveal" data-en="Prefer email? <a href='mailto:oryga.contato@gmail.com'>oryga.contato@gmail.com</a>">
+        Prefere e-mail? <a href="mailto:oryga.contato@gmail.com">oryga.contato@gmail.com</a>
+      </p>
     </div>
   </section>
 
