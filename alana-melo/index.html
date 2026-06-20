@@ -781,18 +781,27 @@
     });
   });
 
-  // Contact form
+  // Contact form — FormSubmit (no account needed, activates on first submission)
   document.getElementById('cform').addEventListener('submit', async e => {
     e.preventDefault();
     const btn = document.getElementById('sbtn');
     const form = e.target;
+    const data = {
+      name:    form.name.value,
+      email:   form.email.value,
+      company: form.company.value,
+      message: form.message.value,
+      _subject: 'New message from portfolio — ' + form.name.value,
+      _captcha: 'false',
+      _template: 'table'
+    };
     btn.textContent = 'Sending...';
     btn.disabled = true;
     try {
-      const res = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+      const res = await fetch('https://formsubmit.co/ajax/alanamelo.contact@gmail.com', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       });
       if (res.ok) {
         btn.textContent = "Sent! I'll be in touch soon ✓";
