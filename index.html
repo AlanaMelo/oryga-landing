@@ -331,11 +331,22 @@
     }
 
     .hero-inner {
-      max-width: 820px;
+      max-width: 1180px;
       margin: 0 auto;
-      text-align: center;
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
+    .hero-img-wrap img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid var(--green-border);
+      box-shadow: 0 0 0 10px var(--green-dim), 0 30px 70px rgba(0,0,0,.55);
+      display: block;
     }
 
     .hero-badge {
@@ -376,17 +387,17 @@
     .hero-btns {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
     /* Parceiros / prova social mínima */
     .hero-proof {
-      margin-top: 4rem;
+      margin-top: 2.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 1.5rem;
       flex-wrap: wrap;
     }
@@ -1122,8 +1133,26 @@
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
 
+    /* Imagens de seção */
+    .section-img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: block;
+      margin-top: 2rem;
+    }
+    .strat-img { border-color: var(--blue-border); box-shadow: 0 16px 48px rgba(0,0,0,.4); }
+    .auto-img  { border-color: var(--green-border); box-shadow: 0 16px 48px rgba(0,0,0,.4); margin-top: 0; margin-bottom: 2.5rem; }
+
     @media (max-width: 768px) {
       .section, #estrategia, #automacao, #diferenciais, #cta-final { padding: 4.5rem 1.25rem; }
+
+      /* Hero 2-col → 1-col */
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-content { align-items: center; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hero-proof { justify-content: center; }
+      .hero-img-wrap { order: -1; }
 
       /* Navbar mobile */
       .nav-links {
@@ -1188,41 +1217,48 @@
     <div class="hero-glow"></div>
 
     <div class="hero-inner">
-      <div class="hero-badge reveal">
-        <i data-lucide="sparkles"></i>
-        <span data-en="Technology &amp; Automation Consulting">Consultoria de Tecnologia &amp; Automação</span>
-      </div>
-
-      <h1 class="hero-title reveal d1" data-en="Is your team losing hours every week on <span class='hl-green'>manual tasks?</span>">
-        Sua equipe perde horas por semana em <span class="hl-green">tarefas manuais?</span>
-      </h1>
-
-      <p class="hero-sub reveal d2" data-en="We automate customer service, processes, and operations so your company can grow without hiring more people.">
-        Automatizamos atendimento, processos e operações para que sua empresa cresça sem contratar mais pessoas.
-      </p>
-
-      <div class="hero-btns reveal d3">
-        <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20receber%20um%20diagn%C3%B3stico%20gratuito%20da%20Oryga."
-           target="_blank" rel="noopener" class="btn btn-green">
-          <i data-lucide="message-circle"></i>
-          <span data-en="👉 Get Free Diagnosis">👉 Receber Diagnóstico Gratuito</span>
-        </a>
-        <a href="#automacao" class="btn btn-outline-white">
-          <i data-lucide="cpu"></i>
-          <span data-en="I want to automate my business">Quero automatizar meu negócio</span>
-        </a>
-      </div>
-
-      <!-- Prova social sutil -->
-      <div class="hero-proof reveal d4">
-        <span class="hero-proof-label" data-en="We serve">Atendemos</span>
-        <div class="proof-pills">
-          <div class="proof-pill"><i data-lucide="rocket"></i> <span>Startups</span></div>
-          <div class="proof-pill"><i data-lucide="trending-up"></i> <span>Scale-ups</span></div>
-          <div class="proof-pill"><i data-lucide="scissors"></i> <span data-en="Salons">Salões</span></div>
-          <div class="proof-pill"><i data-lucide="stethoscope"></i> <span data-en="Clinics">Clínicas</span></div>
-          <div class="proof-pill"><i data-lucide="store"></i> <span data-en="Local businesses">Comércio local</span></div>
+      <!-- Texto -->
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <i data-lucide="sparkles"></i>
+          <span data-en="Technology &amp; Automation Consulting">Consultoria de Tecnologia &amp; Automação</span>
         </div>
+
+        <h1 class="hero-title reveal d1" data-en="Is your team losing hours every week on <span class='hl-green'>manual tasks?</span>">
+          Sua equipe perde horas por semana em <span class="hl-green">tarefas manuais?</span>
+        </h1>
+
+        <p class="hero-sub reveal d2" data-en="We automate customer service, processes, and operations so your company can grow without hiring more people.">
+          Automatizamos atendimento, processos e operações para que sua empresa cresça sem contratar mais pessoas.
+        </p>
+
+        <div class="hero-btns reveal d3">
+          <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20receber%20um%20diagn%C3%B3stico%20gratuito%20da%20Oryga."
+             target="_blank" rel="noopener" class="btn btn-green">
+            <i data-lucide="message-circle"></i>
+            <span data-en="👉 Get Free Diagnosis">👉 Receber Diagnóstico Gratuito</span>
+          </a>
+          <a href="#automacao" class="btn btn-outline-white">
+            <i data-lucide="cpu"></i>
+            <span data-en="I want to automate my business">Quero automatizar meu negócio</span>
+          </a>
+        </div>
+
+        <div class="hero-proof reveal d4">
+          <span class="hero-proof-label" data-en="We serve">Atendemos</span>
+          <div class="proof-pills">
+            <div class="proof-pill"><i data-lucide="rocket"></i> <span>Startups</span></div>
+            <div class="proof-pill"><i data-lucide="trending-up"></i> <span>Scale-ups</span></div>
+            <div class="proof-pill"><i data-lucide="scissors"></i> <span data-en="Salons">Salões</span></div>
+            <div class="proof-pill"><i data-lucide="stethoscope"></i> <span data-en="Clinics">Clínicas</span></div>
+            <div class="proof-pill"><i data-lucide="store"></i> <span data-en="Local businesses">Comércio local</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagem -->
+      <div class="hero-img-wrap reveal d2">
+        <img src="images/hero.png" alt="Dashboard de automação e IA" />
       </div>
     </div>
   </section>
@@ -1380,6 +1416,7 @@
             <span data-en="Talk to a consultant">Falar com um consultor</span>
           </a>
         </div>
+        <img src="images/estrategia.png" alt="Equipe analisando métricas" class="section-img strat-img reveal" />
       </div>
 
       <!-- Coluna direita: cards de serviços -->
@@ -1438,6 +1475,8 @@
           </a>
         </div>
       </div>
+
+      <img src="images/automacao.png" alt="Fluxo de automação: WhatsApp, CRM e relatórios" class="section-img auto-img reveal" />
 
       <!-- Cards de automação -->
       <div class="auto-cards">
