@@ -417,6 +417,90 @@
     .proof-pill svg { width: 13px; height: 13px; color: var(--green); }
 
     /* ───────────────────────────────────────────────────────
+       DOR / URGÊNCIA
+    ─────────────────────────────────────────────────────── */
+    :root {
+      --red:        #ef4444;
+      --red-dim:    rgba(239,68,68,.1);
+      --red-border: rgba(239,68,68,.22);
+    }
+    #dor {
+      padding: 5.5rem 1.5rem;
+      background: linear-gradient(180deg, var(--bg) 0%, #110a0a 50%, var(--bg) 100%);
+      position: relative;
+    }
+    #dor::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red-border), transparent);
+    }
+    .dor-wrap { max-width: 1180px; margin: 0 auto; }
+    .dor-head { text-align: center; margin-bottom: 3rem; }
+    .dor-head .sec-tag.red {
+      color: var(--red);
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+    }
+    .dor-head .hl-red { color: var(--red); }
+
+    .dor-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .dor-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--red-border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      transition: border-color .25s, transform .25s;
+    }
+    .dor-card:hover {
+      border-color: var(--red-border);
+      border-top-color: var(--red);
+      transform: translateY(-3px);
+    }
+    .dor-icon {
+      font-size: 1.75rem;
+      margin-bottom: .875rem;
+      display: block;
+    }
+    .dor-card h3 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .5rem;
+      line-height: 1.3;
+    }
+    .dor-card p {
+      font-size: .78rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    .dor-footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+      border-radius: var(--radius);
+    }
+    .dor-footer p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .dor-footer p span { color: var(--red); }
+
+    @media (max-width: 1024px) { .dor-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px)  { .dor-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ───────────────────────────────────────────────────────
        RESULTADOS
     ─────────────────────────────────────────────────────── */
     #resultados {
@@ -1140,6 +1224,66 @@
           <div class="proof-pill"><i data-lucide="store"></i> <span data-en="Local businesses">Comércio local</span></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ DOR / URGÊNCIA ══════════════════ -->
+  <section id="dor">
+    <div class="dor-wrap">
+
+      <div class="dor-head reveal">
+        <span class="sec-tag red" style="margin-bottom:1rem;">
+          <i data-lucide="alert-triangle"></i>
+          <span data-en="The real cost of inaction">O custo de não agir</span>
+        </span>
+        <h2 class="sec-title" data-en="How much does <span class='hl-red'>not automating</span> cost you?">
+          Quanto custa <span class="hl-red">não automatizar?</span>
+        </h2>
+        <p class="sec-desc" style="margin: .75rem auto 0; text-align:center;"
+           data-en="Every day without automation, your company loses time, money, and customers — silently.">
+          Todo dia sem automação, sua empresa perde tempo, dinheiro e clientes — em silêncio.
+        </p>
+      </div>
+
+      <div class="dor-grid">
+        <div class="dor-card reveal">
+          <span class="dor-icon">⏳</span>
+          <h3 data-en="Customers waiting for a response">Clientes esperando resposta</h3>
+          <p data-en="Your customer doesn't wait. If you don't answer fast, the competitor will.">Seu cliente não espera. Se você não responde rápido, o concorrente responde.</p>
+        </div>
+        <div class="dor-card reveal d1">
+          <span class="dor-icon">😓</span>
+          <h3 data-en="Overloaded team">Equipe sobrecarregada</h3>
+          <p data-en="Errors increase, quality drops, burnout grows. All avoidable.">Erros aumentam, qualidade cai, burnout cresce. Tudo evitável.</p>
+        </div>
+        <div class="dor-card reveal d2">
+          <span class="dor-icon">💸</span>
+          <h3 data-en="Lost sales">Vendas perdidas</h3>
+          <p data-en="Leads not answered in time become revenue for the competition.">Leads não respondidos a tempo viram receita para a concorrência.</p>
+        </div>
+        <div class="dor-card reveal d3">
+          <span class="dor-icon">🐢</span>
+          <h3 data-en="Slow processes">Processos lentos</h3>
+          <p data-en="Every hour wasted in manual tasks is an hour not invested in growing.">Cada hora perdida em tarefas manuais é uma hora não investida em crescer.</p>
+        </div>
+        <div class="dor-card reveal d4">
+          <span class="dor-icon">🔁</span>
+          <h3 data-en="Daily rework">Retrabalho diário</h3>
+          <p data-en="Your team redoes what a machine could have done right the first time.">Sua equipe refaz o que a máquina poderia ter feito certo na primeira vez.</p>
+        </div>
+      </div>
+
+      <div class="dor-footer reveal">
+        <p data-en="And this repeats <span>every single day</span> while competitors automate.">
+          E isso se repete <span>todos os dias</span> enquanto a concorrência automatiza.
+        </p>
+        <a href="https://wa.me/5537998019444?text=Ol%C3%A1!%20Quero%20agendar%20meu%20diagn%C3%B3stico%20gratuito%20com%20a%20Oryga."
+           target="_blank" rel="noopener" class="btn btn-green">
+          <i data-lucide="message-circle"></i>
+          <span data-en="👉 Schedule Free Diagnosis Now">👉 Agendar Diagnóstico Gratuito Agora</span>
+        </a>
+      </div>
+
     </div>
   </section>
 
