@@ -725,6 +725,73 @@
     }
 
     /* ───────────────────────────────────────────────────────
+       FUNDADORA
+    ─────────────────────────────────────────────────────── */
+    #fundadora {
+      padding: 6rem 1.5rem;
+      background: var(--bg);
+      position: relative;
+    }
+    #fundadora::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-border), transparent);
+    }
+    #fundadora::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-border), transparent);
+    }
+    .founder-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .founder-photo {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--green-border);
+      box-shadow: 0 0 0 10px var(--green-dim), 0 0 50px var(--green-glow);
+      display: block;
+    }
+    .founder-name {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: 1.5rem;
+    }
+    .founder-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .625rem;
+      margin-bottom: 2rem;
+    }
+    .fcred {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      border-radius: 8px;
+      padding: .45rem .9rem;
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--green-light);
+    }
+    @media (max-width: 768px) {
+      .founder-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .founder-photo { margin: 0 auto; }
+      .founder-creds { justify-content: center; }
+    }
+
+    /* ───────────────────────────────────────────────────────
        CTA FINAL
     ─────────────────────────────────────────────────────── */
     #cta-final {
@@ -940,7 +1007,7 @@
       <li><a href="#estrategia" data-en="Strategy">Estratégia</a></li>
       <li><a href="#automacao" data-en="Automation">Automação</a></li>
       <li><a href="#diferenciais" data-en="Why Oryga">Por que a Oryga</a></li>
-      <li><a href="/alana-melo" data-en="Founder">Fundadora</a></li>
+      <li><a href="#fundadora" data-en="Founder">Fundadora</a></li>
       <li><a href="https://wa.me/5537998019444" target="_blank" rel="noopener" class="nav-cta" data-en="Talk Now">Falar Agora</a></li>
     </ul>
 
@@ -1158,6 +1225,31 @@
     </div>
   </section>
 
+  <!-- ══════════════════ QUEM É A ORYGA ═══════════════════ -->
+  <section id="fundadora">
+    <div class="founder-grid">
+      <div class="reveal">
+        <img src="alana-melo/foto.jpeg" alt="Alana Melo" class="founder-photo" />
+      </div>
+      <div class="reveal d1">
+        <span class="sec-tag green" style="margin-bottom:1rem;">
+          <i data-lucide="user-check"></i>
+          <span data-en="Who is behind Oryga">Quem está por trás da Oryga</span>
+        </span>
+        <h2 class="founder-name">Alana Melo</h2>
+        <div class="founder-creds">
+          <span class="fcred" data-en="🎓 Master's in Automation &amp; Systems">🎓 Mestre em Automação e Sistemas</span>
+          <span class="fcred" data-en="⏱ 12+ years in tech">⏱ 12+ anos em tecnologia</span>
+          <span class="fcred">📦 Product Manager</span>
+          <span class="fcred">🎯 Product Owner</span>
+          <span class="fcred" data-en="👩‍💻 Engineering Leader">👩‍💻 Líder de Engenharia</span>
+          <span class="fcred" data-en="🤖 AI, Data &amp; Backend Specialist">🤖 Especialista em IA, Dados e Backend</span>
+        </div>
+        <a href="/alana-melo" class="btn btn-outline-green" data-en="See full portfolio →">Ver portfólio completo →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ════════════════════ CTA FINAL ═══════════════════════ -->
   <section id="cta-final">
     <div class="cta-glow-left"></div>
@@ -1211,7 +1303,7 @@
           <li><a href="#automacao" data-en="Oryga Automation">Oryga Automação</a></li>
           <li><a href="#diferenciais" data-en="Why Oryga">Por que a Oryga</a></li>
           <li><a href="#cta-final" data-en="Contact">Contato</a></li>
-          <li><a href="/alana-melo" data-en="Founder">Fundadora</a></li>
+          <li><a href="#fundadora" data-en="Founder">Fundadora</a></li>
         </ul>
       </div>
 
