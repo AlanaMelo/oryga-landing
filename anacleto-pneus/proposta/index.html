@@ -827,54 +827,12 @@
     </div>
   </div>
 
-  <!-- ── CTA ── -->
+  <!-- ── Próximos Passos ── -->
   <div class="sign-cta">
     <div class="sign-cta-icon">🚀</div>
-    <div class="sign-cta-title">Pronto para colocar a <span>Anacleto Pneus</span> na internet?</div>
-    <div class="sign-cta-desc">Ao assinar esta proposta, você dá o primeiro passo para que novos clientes encontrem a Anacleto Pneus todos os dias — pelo Google, pelo WhatsApp e de onde estiverem.</div>
-  </div>
-
-  <!-- ── Assinatura ── -->
-  <div id="signSection">
-    <div class="sign-block">
-      <div class="sign-title">Assinatura Digital do Cliente</div>
-      <div class="sign-sub">Ao assinar, o responsável confirma que leu e aceita todos os termos desta proposta.</div>
-      <div class="sign-fields">
-        <div>
-          <label class="sign-field-label" for="signName">Nome do responsável</label>
-          <input type="text" id="signName" class="sign-field-input" placeholder="Nome completo">
-        </div>
-        <div>
-          <label class="sign-field-label">Data</label>
-          <input type="text" id="signDate" class="sign-field-input" readonly>
-        </div>
-      </div>
-      <label class="sign-canvas-label">Assinatura</label>
-      <div class="sign-canvas-wrap">
-        <canvas id="signCanvas" height="160"></canvas>
-      </div>
-      <div class="sign-actions">
-        <button class="sign-clear" onclick="clearSign()">Limpar</button>
-        <button class="sign-confirm" onclick="confirmSign()">✓ Assinar e confirmar proposta</button>
-        <span class="sign-hint">Assine com o dedo ou mouse</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Assinado ── -->
-  <div id="signedBlock">
-    <div class="sign-block">
-      <div class="signed-banner">
-        <div class="signed-ico">✅</div>
-        <div class="signed-info">
-          <h3>Proposta assinada digitalmente</h3>
-          <p id="signTS"></p>
-        </div>
-      </div>
-      <img id="signedImg" class="signed-sig" alt="Assinatura digital">
-      <br>
-      <button class="sign-print-btn" onclick="window.print()">🖨 Salvar / Imprimir PDF</button>
-    </div>
+    <div class="sign-cta-title">Pronto para colocar a <span id="ctaEmpresaNome">sua empresa</span> na internet?</div>
+    <div class="sign-cta-desc">O aceite desta proposta ocorre com a realização do pagamento do investimento inicial. Após a confirmação, iniciamos o projeto imediatamente e encaminhamos o contrato de prestação de serviços para formalização.</div>
+    <a class="sign-cta-btn" id="ctaWaBtn" href="https://wa.me/5537998019444" target="_blank">📲 Quero contratar — falar com a Oryga</a>
   </div>
 
   <!-- ── Footer ── -->
@@ -897,7 +855,7 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeLinkModal()">✕</button>
     <div class="modal-tag">Proposta gerada</div>
-    <div class="modal-title">Compartilhe com o cliente para ele visualizar e assinar.</div>
+    <div class="modal-title">Compartilhe com o cliente para visualizar a proposta.</div>
     <div class="modal-btns">
       <button class="modal-btn yellow" onclick="copyLink()">📋 Copiar link</button>
       <button class="modal-btn wa"     onclick="sendViaWA()">📲 WhatsApp</button>
@@ -909,27 +867,18 @@
 
 <div id="toast"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  /* ════ CONFIG EmailJS — preencha após criar conta em emailjs.com ════ */
-  const EJ_PUBLIC_KEY  = 'SUA_PUBLIC_KEY';
-  const EJ_SERVICE_ID  = 'SUA_SERVICE_ID';
-  const EJ_TEMPLATE_ID = 'SUA_TEMPLATE_ID';
-
   /* ════ SENHAS ════ */
   const VENDOR_PWD = 'oryga@vendas';
   const CLIENT_PWD = 'assinar@2026';
   const STORE_KEY  = 'proposta_anacleto_v2';
 
   let generatedLink = '';
-  let canvas, ctx, drawing = false, hasSign = false;
 
   /* Data */
   const hoje = new Date();
   document.getElementById('eDate').textContent =
     hoje.toLocaleDateString('pt-BR', {day:'2-digit', month:'long', year:'numeric'});
-  const signDateEl = document.getElementById('signDate');
-  if (signDateEl) signDateEl.value = hoje.toLocaleDateString('pt-BR');
 
   /* ── Senha ── */
   document.getElementById('pwdInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPwd(); });
@@ -954,15 +903,11 @@
     if (mode === 'vendor') {
       document.getElementById('vbar').style.display = 'flex';
       enableEdit();
-    } else {
-      const d = getStorage();
-      if (d && d.signed) showSigned(d.signedAt, d.signatureName, d.signatureData);
-      else {
-        document.getElementById('signSection').style.display = 'block';
-        if (signDateEl) signDateEl.value = hoje.toLocaleDateString('pt-BR');
-        initCanvas();
-      }
     }
+    /* atualiza nome da empresa no CTA */
+    const emp = document.getElementById('eEmpresa');
+    const cta = document.getElementById('ctaEmpresaNome');
+    if (emp && cta) cta.textContent = emp.textContent.trim() || 'sua empresa';
   }
 
   /* ── Edição ── */
@@ -1028,7 +973,7 @@
 
   function sendViaWA() {
     const empresa = document.getElementById('eEmpresa').textContent.trim();
-    const msg = `Olá! Segue o link da proposta comercial da Oryga para ${empresa}:\n\n${generatedLink}\n\n🔐 Senha: *${CLIENT_PWD}*`;
+    const msg = `Olá! Preparamos uma proposta comercial para ${empresa}. Acesse o link abaixo para visualizar:\n\n${generatedLink}\n\n🔐 Senha de acesso: *${CLIENT_PWD}*\n\nQualquer dúvida, estou à disposição!`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
   }
 
@@ -1037,72 +982,8 @@
     const email    = document.getElementById('eEmail').textContent.trim();
     const dest     = (email && email !== '—') ? email : '';
     const assunto  = encodeURIComponent(`Proposta Comercial Oryga — ${empresa}`);
-    const corpo    = encodeURIComponent(`Olá!\n\nSegue o link para visualizar e assinar a proposta comercial da Oryga:\n\n${generatedLink}\n\nSenha de acesso: ${CLIENT_PWD}\n\nQualquer dúvida, estou à disposição.\n\nAtt,\nOryga Consultoria`);
+    const corpo    = encodeURIComponent(`Olá!\n\nPreparamos uma proposta comercial personalizada para vocês. Acesse o link abaixo para visualizar:\n\n${generatedLink}\n\nSenha de acesso: ${CLIENT_PWD}\n\nApós a visualização, entre em contato para avançarmos com a contratação.\n\nAtt,\nOryga Consultoria`);
     window.open(`mailto:${dest}?subject=${assunto}&body=${corpo}`, '_blank');
-  }
-
-  /* ── Canvas ── */
-  function initCanvas() {
-    canvas = document.getElementById('signCanvas');
-    const dpr = window.devicePixelRatio || 1;
-    const W   = canvas.parentElement.clientWidth - 10;
-    canvas.width  = W * dpr;
-    canvas.height = 160 * dpr;
-    canvas.style.width  = W + 'px';
-    canvas.style.height = '160px';
-    ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
-    ctx.strokeStyle = '#111'; ctx.lineWidth = 2.5;
-    ctx.lineCap = ctx.lineJoin = 'round';
-
-    const pos = e => {
-      const r = canvas.getBoundingClientRect();
-      const s = e.touches ? e.touches[0] : e;
-      return { x: s.clientX - r.left, y: s.clientY - r.top };
-    };
-
-    canvas.addEventListener('mousedown',  e => { drawing=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); });
-    canvas.addEventListener('mousemove',  e => { if(!drawing) return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); hasSign=true; });
-    canvas.addEventListener('mouseup',    () => drawing=false);
-    canvas.addEventListener('mouseleave', () => drawing=false);
-    canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); }, {passive:false});
-    canvas.addEventListener('touchmove',  e => { e.preventDefault(); if(!drawing) return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); hasSign=true; }, {passive:false});
-    canvas.addEventListener('touchend',   () => drawing=false);
-  }
-
-  function clearSign() { if(ctx) ctx.clearRect(0, 0, canvas.width, canvas.height); hasSign=false; }
-
-  async function confirmSign() {
-    const name = document.getElementById('signName').value.trim();
-    if (!name)    { alert('Por favor, informe seu nome antes de assinar.'); return; }
-    if (!hasSign) { alert('Por favor, faça sua assinatura no campo acima.'); return; }
-
-    const dataUrl = canvas.toDataURL('image/png');
-    const ts      = new Date().toLocaleString('pt-BR');
-    const d       = getStorage() || {};
-    Object.assign(d, { signed:true, signedAt:ts, signatureName:name, signatureData:dataUrl });
-    localStorage.setItem(STORE_KEY, JSON.stringify(d));
-
-    if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') {
-      try {
-        await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_ID, {
-          cliente_nome:    name,
-          empresa:         document.getElementById('eEmpresa').textContent.trim(),
-          proposta_ref:    document.getElementById('eRef').textContent.trim(),
-          data_assinatura: ts,
-          demo_link:       'https://orygaconsultoria.com.br/anacleto-pneus/',
-        }, EJ_PUBLIC_KEY);
-      } catch(err) { console.warn('EmailJS:', err); }
-    }
-
-    document.getElementById('signSection').style.display = 'none';
-    showSigned(ts, name, dataUrl);
-  }
-
-  function showSigned(ts, name, dataUrl) {
-    document.getElementById('signedBlock').style.display = 'block';
-    document.getElementById('signTS').textContent = `Assinado por ${name} em ${ts}`;
-    document.getElementById('signedImg').src = dataUrl;
   }
 
   /* ── Toast ── */
