@@ -1256,10 +1256,16 @@
 
     @media (max-width: 768px) {
       .section, #estrategia, #automacao, #diferenciais, #cta-final { padding: 4.5rem 1.25rem; }
+      #hero       { padding: 6.5rem 1.25rem 4rem; }
+      #dor        { padding: 4rem 1.25rem; }
+      #resultados { padding: 4rem 1.25rem; }
+      #fundadora  { padding: 4rem 1.25rem; }
 
       /* Hero 2-col → 1-col */
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-content { align-items: center; text-align: center; }
+      .hero-sub { max-width: 100%; }
+      .sec-desc { max-width: 100%; }
       .hero-btns { justify-content: center; }
       .hero-proof { justify-content: center; }
       .hero-img-wrap { order: -1; }
@@ -1283,18 +1289,23 @@
       .hamburger { display: flex; }
 
       .hero-title    { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+      .dor-grid      { grid-template-columns: repeat(2, 1fr); }
       .strat-cards   { grid-template-columns: 1fr; }
       .auto-cards    { grid-template-columns: 1fr; }
+      .auto-header   { flex-direction: column; }
       .dif-grid      { grid-template-columns: 1fr; }
       .footer-inner  { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 480px) {
+      #hero { padding: 5.5rem 1rem 3rem; }
       .hero-btns { flex-direction: column; align-items: stretch; }
       .btn       { justify-content: center; }
       .cta-btns  { flex-direction: column; align-items: stretch; }
       .strat-cards { grid-template-columns: 1fr; }
+      .rstat { padding: 1.5rem .875rem; }
+      .rstat-v { font-size: 1.875rem; }
     }
   </style>
 </head>
