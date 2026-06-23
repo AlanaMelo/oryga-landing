@@ -412,6 +412,14 @@
     }
     .equipe-foto img { width: 100%; height: auto; display: block; }
 
+    .equipe-vendas-layout {
+      max-width: 1160px; margin: 5rem auto 0;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
     .equipe-checks { display: flex; flex-direction: column; gap: .75rem; margin: 2rem 0; }
     .equipe-check { display: flex; align-items: center; gap: .75rem; font-size: .92rem; color: var(--gray-light); }
     .equipe-check-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
@@ -440,6 +448,8 @@
       .dep-grid      { grid-template-columns: 1fr; }
       .stats-grid    { grid-template-columns: repeat(2, 1fr); }
       .equipe-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .equipe-vendas-layout { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 3rem; }
+      .equipe-vendas-layout .equipe-foto { order: -1; }
 
       .footer-inner  { flex-direction: column; }
     }
@@ -545,6 +555,87 @@
       gap: .5rem; font-size: .78rem; color: #555;
     }
     .oryga-modal-brand strong { color: var(--yellow); }
+
+    /* ════════════════════════════════════════════
+       FORMULÁRIO DE CONTATO
+    ════════════════════════════════════════════ */
+    #contato {
+      padding: 6rem 1.5rem;
+      background: var(--bg1);
+      position: relative;
+    }
+    #contato::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--yellow-border), transparent);
+    }
+
+    .contato-layout {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start;
+    }
+
+    .contato-info-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900;
+      letter-spacing: -.03em; line-height: 1.2; margin-bottom: 1rem;
+    }
+    .contato-info-title span { color: var(--yellow); }
+    .contato-info-desc { font-size: .92rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+
+    .contato-info-items { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contato-info-item {
+      display: flex; align-items: flex-start; gap: .875rem;
+    }
+    .contato-info-icon {
+      width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+      background: var(--yellow-dim); border: 1px solid var(--yellow-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--yellow);
+    }
+    .contato-info-icon svg { width: 18px; height: 18px; }
+    .contato-info-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .2rem; }
+    .contato-info-value { font-size: .9rem; color: #ddd; font-weight: 500; }
+
+    /* form */
+    .contato-form {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2.25rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: .75rem; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: .08em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: .75rem 1rem;
+      color: #f0f0f0; font-family: inherit; font-size: .9rem;
+      transition: border-color .2s, background .2s;
+      outline: none; width: 100%; box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(245,168,0,.5); background: rgba(245,168,0,.04);
+    }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #444; }
+
+    .form-submit {
+      width: 100%; padding: 1rem; border: none; border-radius: 12px;
+      background: var(--yellow); color: #0a0a0a;
+      font-size: .95rem; font-weight: 800; font-family: inherit;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .5rem;
+      transition: background .2s, transform .15s; margin-top: .5rem;
+    }
+    .form-submit:hover { background: var(--yellow-light); transform: translateY(-2px); }
+
+    @media (max-width: 768px) {
+      .contato-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .contato-form { padding: 1.5rem; }
+    }
 
     .oryga-services-grid {
       display: flex; flex-direction: column; gap: .75rem; margin-top: 1.25rem;
@@ -804,7 +895,7 @@
   <div class="equipe-layout container">
 
     <div class="equipe-foto reveal">
-      <img src="images/fundadores.png" alt="Equipe Anacleto Pneus">
+      <img src="images/founders.png" alt="Fundadores Anacleto Pneus">
     </div>
 
     <div>
@@ -839,6 +930,45 @@
           Falar com a equipe
         </a>
       </div>
+    </div>
+
+  </div>
+
+  <!-- Equipe de Vendas -->
+  <div class="equipe-vendas-layout container">
+
+    <div>
+      <span class="sec-tag yellow reveal"><i data-lucide="star"></i> Equipe comercial</span>
+      <h2 class="sec-title reveal d1">Prontas para<br>te atender.</h2>
+      <p class="sec-desc reveal d2">
+        Nossa equipe de vendas garante que você encontre o pneu certo, com o melhor preço e no menor tempo. Atendimento ágil, sem enrolação.
+      </p>
+
+      <div class="equipe-checks reveal d3">
+        <div class="equipe-check">
+          <div class="equipe-check-dot"></div>
+          Orçamento rápido pelo WhatsApp ou presencial
+        </div>
+        <div class="equipe-check">
+          <div class="equipe-check-dot"></div>
+          Indicação do pneu ideal para cada tipo de caminhão
+        </div>
+        <div class="equipe-check">
+          <div class="equipe-check-dot"></div>
+          Atendimento de segunda a sexta, das 07h às 17h
+        </div>
+      </div>
+
+      <div class="reveal d4">
+        <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20pneu." target="_blank" rel="noopener" class="btn btn-wa">
+          <i data-lucide="message-circle"></i>
+          Pedir orçamento agora
+        </a>
+      </div>
+    </div>
+
+    <div class="equipe-foto reveal">
+      <img src="images/meninas.png" alt="Equipe de vendas Anacleto Pneus">
     </div>
 
   </div>
@@ -983,6 +1113,74 @@
         loading="lazy">
       </iframe>
     </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ CONTATO ══════════════ -->
+<section id="contato">
+  <div class="contato-layout">
+
+    <div>
+      <span class="sec-tag yellow reveal"><i data-lucide="send"></i> Fale conosco</span>
+      <h2 class="contato-info-title reveal d1">Peça seu<br><span>orçamento agora.</span></h2>
+      <p class="contato-info-desc reveal d2">Preencha o formulário e entraremos em contato pelo WhatsApp rapidinho. Sem compromisso.</p>
+
+      <div class="contato-info-items reveal d3">
+        <div class="contato-info-item">
+          <div class="contato-info-icon"><i data-lucide="phone"></i></div>
+          <div>
+            <div class="contato-info-label">Telefone</div>
+            <div class="contato-info-value">(37) 9 9991-5047</div>
+          </div>
+        </div>
+        <div class="contato-info-item">
+          <div class="contato-info-icon"><i data-lucide="clock"></i></div>
+          <div>
+            <div class="contato-info-label">Horário de atendimento</div>
+            <div class="contato-info-value">Seg – Sex: 07h às 17h</div>
+          </div>
+        </div>
+        <div class="contato-info-item">
+          <div class="contato-info-icon"><i data-lucide="map-pin"></i></div>
+          <div>
+            <div class="contato-info-label">Endereço</div>
+            <div class="contato-info-value">MG-050, km 134 – Jardim Real, Divinópolis MG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contato-form reveal" id="contatoForm" onsubmit="enviarWhatsApp(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-nome">Nome</label>
+          <input type="text" id="cf-nome" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-fone">WhatsApp</label>
+          <input type="tel" id="cf-fone" placeholder="(37) 9 0000-0000" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cf-servico">Serviço desejado</label>
+        <select id="cf-servico" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option>Venda de pneu de caminhão</option>
+          <option>Reforma de pneu</option>
+          <option>Borracharia / conserto</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cf-msg">Mensagem (opcional)</label>
+        <textarea id="cf-msg" placeholder="Descreva o que precisa, modelo do caminhão, etc."></textarea>
+      </div>
+      <button type="submit" class="form-submit">
+        <i data-lucide="message-circle"></i>
+        Enviar pelo WhatsApp
+      </button>
+    </form>
 
   </div>
 </section>
@@ -1141,6 +1339,24 @@
     });
   }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
   reveals.forEach(el => observer.observe(el));
+
+  /* ── Formulário → WhatsApp ── */
+  function enviarWhatsApp(e) {
+    e.preventDefault();
+    const nome    = document.getElementById('cf-nome').value.trim();
+    const fone    = document.getElementById('cf-fone').value.trim();
+    const servico = document.getElementById('cf-servico').value;
+    const msg     = document.getElementById('cf-msg').value.trim();
+
+    let texto = `Olá! Vim pelo site e gostaria de um orçamento.\n\n`;
+    texto += `*Nome:* ${nome}\n`;
+    texto += `*WhatsApp:* ${fone}\n`;
+    texto += `*Serviço:* ${servico}`;
+    if (msg) texto += `\n*Mensagem:* ${msg}`;
+
+    const url = `https://wa.me/5537999915047?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  }
 
   /* ── Modais Oryga (alternados) ── */
   (function () {
