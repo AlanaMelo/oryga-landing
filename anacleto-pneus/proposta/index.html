@@ -492,6 +492,7 @@
     .modal-btn:hover { opacity: .88; }
     .modal-btn.yellow { background: var(--yellow); color: #0a0a0a; }
     .modal-btn.wa     { background: var(--green); color: #fff; }
+    .modal-btn.email  { background: #3b5bdb; color: #fff; }
     .modal-pwd { font-size: .8rem; color: var(--muted); margin-top: 1.1rem; }
     .modal-pwd span { color: var(--yellow); font-weight: 800; letter-spacing: .1em; font-size: .88rem; }
 
@@ -895,12 +896,12 @@
 <div class="modal-overlay" id="linkModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeLinkModal()">✕</button>
-    <div class="modal-tag">Link para o cliente</div>
-    <div class="modal-title">Envie este link ao cliente para visualizar e assinar a proposta.</div>
-    <div class="link-box" id="linkBox"></div>
+    <div class="modal-tag">Proposta gerada</div>
+    <div class="modal-title">Compartilhe com o cliente para ele visualizar e assinar.</div>
     <div class="modal-btns">
       <button class="modal-btn yellow" onclick="copyLink()">📋 Copiar link</button>
-      <button class="modal-btn wa"     onclick="sendViaWA()">📲 Enviar pelo WhatsApp</button>
+      <button class="modal-btn wa"     onclick="sendViaWA()">📲 WhatsApp</button>
+      <button class="modal-btn email"  onclick="sendViaEmail()">✉️ E-mail</button>
     </div>
     <div class="modal-pwd">Senha do cliente: <span id="modalPwd"></span></div>
   </div>
@@ -1030,6 +1031,15 @@
     const empresa = document.getElementById('eEmpresa').textContent.trim();
     const msg = `Olá! Segue o link da proposta comercial da Oryga para ${empresa}:\n\n${generatedLink}\n\n🔐 Senha: *${CLIENT_PWD}*`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  function sendViaEmail() {
+    const empresa  = document.getElementById('eEmpresa').textContent.trim();
+    const email    = document.getElementById('eEmail').textContent.trim();
+    const dest     = (email && email !== '—') ? email : '';
+    const assunto  = encodeURIComponent(`Proposta Comercial Oryga — ${empresa}`);
+    const corpo    = encodeURIComponent(`Olá!\n\nSegue o link para visualizar e assinar a proposta comercial da Oryga:\n\n${generatedLink}\n\nSenha de acesso: ${CLIENT_PWD}\n\nQualquer dúvida, estou à disposição.\n\nAtt,\nOryga Consultoria`);
+    window.open(`mailto:${dest}?subject=${assunto}&body=${corpo}`, '_blank');
   }
 
   /* ── Canvas ── */
