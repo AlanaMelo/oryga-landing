@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agende seu diagnóstico gratuito com a Oryga — 30 minutos, sem compromisso.">
+  <title>Agendar Diagnóstico Gratuito — Oryga</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:           #060f11;
+      --bg-section:   #081518;
+      --bg-card:      #0d2024;
+      --green:        #C9A840;
+      --green-light:  #D8B85C;
+      --green-dim:    rgba(201, 168, 64, .12);
+      --green-border: rgba(201, 168, 64, .25);
+      --green-glow:   rgba(201, 168, 64, .22);
+      --white:        #F5EFE0;
+      --gray:         #7a9099;
+      --gray-light:   #aabcc0;
+      --border:       rgba(255, 255, 255, .06);
+      --border-md:    rgba(255, 255, 255, .1);
+      --red:          #ef4444;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .bg-glow {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(201,168,64,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .wrap {
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .logo-wrap img { height: 44px; display: inline-block; }
+
+    /* Card */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 40px 100px rgba(0,0,0,.5);
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      color: var(--green);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 50px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 5vw, 1.875rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: .75rem;
+      letter-spacing: -.02em;
+    }
+    h1 span { color: var(--green); }
+
+    .subtitle {
+      color: var(--gray-light);
+      font-size: .9rem;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    /* Garantias rápidas */
+    .guarantees {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .625rem;
+      margin-bottom: 2rem;
+    }
+    .guarantee {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .78rem;
+      color: var(--gray-light);
+    }
+    .guarantee-ok { color: var(--green); font-weight: 900; }
+
+    /* Formulário */
+    .form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .field { display: flex; flex-direction: column; gap: .45rem; }
+    .field label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--gray-light);
+    }
+    .field label span { color: var(--red); margin-left: .15rem; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border-md);
+      border-radius: 10px;
+      padding: .8rem 1rem;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      transition: border-color .2s, box-shadow .2s;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--gray); }
+    .field select { cursor: pointer; }
+    .field select option { background: #0d2024; color: var(--white); }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--green-border);
+      box-shadow: 0 0 0 3px rgba(201,168,64,.1);
+    }
+    .field textarea { resize: vertical; min-height: 90px; }
+
+    /* Grid de 2 colunas */
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* Botão */
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      padding: 1rem 1.75rem;
+      border-radius: 10px;
+      background: var(--green);
+      color: #1a0e00;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      width: 100%;
+      margin-top: .5rem;
+    }
+    .btn-submit:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--green-glow);
+    }
+    .btn-submit svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: .78rem;
+      color: var(--gray);
+    }
+    .footer-note a { color: var(--gray-light); text-decoration: underline; }
+
+    /* Divisor */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: .5rem 0;
+      color: var(--gray);
+      font-size: .75rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-md);
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.25rem; }
+      .row-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <div class="wrap">
+    <div class="logo-wrap">
+      <a href="/"><img src="/logo-nome-nobg.png" alt="Oryga"></a>
+    </div>
+
+    <div class="card">
+      <div class="badge">📅 Diagnóstico gratuito</div>
+
+      <h1>Agende sua sessão <span>gratuita</span> de 30 min</h1>
+      <p class="subtitle">
+        Não é uma call de venda. É um diagnóstico técnico real — você sai sabendo o que está travando seu crescimento e quanto custa por mês.
+      </p>
+
+      <div class="guarantees">
+        <span class="guarantee"><span class="guarantee-ok">✓</span> Sem pitch de venda</span>
+        <span class="guarantee"><span class="guarantee-ok">✓</span> Sem compromisso</span>
+        <span class="guarantee"><span class="guarantee-ok">✓</span> 100% gratuito</span>
+      </div>
+
+      <form class="form" id="scheduleForm" novalidate>
+
+        <div class="field">
+          <label for="nome">Seu nome<span>*</span></label>
+          <input type="text" id="nome" name="nome" placeholder="Como posso te chamar?" required>
+        </div>
+
+        <div class="field">
+          <label for="empresa">Nome do negócio / empresa<span>*</span></label>
+          <input type="text" id="empresa" name="empresa" placeholder="Ex: Clínica Saúde Plena" required>
+        </div>
+
+        <div class="field">
+          <label for="segmento">Segmento<span>*</span></label>
+          <select id="segmento" name="segmento" required>
+            <option value="" disabled selected>Selecione seu segmento</option>
+            <option value="Startup / Scale-up">Startup / Scale-up</option>
+            <option value="Salão de beleza">Salão de beleza</option>
+            <option value="Clínica / Saúde">Clínica / Saúde</option>
+            <option value="Restaurante / Alimentação">Restaurante / Alimentação</option>
+            <option value="Comércio local">Comércio local</option>
+            <option value="Escritório / Serviços">Escritório / Serviços</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="horario">Melhor horário<span>*</span></label>
+            <select id="horario" name="horario" required>
+              <option value="" disabled selected>Prefiro...</option>
+              <option value="Manhã (8h–12h)">Manhã (8h–12h)</option>
+              <option value="Tarde (13h–18h)">Tarde (13h–18h)</option>
+              <option value="Noite (18h–21h)">Noite (18h–21h)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="contato">WhatsApp<span>*</span></label>
+            <input type="tel" id="contato" name="contato" placeholder="(00) 00000-0000" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="desafio">Qual é seu maior desafio hoje? <span style="color:var(--gray);font-weight:400;">(opcional)</span></label>
+          <textarea id="desafio" name="desafio" placeholder="Ex: Perco muito tempo respondendo clientes manualmente, minha equipe não entrega no prazo..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          Confirmar agendamento pelo WhatsApp
+        </button>
+
+      </form>
+
+      <p class="footer-note">
+        Ao clicar, você será direcionado ao WhatsApp para confirmar o horário.<br>
+        Dúvidas? <a href="mailto:oryga.contato@gmail.com">oryga.contato@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('scheduleForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome     = document.getElementById('nome').value.trim();
+      const empresa  = document.getElementById('empresa').value.trim();
+      const segmento = document.getElementById('segmento').value;
+      const horario  = document.getElementById('horario').value;
+      const contato  = document.getElementById('contato').value.trim();
+      const desafio  = document.getElementById('desafio').value.trim();
+
+      // Validação básica
+      if (!nome || !empresa || !segmento || !horario || !contato) {
+        const campos = [
+          { val: nome,     el: 'nome' },
+          { val: empresa,  el: 'empresa' },
+          { val: segmento, el: 'segmento' },
+          { val: horario,  el: 'horario' },
+          { val: contato,  el: 'contato' },
+        ];
+        campos.forEach(({ val, el }) => {
+          const input = document.getElementById(el);
+          input.style.borderColor = !val ? 'rgba(239,68,68,.6)' : '';
+        });
+        return;
+      }
+
+      // Monta mensagem para o WhatsApp
+      let msg = `Olá, Alana! Quero agendar meu diagnóstico gratuito com a Oryga.\n\n`;
+      msg += `👤 Nome: ${nome}\n`;
+      msg += `🏢 Negócio: ${empresa}\n`;
+      msg += `📌 Segmento: ${segmento}\n`;
+      msg += `🕐 Melhor horário: ${horario}\n`;
+      msg += `📱 WhatsApp: ${contato}\n`;
+      if (desafio) msg += `\n💬 Desafio atual:\n${desafio}\n`;
+
+      const url = `https://wa.me/5537998019444?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+
+      // Redireciona para página de confirmação
+      setTimeout(() => { window.location.href = '/confirmacao'; }, 800);
+    });
+
+    // Remove borda vermelha ao digitar
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('input', () => { el.style.borderColor = ''; });
+    });
+  </script>
+
+</body>
+</html>
