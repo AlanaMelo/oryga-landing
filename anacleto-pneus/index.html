@@ -546,6 +546,20 @@
     }
     .oryga-modal-brand strong { color: var(--yellow); }
 
+    .oryga-services-grid {
+      display: flex; flex-direction: column; gap: .75rem; margin-top: 1.25rem;
+    }
+    .oryga-service-card {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(245,168,0,.12);
+      border-radius: 12px; padding: .875rem 1rem;
+      transition: border-color .2s;
+    }
+    .oryga-service-card:hover { border-color: rgba(245,168,0,.3); }
+    .oryga-service-icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; padding-top: .1rem; }
+    .oryga-service-title { font-size: .88rem; font-weight: 700; color: #f0f0f0; margin-bottom: .2rem; }
+    .oryga-service-desc { font-size: .78rem; color: #777; line-height: 1.5; }
+
     @media (max-width: 480px) {
       .oryga-modal { padding: 1.75rem 1.5rem; }
     }
@@ -1037,6 +1051,63 @@
   </div>
 </div>
 
+<!-- ══════════════ MODAL ORYGA SERVIÇOS ══════════════ -->
+<div class="oryga-overlay" id="orygaOverlay2">
+  <div class="oryga-modal" id="orygaModal2">
+
+    <button class="oryga-modal-close" id="orygaClose2" aria-label="Fechar">✕</button>
+
+    <div class="oryga-modal-badge">
+      <div class="oryga-modal-badge-dot"></div>
+      Oryga · Consultoria Digital
+    </div>
+
+    <h2>Sua empresa no<br><span>próximo nível.</span></h2>
+
+    <p>A Oryga ajuda pequenas e médias empresas a crescer com tecnologia, estratégia e automação. Conheça o que podemos fazer pela sua.</p>
+
+    <div class="oryga-services-grid">
+      <div class="oryga-service-card">
+        <div class="oryga-service-icon">🤖</div>
+        <div>
+          <div class="oryga-service-title">Automação</div>
+          <div class="oryga-service-desc">Chatbot WhatsApp, cobrança automática e follow-up sem esforço manual.</div>
+        </div>
+      </div>
+      <div class="oryga-service-card">
+        <div class="oryga-service-icon">📊</div>
+        <div>
+          <div class="oryga-service-title">Estratégia</div>
+          <div class="oryga-service-desc">Consultoria de processos e gestão para times que querem escalar.</div>
+        </div>
+      </div>
+      <div class="oryga-service-card">
+        <div class="oryga-service-icon">🌐</div>
+        <div>
+          <div class="oryga-service-title">Presença Digital</div>
+          <div class="oryga-service-desc">Sites e landing pages profissionais que geram clientes todos os dias.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oryga-modal-btns" style="margin-top:1.5rem">
+      <a href="https://wa.me/5537998019444?text=Ol%C3%A1%2C+Alana!+Quero+saber+mais+sobre+os+servi%C3%A7os+da+Oryga+para+minha+empresa."
+         target="_blank" rel="noopener"
+         class="oryga-btn-main" id="orygaCTA2">
+        💬 Falar com a Oryga agora
+      </a>
+      <button class="oryga-btn-dismiss" id="orygaDismiss2">Ver mais tarde</button>
+    </div>
+
+    <hr class="oryga-modal-divider">
+
+    <div class="oryga-modal-brand">
+      <strong>Oryga</strong> &nbsp;·&nbsp; orygaconsultoria.com.br
+    </div>
+
+  </div>
+</div>
+
 <!-- WhatsApp flutuante -->
 <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento."
    target="_blank" rel="noopener noreferrer"
@@ -1071,38 +1142,59 @@
   }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
   reveals.forEach(el => observer.observe(el));
 
-  /* ── Modal Oryga ── */
+  /* ── Modais Oryga (alternados) ── */
   (function () {
-    const overlay  = document.getElementById('orygaOverlay');
-    const closeBtn = document.getElementById('orygaClose');
-    const dismiss  = document.getElementById('orygaDismiss');
-    const cta      = document.getElementById('orygaCTA');
-    const KEY      = 'oryga_modal_cta_clicked';
-    const RESHOW   = 90 * 1000; // reaparece a cada 90s após fechar
-    let   timer;
+    const RESHOW = 50 * 1000;
 
-    function showModal() {
-      overlay.classList.add('show');
+    const modals = [
+      {
+        overlay:  document.getElementById('orygaOverlay'),
+        close:    document.getElementById('orygaClose'),
+        dismiss:  document.getElementById('orygaDismiss'),
+        cta:      document.getElementById('orygaCTA'),
+        ctaKey:   'oryga_cta1_clicked',
+      },
+      {
+        overlay:  document.getElementById('orygaOverlay2'),
+        close:    document.getElementById('orygaClose2'),
+        dismiss:  document.getElementById('orygaDismiss2'),
+        cta:      document.getElementById('orygaCTA2'),
+        ctaKey:   'oryga_cta2_clicked',
+      },
+    ];
+
+    let current = 0;
+    let timer;
+
+    function showModal(idx) {
+      modals[idx].overlay.classList.add('show');
     }
 
-    function hideModal(reshow) {
-      overlay.classList.remove('show');
-      if (reshow) timer = setTimeout(showModal, RESHOW);
+    function hideModal(idx, reshow) {
+      modals[idx].overlay.classList.remove('show');
+      if (reshow) {
+        const next = (idx + 1) % modals.length;
+        timer = setTimeout(() => showModal(next), RESHOW);
+        current = next;
+      }
     }
 
-    // Não mostra mais se o visitante já clicou no CTA
-    if (!localStorage.getItem(KEY)) {
-      timer = setTimeout(showModal, 10000); // primeira vez: 10s
-    }
+    // Primeira exibição: modal 1 após 10s
+    timer = setTimeout(() => showModal(0), 10000);
 
-    closeBtn.addEventListener('click', () => hideModal(true));
-    dismiss.addEventListener('click',  () => hideModal(true));
-    overlay.addEventListener('click',  (e) => { if (e.target === overlay) hideModal(true); });
-
-    cta.addEventListener('click', () => {
-      localStorage.setItem(KEY, '1');
-      clearTimeout(timer);
-      hideModal(false);
+    modals.forEach((m, idx) => {
+      m.close.addEventListener('click',   () => hideModal(idx, true));
+      m.dismiss.addEventListener('click', () => hideModal(idx, true));
+      m.overlay.addEventListener('click', (e) => { if (e.target === m.overlay) hideModal(idx, true); });
+      m.cta.addEventListener('click', () => {
+        localStorage.setItem(m.ctaKey, '1');
+        clearTimeout(timer);
+        // ainda alterna para o outro modal
+        const next = (idx + 1) % modals.length;
+        hideModal(idx, false);
+        timer = setTimeout(() => showModal(next), RESHOW);
+        current = next;
+      });
     });
   })();
 </script>
