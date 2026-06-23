@@ -719,7 +719,7 @@
       <div class="plan-card plan-selectable" id="planA" onclick="selectPlan('A')">
         <div class="plan-selected-badge" id="planA-badge">✓ Plano escolhido</div>
         <div class="plan-badge">Opção A</div>
-        <div class="plan-name">Site Entregue</div>
+        <div class="plan-name">Site Independente</div>
         <div class="plan-price-wrap">
           <div class="plan-price-label">Investimento inicial</div>
           <div class="plan-price">R$ 1.500<span>,00</span></div>
@@ -798,16 +798,15 @@
     </div>
   </div>
 
-  <!-- ── Observação hospedagem ── -->
-  <div class="prop-sec">
+  <!-- ── Observação dinâmica ── -->
+  <div class="prop-sec" id="obsSection">
     <div class="prop-sec-header">
       <div class="prop-sec-icon">📌</div>
-      <div class="prop-sec-title">Observação</div>
+      <div class="prop-sec-title">Condições do Plano Escolhido</div>
       <div class="prop-sec-divider"></div>
     </div>
     <div class="info-box" id="eObs">
-      <p>Para que um site permaneça disponível na internet, ele depende de serviços essenciais como domínio, hospedagem, certificado de segurança (SSL), backups e monitoramento.</p>
-      <p>Os planos de gestão da Oryga Consultoria foram criados para cuidar desses serviços e garantir que o site permaneça <strong>seguro, atualizado e funcionando corretamente</strong>.</p>
+      <p style="color:var(--muted);font-style:italic">Selecione um plano acima para ver as condições específicas.</p>
     </div>
   </div>
 
@@ -1107,16 +1106,28 @@
   /* ── Seleção de plano ── */
   let selectedPlan = null;
 
+  const OBS_TEXTS = {
+    A: `<p>Com o <strong>Plano A — Site Independente</strong>, o site será desenvolvido, publicado e entregue com domínio e hospedagem ativos durante o primeiro ano, sem custo adicional.</p>
+        <p>Após esse período, a renovação do domínio e da hospedagem passa a ser de responsabilidade do contratante. A Oryga não realiza cobranças recorrentes nesta modalidade.</p>
+        <p>Caso precise de alterações, atualizações ou suporte técnico a qualquer momento, a Oryga oferece <strong>atendimento avulso por R$ 300 por solicitação</strong> — sem vínculo de mensalidade.</p>`,
+    B: `<p>Com o <strong>Plano B — Site + Plano Essencial</strong>, o domínio, a hospedagem e todos os serviços de infraestrutura permanecem ativos e gerenciados pela Oryga durante todo o período de contratação.</p>
+        <p>O contrato tem <strong>fidelidade mínima de 12 meses</strong>. Após esse período, pode ser renovado ou cancelado com aviso prévio de 30 dias.</p>
+        <p>O investimento inicial é pago no ato da contratação. A mensalidade do plano é gerada via cartão de crédito em até 12x, garantindo previsibilidade financeira para a sua empresa.</p>`,
+    C: `<p>Com o <strong>Plano C — Site + Plano Profissional</strong>, além de toda a infraestrutura ativa, a Oryga realiza até 2 alterações por mês no conteúdo do site — textos, fotos, informações e pequenas correções visuais — sem custo adicional.</p>
+        <p>O contrato tem <strong>fidelidade mínima de 12 meses</strong>. Após esse período, pode ser renovado ou cancelado com aviso prévio de 30 dias.</p>
+        <p>É a opção ideal para empresas que querem manter o site sempre atualizado, com suporte prioritário e atendimento preferencial da Oryga.</p>`,
+    none: `<p style="color:var(--muted);font-style:italic">Selecione um plano acima para ver as condições específicas.</p>`
+  };
+
   function selectPlan(letter) {
-    ['A','B','C'].forEach(l => {
-      document.getElementById('plan'+l).classList.remove('plan-active');
-    });
+    ['A','B','C'].forEach(l => document.getElementById('plan'+l).classList.remove('plan-active'));
     if (selectedPlan === letter) {
       selectedPlan = null;
     } else {
       selectedPlan = letter;
       document.getElementById('plan'+letter).classList.add('plan-active');
     }
+    document.getElementById('eObs').innerHTML = OBS_TEXTS[selectedPlan || 'none'];
     const d = getStorage() || {};
     d.selectedPlan = selectedPlan;
     localStorage.setItem(STORE_KEY, JSON.stringify(d));
@@ -1125,6 +1136,7 @@
   function restoreSelectedPlan() {
     const d = getStorage();
     if (d && d.selectedPlan) selectPlan(d.selectedPlan);
+    else document.getElementById('eObs').innerHTML = OBS_TEXTS['none'];
   }
 
   if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') emailjs.init(EJ_PUBLIC_KEY);
