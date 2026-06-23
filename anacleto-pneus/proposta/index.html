@@ -716,7 +716,8 @@
     <div class="plans-grid">
 
       <!-- Opção A -->
-      <div class="plan-card">
+      <div class="plan-card plan-selectable" id="planA" onclick="selectPlan('A')">
+        <div class="plan-selected-badge" id="planA-badge">✓ Plano escolhido</div>
         <div class="plan-badge">Opção A</div>
         <div class="plan-name">Site Entregue</div>
         <div class="plan-price-wrap">
@@ -1107,7 +1108,7 @@
   let selectedPlan = null;
 
   function selectPlan(letter) {
-    ['B','C'].forEach(l => {
+    ['A','B','C'].forEach(l => {
       document.getElementById('plan'+l).classList.remove('plan-active');
     });
     if (selectedPlan === letter) {
