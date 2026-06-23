@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Proposta Comercial — Oryga</title>
+  <title>Proposta Comercial — Oryga × Anacleto Pneus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -13,15 +13,18 @@
     :root {
       --yellow:  #F5A800;
       --yellow-l:#FFC130;
-      --yellow-d:rgba(245,168,0,.1);
-      --yellow-b:rgba(245,168,0,.28);
+      --yellow-d:rgba(245,168,0,.08);
+      --yellow-b:rgba(245,168,0,.25);
       --bg:      #0a0a0a;
       --bg1:     #111111;
-      --bg2:     #181818;
-      --border:  rgba(255,255,255,.1);
-      --muted:   #666;
-      --gray:    #999;
+      --bg2:     #161616;
+      --bg3:     #1c1c1c;
+      --border:  rgba(255,255,255,.08);
+      --border2: rgba(255,255,255,.12);
+      --muted:   #5a5a5a;
+      --gray:    #888;
       --text:    #f0f0f0;
+      --text2:   #c0c0c0;
       --green:   #25D366;
     }
 
@@ -31,211 +34,334 @@
     #lock {
       min-height: 100vh; display: flex; align-items: center;
       justify-content: center; padding: 1.5rem;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245,168,0,.06) 0%, transparent 70%), var(--bg);
     }
-    .lock-box {
-      background: var(--bg1); border: 1px solid var(--border);
-      border-radius: 20px; padding: 3rem 2.5rem;
-      width: 100%; max-width: 420px; text-align: center;
+    .lock-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 24px; padding: 3.5rem 2.75rem;
+      width: 100%; max-width: 440px; text-align: center;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5);
     }
-    .lock-brand     { font-size: 1.75rem; font-weight: 900; color: var(--yellow); letter-spacing: -.03em; }
-    .lock-brand-sub { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 2.5rem; }
-    .lock-title     { font-size: 1.1rem; font-weight: 700; margin-bottom: .35rem; }
-    .lock-desc      { font-size: .82rem; color: var(--muted); margin-bottom: 2rem; }
+    .lock-logo       { font-size: 2rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; }
+    .lock-logo-sub   { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin-bottom: .5rem; }
+    .lock-divider    { height: 1px; background: var(--border); margin: 1.5rem 0 2rem; }
+    .lock-title      { font-size: 1.2rem; font-weight: 800; margin-bottom: .4rem; }
+    .lock-desc       { font-size: .82rem; color: var(--gray); margin-bottom: 2rem; line-height: 1.6; }
     .lock-input {
-      width: 100%; background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 10px; padding: .875rem 1rem; color: var(--text);
-      font-family: inherit; font-size: .95rem; text-align: center;
-      letter-spacing: .12em; outline: none; margin-bottom: .875rem;
-      transition: border-color .2s;
+      width: 100%; background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 12px; padding: .9rem 1rem; color: var(--text);
+      font-family: inherit; font-size: 1rem; text-align: center;
+      letter-spacing: .15em; outline: none; margin-bottom: 1rem;
+      transition: border-color .2s, background .2s;
     }
-    .lock-input:focus { border-color: rgba(245,168,0,.5); }
-    .lock-submit {
-      width: 100%; padding: .95rem; border: none; border-radius: 10px;
+    .lock-input:focus { border-color: rgba(245,168,0,.6); background: rgba(245,168,0,.03); }
+    .lock-btn {
+      width: 100%; padding: 1rem; border: none; border-radius: 12px;
       background: var(--yellow); color: #0a0a0a;
       font-family: inherit; font-size: .95rem; font-weight: 800; cursor: pointer;
-      transition: background .2s;
+      transition: background .2s, transform .15s;
     }
-    .lock-submit:hover { background: var(--yellow-l); }
-    .lock-err { color: #ff6b6b; font-size: .8rem; margin-top: .75rem; display: none; }
+    .lock-btn:hover { background: var(--yellow-l); transform: translateY(-1px); }
+    .lock-err { color: #ff6b6b; font-size: .8rem; margin-top: .875rem; display: none; }
 
     /* ════ VENDOR BAR ════ */
     #vbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(10,10,10,.96); backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(245,168,0,.35);
-      padding: .7rem 1.5rem;
-      display: none; align-items: center; gap: .75rem; flex-wrap: wrap;
+      background: rgba(8,8,8,.97); backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(245,168,0,.4);
+      padding: .65rem 1.5rem;
+      display: none; align-items: center; gap: .625rem; flex-wrap: wrap;
     }
     .vbadge {
       background: var(--yellow); color: #0a0a0a;
-      font-size: .68rem; font-weight: 900; letter-spacing: .1em;
-      text-transform: uppercase; padding: .3rem .75rem; border-radius: 6px;
-      flex-shrink: 0;
+      font-size: .65rem; font-weight: 900; letter-spacing: .12em;
+      text-transform: uppercase; padding: .3rem .75rem; border-radius: 6px; flex-shrink: 0;
     }
-    .vhint { font-size: .78rem; color: var(--muted); flex: 1; min-width: 80px; }
+    .vhint { font-size: .77rem; color: var(--muted); flex: 1; min-width: 80px; }
     .vbtn {
-      background: var(--bg2); border: 1px solid var(--border); color: var(--text);
-      font-family: inherit; font-size: .8rem; font-weight: 600;
-      padding: .45rem .875rem; border-radius: 8px; cursor: pointer;
-      transition: background .15s, border-color .15s; white-space: nowrap;
+      background: var(--bg2); border: 1px solid var(--border2); color: var(--text);
+      font-family: inherit; font-size: .78rem; font-weight: 600;
+      padding: .4rem .825rem; border-radius: 8px; cursor: pointer;
+      transition: background .15s; white-space: nowrap;
     }
-    .vbtn:hover { background: #222; border-color: rgba(255,255,255,.2); }
-    .vbtn.hi { background: var(--yellow); border-color: var(--yellow); color: #0a0a0a; }
+    .vbtn:hover { background: #222; }
+    .vbtn.hi { background: var(--yellow); border-color: var(--yellow); color: #0a0a0a; font-weight: 800; }
     .vbtn.hi:hover { background: var(--yellow-l); }
 
     /* ════ PROPOSTA ════ */
     #proposta { display: none; }
-    .prop-wrap { max-width: 900px; margin: 0 auto; padding: 5.5rem 2rem 5rem; }
 
-    .prop-header {
+    .prop-page {
+      max-width: 960px; margin: 0 auto;
+      padding: 5.5rem 2rem 5rem;
+    }
+
+    /* ── Hero header ── */
+    .prop-hero {
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      border: 1px solid var(--border2);
+      border-radius: 24px; padding: 3rem;
+      margin-bottom: 3rem;
+      position: relative; overflow: hidden;
+    }
+    .prop-hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,168,0,.12) 0%, transparent 70%);
+    }
+    .prop-hero-top {
       display: flex; justify-content: space-between; align-items: flex-start;
-      padding-bottom: 2rem; margin-bottom: 2.75rem;
-      border-bottom: 2px solid var(--yellow);
-      gap: 1.5rem; flex-wrap: wrap;
+      margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
     }
-    .prop-brand     { font-size: 1.75rem; font-weight: 900; color: var(--yellow); letter-spacing: -.03em; }
-    .prop-brand-sub { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
-    .prop-meta-title{ font-size: 1.3rem; font-weight: 800; text-align: right; }
-    .prop-meta-info { font-size: .8rem; color: var(--muted); text-align: right; margin-top: .2rem; }
-    .prop-meta-ref  { font-size: .75rem; color: var(--yellow); font-weight: 600; text-align: right; margin-top: .2rem; letter-spacing: .06em; }
-
-    .prop-sec { margin-bottom: 2.75rem; }
-    .prop-sec-tag {
-      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--yellow);
-      display: flex; align-items: center; gap: .5rem; margin-bottom: .875rem;
+    .prop-brand     { font-size: 2rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; }
+    .prop-brand-sub { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin-top: -.1rem; }
+    .prop-meta-badge {
+      background: rgba(245,168,0,.1); border: 1px solid var(--yellow-b);
+      border-radius: 8px; padding: .5rem 1rem;
+      font-size: .72rem; color: var(--yellow); font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
     }
-    .prop-sec-tag::after { content:''; flex:1; height:1px; background:rgba(245,168,0,.2); }
+    .prop-hero-divider { height: 1px; background: var(--border); margin-bottom: 2rem; }
+    .prop-hero-body { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; flex-wrap: wrap; }
+    .prop-hero-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: .5rem; }
+    .prop-hero-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; letter-spacing: -.03em; line-height: 1.2; }
+    .prop-hero-title span { color: var(--yellow); }
+    .prop-hero-sub { font-size: .88rem; color: var(--gray); margin-top: .5rem; }
+    .prop-hero-meta { text-align: right; }
+    .prop-hero-meta-line { font-size: .78rem; color: var(--gray); margin-bottom: .3rem; }
+    .prop-hero-meta-line strong { color: var(--text2); }
+    .prop-hero-ref { font-size: .75rem; color: var(--yellow); font-weight: 700; letter-spacing: .08em; }
 
+    /* ── Destinatário ── */
     .prop-to {
-      background: var(--bg1); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.5rem;
-      display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem;
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 18px; padding: 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem; margin-bottom: 3rem;
     }
-    .prop-to-field label {
-      font-size: .66rem; font-weight: 700; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .08em; display: block; margin-bottom: .3rem;
+    .prop-to-f label {
+      font-size: .65rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em; display: block; margin-bottom: .3rem;
     }
-    .prop-to-field .fv { font-size: .9rem; font-weight: 600; color: var(--text); }
+    .prop-to-f .fv { font-size: .92rem; font-weight: 600; color: var(--text); }
 
-    .prop-text { font-size: .9rem; color: #bbb; line-height: 1.8; }
-
-    [contenteditable="true"] { outline: none; border-radius: 5px; cursor: text; }
-    [contenteditable="true"]:hover { background: rgba(245,168,0,.05); box-shadow: 0 0 0 1px rgba(245,168,0,.2); }
-    [contenteditable="true"]:focus { background: rgba(245,168,0,.07); box-shadow: 0 0 0 2px rgba(245,168,0,.35); }
-
-    .prop-list { list-style: none; display: flex; flex-direction: column; gap: .625rem; }
-    .prop-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .9rem; color: #c8c8c8; line-height: 1.55; }
-    .pli-dot {
-      width: 22px; height: 22px; flex-shrink: 0; margin-top: .06rem;
-      background: rgba(245,168,0,.12); border: 1px solid rgba(245,168,0,.35);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: .68rem; color: var(--yellow); font-weight: 900;
+    /* ── Seções genéricas ── */
+    .prop-sec { margin-bottom: 3rem; }
+    .prop-sec-header {
+      display: flex; align-items: center; gap: .875rem; margin-bottom: 1.5rem;
     }
+    .prop-sec-icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      background: var(--yellow-d); border: 1px solid var(--yellow-b);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; line-height: 1;
+    }
+    .prop-sec-title { font-size: 1.1rem; font-weight: 800; letter-spacing: -.02em; }
+    .prop-sec-divider { flex: 1; height: 1px; background: var(--border); }
 
+    .prop-text { font-size: .9rem; color: var(--text2); line-height: 1.85; }
+
+    /* ── Demo box ── */
     .prop-demo {
-      background: var(--bg1); border: 1px solid rgba(245,168,0,.25);
-      border-radius: 14px; padding: 1.25rem 1.5rem;
-      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--bg2); border: 1px solid rgba(245,168,0,.3);
+      border-radius: 14px; padding: 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem; margin-top: 1.25rem;
     }
-    .prop-demo-icon { font-size: 1.75rem; flex-shrink: 0; line-height: 1; padding-top: .1rem; }
-    .prop-demo-text { font-size: .88rem; color: #bbb; line-height: 1.7; }
-    .prop-demo-text a { color: var(--yellow); font-weight: 600; text-decoration: none; }
+    .prop-demo-icon { font-size: 1.75rem; flex-shrink: 0; }
+    .prop-demo-text { font-size: .88rem; color: var(--text2); line-height: 1.7; }
+    .prop-demo-text a { color: var(--yellow); font-weight: 700; text-decoration: none; word-break: break-all; }
     .prop-demo-text a:hover { text-decoration: underline; }
-    .prop-demo-note { font-size: .78rem; color: var(--muted); margin-top: .35rem; }
+    .prop-demo-note { font-size: .78rem; color: var(--muted); margin-top: .4rem; }
 
-    .prop-table-wrap {
-      background: var(--bg1); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    /* ── Objetivos cards ── */
+    .obj-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
     }
-    .prop-table { width: 100%; border-collapse: collapse; }
-    .prop-table th {
-      text-align: left; font-size: .7rem; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--muted);
-      padding: .75rem 1.25rem; border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,.02);
+    .obj-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 14px; padding: 1.25rem;
+      transition: border-color .2s, background .2s;
     }
-    .prop-table th:last-child { text-align: right; }
-    .prop-table td { padding: .85rem 1.25rem; font-size: .9rem; color: #ccc; border-bottom: 1px solid rgba(255,255,255,.04); }
-    .prop-table td:last-child { text-align: right; }
-    .prop-table tr.prop-total td {
-      color: var(--yellow); font-weight: 800; font-size: 1rem;
-      border-top: 1px solid rgba(245,168,0,.25); border-bottom: none;
-      background: rgba(245,168,0,.04);
+    .obj-card:hover { border-color: var(--yellow-b); background: var(--bg2); }
+    .obj-icon { font-size: 1.5rem; margin-bottom: .625rem; }
+    .obj-text { font-size: .82rem; color: var(--text2); line-height: 1.55; font-weight: 500; }
+
+    /* ── Escopo grid (2 colunas) ── */
+    .escopo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .escopo-col {
+      background: var(--bg1); border: 1px solid var(--border2); border-radius: 16px; padding: 1.75rem;
+    }
+    .escopo-col-title {
+      font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--yellow); margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem;
+    }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .85rem; color: var(--text2); line-height: 1.5; }
+    .check-dot {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: .08rem;
+      background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; color: #25D366; font-weight: 900;
     }
 
-    .prop-timeline { display: flex; position: relative; margin-bottom: .875rem; }
-    .prop-tl-line { position: absolute; top: 14px; left: 7%; right: 7%; height: 2px; background: rgba(255,255,255,.08); }
-    .prop-tl-step { flex: 1; text-align: center; }
-    .prop-tl-num {
-      width: 30px; height: 30px; border-radius: 50%; background: var(--yellow); color: #0a0a0a;
-      font-weight: 900; font-size: .8rem; display: flex; align-items: center; justify-content: center;
-      margin: 0 auto .5rem; position: relative; z-index: 1;
+    /* ── Benefícios chips ── */
+    .ben-grid { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .ben-chip {
+      display: flex; align-items: center; gap: .625rem;
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 50px; padding: .6rem 1.1rem;
+      font-size: .82rem; color: var(--text2); font-weight: 500;
+      transition: border-color .2s;
     }
-    .prop-tl-label { font-size: .72rem; color: var(--gray); line-height: 1.45; }
+    .ben-chip:hover { border-color: var(--yellow-b); }
+    .ben-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
 
-    .prop-valid-box {
-      background: rgba(245,168,0,.06); border: 1px solid rgba(245,168,0,.2);
-      border-radius: 12px; padding: 1rem 1.25rem;
-      font-size: .88rem; color: #ccc; line-height: 1.65;
+    /* ── Prazo ── */
+    .prazo-box {
+      background: var(--bg1); border: 1px solid var(--border2); border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
     }
-    .prop-valid-box strong { color: var(--yellow); }
+    .prazo-num {
+      font-size: 3rem; font-weight: 900; color: var(--yellow); line-height: 1;
+      flex-shrink: 0; letter-spacing: -.04em;
+    }
+    .prazo-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .3rem; }
+    .prazo-desc { font-size: .9rem; color: var(--text2); line-height: 1.6; }
+    .prazo-desc strong { color: var(--text); }
 
-    /* ════ ASSINATURA ════ */
-    #signSection { display: none; padding-top: 1rem; }
-    .sign-hr { border: none; border-top: 2px dashed rgba(255,255,255,.1); margin: 1.5rem 0 2rem; }
-    .sign-heading { font-size: 1.05rem; font-weight: 700; margin-bottom: .35rem; }
-    .sign-sub { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; }
+    /* ── Investimento card ── */
+    .invest-card {
+      background: linear-gradient(135deg, #141414 0%, #1a1400 100%);
+      border: 1px solid rgba(245,168,0,.4); border-radius: 20px;
+      padding: 2.5rem; position: relative; overflow: hidden;
+    }
+    .invest-card::before {
+      content: ''; position: absolute; bottom: -40px; right: -40px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,168,0,.1) 0%, transparent 70%);
+    }
+    .invest-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: rgba(245,168,0,.7); margin-bottom: .75rem; }
+    .invest-service { font-size: 1rem; font-weight: 600; color: var(--text2); margin-bottom: 1.5rem; }
+    .invest-price {
+      font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 900; color: var(--yellow);
+      letter-spacing: -.04em; line-height: 1; margin-bottom: 1.75rem;
+    }
+    .invest-price sup { font-size: 1.5rem; vertical-align: super; font-weight: 700; }
+    .invest-conditions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .invest-cond {
+      flex: 1; min-width: 140px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border2);
+      border-radius: 12px; padding: 1rem 1.25rem; text-align: center;
+    }
+    .invest-cond-pct { font-size: 1.5rem; font-weight: 900; color: var(--yellow); }
+    .invest-cond-label { font-size: .75rem; color: var(--gray); margin-top: .2rem; }
+    .invest-methods { font-size: .8rem; color: var(--muted); }
+    .invest-methods span { color: var(--gray); }
+
+    /* ── Obs / Validade ── */
+    .info-box {
+      background: var(--bg1); border: 1px solid var(--border2); border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .info-box p { font-size: .85rem; color: var(--text2); line-height: 1.8; }
+    .info-box p + p { margin-top: .625rem; }
+    .info-box strong { color: var(--text); }
+
+    .valid-box {
+      background: rgba(245,168,0,.06); border: 1px solid rgba(245,168,0,.25);
+      border-radius: 14px; padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .valid-icon { font-size: 1.75rem; flex-shrink: 0; }
+    .valid-text { font-size: .88rem; color: var(--text2); line-height: 1.65; }
+    .valid-text strong { color: var(--yellow); font-size: 1.1em; }
+
+    /* ── CTA antes de assinar ── */
+    .sign-cta {
+      background: linear-gradient(135deg, rgba(245,168,0,.08) 0%, rgba(245,168,0,.03) 100%);
+      border: 1px solid rgba(245,168,0,.3); border-radius: 20px;
+      padding: 2.5rem; text-align: center; margin-bottom: 3rem;
+    }
+    .sign-cta-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .sign-cta-title { font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 900; margin-bottom: .75rem; letter-spacing: -.02em; }
+    .sign-cta-title span { color: var(--yellow); }
+    .sign-cta-desc { font-size: .9rem; color: var(--gray); line-height: 1.75; max-width: 560px; margin: 0 auto; }
+
+    /* ── Assinatura ── */
+    #signSection { display: none; }
+    .sign-block {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 2.5rem;
+    }
+    .sign-title { font-size: 1.1rem; font-weight: 800; margin-bottom: .35rem; }
+    .sign-sub   { font-size: .82rem; color: var(--gray); margin-bottom: 2rem; line-height: 1.6; }
+    .sign-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
     .sign-field-label {
-      font-size: .72rem; font-weight: 700; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .08em; display: block; margin-bottom: .4rem;
+      font-size: .7rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em; display: block; margin-bottom: .4rem;
     }
-    .sign-name-input {
-      background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
-      padding: .75rem 1rem; color: var(--text); font-family: inherit;
-      font-size: .9rem; outline: none; width: 100%; max-width: 380px;
-      margin-bottom: 1.25rem; transition: border-color .2s;
+    .sign-field-input {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 10px; padding: .75rem 1rem; color: var(--text);
+      font-family: inherit; font-size: .9rem; outline: none;
+      transition: border-color .2s;
     }
-    .sign-name-input:focus { border-color: rgba(245,168,0,.5); }
+    .sign-field-input:focus { border-color: rgba(245,168,0,.5); }
+    .sign-field-input[readonly] { color: var(--gray); cursor: default; }
+    .sign-canvas-label { font-size: .7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; display: block; margin-bottom: .6rem; }
     .sign-canvas-wrap {
-      background: #fff; border-radius: 12px; padding: 4px;
-      margin-bottom: 1rem; cursor: crosshair;
-      box-shadow: 0 4px 24px rgba(0,0,0,.5); display: block;
+      background: #fff; border-radius: 14px; padding: 5px;
+      margin-bottom: 1.25rem; cursor: crosshair;
+      box-shadow: 0 4px 24px rgba(0,0,0,.6); display: block;
     }
-    #signCanvas { display: block; width: 100%; height: auto; touch-action: none; border-radius: 8px; }
+    #signCanvas { display: block; width: 100%; touch-action: none; border-radius: 10px; }
     .sign-actions { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
     .sign-clear {
-      background: none; border: 1px solid var(--border); color: var(--muted);
-      font-family: inherit; font-size: .82rem; padding: .55rem 1rem;
-      border-radius: 8px; cursor: pointer; transition: border-color .2s, color .2s;
+      background: none; border: 1px solid var(--border2); color: var(--muted);
+      font-family: inherit; font-size: .82rem; padding: .6rem 1.1rem;
+      border-radius: 9px; cursor: pointer; transition: border-color .2s, color .2s;
     }
-    .sign-clear:hover { border-color: rgba(255,255,255,.25); color: var(--text); }
+    .sign-clear:hover { border-color: rgba(255,255,255,.2); color: var(--text); }
     .sign-confirm {
       background: var(--yellow); color: #0a0a0a; border: none;
-      font-family: inherit; font-size: .92rem; font-weight: 800;
-      padding: .75rem 1.75rem; border-radius: 10px; cursor: pointer;
-      transition: background .2s;
+      font-family: inherit; font-size: .95rem; font-weight: 900;
+      padding: .875rem 2rem; border-radius: 11px; cursor: pointer;
+      transition: background .2s, transform .15s; letter-spacing: -.01em;
     }
-    .sign-confirm:hover { background: var(--yellow-l); }
+    .sign-confirm:hover { background: var(--yellow-l); transform: translateY(-2px); }
     .sign-hint { font-size: .75rem; color: var(--muted); }
 
-    /* Signed */
-    #signedBlock { display: none; padding-top: 1rem; }
+    /* Assinado */
+    #signedBlock { display: none; }
     .signed-banner {
-      background: rgba(37,211,102,.08); border: 1px solid rgba(37,211,102,.3);
-      border-radius: 14px; padding: 1.25rem 1.5rem;
-      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+      background: rgba(37,211,102,.07); border: 1px solid rgba(37,211,102,.28);
+      border-radius: 16px; padding: 1.5rem;
+      display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem;
     }
-    .signed-ico { font-size: 2rem; }
-    .signed-info h3 { font-size: .95rem; font-weight: 700; color: var(--green); }
+    .signed-ico  { font-size: 2.25rem; }
+    .signed-info h3 { font-size: 1rem; font-weight: 800; color: var(--green); }
     .signed-info p  { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
-    .signed-sig { border: 1px solid var(--border); border-radius: 10px; background: #fff; max-width: 340px; display: block; margin-bottom: 1rem; }
+    .signed-sig {
+      border: 1px solid var(--border2); border-radius: 12px; background: #fff;
+      max-width: 380px; display: block; margin-bottom: 1.25rem;
+    }
     .sign-print-btn {
-      background: var(--bg2); border: 1px solid var(--border); color: var(--text);
+      background: var(--bg2); border: 1px solid var(--border2); color: var(--text);
       font-family: inherit; font-size: .85rem; font-weight: 600;
-      padding: .65rem 1.25rem; border-radius: 8px; cursor: pointer;
-      transition: background .15s;
+      padding: .7rem 1.4rem; border-radius: 9px; cursor: pointer; transition: background .15s;
     }
     .sign-print-btn:hover { background: #222; }
+
+    /* ── Footer da proposta ── */
+    .prop-footer {
+      margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .prop-footer-brand { font-size: 1rem; font-weight: 900; color: var(--yellow); letter-spacing: -.02em; }
+    .prop-footer-sub   { font-size: .72rem; color: var(--muted); }
+    .prop-footer-right { font-size: .75rem; color: var(--muted); text-align: right; line-height: 1.6; }
 
     /* Toast */
     #toast {
@@ -248,54 +374,63 @@
     /* Modal link */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,.85); backdrop-filter: blur(6px);
+      background: rgba(0,0,0,.88); backdrop-filter: blur(8px);
       display: none; align-items: center; justify-content: center; padding: 1.5rem;
     }
     .modal-overlay.open { display: flex; }
     .modal-box {
       background: var(--bg1); border: 1px solid rgba(245,168,0,.3);
-      border-radius: 18px; padding: 2rem; max-width: 500px; width: 100%;
-      position: relative;
+      border-radius: 20px; padding: 2.25rem; max-width: 520px; width: 100%; position: relative;
+      box-shadow: 0 40px 80px rgba(0,0,0,.7);
     }
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.1rem;
-    }
-    .modal-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: .5rem; }
-    .modal-title { font-size: .95rem; font-weight: 700; margin-bottom: 1rem; }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.1rem; }
+    .modal-tag   { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: var(--yellow); margin-bottom: .5rem; }
+    .modal-title { font-size: 1rem; font-weight: 800; margin-bottom: 1rem; }
     .link-box {
-      background: var(--bg); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 10px; padding: .875rem; font-size: .75rem; color: #aaa;
-      word-break: break-all; line-height: 1.6; margin-bottom: 1rem;
+      background: var(--bg); border: 1px solid var(--border2);
+      border-radius: 10px; padding: .875rem; font-size: .73rem; color: #888;
+      word-break: break-all; line-height: 1.65; margin-bottom: 1rem; font-family: monospace;
     }
     .modal-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
     .modal-btn {
-      flex: 1; padding: .75rem; border: none; border-radius: 8px;
-      font-family: inherit; font-size: .88rem; font-weight: 700;
-      cursor: pointer; transition: opacity .15s; min-width: 120px;
+      flex: 1; padding: .8rem; border: none; border-radius: 9px;
+      font-family: inherit; font-size: .88rem; font-weight: 800; cursor: pointer;
+      transition: opacity .15s; min-width: 130px;
     }
-    .modal-btn:hover { opacity: .85; }
+    .modal-btn:hover { opacity: .88; }
     .modal-btn.yellow { background: var(--yellow); color: #0a0a0a; }
-    .modal-btn.wa     { background: var(--green);  color: #fff; }
-    .modal-pwd { font-size: .8rem; color: var(--muted); margin-top: 1rem; }
-    .modal-pwd span { color: var(--yellow); font-weight: 700; letter-spacing: .12em; }
+    .modal-btn.wa     { background: var(--green); color: #fff; }
+    .modal-pwd { font-size: .8rem; color: var(--muted); margin-top: 1.1rem; }
+    .modal-pwd span { color: var(--yellow); font-weight: 800; letter-spacing: .1em; font-size: .88rem; }
 
     /* Print */
     @media print {
-      #vbar, #lock, .sign-actions, .sign-print-btn, #signSection:not(#signedBlock) { display: none !important; }
+      #vbar, #lock, .sign-actions, .sign-print-btn, .modal-overlay { display: none !important; }
       body { background: #fff !important; color: #111 !important; }
-      .prop-wrap { padding: 1rem !important; }
-      .prop-brand, .prop-meta-ref, .prop-sec-tag { color: #F5A800 !important; }
-      .prop-text, .prop-list li, .prop-table td { color: #333 !important; }
-      .prop-to, .prop-table-wrap, .prop-demo, .prop-valid-box { background: #f5f5f5 !important; border-color: #ddd !important; }
+      .prop-page { padding: 1rem !important; }
+      .prop-hero, .invest-card { background: #f5f5f5 !important; box-shadow: none !important; }
+      .prop-brand, .invest-price, .prop-sec-icon, .prazo-num { color: #F5A800 !important; }
     }
 
-    @media (max-width: 640px) {
-      .lock-box    { padding: 2rem 1.5rem; }
-      .prop-wrap   { padding: 4.5rem 1rem 3rem; }
-      .prop-to     { grid-template-columns: 1fr; }
-      .prop-header { flex-direction: column; }
-      .prop-meta-title, .prop-meta-info, .prop-meta-ref { text-align: left; }
+    /* Editable fields */
+    [contenteditable="true"] { outline: none; border-radius: 5px; cursor: text; min-width: 2ch; }
+    [contenteditable="true"]:hover { background: rgba(245,168,0,.05); box-shadow: 0 0 0 1px rgba(245,168,0,.2); }
+    [contenteditable="true"]:focus { background: rgba(245,168,0,.07); box-shadow: 0 0 0 2px rgba(245,168,0,.4); }
+
+    @media (max-width: 720px) {
+      .prop-page          { padding: 4.5rem 1rem 3rem; }
+      .prop-hero          { padding: 2rem; }
+      .prop-hero-body     { grid-template-columns: 1fr; }
+      .prop-hero-meta     { text-align: left; }
+      .obj-grid           { grid-template-columns: 1fr 1fr; }
+      .escopo-grid        { grid-template-columns: 1fr; }
+      .sign-fields        { grid-template-columns: 1fr; }
+      .prop-to            { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .obj-grid           { grid-template-columns: 1fr; }
+      .prop-to            { grid-template-columns: 1fr; }
+      .lock-card          { padding: 2.5rem 1.75rem; }
     }
   </style>
 </head>
@@ -303,13 +438,14 @@
 
 <!-- ════ LOCK ════ -->
 <div id="lock">
-  <div class="lock-box">
-    <div class="lock-brand">Oryga</div>
-    <div class="lock-brand-sub">Consultoria Digital</div>
+  <div class="lock-card">
+    <div class="lock-logo">Oryga</div>
+    <div class="lock-logo-sub">Consultoria Digital</div>
+    <div class="lock-divider"></div>
     <div class="lock-title">Proposta Comercial</div>
-    <div class="lock-desc">Acesso restrito. Insira a senha para continuar.</div>
+    <div class="lock-desc">Acesso restrito.<br>Insira a senha para visualizar a proposta.</div>
     <input type="password" id="pwdInput" class="lock-input" placeholder="••••••••••••" autocomplete="off">
-    <button class="lock-submit" onclick="checkPwd()">Acessar →</button>
+    <button class="lock-btn" onclick="checkPwd()">Acessar proposta →</button>
     <div class="lock-err" id="lockErr">Senha incorreta. Tente novamente.</div>
   </div>
 </div>
@@ -317,7 +453,7 @@
 <!-- ════ VENDOR BAR ════ -->
 <div id="vbar">
   <span class="vbadge">✏ Modo Vendedor</span>
-  <span class="vhint">Clique em qualquer campo para editar.</span>
+  <span class="vhint">Clique em qualquer campo amarelo para editar.</span>
   <button class="vbtn" onclick="saveData()">💾 Salvar</button>
   <button class="vbtn" onclick="window.print()">🖨 Imprimir</button>
   <button class="vbtn hi" onclick="openLinkModal()">🔗 Gerar link p/ cliente</button>
@@ -325,125 +461,229 @@
 
 <!-- ════ PROPOSTA ════ -->
 <div id="proposta">
-  <div class="prop-wrap">
+<div class="prop-page">
 
-    <div class="prop-header">
+  <!-- ── Hero header ── -->
+  <div class="prop-hero">
+    <div class="prop-hero-top">
       <div>
         <div class="prop-brand">Oryga</div>
         <div class="prop-brand-sub">Consultoria Digital</div>
       </div>
+      <div class="prop-meta-badge">Proposta Comercial</div>
+    </div>
+    <div class="prop-hero-divider"></div>
+    <div class="prop-hero-body">
       <div>
-        <div class="prop-meta-title">Proposta Comercial</div>
-        <div class="prop-meta-info" id="eDate"></div>
-        <div class="prop-meta-ref" id="eRef">Ref. ORY-2026-001</div>
+        <div class="prop-hero-label">Objeto desta proposta</div>
+        <div class="prop-hero-title">Desenvolvimento de<br><span>Website Institucional</span></div>
+        <div class="prop-hero-sub">Anacleto Pneus × Oryga Consultoria</div>
+      </div>
+      <div class="prop-hero-meta">
+        <div class="prop-hero-meta-line">Emitida em <strong id="eDate"></strong></div>
+        <div class="prop-hero-meta-line">Validade: <strong>15 dias</strong></div>
+        <div class="prop-hero-ref" id="eRef">Ref. ORY-2026-001</div>
       </div>
     </div>
+  </div>
 
-    <!-- Destinatário -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">Destinatário</div>
-      <div class="prop-to">
-        <div class="prop-to-field"><label>Empresa</label><div class="fv" id="eEmpresa">Anacleto Pneus</div></div>
-        <div class="prop-to-field"><label>Responsável</label><div class="fv" id="eResponsavel">—</div></div>
-        <div class="prop-to-field"><label>WhatsApp</label><div class="fv" id="eFone">(37) 9 9991-5047</div></div>
-        <div class="prop-to-field"><label>Cidade</label><div class="fv" id="eCidade">Divinópolis, MG</div></div>
+  <!-- ── Destinatário ── -->
+  <div class="prop-to">
+    <div class="prop-to-f"><label>Cliente</label><div class="fv" id="eEmpresa">Anacleto Pneus</div></div>
+    <div class="prop-to-f"><label>Responsável</label><div class="fv" id="eResponsavel">—</div></div>
+    <div class="prop-to-f"><label>WhatsApp</label><div class="fv" id="eFone">(37) 9 9991-5047</div></div>
+    <div class="prop-to-f"><label>Cidade</label><div class="fv" id="eCidade">Divinópolis, MG</div></div>
+    <div class="prop-to-f"><label>Proponente</label><div class="fv">Oryga Consultoria</div></div>
+    <div class="prop-to-f"><label>Contato Oryga</label><div class="fv" id="eContatoOryga">(37) 9 9801-9444</div></div>
+  </div>
+
+  <!-- ── Apresentação ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">📋</div>
+      <div class="prop-sec-title">Apresentação</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <p class="prop-text" id="eApres">
+      A <strong style="color:var(--text)">Anacleto Pneus</strong> possui uma estrutura moderna, equipamentos especializados e uma equipe preparada para atender seus clientes com qualidade.<br><br>
+      Pensando em fortalecer ainda mais a presença digital da empresa, desenvolvemos esta proposta para criação e publicação de um <strong style="color:var(--text)">website profissional</strong>, capaz de transmitir credibilidade, destacar os serviços oferecidos e facilitar o contato de novos clientes.
+    </p>
+    <div class="prop-demo">
+      <div class="prop-demo-icon">🌐</div>
+      <div class="prop-demo-text">
+        Uma demonstração real do projeto pode ser acessada agora:<br>
+        <a href="https://orygaconsultoria.com.br/anacleto-pneus/" target="_blank">orygaconsultoria.com.br/anacleto-pneus</a>
+        <div class="prop-demo-note">Este é exatamente o tipo de entrega que será publicada no domínio da Anacleto Pneus.</div>
       </div>
     </div>
+  </div>
 
-    <!-- Apresentação -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">Sobre esta proposta</div>
-      <p class="prop-text" id="eApres">
-        É com grande satisfação que apresentamos esta proposta à <strong>Anacleto Pneus</strong>. Desenvolvemos uma solução completa de presença digital pensada especificamente para o negócio de vocês — um site profissional, moderno e estratégico, focado em atrair clientes e gerar orçamentos pelo WhatsApp todos os dias.
-      </p>
+  <!-- ── Objetivos ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">🎯</div>
+      <div class="prop-sec-title">Objetivos do Projeto</div>
+      <div class="prop-sec-divider"></div>
     </div>
+    <div class="obj-grid">
+      <div class="obj-card"><div class="obj-icon">📱</div><div class="obj-text">Fortalecer a presença digital da Anacleto Pneus</div></div>
+      <div class="obj-card"><div class="obj-icon">🏆</div><div class="obj-text">Aumentar a credibilidade e profissionalismo da marca</div></div>
+      <div class="obj-card"><div class="obj-icon">💬</div><div class="obj-text">Facilitar o contato de novos clientes via WhatsApp</div></div>
+      <div class="obj-card"><div class="obj-icon">📋</div><div class="obj-text">Apresentar os serviços e diferenciais da empresa</div></div>
+      <div class="obj-card"><div class="obj-icon">🔍</div><div class="obj-text">Melhorar a visibilidade nas pesquisas do Google</div></div>
+      <div class="obj-card"><div class="obj-icon">🏗️</div><div class="obj-text">Destacar a estrutura e os equipamentos da empresa</div></div>
+    </div>
+  </div>
 
-    <!-- Demonstração -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">Demonstração real</div>
-      <div class="prop-demo">
-        <div class="prop-demo-icon">🌐</div>
-        <div class="prop-demo-text">
-          Criamos uma demonstração real do site da Anacleto Pneus. Visualize agora:<br>
-          <a href="https://orygaconsultoria.com.br/anacleto-pneus/" target="_blank">orygaconsultoria.com.br/anacleto-pneus</a>
-          <div class="prop-demo-note">Este é exatamente o tipo de site que entregaremos, personalizado e publicado no domínio de vocês.</div>
+  <!-- ── Escopo ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">⚙️</div>
+      <div class="prop-sec-title">Escopo do Projeto</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="escopo-grid">
+      <div class="escopo-col">
+        <div class="escopo-col-title">🖥️ Desenvolvimento do Website</div>
+        <ul class="check-list">
+          <li><div class="check-dot">✓</div><span>Página inicial institucional</span></li>
+          <li><div class="check-dot">✓</div><span>Apresentação da empresa</span></li>
+          <li><div class="check-dot">✓</div><span>Apresentação dos serviços</span></li>
+          <li><div class="check-dot">✓</div><span>Galeria de fotos da estrutura e equipamentos</span></li>
+          <li><div class="check-dot">✓</div><span>Botões de contato via WhatsApp</span></li>
+          <li><div class="check-dot">✓</div><span>Formulário de contato</span></li>
+          <li><div class="check-dot">✓</div><span>Integração com Google Maps</span></li>
+          <li><div class="check-dot">✓</div><span>Layout responsivo para celulares, tablets e computadores</span></li>
+          <li><div class="check-dot">✓</div><span>Otimização básica para mecanismos de busca (SEO)</span></li>
+        </ul>
+      </div>
+      <div class="escopo-col">
+        <div class="escopo-col-title">✅ Serviços Inclusos</div>
+        <ul class="check-list">
+          <li><div class="check-dot">✓</div><span>Desenvolvimento completo do website</span></li>
+          <li><div class="check-dot">✓</div><span>Registro e configuração do domínio da empresa</span></li>
+          <li><div class="check-dot">✓</div><span>Configuração de hospedagem</span></li>
+          <li><div class="check-dot">✓</div><span>Certificado SSL — site seguro (https)</span></li>
+          <li><div class="check-dot">✓</div><span>Publicação em ambiente de produção</span></li>
+          <li><div class="check-dot">✓</div><span>Testes e validação completa antes da entrega</span></li>
+          <li><div class="check-dot">✓</div><span>Até 2 rodadas de ajustes após a versão inicial</span></li>
+          <li><div class="check-dot">✓</div><span>Suporte corretivo por 15 dias após a entrega</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Benefícios ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">⭐</div>
+      <div class="prop-sec-title">Benefícios para a Anacleto Pneus</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Presença profissional na internet</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Maior confiança para novos clientes</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Divulgação da estrutura e equipamentos</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Canal direto via WhatsApp 24h</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Maior visibilidade nas buscas locais</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Diferencial competitivo frente aos concorrentes</div>
+    </div>
+  </div>
+
+  <!-- ── Prazo ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">📅</div>
+      <div class="prop-sec-title">Prazo de Entrega</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="prazo-box">
+      <div class="prazo-num">10</div>
+      <div>
+        <div class="prazo-label">Dias úteis</div>
+        <p class="prazo-desc" id="ePrazo">
+          Prazo de até <strong>10 dias úteis</strong> após a aprovação desta proposta e envio dos materiais necessários (logotipos, fotos, textos).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Investimento ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">💰</div>
+      <div class="prop-sec-title">Investimento</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="invest-card">
+      <div class="invest-label">Desenvolvimento Completo do Projeto</div>
+      <div class="invest-service" id="eService">Website institucional — design, desenvolvimento e publicação</div>
+      <div class="invest-price"><sup>R$</sup><span id="ePreco">1.500</span><sup>,00</sup></div>
+      <div class="invest-conditions">
+        <div class="invest-cond">
+          <div class="invest-cond-pct">50%</div>
+          <div class="invest-cond-label">na contratação</div>
+        </div>
+        <div class="invest-cond">
+          <div class="invest-cond-pct">50%</div>
+          <div class="invest-cond-label">na entrega do projeto</div>
         </div>
       </div>
+      <div class="invest-methods">Formas aceitas: <span>Pix · Transferência bancária · Boleto</span></div>
     </div>
+  </div>
 
-    <!-- Escopo -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">O que está incluído</div>
-      <ul class="prop-list" id="eEscopo">
-        <li><div class="pli-dot">✓</div><span>Site profissional completo e responsivo (mobile, tablet e desktop)</span></li>
-        <li><div class="pli-dot">✓</div><span>Design personalizado com a identidade visual e cores da Anacleto Pneus</span></li>
-        <li><div class="pli-dot">✓</div><span>Integração com WhatsApp Business para receber orçamentos 24h por dia</span></li>
-        <li><div class="pli-dot">✓</div><span>Formulário de contato com envio automático via WhatsApp</span></li>
-        <li><div class="pli-dot">✓</div><span>Mapa de localização integrado (Google Maps)</span></li>
-        <li><div class="pli-dot">✓</div><span>Seções: serviços, estrutura, equipe, depoimentos e contato</span></li>
-        <li><div class="pli-dot">✓</div><span>Otimização para aparecer no Google (SEO básico)</span></li>
-        <li><div class="pli-dot">✓</div><span>Hospedagem profissional por 12 meses inclusa</span></li>
-        <li><div class="pli-dot">✓</div><span>1 rodada de ajustes e revisões após a entrega</span></li>
-      </ul>
+  <!-- ── Observações ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">📌</div>
+      <div class="prop-sec-title">Observações</div>
+      <div class="prop-sec-divider"></div>
     </div>
+    <div class="info-box" id="eObs">
+      <p>O registro do domínio, hospedagem e publicação inicial estão <strong>inclusos</strong> nesta proposta.</p>
+      <p>As renovações anuais de domínio e hospedagem após o primeiro período contratado serão de <strong>responsabilidade da contratante</strong>.</p>
+    </div>
+  </div>
 
-    <!-- Investimento -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">Investimento</div>
-      <div class="prop-table-wrap">
-        <table class="prop-table">
-          <thead><tr><th>Descrição</th><th>Valor</th></tr></thead>
-          <tbody id="eTabela">
-            <tr><td>Desenvolvimento do site profissional</td><td>R$ 1.800,00</td></tr>
-            <tr><td>Domínio .com.br — 12 meses</td><td>Incluso</td></tr>
-            <tr><td>Hospedagem — 12 meses</td><td>Incluso</td></tr>
-            <tr><td>Configuração de WhatsApp Business</td><td>Incluso</td></tr>
-          </tbody>
-          <tfoot><tr class="prop-total"><td><strong>Total</strong></td><td id="eTotal"><strong>R$ 1.800,00</strong></td></tr></tfoot>
-        </table>
+  <!-- ── Validade ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">⏳</div>
+      <div class="prop-sec-title">Validade da Proposta</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="valid-box">
+      <div class="valid-icon">⏳</div>
+      <div class="valid-text" id="eValidade">
+        Esta proposta possui validade de <strong>15 dias</strong> a partir da data de emissão. Após esse prazo, condições e valores poderão ser revisados.
       </div>
     </div>
+  </div>
 
-    <!-- Pagamento -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">Condições de pagamento</div>
-      <p class="prop-text" id="ePgto">
-        <strong>50%</strong> no ato da aprovação &nbsp;·&nbsp; <strong>50%</strong> na entrega do site.<br>
-        Formas aceitas: Pix · Transferência bancária · Boleto bancário.
-      </p>
-    </div>
+  <!-- ── CTA ── -->
+  <div class="sign-cta">
+    <div class="sign-cta-icon">🚀</div>
+    <div class="sign-cta-title">Pronto para colocar a <span>Anacleto Pneus</span> na internet?</div>
+    <div class="sign-cta-desc">Ao assinar esta proposta, você dá o primeiro passo para que novos clientes encontrem a Anacleto Pneus todos os dias — pelo Google, pelo WhatsApp e de onde estiverem.</div>
+  </div>
 
-    <!-- Prazo -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">Prazo de entrega</div>
-      <div class="prop-timeline">
-        <div class="prop-tl-line"></div>
-        <div class="prop-tl-step"><div class="prop-tl-num">1</div><div class="prop-tl-label">Aprovação<br>& entrada</div></div>
-        <div class="prop-tl-step"><div class="prop-tl-num">2</div><div class="prop-tl-label">Design &<br>conteúdo</div></div>
-        <div class="prop-tl-step"><div class="prop-tl-num">3</div><div class="prop-tl-label">Revisão &<br>ajustes</div></div>
-        <div class="prop-tl-step"><div class="prop-tl-num">4</div><div class="prop-tl-label">Publicação<br>& entrega</div></div>
+  <!-- ── Assinatura ── -->
+  <div id="signSection">
+    <div class="sign-block">
+      <div class="sign-title">Assinatura Digital do Cliente</div>
+      <div class="sign-sub">Ao assinar, o responsável confirma que leu e aceita todos os termos desta proposta.</div>
+      <div class="sign-fields">
+        <div>
+          <label class="sign-field-label" for="signName">Nome do responsável</label>
+          <input type="text" id="signName" class="sign-field-input" placeholder="Nome completo">
+        </div>
+        <div>
+          <label class="sign-field-label">Data</label>
+          <input type="text" id="signDate" class="sign-field-input" readonly>
+        </div>
       </div>
-      <p class="prop-text" style="margin-top:.875rem" id="ePrazo">
-        Prazo estimado: <strong style="color:var(--text)">7 dias úteis</strong> após aprovação e pagamento da entrada.
-      </p>
-    </div>
-
-    <!-- Validade -->
-    <div class="prop-sec">
-      <div class="prop-sec-tag">Validade</div>
-      <div class="prop-valid-box" id="eValidade">
-        Esta proposta é válida por <strong>30 dias</strong> a partir da data de emissão. Após esse prazo, condições e valores poderão ser revisados.
-      </div>
-    </div>
-
-    <!-- Assinatura -->
-    <div id="signSection">
-      <hr class="sign-hr">
-      <div class="sign-heading">Assinatura Digital</div>
-      <div class="sign-sub">Ao assinar, você confirma que leu e aceita os termos desta proposta.</div>
-      <label class="sign-field-label" for="signName">Nome do responsável</label>
-      <input type="text" id="signName" class="sign-name-input" placeholder="Digite seu nome completo">
-      <label class="sign-field-label">Assinatura</label>
+      <label class="sign-canvas-label">Assinatura</label>
       <div class="sign-canvas-wrap">
         <canvas id="signCanvas" height="160"></canvas>
       </div>
@@ -453,10 +693,11 @@
         <span class="sign-hint">Assine com o dedo ou mouse</span>
       </div>
     </div>
+  </div>
 
-    <!-- Assinado -->
-    <div id="signedBlock">
-      <hr class="sign-hr">
+  <!-- ── Assinado ── -->
+  <div id="signedBlock">
+    <div class="sign-block">
       <div class="signed-banner">
         <div class="signed-ico">✅</div>
         <div class="signed-info">
@@ -468,22 +709,35 @@
       <br>
       <button class="sign-print-btn" onclick="window.print()">🖨 Salvar / Imprimir PDF</button>
     </div>
-
   </div>
+
+  <!-- ── Footer ── -->
+  <div class="prop-footer">
+    <div>
+      <div class="prop-footer-brand">Oryga</div>
+      <div class="prop-footer-sub">Consultoria Digital · orygaconsultoria.com.br</div>
+    </div>
+    <div class="prop-footer-right">
+      Dúvidas? Entre em contato.<br>
+      WhatsApp: (37) 9 9801-9444
+    </div>
+  </div>
+
+</div>
 </div>
 
-<!-- Modal link para cliente -->
+<!-- Modal link -->
 <div class="modal-overlay" id="linkModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeLinkModal()">✕</button>
-    <div class="modal-label">Link para o cliente</div>
-    <div class="modal-title">Envie ao cliente para ele visualizar e assinar a proposta.</div>
+    <div class="modal-tag">Link para o cliente</div>
+    <div class="modal-title">Envie este link ao cliente para visualizar e assinar a proposta.</div>
     <div class="link-box" id="linkBox"></div>
     <div class="modal-btns">
       <button class="modal-btn yellow" onclick="copyLink()">📋 Copiar link</button>
-      <button class="modal-btn wa"     onclick="sendViaWA()">📲 Enviar WhatsApp</button>
+      <button class="modal-btn wa"     onclick="sendViaWA()">📲 Enviar pelo WhatsApp</button>
     </div>
-    <div class="modal-pwd">Senha do cliente para assinar: <span id="modalPwd"></span></div>
+    <div class="modal-pwd">Senha do cliente: <span id="modalPwd"></span></div>
   </div>
 </div>
 
@@ -491,24 +745,25 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  /* ════════════════════════════════════════════════════
-     CONFIG — preencha após criar conta em emailjs.com
-  ════════════════════════════════════════════════════ */
-  const EJ_PUBLIC_KEY  = 'SUA_PUBLIC_KEY';   // Account > API Keys
-  const EJ_SERVICE_ID  = 'SUA_SERVICE_ID';   // Email Services
-  const EJ_TEMPLATE_ID = 'SUA_TEMPLATE_ID';  // Email Templates
+  /* ════ CONFIG EmailJS — preencha após criar conta em emailjs.com ════ */
+  const EJ_PUBLIC_KEY  = 'SUA_PUBLIC_KEY';
+  const EJ_SERVICE_ID  = 'SUA_SERVICE_ID';
+  const EJ_TEMPLATE_ID = 'SUA_TEMPLATE_ID';
 
-  /* ════════ SENHAS ════════ */
+  /* ════ SENHAS ════ */
   const VENDOR_PWD = 'oryga@vendas';
   const CLIENT_PWD = 'assinar@2026';
-  const STORE_KEY  = 'proposta_anacleto_v1';
+  const STORE_KEY  = 'proposta_anacleto_v2';
 
   let generatedLink = '';
   let canvas, ctx, drawing = false, hasSign = false;
 
-  /* ── Data de emissão ── */
+  /* Data */
+  const hoje = new Date();
   document.getElementById('eDate').textContent =
-    'Emitida em ' + new Date().toLocaleDateString('pt-BR', {day:'2-digit',month:'long',year:'numeric'});
+    hoje.toLocaleDateString('pt-BR', {day:'2-digit', month:'long', year:'numeric'});
+  const signDateEl = document.getElementById('signDate');
+  if (signDateEl) signDateEl.value = hoje.toLocaleDateString('pt-BR');
 
   /* ── Senha ── */
   document.getElementById('pwdInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPwd(); });
@@ -525,11 +780,9 @@
     }
   }
 
-  /* ── Entrar em modo ── */
   function enter(mode) {
     document.getElementById('lock').style.display = 'none';
     document.getElementById('proposta').style.display = 'block';
-
     loadFromHash() || loadFromStorage();
 
     if (mode === 'vendor') {
@@ -538,17 +791,20 @@
     } else {
       const d = getStorage();
       if (d && d.signed) showSigned(d.signedAt, d.signatureName, d.signatureData);
-      else { document.getElementById('signSection').style.display = 'block'; initCanvas(); }
+      else {
+        document.getElementById('signSection').style.display = 'block';
+        if (signDateEl) signDateEl.value = hoje.toLocaleDateString('pt-BR');
+        initCanvas();
+      }
     }
   }
 
-  /* ── Campos editáveis ── */
-  const EIDS = ['eRef','eEmpresa','eResponsavel','eFone','eCidade',
-                'eApres','ePgto','ePrazo','eValidade','eTotal'];
+  /* ── Edição ── */
+  const EIDS = ['eRef','eEmpresa','eResponsavel','eFone','eCidade','eContatoOryga',
+                'eApres','eService','ePreco','ePrazo','eObs','eValidade'];
 
   function enableEdit() {
     EIDS.forEach(id => { const el = document.getElementById(id); if (el) el.contentEditable = 'true'; });
-    document.getElementById('eTabela').contentEditable = 'true';
   }
 
   /* ── Storage ── */
@@ -559,7 +815,6 @@
   function collectFields() {
     const f = {};
     EIDS.forEach(id => { const el = document.getElementById(id); if (el) f[id] = el.innerHTML; });
-    f['eTabela'] = document.getElementById('eTabela').innerHTML;
     return f;
   }
 
@@ -580,19 +835,18 @@
     showToast('Proposta salva!');
   }
 
-  /* ── Link para cliente (URL hash) ── */
+  /* ── Link hash ── */
   function loadFromHash() {
-    const h = location.hash;
-    if (!h.startsWith('#data=')) return false;
+    if (!location.hash.startsWith('#data=')) return false;
     try {
-      const fields = JSON.parse(decodeURIComponent(escape(atob(h.slice(6)))));
-      applyFields(fields); return true;
+      applyFields(JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(6))))));
+      return true;
     } catch { return false; }
   }
 
   function openLinkModal() {
     saveData();
-    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(collectFields()))));
+    const encoded  = btoa(unescape(encodeURIComponent(JSON.stringify(collectFields()))));
     generatedLink  = `${location.origin}${location.pathname}#data=${encoded}`;
     document.getElementById('linkBox').textContent  = generatedLink;
     document.getElementById('modalPwd').textContent = CLIENT_PWD;
@@ -604,46 +858,45 @@
 
   async function copyLink() {
     try { await navigator.clipboard.writeText(generatedLink); showToast('Link copiado!'); }
-    catch { showToast('Selecione e copie o link manualmente.'); }
+    catch { showToast('Copie o link manualmente.'); }
   }
 
   function sendViaWA() {
     const empresa = document.getElementById('eEmpresa').textContent.trim();
-    const msg = `Olá! Segue o link para você visualizar a proposta da Oryga para a ${empresa} e assinar digitalmente:\n\n${generatedLink}\n\n🔐 Senha de acesso: *${CLIENT_PWD}*`;
+    const msg = `Olá! Segue o link da proposta comercial da Oryga para ${empresa}:\n\n${generatedLink}\n\n🔐 Senha: *${CLIENT_PWD}*`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
   }
 
-  /* ── Canvas assinatura ── */
+  /* ── Canvas ── */
   function initCanvas() {
     canvas = document.getElementById('signCanvas');
     const dpr = window.devicePixelRatio || 1;
-    const W   = canvas.parentElement.clientWidth - 8;
+    const W   = canvas.parentElement.clientWidth - 10;
     canvas.width  = W * dpr;
     canvas.height = 160 * dpr;
     canvas.style.width  = W + 'px';
     canvas.style.height = '160px';
     ctx = canvas.getContext('2d');
     ctx.scale(dpr, dpr);
-    ctx.strokeStyle = '#111';
-    ctx.lineWidth   = 2.5;
+    ctx.strokeStyle = '#111'; ctx.lineWidth = 2.5;
     ctx.lineCap = ctx.lineJoin = 'round';
 
     const pos = e => {
       const r = canvas.getBoundingClientRect();
       const s = e.touches ? e.touches[0] : e;
-      return { x: (s.clientX - r.left), y: (s.clientY - r.top) };
+      return { x: s.clientX - r.left, y: s.clientY - r.top };
     };
 
     canvas.addEventListener('mousedown',  e => { drawing=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); });
     canvas.addEventListener('mousemove',  e => { if(!drawing) return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); hasSign=true; });
-    canvas.addEventListener('mouseup',    () => drawing = false);
-    canvas.addEventListener('mouseleave', () => drawing = false);
+    canvas.addEventListener('mouseup',    () => drawing=false);
+    canvas.addEventListener('mouseleave', () => drawing=false);
     canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); }, {passive:false});
     canvas.addEventListener('touchmove',  e => { e.preventDefault(); if(!drawing) return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); hasSign=true; }, {passive:false});
-    canvas.addEventListener('touchend',   () => drawing = false);
+    canvas.addEventListener('touchend',   () => drawing=false);
   }
 
-  function clearSign() { ctx.clearRect(0, 0, canvas.width, canvas.height); hasSign = false; }
+  function clearSign() { if(ctx) ctx.clearRect(0, 0, canvas.width, canvas.height); hasSign=false; }
 
   async function confirmSign() {
     const name = document.getElementById('signName').value.trim();
@@ -652,12 +905,10 @@
 
     const dataUrl = canvas.toDataURL('image/png');
     const ts      = new Date().toLocaleString('pt-BR');
-
-    const d = getStorage() || {};
-    Object.assign(d, { signed: true, signedAt: ts, signatureName: name, signatureData: dataUrl });
+    const d       = getStorage() || {};
+    Object.assign(d, { signed:true, signedAt:ts, signatureName:name, signatureData:dataUrl });
     localStorage.setItem(STORE_KEY, JSON.stringify(d));
 
-    /* Enviar e-mail via EmailJS */
     if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') {
       try {
         await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_ID, {
@@ -667,7 +918,7 @@
           data_assinatura: ts,
           demo_link:       'https://orygaconsultoria.com.br/anacleto-pneus/',
         }, EJ_PUBLIC_KEY);
-      } catch (err) { console.warn('EmailJS erro:', err); }
+      } catch(err) { console.warn('EmailJS:', err); }
     }
 
     document.getElementById('signSection').style.display = 'none';
@@ -684,14 +935,11 @@
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg; t.style.opacity = '1';
-    clearTimeout(t._tid);
-    t._tid = setTimeout(() => t.style.opacity = '0', 2200);
+    clearTimeout(t._t);
+    t._t = setTimeout(() => t.style.opacity = '0', 2200);
   }
 
-  /* Init EmailJS */
   if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') emailjs.init(EJ_PUBLIC_KEY);
-
-  /* Carrega hash se vier de link de cliente */
   loadFromHash();
 </script>
 </body>
