@@ -324,6 +324,12 @@
 
     .plan-tag { font-size: .73rem; color: var(--muted); font-style: italic; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--border); }
     .plan-tag-hi { color: rgba(245,168,0,.7); border-color: rgba(245,168,0,.15); }
+    .plan-sub-list { font-size: .72rem; color: var(--muted); margin-top: .3rem; padding-left: .1rem; line-height: 1.6; }
+
+    .plans-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(255,255,255,.04); border-left: 3px solid var(--border); border-radius: 6px; font-size: .85rem; color: var(--muted); line-height: 1.7; }
+    .plans-sale { margin-top: 1.25rem; padding: 1.1rem 1.25rem; background: rgba(245,168,0,.06); border: 1px solid rgba(245,168,0,.15); border-radius: 8px; font-size: .88rem; color: #ccc; line-height: 1.75; }
+    .mp-btn { background: #009ee3 !important; }
+    .mp-btn:hover { background: #0082c0 !important; }
 
     /* Seleção de plano */
     .plan-selectable { cursor: pointer; transition: border-color .2s, box-shadow .2s, transform .15s; }
@@ -733,7 +739,7 @@
           <li><div class="check-dot">✓</div><span>Domínio incluso no 1º ano</span></li>
           <li><div class="check-dot">✓</div><span>Certificado SSL</span></li>
           <li><div class="check-dot">✓</div><span>Entrega do site funcionando</span></li>
-          <li><div class="check-dot">✓</div><span>Manutenções avulsas por R$ 300</span></li>
+          <li><div class="check-dot">✓</div><span>Alterações e manutenções sob demanda mediante orçamento</span></li>
         </ul>
         <div class="plan-tag">Solicite alterações quando precisar</div>
       </div>
@@ -750,20 +756,21 @@
         </div>
         <ul class="plan-list">
           <li><div class="check-dot">✓</div><span>Hospedagem do site</span></li>
-          <li><div class="check-dot">✓</div><span>Domínio incluso</span></li>
+          <li><div class="check-dot">✓</div><span>Renovação e gerenciamento do domínio</span></li>
           <li><div class="check-dot">✓</div><span>Certificado SSL</span></li>
           <li><div class="check-dot">✓</div><span>Backup periódico</span></li>
           <li><div class="check-dot">✓</div><span>Monitoramento básico</span></li>
           <li><div class="check-dot">✓</div><span>Garantia de funcionamento</span></li>
+          <li><div class="check-dot">✓</div><span>Suporte técnico via WhatsApp</span></li>
         </ul>
-        <div class="plan-fidelidade">Fidelidade mínima: 12 meses</div>
+        <div class="plan-fidelidade">Cancelamento com aviso prévio de 30 dias</div>
         <div class="plan-tag">Sem preocupação com questões técnicas</div>
       </div>
 
       <!-- Opção C -->
       <div class="plan-card plan-card-hi plan-selectable" id="planC" onclick="selectPlan('C')">
         <div class="plan-selected-badge plan-selected-badge-hi" id="planC-badge">✓ Plano escolhido</div>
-        <div class="plan-popular">Mais escolhido</div>
+        <div class="plan-popular">🏆 Mais vantajoso</div>
         <div class="plan-badge plan-badge-hi">Opção C</div>
         <div class="plan-name">Site + Plano Profissional</div>
         <div class="plan-price-wrap">
@@ -773,17 +780,25 @@
         </div>
         <ul class="plan-list">
           <li><div class="check-dot check-dot-hi">✓</div><span>Tudo do Plano Essencial</span></li>
-          <li><div class="check-dot check-dot-hi">✓</div><span>Até 2 alterações por mês</span></li>
-          <li><div class="check-dot check-dot-hi">✓</div><span>Inclusão ou substituição de fotos</span></li>
-          <li><div class="check-dot check-dot-hi">✓</div><span>Atualização de textos e conteúdos</span></li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Até 2 solicitações de atualização por mês</span>
+            <div class="plan-sub-list">Fotos · Textos · Telefones · Horários · Banners · Informações da empresa</div>
+          </li>
           <li><div class="check-dot check-dot-hi">✓</div><span>Pequenas correções visuais</span></li>
           <li><div class="check-dot check-dot-hi">✓</div><span>Suporte prioritário</span></li>
           <li><div class="check-dot check-dot-hi">✓</div><span>Atendimento preferencial</span></li>
         </ul>
-        <div class="plan-fidelidade plan-fidelidade-hi">Fidelidade mínima: 12 meses</div>
+        <div class="plan-fidelidade plan-fidelidade-hi">Cancelamento com aviso prévio de 30 dias</div>
         <div class="plan-tag plan-tag-hi">Site sempre atualizado e funcionando</div>
       </div>
 
+    </div>
+
+    <div class="plans-note">
+      O site é propriedade da <strong id="notaEmpresa">contratante</strong>. Os planos de gestão digital são opcionais e têm como objetivo garantir o funcionamento, segurança, atualização e disponibilidade contínua do site.
+    </div>
+
+    <div class="plans-sale">
+      O desenvolvimento do site é um <strong>investimento único de R$ 1.500</strong>. Após a entrega, a empresa pode administrar tudo por conta própria ou optar pelos planos de gestão digital da Oryga Consultoria para garantir que o site permaneça <strong>seguro, atualizado e funcionando sem preocupações</strong>.
     </div>
 
     <!-- Pagamento -->
@@ -832,7 +847,14 @@
     <div class="sign-cta-icon">🚀</div>
     <div class="sign-cta-title">Pronto para colocar a <span id="ctaEmpresaNome">sua empresa</span> na internet?</div>
     <div class="sign-cta-desc">O aceite desta proposta ocorre com a realização do pagamento do investimento inicial. Após a confirmação, iniciamos o projeto imediatamente e encaminhamos o contrato de prestação de serviços para formalização.</div>
-    <a class="sign-cta-btn" id="ctaWaBtn" href="https://wa.me/5537998019444" target="_blank">📲 Quero contratar — falar com a Oryga</a>
+
+    <!-- campo visível só no modo vendedor para colar o link MP -->
+    <div id="mpLinkWrap" style="display:none;margin-bottom:1rem">
+      <label style="font-size:.8rem;color:var(--muted);display:block;margin-bottom:.4rem">🔗 Link de pagamento Mercado Pago (cole aqui — visível só para você)</label>
+      <div id="ePayLink" contenteditable="false" style="background:rgba(255,255,255,.06);border:1px dashed var(--border);border-radius:6px;padding:.6rem .9rem;font-size:.82rem;color:#ccc;min-height:2rem;word-break:break-all" placeholder="https://mpago.la/...">https://mpago.la/cole-seu-link-aqui</div>
+    </div>
+
+    <a class="sign-cta-btn mp-btn" id="ctaPayBtn" href="#" target="_blank" onclick="return handlePayClick(event)">💳 Realizar pagamento</a>
   </div>
 
   <!-- ── Footer ── -->
@@ -902,17 +924,21 @@
 
     if (mode === 'vendor') {
       document.getElementById('vbar').style.display = 'flex';
+      document.getElementById('mpLinkWrap').style.display = 'block';
       enableEdit();
     }
-    /* atualiza nome da empresa no CTA */
+    /* atualiza nome da empresa em CTAs e nota de propriedade */
     const emp = document.getElementById('eEmpresa');
+    const empName = emp ? emp.textContent.trim() : '';
     const cta = document.getElementById('ctaEmpresaNome');
-    if (emp && cta) cta.textContent = emp.textContent.trim() || 'sua empresa';
+    if (cta) cta.textContent = empName || 'sua empresa';
+    const nota = document.getElementById('notaEmpresa');
+    if (nota) nota.textContent = empName || 'contratante';
   }
 
   /* ── Edição ── */
   const EIDS = ['eRef','eEmpresa','eResponsavel','eFone','eEmail','eCidade','eContatoOryga',
-                'eApres','eHostingIntro','ePrazo','eObs','eValidade'];
+                'eApres','eHostingIntro','ePrazo','eObs','eValidade','ePayLink'];
 
   function enableEdit() {
     EIDS.forEach(id => { const el = document.getElementById(id); if (el) el.contentEditable = 'true'; });
@@ -986,6 +1012,17 @@
     window.open(`mailto:${dest}?subject=${assunto}&body=${corpo}`, '_blank');
   }
 
+  /* ── Botão de pagamento ── */
+  function handlePayClick(e) {
+    const link = document.getElementById('ePayLink').textContent.trim();
+    if (!link || link.startsWith('https://mpago.la/cole')) {
+      showToast('Nenhum link de pagamento configurado.');
+      return false;
+    }
+    window.open(link, '_blank');
+    return false;
+  }
+
   /* ── Toast ── */
   function showToast(msg) {
     const t = document.getElementById('toast');
@@ -1000,15 +1037,15 @@
   const OBS_TEXTS = {
     A: `<p>Com o <strong>Plano A — Site Independente</strong>, o site será desenvolvido, publicado e entregue com domínio e hospedagem ativos durante o primeiro ano, sem custo adicional.</p>
         <p>Após esse período, a renovação do domínio e da hospedagem passa a ser de responsabilidade do contratante. A Oryga não realiza cobranças recorrentes nesta modalidade.</p>
-        <p>Caso precise de alterações, atualizações ou suporte técnico a qualquer momento, a Oryga oferece <strong>atendimento avulso por R$ 300 por solicitação</strong> — sem vínculo de mensalidade.</p>`,
-    B: `<p>Com o <strong>Plano B — Site + Plano Essencial</strong>, o domínio, a hospedagem e todos os serviços de infraestrutura permanecem ativos e gerenciados pela Oryga durante todo o período de contratação.</p>
-        <p>Caso necessite de alterações no conteúdo do site — textos, fotos ou qualquer atualização — a Oryga realiza o serviço por <strong>R$ 200 por solicitação</strong>, sem vínculo de quantidade mínima.</p>
-        <p>O contrato tem <strong>fidelidade mínima de 12 meses</strong>. Após esse período, pode ser renovado ou cancelado com aviso prévio de 30 dias.</p>
+        <p>Sempre que precisar de alterações, atualizações ou suporte técnico, a Oryga está disponível para atendimento sob demanda — basta entrar em contato para solicitar um orçamento.</p>`,
+    B: `<p>Com o <strong>Plano B — Site + Plano Essencial</strong>, o domínio, a hospedagem e toda a infraestrutura do site permanecem ativos e gerenciados pela Oryga. Inclui também suporte técnico via WhatsApp e a renovação anual do domínio sem necessidade de ação por parte do cliente.</p>
+        <p>Quando precisar de alterações no conteúdo do site — textos, fotos ou qualquer atualização — a Oryga realiza por <strong>R$ 200 por solicitação</strong>.</p>
+        <p>Cancelamento a qualquer momento com aviso prévio de 30 dias.</p>
         <p>O investimento inicial é cobrado no ato da contratação e a mensalidade é gerada via cartão de crédito em até 12x.</p>`,
-    C: `<p>Com o <strong>Plano C — Site + Plano Profissional</strong>, a Oryga realiza até <strong>2 alterações mensais inclusas</strong> no conteúdo do site — textos, fotos, informações e pequenas correções visuais — sem custo adicional.</p>
-        <p>Caso o número de solicitações ultrapasse o limite de 2 alterações no mês, cada solicitação adicional será cobrada por <strong>R$ 150 por ocorrência</strong>.</p>
-        <p>O contrato tem <strong>fidelidade mínima de 12 meses</strong>. Após esse período, pode ser renovado ou cancelado com aviso prévio de 30 dias.</p>
-        <p>É a opção ideal para empresas que querem o site sempre atualizado, com suporte prioritário e atendimento preferencial da Oryga.</p>`,
+    C: `<p>Com o <strong>Plano C — Site + Plano Profissional</strong>, a Oryga realiza até <strong>2 solicitações de atualização por mês</strong> inclusas — fotos, textos, telefones, horários, banners e informações da empresa.</p>
+        <p>Caso as solicitações ultrapassem 2 no mês, cada ocorrência adicional é cobrada por <strong>R$ 150</strong>.</p>
+        <p>Inclui tudo do Plano Essencial, mais suporte prioritário e atendimento preferencial.</p>
+        <p>Cancelamento a qualquer momento com aviso prévio de 30 dias.</p>`,
     none: `<p style="color:var(--muted);font-style:italic">Selecione um plano acima para ver as condições específicas.</p>`
   };
 
