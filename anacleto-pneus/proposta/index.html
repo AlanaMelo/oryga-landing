@@ -1014,7 +1014,6 @@
     saveData();
     const encoded  = btoa(unescape(encodeURIComponent(JSON.stringify(collectFields()))));
     generatedLink  = `${location.origin}${location.pathname}#data=${encoded}`;
-    document.getElementById('linkBox').textContent  = generatedLink;
     document.getElementById('modalPwd').textContent = CLIENT_PWD;
     document.getElementById('linkModal').classList.add('open');
   }
