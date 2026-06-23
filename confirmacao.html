@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Agendamento Confirmado — Oryga</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:           #060f11;
+      --bg-card:      #0d2024;
+      --green:        #C9A840;
+      --green-light:  #D8B85C;
+      --green-dim:    rgba(201, 168, 64, .12);
+      --green-border: rgba(201, 168, 64, .25);
+      --green-glow:   rgba(201, 168, 64, .22);
+      --blue:         #1a9aaa;
+      --blue-dim:     rgba(26, 154, 170, .12);
+      --blue-border:  rgba(26, 154, 170, .25);
+      --white:        #F5EFE0;
+      --gray:         #7a9099;
+      --gray-light:   #aabcc0;
+      --border:       rgba(255, 255, 255, .06);
+      --border-md:    rgba(255, 255, 255, .1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Brilho de fundo */
+    .bg-glow {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(201,168,64,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Card principal */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 40px 100px rgba(0,0,0,.5);
+    }
+
+    /* Ícone de check */
+    .check-circle {
+      width: 72px; height: 72px;
+      background: var(--green-dim);
+      border: 2px solid var(--green-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      font-size: 2rem;
+      animation: popIn .5s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .logo-wrap {
+      margin-bottom: 2rem;
+    }
+    .logo-wrap img { height: 40px; display: block; margin: 0 auto; }
+
+    h1 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: .875rem;
+      letter-spacing: -.02em;
+    }
+    h1 span { color: var(--green); }
+
+    .subtitle {
+      color: var(--gray-light);
+      font-size: .97rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* Próximos passos */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: .875rem;
+      padding: .875rem 1.1rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .step-n {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #1a0e00;
+      font-size: .72rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .step p {
+      font-size: .88rem;
+      color: var(--gray-light);
+      line-height: 1.5;
+    }
+    .step p strong { color: var(--white); font-weight: 600; }
+
+    /* Botão */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .875rem 1.75rem;
+      border-radius: 10px;
+      background: var(--green);
+      color: #1a0e00;
+      font-weight: 700;
+      font-size: .93rem;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-back:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: .78rem;
+      color: var(--gray);
+    }
+    .footer-note a {
+      color: var(--gray-light);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <div class="card">
+    <div class="logo-wrap">
+      <a href="/"><img src="/logo-nome-nobg.png" alt="Oryga"></a>
+    </div>
+
+    <div class="check-circle">✓</div>
+
+    <h1>Agendamento <span>confirmado!</span></h1>
+    <p class="subtitle">
+      Recebemos sua solicitação de diagnóstico gratuito.<br>
+      Aqui está o que acontece agora:
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">1</span>
+        <p><strong>Confirmação em até 2h</strong> — você receberá uma mensagem no WhatsApp confirmando data e horário.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">2</span>
+        <p><strong>Diagnóstico de 30 minutos</strong> — sessão real, sem pitch de venda. Mapeamos seu processo e identificamos os 3 maiores gargalos.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">3</span>
+        <p><strong>Relatório com gargalos + ROI</strong> — você sai sabendo exatamente o que está travando seu crescimento e quanto custa por mês.</p>
+      </div>
+    </div>
+
+    <a href="/" class="btn-back">← Voltar para o site</a>
+
+    <p class="footer-note">
+      Dúvidas? Fale direto: <a href="https://wa.me/5537998019444" target="_blank" rel="noopener">WhatsApp</a> ou <a href="mailto:oryga.contato@gmail.com">oryga.contato@gmail.com</a>
+    </p>
+  </div>
+
+</body>
+</html>
