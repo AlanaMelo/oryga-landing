@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anacleto Pneus — Borracharia, venda e reforma de pneus de caminhão em Divinópolis, MG. Atendimento rápido, preço justo e estrutura completa.">
+  <title>Anacleto Pneus — Borracharia e Reforma de Pneus de Caminhão em Divinópolis, MG</title>
+
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg:           #0a0a0a;
+      --bg1:          #111111;
+      --bg2:          #181818;
+      --bg3:          #222222;
+      --yellow:       #F5A800;
+      --yellow-light: #FFC130;
+      --yellow-dark:  #D48F00;
+      --yellow-dim:   rgba(245,168,0,.1);
+      --yellow-border:rgba(245,168,0,.28);
+      --yellow-glow:  rgba(245,168,0,.22);
+      --gray:         #666;
+      --gray-light:   #999;
+      --gray-mid:     #444;
+      --white:        #f0f0f0;
+      --border:       rgba(255,255,255,.07);
+      --border-md:    rgba(255,255,255,.12);
+      --radius:       12px;
+      --wa:           #25D366;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    svg { display: block; flex-shrink: 0; }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ── Sec tags ── */
+    .sec-tag { display: inline-flex; align-items: center; gap: .45rem; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 50px; margin-bottom: 1.25rem; }
+    .sec-tag.yellow { color: var(--yellow); background: var(--yellow-dim); border: 1px solid var(--yellow-border); }
+    .sec-tag.gray   { color: var(--gray-light); background: rgba(255,255,255,.05); border: 1px solid var(--border-md); }
+    .sec-tag.green  { color: #34d399; background: rgba(52,211,153,.08); border: 1px solid rgba(52,211,153,.2); }
+
+    .sec-title { font-size: clamp(1.75rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -.025em; }
+    .sec-desc  { color: var(--gray-light); font-size: .97rem; line-height: 1.8; }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .875rem 1.75rem; border-radius: 10px; font-weight: 700; font-size: .93rem; border: none; cursor: pointer; transition: all .25s ease; white-space: nowrap; font-family: inherit; }
+    .btn svg, .btn i { width: 17px; height: 17px; }
+    .btn-yellow  { background: var(--yellow); color: #0a0a0a; }
+    .btn-yellow:hover { background: var(--yellow-light); transform: translateY(-2px); box-shadow: 0 8px 28px var(--yellow-glow); }
+    .btn-wa      { background: var(--wa); color: #fff; }
+    .btn-wa:hover { background: #1ebe57; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.35); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--border-md); }
+    .btn-outline:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.05); }
+    .btn-ghost   { background: rgba(255,255,255,.06); color: var(--gray-light); border: 1px solid var(--border-md); }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); color: var(--white); }
+
+    /* ════════════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .875rem 2rem;
+      background: rgba(10,10,10,.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    #navbar.scrolled { border-color: var(--border); box-shadow: 0 4px 24px rgba(0,0,0,.6); }
+
+    .nav-logo { display: inline-flex; align-items: center; }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+    .nav-links a { color: var(--gray-light); font-size: .87rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-wa { display: inline-flex; align-items: center; gap: .4rem; background: var(--wa); color: #fff; font-size: .84rem; font-weight: 700; padding: .45rem 1.1rem; border-radius: 8px; transition: background .2s, transform .2s; }
+    .nav-wa:hover { background: #1ebe57; transform: translateY(-1px); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: all .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10,10,10,.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; flex-direction: column; gap: .25rem; z-index: 899; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { color: var(--gray-light); font-size: 1rem; font-weight: 500; padding: .75rem 1rem; border-radius: 8px; display: block; transition: color .2s, background .2s; }
+    .nav-mobile a:hover { color: var(--white); background: rgba(255,255,255,.05); }
+    .nav-mobile .nm-wa { color: var(--wa); font-weight: 700; }
+
+    /* ════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 1.5rem 5rem;
+      position: relative; overflow: hidden;
+      background: var(--bg);
+    }
+
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(245,168,0,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,168,0,.035) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute; top: 0; left: -100px;
+      width: 700px; height: 600px;
+      background: radial-gradient(ellipse, rgba(245,168,0,.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1160px; margin: 0 auto; width: 100%; position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--yellow-dim); border: 1px solid var(--yellow-border);
+      color: var(--yellow); font-size: .77rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: .4rem 1rem; border-radius: 50px; margin-bottom: 1.75rem;
+    }
+    .hero-badge-dot { width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; animation: blink 2s ease-in-out infinite; }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+
+    .hero-title { font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 900; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 1.25rem; }
+    .hero-title .hl { color: var(--yellow); }
+
+    .hero-sub { color: var(--gray-light); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.25rem; max-width: 490px; }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.25rem; }
+
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .trust-item { display: flex; align-items: center; gap: .45rem; font-size: .8rem; color: var(--gray-light); font-weight: 500; }
+    .trust-dot  { width: 7px; height: 7px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
+
+    /* Hero visual — foto da fachada */
+    .hero-visual { position: relative; }
+
+    .hero-img-frame {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 0 0 8px rgba(245,168,0,.06), 0 40px 80px rgba(0,0,0,.65);
+    }
+    .hero-img-frame img { width: 100%; height: auto; object-fit: cover; display: block; }
+
+    .hero-float {
+      position: absolute; background: var(--bg2); border: 1px solid var(--yellow-border);
+      border-radius: 10px; padding: .6rem .9rem; display: flex; align-items: center;
+      gap: .5rem; font-size: .77rem; font-weight: 700; z-index: 2;
+      box-shadow: 0 8px 24px rgba(0,0,0,.5); white-space: nowrap;
+    }
+    .hero-float.tl { top: -1rem; left: -1.25rem; }
+    .hero-float.br { bottom: -1rem; right: -1.25rem; border-color: rgba(37,211,102,.35); }
+    .hf-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
+    .hero-float.br .hf-dot { background: var(--wa); }
+
+    /* ════════════════════════════════════════════
+       ESTRUTURA
+    ════════════════════════════════════════════ */
+    #estrutura {
+      padding: 6rem 1.5rem;
+      background: var(--bg1);
+      position: relative;
+    }
+    #estrutura::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--yellow-border), transparent); }
+
+    .estrutura-head { text-align: center; max-width: 560px; margin: 0 auto 3rem; }
+
+    .estrutura-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .eg-main {
+      grid-row: span 2;
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .eg-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .eg-side { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .eg-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .eg-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(0deg, rgba(10,10,10,.9) 0%, transparent 100%);
+    }
+    .eg-overlay-badge { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--yellow); margin-bottom: .35rem; }
+    .eg-overlay-text  { font-size: 1rem; font-weight: 700; color: var(--white); }
+
+    /* ════════════════════════════════════════════
+       SERVIÇOS
+    ════════════════════════════════════════════ */
+    #servicos {
+      padding: 6rem 1.5rem;
+      background: var(--bg);
+      position: relative;
+    }
+    #servicos::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--yellow-border), transparent); }
+
+    .servicos-head { text-align: center; max-width: 580px; margin: 0 auto 3.5rem; }
+
+    .servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+    .scard {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 2rem 1.75rem; position: relative; overflow: hidden;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .scard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--yellow); opacity: 0; transition: opacity .3s; }
+    .scard:hover { transform: translateY(-4px); border-color: var(--yellow-border); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+    .scard:hover::before { opacity: 1; }
+
+    .scard-ico { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .scard h3  { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; color: var(--white); }
+    .scard p   { font-size: .85rem; color: var(--gray-light); line-height: 1.65; }
+    .scard-badge { display: inline-block; margin-top: .875rem; font-size: .7rem; font-weight: 700; color: var(--yellow); background: var(--yellow-dim); border: 1px solid var(--yellow-border); padding: .2rem .65rem; border-radius: 50px; }
+
+    /* ════════════════════════════════════════════
+       DIFERENCIAIS
+    ════════════════════════════════════════════ */
+    #diferenciais {
+      padding: 6rem 1.5rem;
+      background: var(--bg1);
+      position: relative; overflow: hidden;
+    }
+    #diferenciais::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--yellow-border), transparent); }
+
+    .dif-glow { position: absolute; top: 50%; right: -80px; transform: translateY(-50%); width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(245,168,0,.06) 0%, transparent 70%); pointer-events: none; }
+
+    .dif-layout { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2.25rem; }
+    .stat-box { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; transition: border-color .2s; }
+    .stat-box:hover { border-color: var(--yellow-border); }
+    .stat-val   { font-size: 2.25rem; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: .4rem; letter-spacing: -.02em; }
+    .stat-label { font-size: .8rem; color: var(--gray-light); line-height: 1.45; }
+
+    .dif-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .dif-card {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.375rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .dif-card:hover { border-color: var(--yellow-border); transform: translateX(4px); }
+    .dif-card-ico { width: 42px; height: 42px; background: var(--yellow-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem; }
+    .dif-card h3  { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
+    .dif-card p   { font-size: .84rem; color: var(--gray-light); line-height: 1.6; }
+
+    /* ════════════════════════════════════════════
+       DEPOIMENTOS
+    ════════════════════════════════════════════ */
+    #depoimentos {
+      padding: 6rem 1.5rem;
+      background: var(--bg);
+      position: relative;
+    }
+    #depoimentos::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); }
+
+    .dep-head { text-align: center; max-width: 520px; margin: 0 auto 3rem; }
+
+    .dep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .dep-card {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem;
+      transition: border-color .25s, transform .25s;
+    }
+    .dep-card:hover { border-color: var(--yellow-border); transform: translateY(-3px); }
+
+    .dep-stars  { color: var(--yellow); font-size: 1rem; letter-spacing: .1em; }
+    .dep-text   { font-size: .9rem; color: var(--gray-light); line-height: 1.7; font-style: italic; flex: 1; }
+    .dep-author { display: flex; align-items: center; gap: .75rem; }
+    .dep-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--yellow-dim); border: 2px solid var(--yellow-border); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem; color: var(--yellow); flex-shrink: 0; }
+    .dep-name   { font-size: .85rem; font-weight: 700; }
+    .dep-role   { font-size: .75rem; color: var(--gray); }
+
+    .google-badge {
+      margin-top: 3rem; text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: .875rem; flex-wrap: wrap;
+    }
+    .google-badge-inner {
+      display: inline-flex; align-items: center; gap: .75rem;
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 50px;
+      padding: .625rem 1.5rem; font-size: .85rem; font-weight: 600;
+    }
+
+    /* ════════════════════════════════════════════
+       CTA WHATSAPP
+    ════════════════════════════════════════════ */
+    #cta-wa {
+      padding: 6rem 1.5rem;
+      background: var(--bg1);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    #cta-wa::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--yellow-border), transparent); }
+
+    .cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(245,168,0,.07) 0%, transparent 70%); pointer-events: none; }
+
+    .cta-inner  { max-width: 660px; margin: 0 auto; position: relative; }
+    .cta-title  { font-size: clamp(1.875rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -.025em; line-height: 1.15; margin-bottom: 1rem; }
+    .cta-title .hl { color: var(--yellow); }
+    .cta-sub    { color: var(--gray-light); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+    .cta-btns   { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.75rem; }
+    .cta-checks { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; }
+    .cta-check  { display: flex; align-items: center; gap: .4rem; font-size: .82rem; color: var(--gray-light); }
+    .cta-ok     { color: var(--wa); font-weight: 900; }
+
+    /* ════════════════════════════════════════════
+       LOCALIZAÇÃO
+    ════════════════════════════════════════════ */
+    #localizacao {
+      padding: 6rem 1.5rem;
+      background: var(--bg);
+      position: relative;
+    }
+    #localizacao::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); }
+
+    .loc-layout { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+
+    .loc-details { display: flex; flex-direction: column; gap: .875rem; margin: 1.5rem 0 2rem; }
+    .loc-row { display: flex; align-items: flex-start; gap: .75rem; font-size: .9rem; color: var(--gray-light); line-height: 1.5; }
+    .loc-row i { color: var(--yellow); flex-shrink: 0; margin-top: .1rem; }
+    .loc-row strong { color: var(--white); display: block; }
+
+    .horario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .375rem .5rem; margin-top: 1rem; font-size: .82rem; }
+    .h-dia  { color: var(--gray-light); }
+    .h-hora { color: var(--white); font-weight: 600; }
+    .h-closed { color: var(--gray); }
+
+    .loc-map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); height: 380px; }
+    .loc-map iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(60%) invert(90%) hue-rotate(180deg); }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    footer {
+      background: var(--bg1); border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem; padding-bottom: 1.5rem; margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-logo { display: inline-flex; align-items: center; }
+    .footer-logo img { height: 44px; width: auto; display: block; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--gray); font-size: .84rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy { max-width: 1160px; margin: 0 auto; text-align: center; color: var(--gray); font-size: .78rem; }
+    .footer-copy a { color: var(--gray-light); transition: color .2s; }
+    .footer-copy a:hover { color: var(--white); }
+
+    /* WhatsApp float */
+    .wa-float {
+      position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 800;
+      width: 56px; height: 56px; background: var(--wa); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform .25s; animation: waPulse 2.5s ease-in-out infinite;
+    }
+    .wa-float i { width: 28px; height: 28px; color: #fff; }
+    .wa-float:hover { transform: scale(1.1); animation: none; box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+    @keyframes waPulse { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); } 50% { box-shadow: 0 4px 32px rgba(37,211,102,.7); } }
+
+    /* ════════════════════════════════════════════
+       EQUIPE
+    ════════════════════════════════════════════ */
+    #equipe {
+      padding: 6rem 1.5rem;
+      background: var(--bg);
+      position: relative;
+    }
+    #equipe::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--yellow-border), transparent); }
+
+    .equipe-layout { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+    .equipe-foto {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 0 8px rgba(245,168,0,.05), 0 32px 64px rgba(0,0,0,.5);
+    }
+    .equipe-foto img { width: 100%; height: auto; display: block; }
+
+    .equipe-checks { display: flex; flex-direction: column; gap: .75rem; margin: 2rem 0; }
+    .equipe-check { display: flex; align-items: center; gap: .75rem; font-size: .92rem; color: var(--gray-light); }
+    .equipe-check-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .dif-layout  { grid-template-columns: 1fr; gap: 3rem; }
+      .dep-grid    { grid-template-columns: repeat(2, 1fr); }
+      .loc-layout  { grid-template-columns: 1fr; }
+      .estrutura-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+      .eg-main { grid-row: span 1; grid-column: span 2; height: 260px; }
+      .eg-side { height: 220px; }
+    }
+
+    @media (max-width: 768px) {
+      #navbar { padding: .875rem 1.25rem; }
+      .nav-links, .nav-wa { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { order: -1; }
+      .hero-float  { display: none; }
+      .hero-sub    { max-width: 100%; }
+
+      .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+      .dep-grid      { grid-template-columns: 1fr; }
+      .stats-grid    { grid-template-columns: repeat(2, 1fr); }
+      .equipe-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .footer-inner  { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .servicos-grid { grid-template-columns: 1fr; }
+      .hero-btns  { flex-direction: column; }
+      .cta-btns   { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+      .estrutura-grid { grid-template-columns: 1fr; }
+      .eg-main { grid-column: span 1; }
+    }
+    /* ════════════════════════════════════════════
+       MODAL ORYGA
+    ════════════════════════════════════════════ */
+    .oryga-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,.75); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s ease;
+    }
+    .oryga-overlay.show { opacity: 1; pointer-events: all; }
+
+    .oryga-modal {
+      background: #0f0f0f;
+      border: 1px solid rgba(245,168,0,.3);
+      border-radius: 20px;
+      max-width: 520px; width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 0 0 1px rgba(245,168,0,.1), 0 40px 80px rgba(0,0,0,.7);
+      transform: translateY(20px) scale(.97);
+      transition: transform .4s ease;
+    }
+    .oryga-overlay.show .oryga-modal { transform: translateY(0) scale(1); }
+
+    .oryga-modal-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px; width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #888; font-size: 1rem; line-height: 1;
+      transition: background .2s, color .2s;
+    }
+    .oryga-modal-close:hover { background: rgba(255,255,255,.12); color: #fff; }
+
+    .oryga-modal-badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: rgba(245,168,0,.1); border: 1px solid rgba(245,168,0,.3);
+      color: var(--yellow); font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .8rem; border-radius: 50px; margin-bottom: 1.25rem;
+    }
+    .oryga-modal-badge-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; animation: blink 2s ease-in-out infinite; }
+
+    .oryga-modal h2 {
+      font-size: clamp(1.3rem, 3vw, 1.75rem); font-weight: 900;
+      line-height: 1.2; margin-bottom: .875rem; letter-spacing: -.02em;
+      color: #f0f0f0;
+    }
+    .oryga-modal h2 span { color: var(--yellow); }
+
+    .oryga-modal p {
+      font-size: .9rem; color: #999; line-height: 1.75; margin-bottom: 1.5rem;
+    }
+
+    .oryga-modal-proof {
+      display: flex; flex-wrap: wrap; gap: .625rem; margin-bottom: 1.75rem;
+    }
+    .oryga-proof-item {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .78rem; color: #aaa; font-weight: 500;
+    }
+    .oryga-proof-ok { color: var(--yellow); font-weight: 900; font-size: .85rem; }
+
+    .oryga-modal-btns { display: flex; flex-direction: column; gap: .75rem; }
+    .oryga-btn-main {
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      background: var(--yellow); color: #0a0a0a;
+      font-weight: 800; font-size: .95rem; padding: .95rem 1.5rem;
+      border-radius: 10px; border: none; cursor: pointer; width: 100%;
+      transition: background .2s, transform .2s;
+      text-decoration: none; font-family: inherit;
+    }
+    .oryga-btn-main:hover { background: var(--yellow-light); transform: translateY(-2px); }
+
+    .oryga-btn-dismiss {
+      background: none; border: none; color: #555; font-size: .8rem;
+      cursor: pointer; font-family: inherit; text-align: center; padding: .25rem;
+      transition: color .2s;
+    }
+    .oryga-btn-dismiss:hover { color: #888; }
+
+    .oryga-modal-divider {
+      border: none; border-top: 1px solid rgba(255,255,255,.07);
+      margin: 1.5rem 0 1.25rem;
+    }
+
+    .oryga-modal-brand {
+      display: flex; align-items: center; justify-content: center;
+      gap: .5rem; font-size: .78rem; color: #555;
+    }
+    .oryga-modal-brand strong { color: var(--yellow); }
+
+    @media (max-width: 480px) {
+      .oryga-modal { padding: 1.75rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="images/logo.png" alt="Anacleto Pneus">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#estrutura">Estrutura</a></li>
+    <li><a href="#diferenciais">Por que a Anacleto</a></li>
+    <li><a href="#localizacao">Localização</a></li>
+  </ul>
+
+  <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="nav-wa">
+    <i data-lucide="message-circle"></i>
+    WhatsApp
+  </a>
+
+  <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="#servicos">Serviços</a>
+  <a href="#estrutura">Estrutura</a>
+  <a href="#diferenciais">Por que a Anacleto</a>
+  <a href="#depoimentos">Avaliações</a>
+  <a href="#localizacao">Localização</a>
+  <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="nm-wa">📲 Falar no WhatsApp</a>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-inner">
+
+    <!-- Texto -->
+    <div>
+      <div class="hero-badge reveal">
+        <div class="hero-badge-dot"></div>
+        Borracharia · Venda · Reforma · Divinópolis, MG
+      </div>
+
+      <h1 class="hero-title reveal d1">
+        Pneus de caminhão com<br><span class="hl">qualidade, rapidez e preço justo.</span>
+      </h1>
+
+      <p class="hero-sub reveal d2">
+        Borracharia completa, venda e reforma de pneus de caminhão em Divinópolis. Estrutura moderna, preço justo e atendimento que respeita o seu tempo de estrada.
+      </p>
+
+      <div class="hero-btns reveal d3">
+        <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20de%20pneu%20de%20caminh%C3%A3o." target="_blank" rel="noopener" class="btn btn-wa">
+          <i data-lucide="message-circle"></i>
+          Pedir orçamento agora
+        </a>
+        <a href="#servicos" class="btn btn-outline">Ver serviços</a>
+      </div>
+
+      <div class="hero-trust reveal d4">
+        <div class="trust-item"><div class="trust-dot"></div> Pneus novos e reformados</div>
+        <div class="trust-item"><div class="trust-dot"></div> Borracharia completa</div>
+        <div class="trust-item"><div class="trust-dot"></div> Estrutura para caminhões</div>
+      </div>
+    </div>
+
+    <!-- Foto da fachada -->
+    <div class="hero-visual reveal d2">
+      <div class="hero-float tl">
+        <div class="hf-dot"></div>
+        Aberto agora
+      </div>
+
+      <div class="hero-img-frame">
+        <img src="images/sede.png" alt="Sede Anacleto Pneus Divinópolis">
+      </div>
+
+      <div class="hero-float br">
+        <div class="hf-dot"></div>
+        Resposta rápida pelo WhatsApp
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ ESTRUTURA ══════════════ -->
+<section id="estrutura">
+  <div class="container">
+    <div class="estrutura-head reveal">
+      <span class="sec-tag yellow"><i data-lucide="building-2"></i> Nossa Estrutura</span>
+      <h2 class="sec-title">Equipamento moderno para<br>um serviço de qualidade</h2>
+      <p class="sec-desc">Investimos em estrutura e tecnologia para entregar rapidez, precisão e segurança em cada serviço.</p>
+    </div>
+
+    <div class="estrutura-grid reveal d1">
+      <div class="eg-main">
+        <img src="images/loja3.png" alt="Galpão Anacleto Pneus">
+        <div class="eg-overlay">
+          <div class="eg-overlay-badge">Estrutura</div>
+          <div class="eg-overlay-text">Estrutura completa e moderna para atender você</div>
+        </div>
+      </div>
+      <div class="eg-side">
+        <img src="images/loja1.png" alt="Equipamento de reforma de pneus">
+      </div>
+      <div class="eg-side">
+        <img src="images/loja2.png" alt="Pneu de caminhão na Anacleto Pneus">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SERVIÇOS ══════════════ -->
+<section id="servicos">
+  <div class="container">
+    <div class="servicos-head reveal">
+      <span class="sec-tag yellow"><i data-lucide="wrench"></i> Serviços</span>
+      <h2 class="sec-title">Tudo para o pneu do seu caminhão,<br>em um só lugar</h2>
+      <p class="sec-desc">Borracharia completa, venda e reforma — estrutura preparada para atender frotas e caminhoneiros de todo o Centro-Oeste de Minas.</p>
+    </div>
+
+    <div class="servicos-grid">
+      <div class="scard reveal">
+        <span class="scard-ico">🚚</span>
+        <h3>Venda de Pneus de Caminhão</h3>
+        <p>Pneus novos para caminhões, carretas e veículos pesados. Trabalhamos com as marcas mais confiáveis do mercado para garantir durabilidade e segurança na estrada.</p>
+        <span class="scard-badge">Novos · Todas as marcas</span>
+      </div>
+      <div class="scard reveal d1">
+        <span class="scard-ico">🔄</span>
+        <h3>Reforma de Pneus</h3>
+        <p>Reforma e recapagem de pneus de caminhão com qualidade e segurança. Recuperamos o pneu com desempenho próximo ao do original — com economia real para o bolso.</p>
+        <span class="scard-badge">Economia garantida</span>
+      </div>
+      <div class="scard reveal d2">
+        <span class="scard-ico">🛠️</span>
+        <h3>Borracharia Completa</h3>
+        <p>Conserto de pneus, remendos, câmaras e válvulas para caminhões e veículos pesados. Atendimento ágil para você não perder tempo de viagem.</p>
+        <span class="scard-badge">Serviço Rápido</span>
+      </div>
+      <div class="scard reveal">
+        <span class="scard-ico">⚙️</span>
+        <h3>Montagem e Troca</h3>
+        <p>Montagem e desmontagem de pneus de caminhão com equipamento adequado para rodas de grande porte. Segurança e agilidade em cada troca.</p>
+        <span class="scard-badge">Equipamento Pesado</span>
+      </div>
+      <div class="scard reveal d1">
+        <span class="scard-ico">⚖️</span>
+        <h3>Balanceamento</h3>
+        <p>Balanceamento de rodas para caminhões e veículos pesados. Elimina vibração, reduz desgaste irregular e aumenta a vida útil dos pneus.</p>
+        <span class="scard-badge">Precisão garantida</span>
+      </div>
+      <div class="scard reveal d2">
+        <span class="scard-ico">💨</span>
+        <h3>Calibragem e Inspeção</h3>
+        <p>Calibragem correta para caminhões com carga ou vazio. Inspecionamos o estado dos pneus e identificamos desgaste irregular antes que vire problema na estrada.</p>
+        <span class="scard-badge">Gratuito</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ DIFERENCIAIS ══════════════ -->
+<section id="diferenciais">
+  <div class="dif-glow"></div>
+  <div class="dif-layout container">
+
+    <div>
+      <span class="sec-tag yellow reveal"><i data-lucide="star"></i> Por que a Anacleto?</span>
+      <h2 class="sec-title reveal d1">Referência em pneus<br>de caminhão em Divinópolis</h2>
+      <p class="sec-desc reveal d2">
+        Estrutura preparada para veículos pesados, equipe experiente e preço honesto. O caminhoneiro que vem uma vez, volta sempre.
+      </p>
+
+      <div class="stats-grid reveal d3">
+        <div class="stat-box">
+          <div class="stat-val">+10</div>
+          <div class="stat-label">Anos de experiência no mercado</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">★ 5.0</div>
+          <div class="stat-label">Avaliação no Google</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">24h</div>
+          <div class="stat-label">Atendimento via WhatsApp</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">R$0</div>
+          <div class="stat-label">Calibragem e diagnóstico</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dif-cards">
+      <div class="dif-card reveal">
+        <div class="dif-card-ico">💰</div>
+        <div>
+          <h3>Preço Justo, Sem Surpresas</h3>
+          <p>Orçamento claro antes de qualquer serviço. Sem taxas escondidas — transparência total para o caminhoneiro e para a frota.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal d1">
+        <div class="dif-card-ico">⚡</div>
+        <div>
+          <h3>Agilidade para Você Não Parar</h3>
+          <p>Sabemos que caminhão parado é prejuízo. Trabalhamos rápido para você voltar à estrada o quanto antes.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal d2">
+        <div class="dif-card-ico">🚛</div>
+        <div>
+          <h3>Estrutura para Veículos Pesados</h3>
+          <p>Equipamentos e espaço preparados para caminhões, carretas e frotas. Aqui cabe qualquer tamanho.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal d3">
+        <div class="dif-card-ico">📱</div>
+        <div>
+          <h3>Orçamento pelo WhatsApp</h3>
+          <p>Mande mensagem antes de chegar — damos orçamento rápido pelo WhatsApp para você já chegar com tudo certo.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ EQUIPE ══════════════ -->
+<section id="equipe">
+  <div class="equipe-layout container">
+
+    <div class="equipe-foto reveal">
+      <img src="images/fundadores.png" alt="Equipe Anacleto Pneus">
+    </div>
+
+    <div>
+      <span class="sec-tag yellow reveal"><i data-lucide="users"></i> Quem somos</span>
+      <h2 class="sec-title reveal d1">A equipe por trás<br>da Anacleto Pneus</h2>
+      <p class="sec-desc reveal d2">
+        Somos uma empresa familiar com anos de história em Divinópolis. Atendemos cada cliente com o mesmo cuidado que dedicamos ao nosso próprio negócio — porque pneu bom e serviço honesto não têm substituto.
+      </p>
+
+      <div class="equipe-checks reveal d3">
+        <div class="equipe-check">
+          <div class="equipe-check-dot"></div>
+          Equipe treinada e especializada em pneus de caminhão
+        </div>
+        <div class="equipe-check">
+          <div class="equipe-check-dot"></div>
+          Atendimento direto com quem sabe o que está fazendo
+        </div>
+        <div class="equipe-check">
+          <div class="equipe-check-dot"></div>
+          Compromisso com qualidade e transparência em cada serviço
+        </div>
+        <div class="equipe-check">
+          <div class="equipe-check-dot"></div>
+          Referência no Centro-Oeste de Minas Gerais
+        </div>
+      </div>
+
+      <div class="reveal d4">
+        <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20equipe%20Anacleto%20Pneus." target="_blank" rel="noopener" class="btn btn-wa">
+          <i data-lucide="message-circle"></i>
+          Falar com a equipe
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ DEPOIMENTOS ══════════════ -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="dep-head reveal">
+      <span class="sec-tag gray"><i data-lucide="message-square-quote"></i> Avaliações</span>
+      <h2 class="sec-title">O que nossos clientes dizem</h2>
+      <p class="sec-desc">Quem vem uma vez, volta — e indica para os amigos.</p>
+    </div>
+
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Passei com a carreta na Anacleto e resolvi tudo rápido. Dois pneus trocados, reforma e balanceamento no mesmo dia. Não perco mais tempo em outro lugar."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">M</div>
+          <div><div class="dep-name">Marcos A.</div><div class="dep-role">Caminhoneiro · Google</div></div>
+        </div>
+      </div>
+      <div class="dep-card reveal d1">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Melhor borracharia para caminhão da região. Preço honesto na reforma e atendimento sem enrolação. Indico para todos os colegas da estrada."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">J</div>
+          <div><div class="dep-name">José R.</div><div class="dep-role">Motorista de frota · Google</div></div>
+        </div>
+      </div>
+      <div class="dep-card reveal d2">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Temos uma frota de 8 caminhões e sempre levamos na Anacleto. Preço justo na venda, qualidade na reforma e nunca nos deixaram na mão."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">R</div>
+          <div><div class="dep-name">Roberto C.</div><div class="dep-role">Gestor de frota · Google</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="google-badge reveal">
+      <div class="google-badge-inner">
+        <span style="color:var(--yellow);">★★★★★</span>
+        <span><strong>5.0</strong> no Google Maps</span>
+      </div>
+      <a href="https://maps.app.goo.gl/fDTWdbtQFtfpMJdu8" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:.82rem;padding:.5rem 1.1rem;">
+        Ver todas as avaliações <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section id="cta-wa">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <span class="sec-tag yellow reveal" style="margin: 0 auto 1.5rem;">
+      <i data-lucide="zap"></i> Atendimento Imediato
+    </span>
+    <h2 class="cta-title reveal d1">
+      Pneu de caminhão furou?<br>
+      <span class="hl">A gente resolve.</span>
+    </h2>
+    <p class="cta-sub reveal d2">
+      Mande mensagem pelo WhatsApp e receba orçamento em minutos. Borracharia, venda ou reforma — estamos prontos para atender você.
+    </p>
+    <div class="cta-btns reveal d3">
+      <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20de%20pneu." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i>
+        Chamar no WhatsApp agora
+      </a>
+      <a href="https://www.instagram.com/anacletopneus/" target="_blank" rel="noopener" class="btn btn-outline">
+        <i data-lucide="instagram"></i>
+        Ver no Instagram
+      </a>
+    </div>
+    <div class="cta-checks reveal d4">
+      <span class="cta-check"><span class="cta-ok">✓</span> Orçamento grátis</span>
+      <span class="cta-check"><span class="cta-ok">✓</span> Resposta rápida</span>
+      <span class="cta-check"><span class="cta-ok">✓</span> Sem compromisso</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ LOCALIZAÇÃO ══════════════ -->
+<section id="localizacao">
+  <div class="loc-layout container">
+
+    <div>
+      <span class="sec-tag gray reveal"><i data-lucide="map-pin"></i> Onde Estamos</span>
+      <h2 class="sec-title reveal d1">Fácil de encontrar,<br>difícil de esquecer</h2>
+
+      <div class="loc-details reveal d2">
+        <div class="loc-row">
+          <i data-lucide="map-pin"></i>
+          <div>
+            <strong>Endereço</strong>
+            MG-050, km 134 — Jardim Real<br>Divinópolis — MG, 35504-199
+          </div>
+        </div>
+        <div class="loc-row">
+          <i data-lucide="phone"></i>
+          <div>
+            <strong>(37) 9 9991-5047</strong>
+          </div>
+        </div>
+        <div class="loc-row">
+          <i data-lucide="clock"></i>
+          <div>
+            <strong>Horário de Funcionamento</strong>
+            <div class="horario-grid" style="margin-top:.5rem;">
+              <span class="h-dia">Segunda</span> <span class="h-hora">07:00 – 17:00</span>
+              <span class="h-dia">Terça</span>    <span class="h-hora">07:00 – 17:00</span>
+              <span class="h-dia">Quarta</span>   <span class="h-hora">07:00 – 17:00</span>
+              <span class="h-dia">Quinta</span>   <span class="h-hora">07:00 – 17:00</span>
+              <span class="h-dia">Sexta</span>    <span class="h-hora">07:00 – 17:00</span>
+              <span class="h-dia">Sábado</span>   <span class="h-hora h-closed">Fechado</span>
+              <span class="h-dia">Domingo</span>  <span class="h-hora h-closed">Fechado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d3" style="display:flex;gap:.875rem;flex-wrap:wrap;">
+        <a href="https://maps.app.goo.gl/fDTWdbtQFtfpMJdu8" target="_blank" rel="noopener" class="btn btn-yellow">
+          <i data-lucide="map"></i>
+          Abrir no Google Maps
+        </a>
+        <a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-wa">
+          <i data-lucide="message-circle"></i>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="loc-map reveal d2">
+      <iframe
+        src="https://maps.google.com/maps?q=Anacleto+Pneus+Divinopolis+MG&output=embed&hl=pt-BR"
+        title="Localização Anacleto Pneus"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="Anacleto Pneus">
+    </div>
+    <div class="footer-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#depoimentos">Avaliações</a>
+      <a href="https://www.instagram.com/anacletopneus/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5537999915047" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <p class="footer-copy">
+    © 2025 Anacleto Pneus · MG-050, km 134 · Divinópolis, MG &nbsp;|&nbsp;
+    Criado por <a href="https://orygaconsultoria.com.br/" target="_blank" rel="noopener">Oryga</a> — Presença digital para o seu negócio
+  </p>
+</footer>
+
+<!-- ══════════════ MODAL ORYGA ══════════════ -->
+<div class="oryga-overlay" id="orygaOverlay">
+  <div class="oryga-modal" id="orygaModal">
+
+    <button class="oryga-modal-close" id="orygaClose" aria-label="Fechar">✕</button>
+
+    <div class="oryga-modal-badge">
+      <div class="oryga-modal-badge-dot"></div>
+      Proposta exclusiva
+    </div>
+
+    <h2>Este site foi criado<br><span>especialmente para você.</span></h2>
+
+    <p>
+      A <strong style="color:#f0f0f0;">Anacleto Pneus</strong> merece uma presença digital que gere clientes de verdade. Este é um exemplo real do que a <strong style="color:var(--yellow);">Oryga</strong> entrega — um site profissional, rápido e pronto para converter visitantes em clientes pelo WhatsApp, 24h por dia.
+    </p>
+
+    <div class="oryga-modal-proof">
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Site profissional e moderno</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Aparece no Google</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Clientes pelo WhatsApp 24h</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Entrega rápida</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Investimento acessível</div>
+    </div>
+
+    <div class="oryga-modal-btns">
+      <a href="https://wa.me/5537998019444?text=Ol%C3%A1%2C+Alana!+Vi+o+site+demonstra%C3%A7%C3%A3o+da+Anacleto+Pneus+e+quero+saber+mais+sobre+ter+um+site+assim+para+minha+empresa."
+         target="_blank" rel="noopener"
+         class="oryga-btn-main" id="orygaCTA">
+        🚀 Quero um site assim para minha empresa
+      </a>
+      <button class="oryga-btn-dismiss" id="orygaDismiss">Agora não, ver o site primeiro</button>
+    </div>
+
+    <hr class="oryga-modal-divider">
+
+    <div class="oryga-modal-brand">
+      Criado por <strong>Oryga</strong> &nbsp;·&nbsp; orygaconsultoria.com.br
+    </div>
+
+  </div>
+</div>
+
+<!-- WhatsApp flutuante -->
+<a href="https://wa.me/5537999915047?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento."
+   target="_blank" rel="noopener noreferrer"
+   class="wa-float" aria-label="Falar no WhatsApp">
+  <i data-lucide="message-circle"></i>
+</a>
+
+<script>
+  lucide.createIcons();
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('navMobile');
+  ham.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    ham.classList.toggle('open', open);
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('open');
+    ham.classList.remove('open');
+  }));
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  /* ── Modal Oryga ── */
+  (function () {
+    const overlay  = document.getElementById('orygaOverlay');
+    const closeBtn = document.getElementById('orygaClose');
+    const dismiss  = document.getElementById('orygaDismiss');
+    const cta      = document.getElementById('orygaCTA');
+    const KEY      = 'oryga_modal_cta_clicked';
+    const RESHOW   = 90 * 1000; // reaparece a cada 90s após fechar
+    let   timer;
+
+    function showModal() {
+      overlay.classList.add('show');
+    }
+
+    function hideModal(reshow) {
+      overlay.classList.remove('show');
+      if (reshow) timer = setTimeout(showModal, RESHOW);
+    }
+
+    // Não mostra mais se o visitante já clicou no CTA
+    if (!localStorage.getItem(KEY)) {
+      timer = setTimeout(showModal, 10000); // primeira vez: 10s
+    }
+
+    closeBtn.addEventListener('click', () => hideModal(true));
+    dismiss.addEventListener('click',  () => hideModal(true));
+    overlay.addEventListener('click',  (e) => { if (e.target === overlay) hideModal(true); });
+
+    cta.addEventListener('click', () => {
+      localStorage.setItem(KEY, '1');
+      clearTimeout(timer);
+      hideModal(false);
+    });
+  })();
+</script>
+
+</body>
+</html>
