@@ -330,8 +330,25 @@
 
     .plans-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(255,255,255,.04); border-left: 3px solid var(--border); border-radius: 6px; font-size: .85rem; color: var(--muted); line-height: 1.7; }
     .plans-sale { margin-top: 1.25rem; padding: 1.1rem 1.25rem; background: rgba(245,168,0,.06); border: 1px solid rgba(245,168,0,.15); border-radius: 8px; font-size: .88rem; color: #ccc; line-height: 1.75; }
-    .mp-btn { background: #009ee3 !important; }
-    .mp-btn:hover { background: #0082c0 !important; }
+    .aceitar-wrap { margin-top: 1.5rem; }
+    .aceitar-btn {
+      display: flex; align-items: center; gap: 1.1rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #22a860 100%);
+      color: #fff; border: none; border-radius: 14px;
+      padding: 1.1rem 2rem; cursor: pointer; width: 100%;
+      box-shadow: 0 6px 28px rgba(26,122,74,.45);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .aceitar-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(26,122,74,.55); }
+    .aceitar-btn:disabled { opacity: .65; cursor: default; transform: none !important; box-shadow: none !important; }
+    .aceitar-icon-wrap { font-size: 2.2rem; flex-shrink: 0; }
+    .aceitar-text { text-align: left; }
+    .aceitar-label { font-size: 1.15rem; font-weight: 800; letter-spacing: -.01em; }
+    .aceitar-sub { font-size: .78rem; opacity: .85; margin-top: .15rem; font-weight: 400; }
+    .aceitar-ok { display:flex; align-items:center; gap:1rem; background:rgba(34,168,96,.12); border:1px solid rgba(34,168,96,.3); border-radius:12px; padding:1.1rem 1.4rem; margin-top:1rem; }
+    .aceitar-ok-icon { font-size:2rem; flex-shrink:0; }
+    .aceitar-ok-title { font-size:1rem; font-weight:700; color:#22a860; }
+    .aceitar-ok-sub { font-size:.8rem; color:var(--muted); margin-top:.2rem; }
 
     /* Seleção de plano */
     .plan-selectable { cursor: pointer; transition: border-color .2s, box-shadow .2s, transform .15s; }
@@ -847,19 +864,31 @@
     </div>
   </div>
 
-  <!-- ── Próximos Passos ── -->
+  <!-- ── Aceitar Proposta ── -->
   <div class="sign-cta">
     <div class="sign-cta-icon">🚀</div>
     <div class="sign-cta-title">Pronto para colocar a <span id="ctaEmpresaNome">sua empresa</span> na internet?</div>
-    <div class="sign-cta-desc">O aceite desta proposta ocorre com a realização do pagamento do investimento inicial. Após a confirmação, iniciamos o projeto imediatamente e encaminhamos o contrato de prestação de serviços para formalização.</div>
+    <div class="sign-cta-desc">Ao aceitar a proposta, o PDF será gerado automaticamente e enviado para o seu e-mail e para a equipe da Oryga. Em seguida, entraremos em contato para dar início ao projeto.</div>
 
-    <!-- campo visível só no modo vendedor para colar o link MP -->
-    <div id="mpLinkWrap" style="display:none;margin-bottom:1rem">
-      <label style="font-size:.8rem;color:var(--muted);display:block;margin-bottom:.4rem">🔗 Link de pagamento Mercado Pago (cole aqui — visível só para você)</label>
-      <div id="ePayLink" contenteditable="false" style="background:rgba(255,255,255,.06);border:1px dashed var(--border);border-radius:6px;padding:.6rem .9rem;font-size:.82rem;color:#ccc;min-height:2rem;word-break:break-all" placeholder="https://mpago.la/...">https://mpago.la/cole-seu-link-aqui</div>
+    <div class="aceitar-wrap no-pdf">
+      <button id="btnAceitar" class="aceitar-btn" onclick="aceitarProposta()">
+        <div class="aceitar-icon-wrap">✅</div>
+        <div class="aceitar-text">
+          <div class="aceitar-label">Aceitar Proposta</div>
+          <div class="aceitar-sub">Gera o PDF e envia para os e-mails cadastrados</div>
+        </div>
+      </button>
     </div>
 
-    <a class="sign-cta-btn mp-btn" id="ctaPayBtn" href="#" target="_blank" onclick="return handlePayClick(event)">💳 Realizar pagamento</a>
+    <div id="aceitarSucesso" style="display:none" class="no-pdf">
+      <div class="aceitar-ok">
+        <div class="aceitar-ok-icon">🎉</div>
+        <div>
+          <div class="aceitar-ok-title">Proposta aceita com sucesso!</div>
+          <div class="aceitar-ok-sub">PDF gerado e e-mails enviados. Em breve a Oryga entrará em contato.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ── Footer ── -->
@@ -894,7 +923,16 @@
 
 <div id="toast"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+  /* ════ CONFIG — preencha após criar conta em emailjs.com ════ */
+  const EJ_PUBLIC_KEY      = 'SUA_PUBLIC_KEY';
+  const EJ_SERVICE_ID      = 'SUA_SERVICE_ID';
+  const EJ_TEMPLATE_ORYGA  = 'SUA_TEMPLATE_ORYGA';   /* notificação interna */
+  const EJ_TEMPLATE_CLIENT = 'SUA_TEMPLATE_CLIENTE';  /* confirmação ao cliente */
+  const ORYGA_EMAIL        = 'alana.meloesouza@gmail.com';
+
   /* ════ SENHAS ════ */
   const VENDOR_PWD = 'oryga@vendas';
   const CLIENT_PWD = 'assinar@2026';
@@ -930,7 +968,6 @@
 
     if (mode === 'vendor') {
       document.getElementById('vbar').style.display = 'flex';
-      document.getElementById('mpLinkWrap').style.display = 'block';
       enableEdit();
     }
     /* atualiza nome da empresa em CTAs e nota de propriedade */
@@ -944,7 +981,7 @@
 
   /* ── Edição ── */
   const EIDS = ['eRef','eEmpresa','eResponsavel','eFone','eEmail','eCidade','eContatoOryga',
-                'eApres','eHostingIntro','ePrazo','eObs','eValidade','ePayLink','eInvestimento'];
+                'eApres','eHostingIntro','ePrazo','eObs','eValidade','eInvestimento'];
 
   function enableEdit() {
     EIDS.forEach(id => { const el = document.getElementById(id); if (el) el.contentEditable = 'true'; });
@@ -1031,15 +1068,65 @@
     document.querySelectorAll('.price-dyn').forEach(el => el.textContent = val);
   }
 
-  /* ── Botão de pagamento ── */
-  function handlePayClick(e) {
-    const link = document.getElementById('ePayLink').textContent.trim();
-    if (!link || link.startsWith('https://mpago.la/cole')) {
-      showToast('Nenhum link de pagamento configurado.');
-      return false;
+  /* ── Aceitar Proposta ── */
+  async function aceitarProposta() {
+    if (!selectedPlan) { showToast('Selecione um plano antes de aceitar.'); return; }
+
+    const btn   = document.getElementById('btnAceitar');
+    const label = btn.querySelector('.aceitar-label');
+    const sub   = btn.querySelector('.aceitar-sub');
+    btn.disabled = true;
+
+    const empresa     = document.getElementById('eEmpresa').textContent.trim();
+    const emailClient = document.getElementById('eEmail').textContent.trim();
+    const ref         = document.getElementById('eRef').textContent.trim();
+    const resp        = document.getElementById('eResponsavel').textContent.trim();
+    const fone        = document.getElementById('eFone').textContent.trim();
+    const planName    = document.getElementById('plan'+selectedPlan).querySelector('.plan-name').textContent.trim();
+    const filename    = `Proposta_Oryga_${empresa.replace(/\s+/g,'_')}.pdf`;
+
+    /* oculta elementos que não devem ir para o PDF */
+    document.querySelectorAll('.no-pdf').forEach(el => el.style.visibility = 'hidden');
+
+    label.textContent = '⏳ Gerando PDF…';
+    sub.textContent   = 'Aguarde um momento…';
+
+    try {
+      await html2pdf().set({
+        margin:      [8, 0, 8, 0],
+        filename,
+        image:       { type: 'jpeg', quality: 0.96 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      }).from(document.querySelector('.prop-page')).save();
+
+      /* envia emails se EmailJS estiver configurado */
+      if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') {
+        label.textContent = '📧 Enviando e-mails…';
+        const params = { empresa, ref, responsavel: resp, fone,
+                         plano: `Opção ${selectedPlan} — ${planName}`,
+                         email_cliente: emailClient || '(não informado)',
+                         data: hoje.toLocaleDateString('pt-BR') };
+        await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_ORYGA,  { ...params, to_email: ORYGA_EMAIL },                           EJ_PUBLIC_KEY);
+        if (emailClient && emailClient !== '—')
+          await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_CLIENT, { ...params, to_email: emailClient }, EJ_PUBLIC_KEY);
+      }
+
+      /* sucesso */
+      btn.style.display = 'none';
+      document.getElementById('aceitarSucesso').style.display = 'block';
+      document.getElementById('aceitarSucesso').style.visibility = 'visible';
+      showToast('Proposta aceita! PDF salvo.');
+
+    } catch(err) {
+      console.error(err);
+      showToast('Erro ao gerar PDF. Tente novamente.');
+      btn.disabled      = false;
+      label.textContent = 'Aceitar Proposta';
+      sub.textContent   = 'Gera o PDF e envia para os e-mails cadastrados';
+    } finally {
+      document.querySelectorAll('.no-pdf').forEach(el => el.style.visibility = '');
     }
-    window.open(link, '_blank');
-    return false;
   }
 
   /* ── Toast ── */
