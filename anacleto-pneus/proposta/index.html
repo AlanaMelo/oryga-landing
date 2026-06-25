@@ -621,6 +621,7 @@
       .prop-footer { border-color: #e0e0e0 !important; }
       .prop-footer-brand { color: #d48800 !important; }
       .prop-footer-sub, .prop-footer-right { color: #888 !important; }
+      .trust-chip { color: #333 !important; }
 
       /* evita corte no meio dos blocos */
       .prop-hero, .prop-to, .prop-sec, .prop-demo,
@@ -636,6 +637,10 @@
       .obj-grid, .ben-grid { break-inside: avoid; page-break-inside: avoid; }
       .prop-sec-header { break-after: avoid; page-break-after: avoid; }
     }
+
+    /* ── Trust chips ── */
+    .trust-chips { display: flex; flex-direction: column; gap: .55rem; margin: 1.25rem 0; }
+    .trust-chip { font-size: .87rem; color: var(--text2); line-height: 1.5; }
 
     /* ── Modo PDF — tema claro para geração limpa ── */
     body.pdf-generating { background: #fff !important; color: #111 !important; }
@@ -960,7 +965,7 @@
           <li><div class="check-dot">✓</div><span>Domínio e hospedagem inclusos durante os primeiros 12 meses</span></li>
           <li><div class="check-dot">✓</div><span>Certificado SSL</span></li>
           <li><div class="check-dot">✓</div><span>Entrega do site funcionando</span></li>
-          <li><div class="check-dot">✓</div><span>Alterações, atualizações ou suporte técnico podem ser contratados separadamente mediante orçamento ou valor avulso a partir de R$ 150</span></li>
+          <li><div class="check-dot">✓</div><span>Alterações e atualizações podem ser contratadas sob demanda</span></li>
         </ul>
         <div class="plan-tag">Solicite alterações quando precisar</div>
       </div>
@@ -1014,24 +1019,28 @@
 
     </div>
 
-    <div class="plans-note">
-      <strong>O site pertence integralmente ao cliente.</strong> Após a entrega, o cliente pode administrar o projeto por conta própria ou optar pelos planos de gestão da Oryga para manter domínio, hospedagem, segurança, monitoramento e suporte técnico sem preocupações operacionais.
+    <div class="plans-sale">
+      <p><strong>O site será desenvolvido exclusivamente para a <span id="notaEmpresa">Anacleto Pneus</span> e pertence integralmente à empresa após a entrega.</strong></p>
+      <p style="margin-top:.75rem">O investimento para desenvolvimento é de <strong>R$ <span class="price-dyn">1.500</span></strong>, incluindo criação, publicação, configuração do domínio, certificado SSL e entrega do site em funcionamento.</p>
+      <p style="margin-top:.75rem">Após a entrega, a empresa pode administrar tudo por conta própria ou optar pelos planos de gestão da Oryga para manter o site seguro, atualizado e funcionando sem preocupações técnicas.</p>
     </div>
 
-    <div class="plans-sale">
-      O desenvolvimento do site é um <strong>investimento único de R$ <span class="price-dyn">1.500</span></strong>. Após a entrega, a empresa pode administrar tudo por conta própria ou optar pelos planos de gestão digital da Oryga Consultoria para garantir que o site permaneça <strong>seguro, atualizado e funcionando sem preocupações</strong>.
+    <div class="trust-chips">
+      <div class="trust-chip">✅ Sem fidelidade para o desenvolvimento do site.</div>
+      <div class="trust-chip">✅ O site pertence integralmente à <span id="trustEmpresa">Anacleto Pneus</span>.</div>
+      <div class="trust-chip">✅ Possibilidade de migrar para qualquer hospedagem a qualquer momento.</div>
     </div>
 
     <!-- Pagamento -->
     <div class="plan-payment-full">
       <div class="plan-pay-col">
-        <div class="plan-pay-label">💳 Investimento inicial</div>
-        <div class="plan-pay-desc">Via <strong>Pix</strong> — 50% na entrada + 50% na entrega</div>
+        <div class="plan-pay-label">💰 Desenvolvimento do Site</div>
+        <div class="plan-pay-desc">50% na contratação e 50% na entrega do projeto</div>
       </div>
       <div class="plan-pay-divider"></div>
       <div class="plan-pay-col">
-        <div class="plan-pay-label">📅 Gestão digital mensal</div>
-        <div class="plan-pay-desc">Em até <strong>12x no cartão de crédito</strong></div>
+        <div class="plan-pay-label">🛡️ Gestão Digital Mensal</div>
+        <div class="plan-pay-desc">Cobrança mensal recorrente via <strong>PIX</strong> ou cartão de crédito</div>
       </div>
     </div>
   </div>
@@ -1159,6 +1168,8 @@
     if (cta) cta.textContent = empName || 'sua empresa';
     const nota = document.getElementById('notaEmpresa');
     if (nota) nota.textContent = empName || 'contratante';
+    const trust = document.getElementById('trustEmpresa');
+    if (trust) trust.textContent = empName || 'sua empresa';
   }
 
   /* ── Edição ── */
