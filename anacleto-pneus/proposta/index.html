@@ -530,6 +530,98 @@
       .prop-brand, .invest-price, .prop-sec-icon, .prazo-num { color: #F5A800 !important; }
     }
 
+    /* ── Modo PDF — tema claro para geração limpa ── */
+    body.pdf-generating { background: #fff !important; color: #111 !important; }
+    body.pdf-generating #vbar { display: none !important; }
+    body.pdf-generating .prop-page { padding-top: 2rem !important; background: #fff; }
+    body.pdf-generating [contenteditable="true"]:hover,
+    body.pdf-generating [contenteditable="true"]:focus { background: transparent !important; box-shadow: none !important; }
+    body.pdf-generating .prop-hero { background: #f7f7f7 !important; border-color: #e0e0e0 !important; box-shadow: none !important; }
+    body.pdf-generating .prop-hero::before { display: none; }
+    body.pdf-generating .prop-hero-divider,
+    body.pdf-generating .prop-sec-divider { background: #ddd !important; }
+    body.pdf-generating .prop-brand { color: #d48800 !important; }
+    body.pdf-generating .prop-brand-sub,
+    body.pdf-generating .prop-hero-label,
+    body.pdf-generating .prop-hero-sub,
+    body.pdf-generating .prop-hero-meta-line { color: #666 !important; }
+    body.pdf-generating .prop-hero-meta-line strong { color: #222 !important; }
+    body.pdf-generating .prop-hero-ref { color: #b87400 !important; }
+    body.pdf-generating .prop-hero-title { color: #111 !important; }
+    body.pdf-generating .prop-hero-title span { color: #d48800 !important; }
+    body.pdf-generating .prop-meta-badge { background: #fff8e1 !important; border-color: rgba(245,168,0,.4) !important; color: #b87400 !important; }
+    body.pdf-generating .prop-to { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .prop-to-f label { color: #888 !important; }
+    body.pdf-generating .prop-to-f .fv { color: #111 !important; }
+    body.pdf-generating .prop-sec-icon { background: #fff8e1 !important; border-color: rgba(245,168,0,.3) !important; }
+    body.pdf-generating .prop-sec-title { color: #111 !important; }
+    body.pdf-generating .prop-text { color: #333 !important; }
+    body.pdf-generating .prop-demo { background: #f5f5f5 !important; border-color: rgba(245,168,0,.3) !important; }
+    body.pdf-generating .prop-demo-text,
+    body.pdf-generating .prop-demo-note { color: #555 !important; }
+    body.pdf-generating .obj-card { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .obj-text { color: #333 !important; }
+    body.pdf-generating .escopo-col { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .escopo-col-title { color: #b87400 !important; }
+    body.pdf-generating .check-list li { color: #333 !important; }
+    body.pdf-generating .check-dot { background: #e8faf0 !important; border-color: rgba(37,211,102,.4) !important; color: #1a9955 !important; }
+    body.pdf-generating .check-dot-hi { background: #fff8e1 !important; border-color: rgba(245,168,0,.4) !important; color: #b87400 !important; }
+    body.pdf-generating .ben-chip { background: #f5f5f5 !important; border-color: #e0e0e0 !important; color: #333 !important; }
+    body.pdf-generating .prazo-box { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .prazo-num { color: #d48800 !important; }
+    body.pdf-generating .prazo-label { color: #888 !important; }
+    body.pdf-generating .prazo-desc { color: #333 !important; }
+    body.pdf-generating .prazo-desc strong { color: #111 !important; }
+    body.pdf-generating .invest-card { background: #fdf8ec !important; border-color: rgba(245,168,0,.35) !important; }
+    body.pdf-generating .invest-card::before { display: none; }
+    body.pdf-generating .invest-label { color: #b87400 !important; }
+    body.pdf-generating .invest-service { color: #444 !important; }
+    body.pdf-generating .invest-price { color: #d48800 !important; }
+    body.pdf-generating .invest-cond { background: #f0f0f0 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .invest-cond-pct { color: #d48800 !important; }
+    body.pdf-generating .invest-cond-label { color: #666 !important; }
+    body.pdf-generating .invest-methods { color: #888 !important; }
+    body.pdf-generating .info-box { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .info-box p { color: #333 !important; }
+    body.pdf-generating .info-box strong { color: #111 !important; }
+    body.pdf-generating .valid-box { background: #fffbee !important; border-color: rgba(245,168,0,.25) !important; }
+    body.pdf-generating .valid-text { color: #444 !important; }
+    body.pdf-generating .valid-text strong { color: #b87400 !important; }
+    body.pdf-generating .plan-card { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .plan-card-hi { background: #fdf8ec !important; border-color: rgba(245,168,0,.3) !important; }
+    body.pdf-generating .plan-popular { background: #d48800 !important; color: #fff !important; }
+    body.pdf-generating .plan-badge { color: #888 !important; }
+    body.pdf-generating .plan-badge-hi { color: #b87400 !important; }
+    body.pdf-generating .plan-name,
+    body.pdf-generating .plan-price { color: #111 !important; }
+    body.pdf-generating .plan-price-hi { color: #d48800 !important; }
+    body.pdf-generating .plan-price-label { color: #888 !important; }
+    body.pdf-generating .plan-monthly { color: #333 !important; }
+    body.pdf-generating .plan-monthly-none { color: #888 !important; }
+    body.pdf-generating .plan-monthly-hi { color: #d48800 !important; }
+    body.pdf-generating .plan-list li { color: #333 !important; }
+    body.pdf-generating .plan-tag { color: #888 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .plan-tag-hi { border-color: rgba(245,168,0,.2) !important; }
+    body.pdf-generating .plan-fidelidade { border-color: #e0e0e0 !important; color: #888 !important; }
+    body.pdf-generating .plan-fidelidade-hi { border-color: rgba(245,168,0,.25) !important; color: rgba(180,120,0,.8) !important; }
+    body.pdf-generating .plan-payment-full { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+    body.pdf-generating .plan-pay-label { color: #888 !important; }
+    body.pdf-generating .plan-pay-desc { color: #333 !important; }
+    body.pdf-generating .plan-pay-desc strong { color: #111 !important; }
+    body.pdf-generating .plan-pay-divider { background: #e0e0e0 !important; }
+    body.pdf-generating .plans-note { background: #f0f0f0 !important; border-color: #ddd !important; color: #555 !important; }
+    body.pdf-generating .plans-note strong { color: #111 !important; }
+    body.pdf-generating .plans-sale { background: #fffbee !important; border-color: rgba(245,168,0,.2) !important; color: #333 !important; }
+    body.pdf-generating .plans-sale strong { color: #111 !important; }
+    body.pdf-generating .sign-cta { background: #fffbee !important; border-color: rgba(245,168,0,.25) !important; }
+    body.pdf-generating .sign-cta-title { color: #111 !important; }
+    body.pdf-generating .sign-cta-title span { color: #d48800 !important; }
+    body.pdf-generating .sign-cta-desc { color: #555 !important; }
+    body.pdf-generating .prop-footer { border-color: #e0e0e0 !important; }
+    body.pdf-generating .prop-footer-brand { color: #d48800 !important; }
+    body.pdf-generating .prop-footer-sub,
+    body.pdf-generating .prop-footer-right { color: #888 !important; }
+
     /* Editable fields */
     [contenteditable="true"] { outline: none; border-radius: 5px; cursor: text; min-width: 2ch; }
     [contenteditable="true"]:hover { background: rgba(245,168,0,.05); box-shadow: 0 0 0 1px rgba(245,168,0,.2); }
@@ -720,7 +812,7 @@
       <div class="prop-sec-divider"></div>
     </div>
     <div class="prazo-box">
-      <div class="prazo-num">10</div>
+      <div class="prazo-num" id="ePrazoNum">10</div>
       <div>
         <div class="prazo-label">Dias úteis</div>
         <p class="prazo-desc" id="ePrazo">
@@ -965,7 +1057,7 @@
 
   /* ── Edição ── */
   const EIDS = ['eRef','eEmpresa','eCnpj','eResponsavel','eFone','eEmail','eCidade','eContatoOryga',
-                'eApres','eHostingIntro','ePrazo','eObs','eValidade','eInvestimento'];
+                'eApres','eHostingIntro','ePrazoNum','ePrazo','eObs','eValidade','eInvestimento'];
 
   function enableEdit() {
     EIDS.forEach(id => { const el = document.getElementById(id); if (el) el.contentEditable = 'true'; });
@@ -1038,19 +1130,33 @@
     const planName    = document.getElementById('plan'+selectedPlan).querySelector('.plan-name').textContent.trim();
     const filename    = `Proposta_Oryga_${empresa.replace(/\s+/g,'_')}.pdf`;
 
-    /* oculta elementos que não devem ir para o PDF */
-    document.querySelectorAll('.no-pdf').forEach(el => el.style.visibility = 'hidden');
+    /* remove do layout os elementos que não devem ir para o PDF */
+    const noPdfEls = [...document.querySelectorAll('.no-pdf')];
+    noPdfEls.forEach(el => el.style.display = 'none');
+
+    /* aplica tema claro + ajustes de layout para PDF limpo */
+    document.body.classList.add('pdf-generating');
+    window.scrollTo(0, 0);
 
     label.textContent = '⏳ Gerando PDF…';
     sub.textContent   = 'Aguarde um momento…';
 
     try {
       await html2pdf().set({
-        margin:      [8, 0, 8, 0],
+        margin:      [10, 10, 10, 10],
         filename,
-        image:       { type: 'jpeg', quality: 0.96 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
-        jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        image:       { type: 'jpeg', quality: 0.97 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff',
+          windowWidth: 960,
+          scrollX: 0,
+          scrollY: -window.scrollY
+        },
+        jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak:   { mode: 'css', avoid: '.prop-hero, .prop-to, .prazo-box, .invest-card, .plan-card, .valid-box, .info-box' }
       }).from(document.querySelector('.prop-page')).save();
 
       /* envia emails se EmailJS estiver configurado */
@@ -1062,7 +1168,7 @@
                          plano: `Opção ${selectedPlan} — ${planName}`,
                          email_cliente: emailClient || '(não informado)',
                          data: hoje.toLocaleDateString('pt-BR') };
-        await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_ORYGA,  { ...params, to_email: ORYGA_EMAIL },                           EJ_PUBLIC_KEY);
+        await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_ORYGA,  { ...params, to_email: ORYGA_EMAIL }, EJ_PUBLIC_KEY);
         if (emailClient && emailClient !== '—')
           await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_CLIENT, { ...params, to_email: emailClient }, EJ_PUBLIC_KEY);
       }
@@ -1070,7 +1176,6 @@
       /* sucesso */
       btn.style.display = 'none';
       document.getElementById('aceitarSucesso').style.display = 'block';
-      document.getElementById('aceitarSucesso').style.visibility = 'visible';
       showToast('Proposta aceita! PDF salvo.');
 
     } catch(err) {
@@ -1080,7 +1185,8 @@
       label.textContent = 'Aceitar Proposta';
       sub.textContent   = 'Gera o PDF e envia para os e-mails cadastrados';
     } finally {
-      document.querySelectorAll('.no-pdf').forEach(el => el.style.visibility = '');
+      document.body.classList.remove('pdf-generating');
+      noPdfEls.forEach(el => el.style.display = '');
     }
   }
 
