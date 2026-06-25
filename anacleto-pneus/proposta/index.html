@@ -957,10 +957,10 @@
         <ul class="plan-list">
           <li><div class="check-dot">✓</div><span>Desenvolvimento completo do website</span></li>
           <li><div class="check-dot">✓</div><span>Publicação e configuração do site</span></li>
-          <li><div class="check-dot">✓</div><span>Domínio incluso no 1º ano</span></li>
+          <li><div class="check-dot">✓</div><span>Domínio e hospedagem inclusos durante os primeiros 12 meses</span></li>
           <li><div class="check-dot">✓</div><span>Certificado SSL</span></li>
           <li><div class="check-dot">✓</div><span>Entrega do site funcionando</span></li>
-          <li><div class="check-dot">✓</div><span>Alterações e manutenções sob demanda mediante orçamento</span></li>
+          <li><div class="check-dot">✓</div><span>Alterações, atualizações ou suporte técnico podem ser contratados separadamente mediante orçamento ou valor avulso a partir de R$ 150</span></li>
         </ul>
         <div class="plan-tag">Solicite alterações quando precisar</div>
       </div>
@@ -982,9 +982,9 @@
           <li><div class="check-dot">✓</div><span>Backup periódico</span></li>
           <li><div class="check-dot">✓</div><span>Monitoramento básico</span></li>
           <li><div class="check-dot">✓</div><span>Garantia de funcionamento</span></li>
-          <li><div class="check-dot">✓</div><span>Suporte técnico via WhatsApp</span></li>
+          <li><div class="check-dot">✓</div><span>Suporte técnico relacionado à disponibilidade, funcionamento e infraestrutura do site</span></li>
         </ul>
-        <div class="plan-fidelidade">Cancelamento com aviso prévio de 30 dias</div>
+        <div class="plan-fidelidade">Fidelidade mínima de 12 meses</div>
         <div class="plan-tag">Sem preocupação com questões técnicas</div>
       </div>
 
@@ -1001,21 +1001,21 @@
         </div>
         <ul class="plan-list">
           <li><div class="check-dot check-dot-hi">✓</div><span>Tudo do Plano Essencial</span></li>
-          <li><div class="check-dot check-dot-hi">✓</div><span>Até 2 solicitações de atualização por mês</span>
-            <div class="plan-sub-list">Fotos · Textos · Telefones · Horários · Banners · Informações da empresa</div>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Até 2 pequenas solicitações de atualização por mês</span>
+            <div class="plan-sub-list">Textos · Fotos · Telefones · Horários · Informações institucionais</div>
           </li>
-          <li><div class="check-dot check-dot-hi">✓</div><span>Pequenas correções visuais</span></li>
-          <li><div class="check-dot check-dot-hi">✓</div><span>Suporte prioritário</span></li>
-          <li><div class="check-dot check-dot-hi">✓</div><span>Atendimento preferencial</span></li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Cada solicitação contempla até 30 minutos de trabalho técnico</span></li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Suporte prioritário e atendimento preferencial</span></li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Não inclui criação de novas páginas, funcionalidades, integrações ou reformulação de layout</span></li>
         </ul>
-        <div class="plan-fidelidade plan-fidelidade-hi">Cancelamento com aviso prévio de 30 dias</div>
+        <div class="plan-fidelidade plan-fidelidade-hi">Fidelidade mínima de 12 meses</div>
         <div class="plan-tag plan-tag-hi">Site sempre atualizado e funcionando</div>
       </div>
 
     </div>
 
     <div class="plans-note">
-      O site é propriedade da <strong id="notaEmpresa">contratante</strong>. Os planos de gestão digital são opcionais e têm como objetivo garantir o funcionamento, segurança, atualização e disponibilidade contínua do site.
+      <strong>O site pertence integralmente ao cliente.</strong> Após a entrega, o cliente pode administrar o projeto por conta própria ou optar pelos planos de gestão da Oryga para manter domínio, hospedagem, segurança, monitoramento e suporte técnico sem preocupações operacionais.
     </div>
 
     <div class="plans-sale">
@@ -1270,17 +1270,21 @@
   let selectedPlan = null;
 
   const OBS_TEXTS = {
-    A: `<p>Com o <strong>Plano A — Site Independente</strong>, o site será desenvolvido, publicado e entregue com domínio e hospedagem ativos durante o primeiro ano, sem custo adicional.</p>
-        <p>Após esse período, a renovação do domínio e da hospedagem passa a ser de responsabilidade do contratante. A Oryga não realiza cobranças recorrentes nesta modalidade.</p>
-        <p>Sempre que precisar de alterações, atualizações ou suporte técnico, a Oryga está disponível para atendimento sob demanda — basta entrar em contato para solicitar um orçamento.</p>`,
-    B: `<p>Com o <strong>Plano B — Site + Plano Essencial</strong>, o domínio, a hospedagem e toda a infraestrutura do site permanecem ativos e gerenciados pela Oryga. Inclui também suporte técnico via WhatsApp e a renovação anual do domínio sem necessidade de ação por parte do cliente.</p>
-        <p>Quando precisar de alterações no conteúdo do site — textos, fotos ou qualquer atualização — a Oryga realiza por <strong>R$ 200 por solicitação</strong>.</p>
-        <p>Cancelamento a qualquer momento com aviso prévio de 30 dias.</p>
-        <p>O investimento inicial é cobrado no ato da contratação e a mensalidade é gerada via cartão de crédito em até 12x.</p>`,
-    C: `<p>Com o <strong>Plano C — Site + Plano Profissional</strong>, a Oryga realiza até <strong>2 solicitações de atualização por mês</strong> inclusas — fotos, textos, telefones, horários, banners e informações da empresa.</p>
-        <p>Caso as solicitações ultrapassem 2 no mês, cada ocorrência adicional é cobrada por <strong>R$ 150</strong>.</p>
-        <p>Inclui tudo do Plano Essencial, mais suporte prioritário e atendimento preferencial.</p>
-        <p>Cancelamento a qualquer momento com aviso prévio de 30 dias.</p>`,
+    A: `<p>Com o <strong>Plano A — Site Independente</strong>, o site será desenvolvido, publicado e entregue com domínio, hospedagem e certificado SSL ativos durante os primeiros 12 meses.</p>
+        <p>Após esse período, a renovação do domínio, hospedagem e demais serviços passa a ser de responsabilidade do contratante.</p>
+        <p>O cliente receberá acesso completo ao site e poderá administrar sua infraestrutura com qualquer fornecedor de hospedagem de sua preferência.</p>
+        <p>Alterações, atualizações de conteúdo, suporte técnico ou novas funcionalidades poderão ser contratadas separadamente mediante orçamento.</p>`,
+    B: `<p>Com o <strong>Plano B — Site + Plano Essencial</strong>, a Oryga é responsável pela hospedagem, domínio, certificado SSL, backup e monitoramento do site.</p>
+        <p>O plano inclui suporte técnico relacionado ao funcionamento da infraestrutura e garantia de disponibilidade do site.</p>
+        <p>Alterações de conteúdo, inclusão de imagens, mudanças de textos ou atualizações visuais não estão inclusas e serão cobradas à parte, <strong>a partir de R$ 100 por solicitação</strong>.</p>
+        <p>Fidelidade mínima de 12 meses.</p>
+        <p>O investimento inicial é cobrado na contratação e a mensalidade garante a continuidade dos serviços de hospedagem e gestão básica da infraestrutura.</p>`,
+    C: `<p>Com o <strong>Plano C — Site + Plano Profissional</strong>, a Oryga realiza até <strong>2 pequenas solicitações de atualização por mês</strong>, incluindo alteração de textos, substituição de imagens, atualização de telefones, horários e informações institucionais.</p>
+        <p>Cada solicitação contempla até <strong>30 minutos de trabalho técnico</strong>.</p>
+        <p>O plano inclui todos os benefícios do Plano Essencial, além de suporte prioritário e atendimento preferencial.</p>
+        <p>Não estão inclusos serviços de desenvolvimento, criação de novas páginas, integrações, reformulações visuais ou novas funcionalidades.</p>
+        <p>Solicitações excedentes ou fora do escopo serão orçadas separadamente.</p>
+        <p>Fidelidade mínima de 12 meses.</p>`,
     none: `<p style="color:var(--muted);font-style:italic">Selecione um plano acima para ver as condições específicas.</p>`
   };
 
