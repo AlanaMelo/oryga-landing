@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Estratégia de Crescimento — Anacleto Pneus × Oryga</title>
+  <title>Sua Jornada Digital — Anacleto Pneus × Oryga</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -31,167 +31,187 @@
 
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-    /* ════ LOCK ════ */
-    #lock {
-      min-height: 100vh; display: flex; align-items: center;
-      justify-content: center; padding: 1.5rem;
-      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245,168,0,.06) 0%, transparent 70%), var(--bg);
-    }
-    .lock-card {
-      background: var(--bg1); border: 1px solid var(--border2);
-      border-radius: 24px; padding: 3.5rem 2.75rem;
-      width: 100%; max-width: 440px; text-align: center;
-      box-shadow: 0 40px 80px rgba(0,0,0,.5);
-    }
-    .lock-logo     { font-size: 2rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; }
-    .lock-logo-sub { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin-bottom: .5rem; }
-    .lock-divider  { height: 1px; background: var(--border); margin: 1.5rem 0 2rem; }
-    .lock-title    { font-size: 1.2rem; font-weight: 800; margin-bottom: .4rem; }
-    .lock-desc     { font-size: .82rem; color: var(--gray); margin-bottom: 2rem; line-height: 1.6; }
-    .lock-input {
-      width: 100%; background: var(--bg2); border: 1px solid var(--border2);
-      border-radius: 12px; padding: .9rem 1rem; color: var(--text);
-      font-family: inherit; font-size: 1rem; text-align: center;
-      letter-spacing: .15em; outline: none; margin-bottom: 1rem;
-      transition: border-color .2s;
-    }
-    .lock-input:focus { border-color: rgba(245,168,0,.6); }
-    .lock-btn {
-      width: 100%; padding: 1rem; border: none; border-radius: 12px;
-      background: var(--yellow); color: #0a0a0a;
-      font-family: inherit; font-size: .95rem; font-weight: 800; cursor: pointer;
-      transition: background .2s;
-    }
-    .lock-btn:hover { background: var(--yellow-l); }
-    .lock-err { color: #ff6b6b; font-size: .8rem; margin-top: .875rem; display: none; }
-
-    /* ════ PÁGINA ════ */
-    #page { display: none; }
-
     .wrap { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
     /* ── Hero ── */
     .hero {
       background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
       border: 1px solid var(--border2); border-radius: 24px;
-      padding: 2.5rem 3rem; margin-bottom: 3rem; position: relative; overflow: hidden;
+      padding: 3rem; margin-bottom: 3rem; position: relative; overflow: hidden;
     }
     .hero::before {
       content: ''; position: absolute; top: -60px; right: -60px;
-      width: 220px; height: 220px; border-radius: 50%;
+      width: 260px; height: 260px; border-radius: 50%;
       background: radial-gradient(circle, rgba(245,168,0,.1) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .hero-tag {
-      font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em;
-      color: var(--yellow); margin-bottom: .75rem;
+    .hero-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .hero-brand     { font-size: 1.8rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; }
+    .hero-brand-sub { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; }
+    .hero-badge {
+      background: rgba(245,168,0,.1); border: 1px solid var(--yellow-b);
+      border-radius: 8px; padding: .4rem .875rem;
+      font-size: .72rem; color: var(--yellow); font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
     }
+    .hero-divider { height: 1px; background: var(--border); margin-bottom: 2rem; }
+    .hero-tag  { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: .75rem; }
     .hero-title {
-      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; letter-spacing: -.03em;
-      line-height: 1.2; margin-bottom: .75rem;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 900;
+      letter-spacing: -.04em; line-height: 1.15; margin-bottom: 1rem;
     }
     .hero-title span { color: var(--yellow); }
-    .hero-sub { font-size: .88rem; color: var(--gray); line-height: 1.7; max-width: 560px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(245,168,0,.1); border: 1px solid var(--yellow-b);
-      border-radius: 8px; padding: .4rem .875rem; margin-top: 1.25rem;
-      font-size: .75rem; color: var(--yellow); font-weight: 700; letter-spacing: .06em;
-    }
+    .hero-desc { font-size: .92rem; color: var(--text2); line-height: 1.8; max-width: 600px; }
 
-    /* ── Seção ── */
+    /* ── 7 Serviços ── */
+    .seven-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem; margin-bottom: 3rem;
+    }
+    .seven-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.5rem;
+      display: flex; flex-direction: column; gap: .5rem;
+      transition: border-color .2s;
+    }
+    .seven-card:hover { border-color: rgba(255,255,255,.2); }
+    .seven-card.seven-active { background: linear-gradient(135deg, #121200 0%, #111 100%); border-color: rgba(245,168,0,.35); }
+    .seven-num {
+      font-size: 1.5rem; font-weight: 900; color: var(--muted);
+      letter-spacing: -.04em; line-height: 1; margin-bottom: .25rem;
+    }
+    .seven-num.seven-num-b { color: #60a5fa; }
+    .seven-active .seven-num { color: var(--yellow); }
+    .seven-name { font-size: .92rem; font-weight: 800; color: var(--text); }
+    .seven-desc { font-size: .78rem; color: var(--text2); line-height: 1.55; flex: 1; }
+    .seven-tag {
+      font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--muted); margin-top: .25rem;
+    }
+    .seven-tag-now { color: var(--yellow); }
+    .seven-tag-b   { color: #60a5fa; }
+
+    /* ── Sec label ── */
     .sec-label {
       font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em;
-      color: var(--muted); margin-bottom: 1.25rem; display: flex; align-items: center; gap: .75rem;
+      color: var(--muted); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .75rem;
     }
     .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
     /* ── Timeline ── */
     .timeline { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; }
 
-    .phase {
-      display: grid; grid-template-columns: 52px 1fr; gap: 1.25rem; align-items: start;
-    }
+    .phase { display: grid; grid-template-columns: 56px 1fr; gap: 1.25rem; align-items: start; }
+
     .phase-num {
-      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.15rem; font-weight: 900; letter-spacing: -.03em;
+      font-size: 1.2rem; font-weight: 900;
       background: var(--bg2); border: 1px solid var(--border2); color: var(--muted);
     }
-    .phase-num.active { background: var(--yellow-d); border-color: var(--yellow-b); color: var(--yellow); }
-    .phase-num.soon   { background: rgba(59,130,246,.08); border-color: rgba(59,130,246,.25); color: var(--blue); }
+    .phase-num.now  { background: var(--yellow-d); border-color: var(--yellow-b); color: var(--yellow); }
+    .phase-num.next { background: rgba(59,130,246,.08); border-color: rgba(59,130,246,.25); color: #60a5fa; }
 
     .phase-card {
       background: var(--bg1); border: 1px solid var(--border2);
-      border-radius: 16px; padding: 1.5rem 1.75rem;
+      border-radius: 18px; padding: 1.75rem;
     }
-    .phase-card.active { border-color: rgba(245,168,0,.35); background: linear-gradient(135deg, #111 0%, #130f00 100%); }
-    .phase-card.soon   { border-color: rgba(59,130,246,.25); }
+    .phase-card.now  { border-color: rgba(245,168,0,.35); background: linear-gradient(135deg, #121200 0%, #111 100%); }
+    .phase-card.next { border-color: rgba(59,130,246,.2); }
 
-    .phase-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .phase-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .875rem; flex-wrap: wrap; }
+
     .phase-when {
-      font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
-      padding: .25rem .75rem; border-radius: 50px;
+      font-size: .63rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+      padding: .28rem .75rem; border-radius: 50px; white-space: nowrap;
     }
-    .phase-when.now   { background: rgba(245,168,0,.12); color: var(--yellow); border: 1px solid var(--yellow-b); }
-    .phase-when.d30   { background: rgba(59,130,246,.1);  color: var(--blue);   border: 1px solid rgba(59,130,246,.3); }
-    .phase-when.d60   { background: rgba(59,130,246,.07); color: #60a5fa;       border: 1px solid rgba(59,130,246,.2); }
-    .phase-when.d90   { background: rgba(59,130,246,.07); color: #60a5fa;       border: 1px solid rgba(59,130,246,.2); }
-    .phase-when.d120  { background: rgba(59,130,246,.07); color: #60a5fa;       border: 1px solid rgba(59,130,246,.2); }
-    .phase-when.mature{ background: rgba(255,255,255,.04); color: var(--muted); border: 1px solid var(--border); }
+    .pw-now    { background: rgba(245,168,0,.12); color: var(--yellow);  border: 1px solid var(--yellow-b); }
+    .pw-30     { background: rgba(59,130,246,.1);  color: #60a5fa;        border: 1px solid rgba(59,130,246,.3); }
+    .pw-60     { background: rgba(59,130,246,.07); color: #93c5fd;        border: 1px solid rgba(59,130,246,.2); }
+    .pw-90     { background: rgba(59,130,246,.07); color: #93c5fd;        border: 1px solid rgba(59,130,246,.2); }
+    .pw-120    { background: rgba(59,130,246,.07); color: #93c5fd;        border: 1px solid rgba(59,130,246,.2); }
+    .pw-future { background: rgba(255,255,255,.04); color: var(--muted);  border: 1px solid var(--border); }
 
-    .phase-name { font-size: 1rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .25rem; }
-    .phase-goal { font-size: .8rem; color: var(--gray); line-height: 1.55; }
+    .phase-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .3rem; }
+    .phase-result {
+      font-size: .82rem; font-weight: 700;
+      color: var(--yellow); margin-bottom: .875rem; line-height: 1.4;
+    }
+    .phase-result.bl { color: #60a5fa; }
+    .phase-result.wh { color: var(--text2); }
 
-    .phase-body { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; margin-top: 1rem; }
+    .phase-body { display: grid; grid-template-columns: 1fr auto; gap: 1.25rem; align-items: start; }
 
-    .phase-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
-    .phase-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .82rem; color: var(--text2); line-height: 1.45; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; margin-top: .42rem; }
+    .phase-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .phase-list li {
+      display: flex; align-items: flex-start; gap: .65rem;
+      font-size: .83rem; color: var(--text2); line-height: 1.5;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: .38rem; }
     .dot.y { background: var(--yellow); }
-    .dot.b { background: var(--blue); }
+    .dot.b { background: #60a5fa; }
+    .dot.g { background: var(--muted); }
 
-    .phase-ticket {
+    .phase-box {
       background: var(--bg2); border: 1px solid var(--border2);
-      border-radius: 10px; padding: .875rem 1.1rem; text-align: center; white-space: nowrap;
+      border-radius: 12px; padding: 1rem 1.25rem; min-width: 130px; text-align: center;
     }
-    .phase-ticket-label { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .3rem; }
-    .phase-ticket-val   { font-size: .95rem; font-weight: 800; color: var(--text); line-height: 1.3; }
-    .phase-ticket-val.hi { color: var(--yellow); }
-    .phase-ticket-val.bl { color: var(--blue); }
+    .phase-box-label { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .35rem; }
+    .phase-box-val   { font-size: .92rem; font-weight: 800; color: var(--text); line-height: 1.35; }
+    .phase-box-val.y { color: var(--yellow); }
+    .phase-box-val.b { color: #60a5fa; }
+    .phase-box-note  { font-size: .7rem; color: var(--muted); margin-top: .25rem; line-height: 1.4; }
 
-    /* ── Resumo ── */
-    .summary-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* ── Impacto ── */
+    .impact {
+      background: linear-gradient(135deg, rgba(245,168,0,.07) 0%, rgba(245,168,0,.02) 100%);
+      border: 1px solid rgba(245,168,0,.25); border-radius: 22px;
+      padding: 2.5rem 3rem; margin-bottom: 3rem; text-align: center;
+    }
+    .impact-icon  { font-size: 2.5rem; margin-bottom: 1rem; }
+    .impact-title { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 900; letter-spacing: -.03em; margin-bottom: .75rem; }
+    .impact-title span { color: var(--yellow); }
+    .impact-desc  { font-size: .9rem; color: var(--gray); line-height: 1.8; max-width: 580px; margin: 0 auto 2rem; }
+    .impact-nums  { display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; }
+    .imp-num-label { font-size: .63rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .35rem; }
+    .imp-num-val   { font-size: 1.8rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; line-height: 1; }
+    .imp-num-note  { font-size: .72rem; color: var(--gray); margin-top: .25rem; }
+
+    /* ── Próximos Passos ── */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 1rem; margin-bottom: 3rem;
     }
-    .sum-card {
+    .step-card {
       background: var(--bg1); border: 1px solid var(--border2);
       border-radius: 16px; padding: 1.5rem;
     }
-    .sum-card.hi {
-      background: linear-gradient(135deg, #111 0%, #130f00 100%);
+    .step-card.hi {
+      background: linear-gradient(135deg, #121200 0%, #111 100%);
       border-color: rgba(245,168,0,.35);
     }
-    .sum-when { font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .875rem; }
-    .sum-when.hi { color: var(--yellow); }
-    .sum-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
-    .sum-list li { font-size: .82rem; color: var(--text2); display: flex; align-items: flex-start; gap: .6rem; line-height: 1.4; }
-    .sum-list li strong { color: var(--text); display: block; }
-    .sum-list li small  { color: var(--muted); font-size: .75rem; }
+    .step-when { font-size: .63rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 1rem; }
+    .step-when.hi { color: var(--yellow); }
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .step-list li { display: flex; gap: .6rem; font-size: .82rem; color: var(--text2); line-height: 1.45; }
+    .step-list li strong { color: var(--text); display: block; font-size: .85rem; }
+    .step-list li small  { color: var(--muted); font-size: .73rem; }
 
-    /* ── Potencial ── */
-    .potential {
-      background: linear-gradient(135deg, rgba(245,168,0,.06) 0%, rgba(245,168,0,.02) 100%);
-      border: 1px solid rgba(245,168,0,.25); border-radius: 20px;
-      padding: 2rem 2.5rem; margin-bottom: 3rem; text-align: center;
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 2.5rem; text-align: center; margin-bottom: 3rem;
     }
-    .potential-title { font-size: 1.1rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: -.02em; }
-    .potential-title span { color: var(--yellow); }
-    .potential-sub  { font-size: .85rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
-    .potential-nums { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-    .pot-num-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .3rem; }
-    .pot-num-val   { font-size: 1.75rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; line-height: 1; }
-    .pot-num-note  { font-size: .72rem; color: var(--muted); margin-top: .2rem; }
+    .cta-title { font-size: 1.1rem; font-weight: 900; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .cta-desc  { font-size: .88rem; color: var(--gray); line-height: 1.75; margin-bottom: 1.75rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: .75rem;
+      background: var(--green); color: #fff; border: none;
+      font-family: inherit; font-size: .95rem; font-weight: 800;
+      padding: 1rem 2.5rem; border-radius: 12px; cursor: pointer; text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+    .cta-btn:hover { opacity: .9; transform: translateY(-2px); }
 
     /* ── Footer ── */
     .footer {
@@ -203,56 +223,112 @@
     .footer-right { font-size: .75rem; color: var(--muted); text-align: right; line-height: 1.6; }
 
     @media (max-width: 640px) {
-      .wrap { padding: 2rem 1rem 4rem; }
-      .hero { padding: 2rem 1.5rem; }
-      .phase { grid-template-columns: 40px 1fr; gap: 1rem; }
-      .phase-num { width: 40px; height: 40px; font-size: .95rem; border-radius: 10px; }
+      .wrap  { padding: 2rem 1rem 4rem; }
+      .hero  { padding: 2rem 1.5rem; }
+      .phase { grid-template-columns: 42px 1fr; gap: 1rem; }
+      .phase-num { width: 42px; height: 42px; font-size: 1rem; border-radius: 10px; }
       .phase-body { grid-template-columns: 1fr; }
-      .phase-ticket { text-align: left; }
-      .potential-nums { gap: 1.5rem; }
+      .impact { padding: 2rem 1.5rem; }
+      .impact-nums { gap: 2rem; }
     }
   </style>
 </head>
 <body>
-
-<!-- ════ PÁGINA ════ -->
-<div id="page" style="display:block">
 <div class="wrap">
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-tag">Oryga · Uso Interno</div>
-    <div class="hero-title">Escada de Serviços —<br><span>Anacleto Pneus</span></div>
-    <div class="hero-sub">Roteiro de upsell planejado para transformar um cliente de R$ 1.500 em um cliente recorrente por vários anos. Cada fase respeita o momento da empresa e gera resultado antes de avançar.</div>
-    <div class="hero-badge">🔒 Documento interno — não compartilhar com o cliente</div>
+    <div class="hero-top">
+      <div>
+        <div class="hero-brand">Oryga</div>
+        <div class="hero-brand-sub">Consultoria Digital</div>
+      </div>
+      <div class="hero-badge">Anacleto Pneus</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-tag">Planejamento Estratégico Digital</div>
+    <div class="hero-title">O caminho para a <span>Anacleto Pneus</span><br>dominar o digital em Divinópolis</div>
+    <div class="hero-desc">
+      O site é o primeiro passo de uma jornada maior. Cada fase foi planejada para gerar resultado real antes de avançar — sem investimentos desnecessários, sem pressa. A Oryga estará ao lado da Anacleto Pneus em cada etapa.
+    </div>
+  </div>
+
+  <!-- 7 Serviços -->
+  <div class="sec-label">7 serviços para crescer</div>
+
+  <div class="seven-grid">
+    <div class="seven-card seven-active">
+      <div class="seven-num">1</div>
+      <div class="seven-name">Site Profissional</div>
+      <div class="seven-desc">A base de tudo. Presença digital completa, responsiva e otimizada para o Google.</div>
+      <div class="seven-tag seven-tag-now">Fase atual</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num seven-num-b">2</div>
+      <div class="seven-name">Google Maps</div>
+      <div class="seven-desc">Perfil otimizado para aparecer no topo das buscas locais em Divinópolis.</div>
+      <div class="seven-tag seven-tag-b">Após 30 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">3</div>
+      <div class="seven-name">Avaliações Google</div>
+      <div class="seven-desc">QR Code + automação WhatsApp para multiplicar avaliações e autoridade.</div>
+      <div class="seven-tag">Após 60 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">4</div>
+      <div class="seven-name">Catálogo Digital</div>
+      <div class="seven-desc">Pneus, marcas, medidas e serviços disponíveis online 24 horas por dia.</div>
+      <div class="seven-tag">Após 90 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">5</div>
+      <div class="seven-name">Inteligência Digital</div>
+      <div class="seven-desc">Analytics, Search Console e Pixel instalados — decisões baseadas em dados reais.</div>
+      <div class="seven-tag">Após 120 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">6</div>
+      <div class="seven-name">Google Ads Local</div>
+      <div class="seven-desc">Anúncios segmentados para captar clientes que já estão procurando o seu serviço.</div>
+      <div class="seven-tag">Quando o site performar</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">7</div>
+      <div class="seven-name">WhatsApp Automático</div>
+      <div class="seven-desc">Atendimento automatizado que qualifica o cliente antes mesmo de falar com a equipe.</div>
+      <div class="seven-tag">Fase avançada</div>
+    </div>
   </div>
 
   <!-- Timeline -->
-  <div class="sec-label">Fases de evolução</div>
+  <div class="sec-label">Detalhamento de cada fase</div>
 
   <div class="timeline">
 
     <!-- Fase 1 -->
     <div class="phase">
-      <div class="phase-num active">1</div>
-      <div class="phase-card active">
-        <div class="phase-header">
+      <div class="phase-num now">1</div>
+      <div class="phase-card now">
+        <div class="phase-top">
           <div>
-            <div class="phase-name">Fechar o Site</div>
-            <div class="phase-goal">Ter o cliente recorrente. Manter relacionamento.</div>
+            <div class="phase-name">Site Profissional no Ar</div>
+            <div class="phase-result">Sua empresa visível para quem procura pneus em Divinópolis</div>
           </div>
-          <div class="phase-when now">Agora</div>
+          <div class="phase-when pw-now">Fase atual</div>
         </div>
         <div class="phase-body">
           <ul class="phase-list">
-            <li><div class="dot y"></div>Site institucional completo</li>
-            <li><div class="dot y"></div>Plano Profissional — R$ 79,90/mês</li>
-            <li><div class="dot y"></div>Domínio, hospedagem e SSL inclusos no 1º ano</li>
+            <li><div class="dot y"></div>Website institucional completo e responsivo</li>
+            <li><div class="dot y"></div>Domínio, hospedagem e certificado SSL</li>
+            <li><div class="dot y"></div>Botões de contato direto via WhatsApp</li>
+            <li><div class="dot y"></div>Otimização para buscas no Google (SEO)</li>
+            <li><div class="dot y"></div>Gestão e manutenção contínua pela Oryga</li>
           </ul>
-          <div class="phase-ticket">
-            <div class="phase-ticket-label">Ticket</div>
-            <div class="phase-ticket-val hi">R$ 1.500</div>
-            <div class="phase-ticket-val hi" style="font-size:.8rem;margin-top:.2rem">+ R$ 79,90/mês</div>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val y">R$ 1.500</div>
+            <div class="phase-box-note">+ R$ 79,90/mês<br>gestão profissional</div>
           </div>
         </div>
       </div>
@@ -260,27 +336,26 @@
 
     <!-- Fase 2 -->
     <div class="phase">
-      <div class="phase-num soon">2</div>
-      <div class="phase-card soon">
-        <div class="phase-header">
+      <div class="phase-num next">2</div>
+      <div class="phase-card next">
+        <div class="phase-top">
           <div>
-            <div class="phase-name">Google Business Profile</div>
-            <div class="phase-goal">A Anacleto depende muito de busca local — esta é a alavanca mais rápida de resultado visível.</div>
+            <div class="phase-name">Dominar o Google Maps</div>
+            <div class="phase-result bl">Apareça no topo quando alguém procurar pneus perto de você</div>
           </div>
-          <div class="phase-when d30">Após 30 dias</div>
+          <div class="phase-when pw-30">Após 30 dias</div>
         </div>
         <div class="phase-body">
           <ul class="phase-list">
-            <li><div class="dot b"></div>Otimização completa do perfil</li>
-            <li><div class="dot b"></div>Fotos, categorias e descrição</li>
-            <li><div class="dot b"></div>Cadastro de produtos e serviços</li>
-            <li><div class="dot b"></div>Postagens periódicas (opcional mensal)</li>
+            <li><div class="dot b"></div>Otimização completa do Google Business Profile</li>
+            <li><div class="dot b"></div>Fotos profissionais, categorias e descrição estratégica</li>
+            <li><div class="dot b"></div>Cadastro detalhado de serviços e produtos</li>
+            <li><div class="dot b"></div>Postagens periódicas para manter o perfil ativo</li>
           </ul>
-          <div class="phase-ticket">
-            <div class="phase-ticket-label">Implantação</div>
-            <div class="phase-ticket-val bl">R$ 300–600</div>
-            <div class="phase-ticket-label" style="margin-top:.5rem">Manutenção/mês</div>
-            <div class="phase-ticket-val bl" style="font-size:.82rem">R$ 49,90–99,90</div>
+          <div class="phase-box">
+            <div class="phase-box-label">Implantação</div>
+            <div class="phase-box-val b">R$ 300–600</div>
+            <div class="phase-box-note">opção de gestão<br>mensal disponível</div>
           </div>
         </div>
       </div>
@@ -290,22 +365,23 @@
     <div class="phase">
       <div class="phase-num">3</div>
       <div class="phase-card">
-        <div class="phase-header">
+        <div class="phase-top">
           <div>
-            <div class="phase-name">Programa de Avaliações Google</div>
-            <div class="phase-goal">Muitos clientes satisfeitos, poucas avaliações. Isso freia novos clientes na decisão de compra.</div>
+            <div class="phase-name">Reputação e Avaliações Google</div>
+            <div class="phase-result wh">Transforme clientes satisfeitos em novos clientes</div>
           </div>
-          <div class="phase-when d60">Após 60 dias</div>
+          <div class="phase-when pw-60">Após 60 dias</div>
         </div>
         <div class="phase-body">
           <ul class="phase-list">
-            <li><div class="dot"></div>QR Code impresso para o balcão</li>
-            <li><div class="dot"></div>Link direto de avaliação</li>
-            <li><div class="dot"></div>Automação de solicitação via WhatsApp</li>
+            <li><div class="dot g"></div>QR Code impresso para o balcão e recepção</li>
+            <li><div class="dot g"></div>Link direto para avaliação no Google</li>
+            <li><div class="dot g"></div>Mensagem automática de solicitação via WhatsApp</li>
+            <li><div class="dot g"></div>Mais avaliações = mais autoridade = mais clientes novos</li>
           </ul>
-          <div class="phase-ticket">
-            <div class="phase-ticket-label">Ticket</div>
-            <div class="phase-ticket-val">R$ 300–800</div>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val">R$ 300–800</div>
           </div>
         </div>
       </div>
@@ -315,22 +391,23 @@
     <div class="phase">
       <div class="phase-num">4</div>
       <div class="phase-card">
-        <div class="phase-header">
+        <div class="phase-top">
           <div>
-            <div class="phase-name">Catálogo Digital</div>
-            <div class="phase-goal">Pneus, reformas e serviços com medidas, marcas e preços — reduz atendimento repetitivo no balcão.</div>
+            <div class="phase-name">Catálogo Digital de Produtos</div>
+            <div class="phase-result wh">Mostre seus pneus, serviços e marcas 24 horas por dia</div>
           </div>
-          <div class="phase-when d90">Após 90 dias</div>
+          <div class="phase-when pw-90">Após 90 dias</div>
         </div>
         <div class="phase-body">
           <ul class="phase-list">
-            <li><div class="dot"></div>Catálogo online com medidas e marcas</li>
-            <li><div class="dot"></div>Listagem completa de serviços</li>
-            <li><div class="dot"></div>Integrado ao site existente</li>
+            <li><div class="dot g"></div>Catálogo online com medidas, marcas e descrições</li>
+            <li><div class="dot g"></div>Listagem completa de serviços e preços</li>
+            <li><div class="dot g"></div>Cliente chega sabendo o que quer — menos tempo no balcão</li>
+            <li><div class="dot g"></div>Integrado ao site existente</li>
           </ul>
-          <div class="phase-ticket">
-            <div class="phase-ticket-label">Ticket</div>
-            <div class="phase-ticket-val">R$ 1.000–2.000</div>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val">R$ 1.000–2.000</div>
           </div>
         </div>
       </div>
@@ -340,23 +417,23 @@
     <div class="phase">
       <div class="phase-num">5</div>
       <div class="phase-card">
-        <div class="phase-header">
+        <div class="phase-top">
           <div>
-            <div class="phase-name">Captação de Dados e Leads</div>
-            <div class="phase-goal">Instalar rastreamento e mostrar dados reais — abre a porta para tráfego pago com argumento concreto.</div>
+            <div class="phase-name">Inteligência Digital</div>
+            <div class="phase-result wh">Entenda de onde vêm seus clientes e tome decisões com dados</div>
           </div>
-          <div class="phase-when d120">Após 120 dias</div>
+          <div class="phase-when pw-120">Após 120 dias</div>
         </div>
         <div class="phase-body">
           <ul class="phase-list">
-            <li><div class="dot"></div>Google Analytics 4</li>
-            <li><div class="dot"></div>Google Search Console</li>
-            <li><div class="dot"></div>Meta Pixel</li>
-            <li><div class="dot"></div>Relatório mensal simples para o cliente</li>
+            <li><div class="dot g"></div>Google Analytics — quantas pessoas visitam o site</li>
+            <li><div class="dot g"></div>Google Search Console — quais termos trazem visitas</li>
+            <li><div class="dot g"></div>Meta Pixel — base para campanhas no Instagram e Facebook</li>
+            <li><div class="dot g"></div>Relatório mensal simples e objetivo</li>
           </ul>
-          <div class="phase-ticket">
-            <div class="phase-ticket-label">Implantação</div>
-            <div class="phase-ticket-val">Incluso no plano<br><span style="font-size:.72rem;color:var(--muted);font-weight:500">ou R$ 200–400 avulso</span></div>
+          <div class="phase-box">
+            <div class="phase-box-label">Incluso no plano</div>
+            <div class="phase-box-val" style="font-size:.82rem;line-height:1.4">ou avulso<br>R$ 200–400</div>
           </div>
         </div>
       </div>
@@ -366,24 +443,24 @@
     <div class="phase">
       <div class="phase-num">6</div>
       <div class="phase-card">
-        <div class="phase-header">
+        <div class="phase-top">
           <div>
-            <div class="phase-name">Tráfego Pago — Google Ads Local</div>
-            <div class="phase-goal">Com o site funcionando e dados de visitas em mãos, fica fácil justificar o investimento em anúncios.</div>
+            <div class="phase-name">Anúncios Google — Apareça Antes da Concorrência</div>
+            <div class="phase-result wh">Chegue primeiro a quem já está procurando pneus agora</div>
           </div>
-          <div class="phase-when mature">Quando o site performar</div>
+          <div class="phase-when pw-future">Quando o site performar</div>
         </div>
         <div class="phase-body">
           <ul class="phase-list">
-            <li><div class="dot"></div>Campanha de busca local</li>
-            <li><div class="dot"></div>Segmentação por região e serviço</li>
-            <li><div class="dot"></div>Relatório de resultados</li>
+            <li><div class="dot g"></div>Campanha de busca local segmentada por região</li>
+            <li><div class="dot g"></div>Anúncios apenas para quem procura o seu serviço</li>
+            <li><div class="dot g"></div>Controle total do investimento — você define o orçamento</li>
+            <li><div class="dot g"></div>Relatório de resultados e retorno sobre investimento</li>
           </ul>
-          <div class="phase-ticket">
-            <div class="phase-ticket-label">Implantação</div>
-            <div class="phase-ticket-val">R$ 500–1.000</div>
-            <div class="phase-ticket-label" style="margin-top:.5rem">Gestão/mês</div>
-            <div class="phase-ticket-val" style="font-size:.82rem">R$ 300–800</div>
+          <div class="phase-box">
+            <div class="phase-box-label">Implantação</div>
+            <div class="phase-box-val">R$ 500–1.000</div>
+            <div class="phase-box-note">+ gestão mensal<br>R$ 300–800</div>
           </div>
         </div>
       </div>
@@ -393,22 +470,23 @@
     <div class="phase">
       <div class="phase-num">7</div>
       <div class="phase-card">
-        <div class="phase-header">
+        <div class="phase-top">
           <div>
-            <div class="phase-name">Automação WhatsApp</div>
-            <div class="phase-goal">Quando a relação estiver madura e o cliente enxergar valor em tecnologia. Alta percepção de inovação.</div>
+            <div class="phase-name">Atendimento Automatizado via WhatsApp</div>
+            <div class="phase-result wh">Atenda mais clientes com menos esforço — mesmo fora do horário</div>
           </div>
-          <div class="phase-when mature">Relação madura</div>
+          <div class="phase-when pw-future">Fase avançada</div>
         </div>
         <div class="phase-body">
           <ul class="phase-list">
-            <li><div class="dot"></div>Atendimento automático via WhatsApp</li>
-            <li><div class="dot"></div>Qualificação do cliente antes do atendimento humano</li>
-            <li><div class="dot"></div>Ex: "Qual medida do pneu você procura?"</li>
+            <li><div class="dot g"></div>Mensagem automática ao primeiro contato</li>
+            <li><div class="dot g"></div>Qualificação do cliente antes do atendimento humano</li>
+            <li><div class="dot g"></div>Ex: "Qual medida do pneu você procura?"</li>
+            <li><div class="dot g"></div>Reduz tempo de resposta e aumenta conversão</li>
           </ul>
-          <div class="phase-ticket">
-            <div class="phase-ticket-label">Ticket</div>
-            <div class="phase-ticket-val">R$ 1.500–3.000</div>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val">R$ 1.500–3.000</div>
           </div>
         </div>
       </div>
@@ -416,79 +494,89 @@
 
   </div>
 
-  <!-- Potencial -->
-  <div class="potential">
-    <div class="potential-title">De R$ 1.500 para um cliente de <span>vários anos</span></div>
-    <div class="potential-sub">Seguindo a escada completa, a receita total acumulada com a Anacleto Pneus pode ultrapassar R$ 10.000 em 12 meses, mais recorrência contínua.</div>
-    <div class="potential-nums">
+  <!-- Impacto -->
+  <div class="impact">
+    <div class="impact-icon">📈</div>
+    <div class="impact-title">Uma parceria que <span>cresce com o seu negócio</span></div>
+    <div class="impact-desc">
+      Cada fase é projetada para gerar resultado antes de avançar para a próxima. Sem pressão, sem investimentos desnecessários. O ritmo é o da Anacleto Pneus.
+    </div>
+    <div class="impact-nums">
       <div>
-        <div class="pot-num-label">Hoje</div>
-        <div class="pot-num-val">R$ 1.500</div>
-        <div class="pot-num-note">site + R$ 79,90/mês</div>
+        <div class="imp-num-label">Fase 1</div>
+        <div class="imp-num-val">Online</div>
+        <div class="imp-num-note">site + presença digital</div>
       </div>
       <div>
-        <div class="pot-num-label">Em 6 meses</div>
-        <div class="pot-num-val">+R$ 2.000</div>
-        <div class="pot-num-note">Google + avaliações</div>
+        <div class="imp-num-label">Fases 2–3</div>
+        <div class="imp-num-val">Visível</div>
+        <div class="imp-num-note">Google Maps + autoridade</div>
       </div>
       <div>
-        <div class="pot-num-label">Em 12 meses</div>
-        <div class="pot-num-val">+R$ 3.000</div>
-        <div class="pot-num-note">catálogo + ads</div>
+        <div class="imp-num-label">Fases 4–5</div>
+        <div class="imp-num-val">Inteligente</div>
+        <div class="imp-num-note">catálogo + dados reais</div>
+      </div>
+      <div>
+        <div class="imp-num-label">Fases 6–7</div>
+        <div class="imp-num-val">Escalável</div>
+        <div class="imp-num-note">anúncios + automação</div>
       </div>
     </div>
   </div>
 
-  <!-- Resumo -->
-  <div class="sec-label">Calendário de abordagem</div>
+  <!-- Próximos Passos -->
+  <div class="sec-label">Nosso planejamento juntos</div>
 
-  <div class="summary-grid">
-
-    <div class="sum-card hi">
-      <div class="sum-when hi">Agora — Fechar</div>
-      <ul class="sum-list">
-        <li><div class="dot y"></div><div><strong>Site Institucional</strong><small>R$ 1.500</small></div></li>
-        <li><div class="dot y"></div><div><strong>Plano Profissional</strong><small>R$ 79,90/mês</small></div></li>
+  <div class="steps-grid">
+    <div class="step-card hi">
+      <div class="step-when hi">Agora</div>
+      <ul class="step-list">
+        <li><div class="dot y"></div><div><strong>Site Profissional</strong><small>Presença digital completa</small></div></li>
+        <li><div class="dot y"></div><div><strong>Plano Profissional</strong><small>Gestão contínua pela Oryga</small></div></li>
       </ul>
     </div>
-
-    <div class="sum-card">
-      <div class="sum-when">Após 30 dias</div>
-      <ul class="sum-list">
-        <li><div class="dot b"></div><div><strong>Google Business Profile</strong><small>R$ 300–600</small></div></li>
+    <div class="step-card">
+      <div class="step-when">Após 30 dias</div>
+      <ul class="step-list">
+        <li><div class="dot b"></div><div><strong>Google Maps</strong><small>Buscas locais otimizadas</small></div></li>
       </ul>
     </div>
-
-    <div class="sum-card">
-      <div class="sum-when">Após 60–90 dias</div>
-      <ul class="sum-list">
-        <li><div class="dot"></div><div><strong>Sistema de avaliações</strong><small>R$ 300–800</small></div></li>
+    <div class="step-card">
+      <div class="step-when">Após 60 dias</div>
+      <ul class="step-list">
+        <li><div class="dot g"></div><div><strong>Avaliações Google</strong><small>Reputação digital sólida</small></div></li>
       </ul>
     </div>
-
-    <div class="sum-card">
-      <div class="sum-when">Após 120 dias</div>
-      <ul class="sum-list">
-        <li><div class="dot"></div><div><strong>Google Ads Local</strong><small>R$ 500–1.000 + gestão</small></div></li>
+    <div class="step-card">
+      <div class="step-when">Após 120 dias</div>
+      <ul class="step-list">
+        <li><div class="dot g"></div><div><strong>Google Ads</strong><small>Captar clientes ativamente</small></div></li>
       </ul>
     </div>
+  </div>
 
+  <!-- CTA -->
+  <div class="cta-box">
+    <div class="cta-title">Pronto para dar o primeiro passo?</div>
+    <div class="cta-desc">O site é a base de tudo. Com ele no ar e bem feito, cada etapa seguinte fica mais fácil, mais rápida e mais eficiente.</div>
+    <a href="../proposta/" class="cta-btn">
+      Ver a Proposta Comercial →
+    </a>
   </div>
 
   <!-- Footer -->
   <div class="footer">
     <div>
       <div class="footer-brand">Oryga</div>
-      <div class="footer-sub">Consultoria Digital · Documento interno</div>
+      <div class="footer-sub">Consultoria Digital · orygaconsultoria.com.br</div>
     </div>
     <div class="footer-right">
-      Uso exclusivo da equipe Oryga.<br>
-      Não compartilhar com o cliente.
+      Dúvidas? Entre em contato.<br>
+      WhatsApp: (37) 9 9801-9444
     </div>
   </div>
 
 </div>
-</div>
-
 </body>
 </html>
