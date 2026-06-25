@@ -523,11 +523,85 @@
 
     /* Print */
     @media print {
-      #vbar, #lock, .sign-actions, .sign-print-btn, .modal-overlay { display: none !important; }
+      #vbar, #lock, .modal-overlay, .sign-cta, #toast { display: none !important; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       body { background: #fff !important; color: #111 !important; }
-      .prop-page { padding: 1rem !important; }
-      .prop-hero, .invest-card { background: #f5f5f5 !important; box-shadow: none !important; }
-      .prop-brand, .invest-price, .prop-sec-icon, .prazo-num { color: #F5A800 !important; }
+      .prop-page { padding: 1rem !important; background: #fff !important; }
+      .prop-hero { background: #f7f7f7 !important; border-color: #e0e0e0 !important; box-shadow: none !important; }
+      .prop-hero::before { display: none !important; }
+      .prop-hero-divider, .prop-sec-divider { background: #ddd !important; }
+      .prop-brand { color: #d48800 !important; }
+      .prop-brand-sub, .prop-hero-label, .prop-hero-sub, .prop-hero-meta-line { color: #666 !important; }
+      .prop-hero-meta-line strong { color: #222 !important; }
+      .prop-hero-ref { color: #b87400 !important; }
+      .prop-hero-title { color: #111 !important; }
+      .prop-hero-title span { color: #d48800 !important; }
+      .prop-meta-badge { background: #fff8e1 !important; border-color: rgba(245,168,0,.4) !important; color: #b87400 !important; }
+      .prop-to { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+      .prop-to-f label { color: #888 !important; }
+      .prop-to-f .fv { color: #111 !important; }
+      .prop-sec-icon { background: #fff8e1 !important; border-color: rgba(245,168,0,.3) !important; }
+      .prop-sec-title { color: #111 !important; }
+      .prop-text { color: #333 !important; }
+      .prop-demo { background: #f5f5f5 !important; border-color: rgba(245,168,0,.3) !important; }
+      .prop-demo-text, .prop-demo-note { color: #555 !important; }
+      .obj-card { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+      .obj-text { color: #333 !important; }
+      .escopo-col { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+      .escopo-col-title { color: #b87400 !important; }
+      .check-list li { color: #333 !important; }
+      .check-dot { background: #e8faf0 !important; border-color: rgba(37,211,102,.4) !important; color: #1a9955 !important; }
+      .check-dot-hi { background: #fff8e1 !important; border-color: rgba(245,168,0,.4) !important; color: #b87400 !important; }
+      .ben-chip { background: #f5f5f5 !important; border-color: #e0e0e0 !important; color: #333 !important; }
+      .prazo-box { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+      .prazo-num { color: #d48800 !important; }
+      .prazo-label { color: #888 !important; }
+      .prazo-desc { color: #333 !important; }
+      .prazo-desc strong { color: #111 !important; }
+      .invest-card { background: #fdf8ec !important; border-color: rgba(245,168,0,.35) !important; }
+      .invest-card::before { display: none !important; }
+      .invest-label { color: #b87400 !important; }
+      .invest-service { color: #444 !important; }
+      .invest-price { color: #d48800 !important; }
+      .invest-cond { background: #f0f0f0 !important; border-color: #e0e0e0 !important; }
+      .invest-cond-pct { color: #d48800 !important; }
+      .invest-cond-label { color: #666 !important; }
+      .invest-methods { color: #888 !important; }
+      .info-box { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+      .info-box p { color: #333 !important; }
+      .info-box strong { color: #111 !important; }
+      .valid-box { background: #fffbee !important; border-color: rgba(245,168,0,.25) !important; }
+      .valid-text { color: #444 !important; }
+      .valid-text strong { color: #b87400 !important; }
+      .plan-card { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+      .plan-card-hi { background: #fdf8ec !important; border-color: rgba(245,168,0,.3) !important; }
+      .plan-popular { background: #d48800 !important; color: #fff !important; }
+      .plan-badge { color: #888 !important; }
+      .plan-badge-hi { color: #b87400 !important; }
+      .plan-name, .plan-price { color: #111 !important; }
+      .plan-price-hi { color: #d48800 !important; }
+      .plan-price-label { color: #888 !important; }
+      .plan-monthly { color: #333 !important; }
+      .plan-monthly-none { color: #888 !important; }
+      .plan-monthly-hi { color: #d48800 !important; }
+      .plan-list li { color: #333 !important; }
+      .plan-tag { color: #888 !important; border-color: #e0e0e0 !important; }
+      .plan-fidelidade { border-color: #e0e0e0 !important; color: #888 !important; }
+      .plan-fidelidade-hi { border-color: rgba(245,168,0,.25) !important; color: rgba(180,120,0,.8) !important; }
+      .plan-selected-badge { background: #1a9955 !important; }
+      .plan-selected-badge-hi { background: #d48800 !important; color: #fff !important; }
+      .plan-payment-full { background: #f7f7f7 !important; border-color: #e0e0e0 !important; }
+      .plan-pay-label { color: #888 !important; }
+      .plan-pay-desc { color: #333 !important; }
+      .plan-pay-desc strong { color: #111 !important; }
+      .plan-pay-divider { background: #e0e0e0 !important; }
+      .plans-note { background: #f0f0f0 !important; border-color: #ddd !important; color: #555 !important; }
+      .plans-note strong { color: #111 !important; }
+      .plans-sale { background: #fffbee !important; border-color: rgba(245,168,0,.2) !important; color: #333 !important; }
+      .plans-sale strong { color: #111 !important; }
+      .prop-footer { border-color: #e0e0e0 !important; }
+      .prop-footer-brand { color: #d48800 !important; }
+      .prop-footer-sub, .prop-footer-right { color: #888 !important; }
     }
 
     /* ── Modo PDF — tema claro para geração limpa ── */
@@ -919,7 +993,7 @@
     <div class="plan-payment-full">
       <div class="plan-pay-col">
         <div class="plan-pay-label">💳 Investimento inicial</div>
-        <div class="plan-pay-desc">À vista ou em <strong>2x sem juros</strong> no cartão de crédito</div>
+        <div class="plan-pay-desc">Via <strong>Pix</strong> — 50% na entrada + 50% na entrega</div>
       </div>
       <div class="plan-pay-divider"></div>
       <div class="plan-pay-col">
@@ -967,7 +1041,7 @@
         <div class="aceitar-icon-wrap">✅</div>
         <div class="aceitar-text">
           <div class="aceitar-label">Aceitar Proposta</div>
-          <div class="aceitar-sub">Gera o PDF e envia para os e-mails cadastrados</div>
+          <div class="aceitar-sub">Abre o diálogo de impressão para salvar como PDF</div>
         </div>
       </button>
     </div>
@@ -977,7 +1051,7 @@
         <div class="aceitar-ok-icon">🎉</div>
         <div>
           <div class="aceitar-ok-title">Proposta aceita com sucesso!</div>
-          <div class="aceitar-ok-sub">PDF gerado e e-mails enviados. Em breve a Oryga entrará em contato.</div>
+          <div class="aceitar-ok-sub">Salve como PDF no diálogo de impressão. Em breve a Oryga entrará em contato.</div>
         </div>
       </div>
     </div>
@@ -1001,7 +1075,6 @@
 
 <div id="toast"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   /* ════ CONFIG — preencha após criar conta em emailjs.com ════ */
@@ -1117,9 +1190,7 @@
   async function aceitarProposta() {
     if (!selectedPlan) { showToast('Selecione um plano antes de aceitar.'); return; }
 
-    const btn   = document.getElementById('btnAceitar');
-    const label = btn.querySelector('.aceitar-label');
-    const sub   = btn.querySelector('.aceitar-sub');
+    const btn = document.getElementById('btnAceitar');
     btn.disabled = true;
 
     const empresa     = document.getElementById('eEmpresa').textContent.trim();
@@ -1127,42 +1198,21 @@
     const ref         = document.getElementById('eRef').textContent.trim();
     const resp        = document.getElementById('eResponsavel').textContent.trim();
     const fone        = document.getElementById('eFone').textContent.trim();
+    const cnpj        = document.getElementById('eCnpj').textContent.trim();
     const planName    = document.getElementById('plan'+selectedPlan).querySelector('.plan-name').textContent.trim();
-    const filename    = `Proposta_Oryga_${empresa.replace(/\s+/g,'_')}.pdf`;
 
-    /* remove do layout os elementos que não devem ir para o PDF */
-    const noPdfEls = [...document.querySelectorAll('.no-pdf')];
-    noPdfEls.forEach(el => el.style.display = 'none');
+    /* exibe estado de sucesso antes de abrir o diálogo */
+    btn.style.display = 'none';
+    document.getElementById('aceitarSucesso').style.display = 'block';
 
-    /* aplica tema claro + ajustes de layout para PDF limpo */
-    document.body.classList.add('pdf-generating');
-    window.scrollTo(0, 0);
+    /* abre diálogo de impressão/salvar PDF após DOM atualizar */
+    setTimeout(() => window.print(), 150);
 
-    label.textContent = '⏳ Gerando PDF…';
-    sub.textContent   = 'Aguarde um momento…';
+    showToast('Proposta aceita! Salve como PDF no diálogo.');
 
-    try {
-      await html2pdf().set({
-        margin:      [10, 10, 10, 10],
-        filename,
-        image:       { type: 'jpeg', quality: 0.97 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          logging: false,
-          backgroundColor: '#ffffff',
-          windowWidth: 960,
-          scrollX: 0,
-          scrollY: -window.scrollY
-        },
-        jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak:   { mode: 'css', avoid: '.prop-hero, .prop-to, .prazo-box, .invest-card, .plan-card, .valid-box, .info-box' }
-      }).from(document.querySelector('.prop-page')).save();
-
-      /* envia emails se EmailJS estiver configurado */
-      if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') {
-        label.textContent = '📧 Enviando e-mails…';
-        const cnpj = document.getElementById('eCnpj').textContent.trim();
+    /* envia emails se EmailJS estiver configurado */
+    if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') {
+      try {
         const params = { empresa, ref, responsavel: resp, fone,
                          cnpj: cnpj || '(não informado)',
                          plano: `Opção ${selectedPlan} — ${planName}`,
@@ -1171,22 +1221,7 @@
         await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_ORYGA,  { ...params, to_email: ORYGA_EMAIL }, EJ_PUBLIC_KEY);
         if (emailClient && emailClient !== '—')
           await emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_CLIENT, { ...params, to_email: emailClient }, EJ_PUBLIC_KEY);
-      }
-
-      /* sucesso */
-      btn.style.display = 'none';
-      document.getElementById('aceitarSucesso').style.display = 'block';
-      showToast('Proposta aceita! PDF salvo.');
-
-    } catch(err) {
-      console.error(err);
-      showToast('Erro ao gerar PDF. Tente novamente.');
-      btn.disabled      = false;
-      label.textContent = 'Aceitar Proposta';
-      sub.textContent   = 'Gera o PDF e envia para os e-mails cadastrados';
-    } finally {
-      document.body.classList.remove('pdf-generating');
-      noPdfEls.forEach(el => el.style.display = '');
+      } catch(err) { console.error(err); }
     }
   }
 
