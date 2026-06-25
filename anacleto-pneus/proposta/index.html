@@ -575,7 +575,6 @@
   <label class="vbar-price-label">💰 Investimento R$<input type="text" id="investInput" class="vbar-price-input" value="1.500" oninput="updateInvestimento(this.value)"></label>
   <button class="vbtn" onclick="saveData()">💾 Salvar</button>
   <button class="vbtn" onclick="window.print()">🖨 Imprimir</button>
-  <button class="vbtn hi" onclick="openLinkModal()">🔗 Gerar link p/ cliente</button>
 </div>
 <!-- campo oculto para persistência no hash -->
 <div id="eInvestimento" style="display:none">1.500</div>
@@ -611,6 +610,7 @@
   <!-- ── Destinatário ── -->
   <div class="prop-to">
     <div class="prop-to-f"><label>Cliente</label><div class="fv" id="eEmpresa">Anacleto Pneus</div></div>
+    <div class="prop-to-f"><label>CNPJ / CPF</label><div class="fv" id="eCnpj">—</div></div>
     <div class="prop-to-f"><label>Responsável</label><div class="fv" id="eResponsavel">—</div></div>
     <div class="prop-to-f"><label>WhatsApp</label><div class="fv" id="eFone">(37) 9 9991-5047</div></div>
     <div class="prop-to-f"><label>E-mail</label><div class="fv" id="eEmail">—</div></div>
@@ -906,20 +906,6 @@
 </div>
 </div>
 
-<!-- Modal link -->
-<div class="modal-overlay" id="linkModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeLinkModal()">✕</button>
-    <div class="modal-tag">Proposta gerada</div>
-    <div class="modal-title">Compartilhe com o cliente para visualizar a proposta.</div>
-    <div class="modal-btns">
-      <button class="modal-btn yellow" onclick="copyLink()">📋 Copiar link</button>
-      <button class="modal-btn wa"     onclick="sendViaWA()">📲 WhatsApp</button>
-      <button class="modal-btn email"  onclick="sendViaEmail()">✉️ E-mail</button>
-    </div>
-    <div class="modal-pwd">Senha do cliente: <span id="modalPwd"></span></div>
-  </div>
-</div>
 
 <div id="toast"></div>
 
@@ -937,8 +923,6 @@
   const VENDOR_PWD = 'oryga@vendas';
   const CLIENT_PWD = 'assinar@2026';
   const STORE_KEY  = 'proposta_anacleto_v2';
-
-  let generatedLink = '';
 
   /* Data */
   const hoje = new Date();
@@ -980,7 +964,7 @@
   }
 
   /* ── Edição ── */
-  const EIDS = ['eRef','eEmpresa','eResponsavel','eFone','eEmail','eCidade','eContatoOryga',
+  const EIDS = ['eRef','eEmpresa','eCnpj','eResponsavel','eFone','eEmail','eCidade','eContatoOryga',
                 'eApres','eHostingIntro','ePrazo','eObs','eValidade','eInvestimento'];
 
   function enableEdit() {
@@ -1022,37 +1006,6 @@
       applyFields(JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(6))))));
       return true;
     } catch { return false; }
-  }
-
-  function openLinkModal() {
-    saveData();
-    const encoded  = btoa(unescape(encodeURIComponent(JSON.stringify(collectFields()))));
-    generatedLink  = `${location.origin}${location.pathname}#data=${encoded}`;
-    document.getElementById('modalPwd').textContent = CLIENT_PWD;
-    document.getElementById('linkModal').classList.add('open');
-  }
-
-  function closeLinkModal() { document.getElementById('linkModal').classList.remove('open'); }
-  document.getElementById('linkModal').addEventListener('click', e => { if (e.target.id === 'linkModal') closeLinkModal(); });
-
-  async function copyLink() {
-    try { await navigator.clipboard.writeText(generatedLink); showToast('Link copiado!'); }
-    catch { showToast('Copie o link manualmente.'); }
-  }
-
-  function sendViaWA() {
-    const empresa = document.getElementById('eEmpresa').textContent.trim();
-    const msg = `Olá! Preparamos uma proposta comercial para ${empresa}. Acesse o link abaixo para visualizar:\n\n${generatedLink}\n\n🔐 Senha de acesso: *${CLIENT_PWD}*\n\nQualquer dúvida, estou à disposição!`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-
-  function sendViaEmail() {
-    const empresa  = document.getElementById('eEmpresa').textContent.trim();
-    const email    = document.getElementById('eEmail').textContent.trim();
-    const dest     = (email && email !== '—') ? email : '';
-    const assunto  = encodeURIComponent(`Proposta Comercial Oryga — ${empresa}`);
-    const corpo    = encodeURIComponent(`Olá!\n\nPreparamos uma proposta comercial personalizada para vocês. Acesse o link abaixo para visualizar:\n\n${generatedLink}\n\nSenha de acesso: ${CLIENT_PWD}\n\nApós a visualização, entre em contato para avançarmos com a contratação.\n\nAtt,\nOryga Consultoria`);
-    window.open(`mailto:${dest}?subject=${assunto}&body=${corpo}`, '_blank');
   }
 
   /* ── Investimento dinâmico ── */
@@ -1103,7 +1056,9 @@
       /* envia emails se EmailJS estiver configurado */
       if (EJ_PUBLIC_KEY !== 'SUA_PUBLIC_KEY') {
         label.textContent = '📧 Enviando e-mails…';
+        const cnpj = document.getElementById('eCnpj').textContent.trim();
         const params = { empresa, ref, responsavel: resp, fone,
+                         cnpj: cnpj || '(não informado)',
                          plano: `Opção ${selectedPlan} — ${planName}`,
                          email_cliente: emailClient || '(não informado)',
                          data: hoje.toLocaleDateString('pt-BR') };
