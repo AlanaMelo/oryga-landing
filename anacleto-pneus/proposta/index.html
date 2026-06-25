@@ -602,6 +602,20 @@
       .prop-footer { border-color: #e0e0e0 !important; }
       .prop-footer-brand { color: #d48800 !important; }
       .prop-footer-sub, .prop-footer-right { color: #888 !important; }
+
+      /* evita corte no meio dos blocos */
+      .prop-hero, .prop-to, .prop-sec, .prop-demo,
+      .obj-card, .escopo-col, .escopo-grid,
+      .prazo-box, .invest-card, .invest-cond,
+      .plan-card, .plan-payment-full,
+      .info-box, .valid-box,
+      .plans-note, .plans-sale,
+      .prop-footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .obj-grid, .ben-grid { break-inside: avoid; page-break-inside: avoid; }
+      .prop-sec-header { break-after: avoid; page-break-after: avoid; }
     }
 
     /* ── Modo PDF — tema claro para geração limpa ── */
