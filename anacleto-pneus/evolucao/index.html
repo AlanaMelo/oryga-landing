@@ -215,22 +215,8 @@
 </head>
 <body>
 
-<!-- ════ LOCK ════ -->
-<div id="lock">
-  <div class="lock-card">
-    <div class="lock-logo">Oryga</div>
-    <div class="lock-logo-sub">Uso Interno</div>
-    <div class="lock-divider"></div>
-    <div class="lock-title">Estratégia de Crescimento</div>
-    <div class="lock-desc">Acesso restrito à equipe Oryga.<br>Insira a senha para continuar.</div>
-    <input type="password" id="pwdInput" class="lock-input" placeholder="••••••••••••" autocomplete="off">
-    <button class="lock-btn" onclick="checkPwd()">Acessar →</button>
-    <div class="lock-err" id="lockErr">Senha incorreta. Tente novamente.</div>
-  </div>
-</div>
-
 <!-- ════ PÁGINA ════ -->
-<div id="page">
+<div id="page" style="display:block">
 <div class="wrap">
 
   <!-- Hero -->
@@ -504,22 +490,5 @@
 </div>
 </div>
 
-<script>
-  const PWD = 'oryga@vendas';
-
-  document.getElementById('pwdInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPwd(); });
-
-  function checkPwd() {
-    if (document.getElementById('pwdInput').value === PWD) {
-      document.getElementById('lock').style.display = 'none';
-      document.getElementById('page').style.display = 'block';
-    } else {
-      const el = document.getElementById('lockErr');
-      el.style.display = 'block';
-      document.getElementById('pwdInput').value = '';
-      setTimeout(() => el.style.display = 'none', 3000);
-    }
-  }
-</script>
 </body>
 </html>
