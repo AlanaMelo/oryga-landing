@@ -525,6 +525,25 @@
     @media print {
       #vbar, #lock, .modal-overlay, .sign-cta, #toast { display: none !important; }
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      /* redefine variáveis CSS para tema claro — corrige todo texto branco */
+      :root {
+        --yellow:  #d48800;
+        --yellow-l:#e09900;
+        --yellow-d:rgba(212,136,0,.08);
+        --yellow-b:rgba(212,136,0,.25);
+        --bg:      #ffffff;
+        --bg1:     #f7f7f7;
+        --bg2:     #f0f0f0;
+        --bg3:     #e8e8e8;
+        --border:  rgba(0,0,0,.1);
+        --border2: rgba(0,0,0,.15);
+        --muted:   #888888;
+        --gray:    #666666;
+        --text:    #111111;
+        --text2:   #333333;
+        --green:   #1a9955;
+      }
       body { background: #fff !important; color: #111 !important; }
       .prop-page { padding: 1rem !important; background: #fff !important; }
       .prop-hero { background: #f7f7f7 !important; border-color: #e0e0e0 !important; box-shadow: none !important; }
