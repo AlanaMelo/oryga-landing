@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Estratégia de Crescimento — Anacleto Pneus × Oryga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:  #F5A800;
+      --yellow-l:#FFC130;
+      --yellow-d:rgba(245,168,0,.08);
+      --yellow-b:rgba(245,168,0,.25);
+      --bg:      #0a0a0a;
+      --bg1:     #111111;
+      --bg2:     #161616;
+      --bg3:     #1c1c1c;
+      --border:  rgba(255,255,255,.08);
+      --border2: rgba(255,255,255,.12);
+      --muted:   #5a5a5a;
+      --gray:    #888;
+      --text:    #f0f0f0;
+      --text2:   #c0c0c0;
+      --green:   #25D366;
+      --blue:    #3b82f6;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ════ LOCK ════ */
+    #lock {
+      min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; padding: 1.5rem;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245,168,0,.06) 0%, transparent 70%), var(--bg);
+    }
+    .lock-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 24px; padding: 3.5rem 2.75rem;
+      width: 100%; max-width: 440px; text-align: center;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5);
+    }
+    .lock-logo     { font-size: 2rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; }
+    .lock-logo-sub { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin-bottom: .5rem; }
+    .lock-divider  { height: 1px; background: var(--border); margin: 1.5rem 0 2rem; }
+    .lock-title    { font-size: 1.2rem; font-weight: 800; margin-bottom: .4rem; }
+    .lock-desc     { font-size: .82rem; color: var(--gray); margin-bottom: 2rem; line-height: 1.6; }
+    .lock-input {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 12px; padding: .9rem 1rem; color: var(--text);
+      font-family: inherit; font-size: 1rem; text-align: center;
+      letter-spacing: .15em; outline: none; margin-bottom: 1rem;
+      transition: border-color .2s;
+    }
+    .lock-input:focus { border-color: rgba(245,168,0,.6); }
+    .lock-btn {
+      width: 100%; padding: 1rem; border: none; border-radius: 12px;
+      background: var(--yellow); color: #0a0a0a;
+      font-family: inherit; font-size: .95rem; font-weight: 800; cursor: pointer;
+      transition: background .2s;
+    }
+    .lock-btn:hover { background: var(--yellow-l); }
+    .lock-err { color: #ff6b6b; font-size: .8rem; margin-top: .875rem; display: none; }
+
+    /* ════ PÁGINA ════ */
+    #page { display: none; }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      border: 1px solid var(--border2); border-radius: 24px;
+      padding: 2.5rem 3rem; margin-bottom: 3rem; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,168,0,.1) 0%, transparent 70%);
+    }
+    .hero-tag {
+      font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em;
+      color: var(--yellow); margin-bottom: .75rem;
+    }
+    .hero-title {
+      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; letter-spacing: -.03em;
+      line-height: 1.2; margin-bottom: .75rem;
+    }
+    .hero-title span { color: var(--yellow); }
+    .hero-sub { font-size: .88rem; color: var(--gray); line-height: 1.7; max-width: 560px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(245,168,0,.1); border: 1px solid var(--yellow-b);
+      border-radius: 8px; padding: .4rem .875rem; margin-top: 1.25rem;
+      font-size: .75rem; color: var(--yellow); font-weight: 700; letter-spacing: .06em;
+    }
+
+    /* ── Seção ── */
+    .sec-label {
+      font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em;
+      color: var(--muted); margin-bottom: 1.25rem; display: flex; align-items: center; gap: .75rem;
+    }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; }
+
+    .phase {
+      display: grid; grid-template-columns: 52px 1fr; gap: 1.25rem; align-items: start;
+    }
+    .phase-num {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; font-weight: 900; letter-spacing: -.03em;
+      background: var(--bg2); border: 1px solid var(--border2); color: var(--muted);
+    }
+    .phase-num.active { background: var(--yellow-d); border-color: var(--yellow-b); color: var(--yellow); }
+    .phase-num.soon   { background: rgba(59,130,246,.08); border-color: rgba(59,130,246,.25); color: var(--blue); }
+
+    .phase-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.5rem 1.75rem;
+    }
+    .phase-card.active { border-color: rgba(245,168,0,.35); background: linear-gradient(135deg, #111 0%, #130f00 100%); }
+    .phase-card.soon   { border-color: rgba(59,130,246,.25); }
+
+    .phase-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .phase-when {
+      font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+      padding: .25rem .75rem; border-radius: 50px;
+    }
+    .phase-when.now   { background: rgba(245,168,0,.12); color: var(--yellow); border: 1px solid var(--yellow-b); }
+    .phase-when.d30   { background: rgba(59,130,246,.1);  color: var(--blue);   border: 1px solid rgba(59,130,246,.3); }
+    .phase-when.d60   { background: rgba(59,130,246,.07); color: #60a5fa;       border: 1px solid rgba(59,130,246,.2); }
+    .phase-when.d90   { background: rgba(59,130,246,.07); color: #60a5fa;       border: 1px solid rgba(59,130,246,.2); }
+    .phase-when.d120  { background: rgba(59,130,246,.07); color: #60a5fa;       border: 1px solid rgba(59,130,246,.2); }
+    .phase-when.mature{ background: rgba(255,255,255,.04); color: var(--muted); border: 1px solid var(--border); }
+
+    .phase-name { font-size: 1rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .25rem; }
+    .phase-goal { font-size: .8rem; color: var(--gray); line-height: 1.55; }
+
+    .phase-body { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; margin-top: 1rem; }
+
+    .phase-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    .phase-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .82rem; color: var(--text2); line-height: 1.45; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; margin-top: .42rem; }
+    .dot.y { background: var(--yellow); }
+    .dot.b { background: var(--blue); }
+
+    .phase-ticket {
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 10px; padding: .875rem 1.1rem; text-align: center; white-space: nowrap;
+    }
+    .phase-ticket-label { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .3rem; }
+    .phase-ticket-val   { font-size: .95rem; font-weight: 800; color: var(--text); line-height: 1.3; }
+    .phase-ticket-val.hi { color: var(--yellow); }
+    .phase-ticket-val.bl { color: var(--blue); }
+
+    /* ── Resumo ── */
+    .summary-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem; margin-bottom: 3rem;
+    }
+    .sum-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.5rem;
+    }
+    .sum-card.hi {
+      background: linear-gradient(135deg, #111 0%, #130f00 100%);
+      border-color: rgba(245,168,0,.35);
+    }
+    .sum-when { font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .875rem; }
+    .sum-when.hi { color: var(--yellow); }
+    .sum-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .sum-list li { font-size: .82rem; color: var(--text2); display: flex; align-items: flex-start; gap: .6rem; line-height: 1.4; }
+    .sum-list li strong { color: var(--text); display: block; }
+    .sum-list li small  { color: var(--muted); font-size: .75rem; }
+
+    /* ── Potencial ── */
+    .potential {
+      background: linear-gradient(135deg, rgba(245,168,0,.06) 0%, rgba(245,168,0,.02) 100%);
+      border: 1px solid rgba(245,168,0,.25); border-radius: 20px;
+      padding: 2rem 2.5rem; margin-bottom: 3rem; text-align: center;
+    }
+    .potential-title { font-size: 1.1rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: -.02em; }
+    .potential-title span { color: var(--yellow); }
+    .potential-sub  { font-size: .85rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+    .potential-nums { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .pot-num-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .3rem; }
+    .pot-num-val   { font-size: 1.75rem; font-weight: 900; color: var(--yellow); letter-spacing: -.04em; line-height: 1; }
+    .pot-num-note  { font-size: .72rem; color: var(--muted); margin-top: .2rem; }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--border); padding-top: 2rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand { font-size: 1rem; font-weight: 900; color: var(--yellow); letter-spacing: -.02em; }
+    .footer-sub   { font-size: .72rem; color: var(--muted); }
+    .footer-right { font-size: .75rem; color: var(--muted); text-align: right; line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 2rem 1rem 4rem; }
+      .hero { padding: 2rem 1.5rem; }
+      .phase { grid-template-columns: 40px 1fr; gap: 1rem; }
+      .phase-num { width: 40px; height: 40px; font-size: .95rem; border-radius: 10px; }
+      .phase-body { grid-template-columns: 1fr; }
+      .phase-ticket { text-align: left; }
+      .potential-nums { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════ LOCK ════ -->
+<div id="lock">
+  <div class="lock-card">
+    <div class="lock-logo">Oryga</div>
+    <div class="lock-logo-sub">Uso Interno</div>
+    <div class="lock-divider"></div>
+    <div class="lock-title">Estratégia de Crescimento</div>
+    <div class="lock-desc">Acesso restrito à equipe Oryga.<br>Insira a senha para continuar.</div>
+    <input type="password" id="pwdInput" class="lock-input" placeholder="••••••••••••" autocomplete="off">
+    <button class="lock-btn" onclick="checkPwd()">Acessar →</button>
+    <div class="lock-err" id="lockErr">Senha incorreta. Tente novamente.</div>
+  </div>
+</div>
+
+<!-- ════ PÁGINA ════ -->
+<div id="page">
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-tag">Oryga · Uso Interno</div>
+    <div class="hero-title">Escada de Serviços —<br><span>Anacleto Pneus</span></div>
+    <div class="hero-sub">Roteiro de upsell planejado para transformar um cliente de R$ 1.500 em um cliente recorrente por vários anos. Cada fase respeita o momento da empresa e gera resultado antes de avançar.</div>
+    <div class="hero-badge">🔒 Documento interno — não compartilhar com o cliente</div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="sec-label">Fases de evolução</div>
+
+  <div class="timeline">
+
+    <!-- Fase 1 -->
+    <div class="phase">
+      <div class="phase-num active">1</div>
+      <div class="phase-card active">
+        <div class="phase-header">
+          <div>
+            <div class="phase-name">Fechar o Site</div>
+            <div class="phase-goal">Ter o cliente recorrente. Manter relacionamento.</div>
+          </div>
+          <div class="phase-when now">Agora</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot y"></div>Site institucional completo</li>
+            <li><div class="dot y"></div>Plano Profissional — R$ 79,90/mês</li>
+            <li><div class="dot y"></div>Domínio, hospedagem e SSL inclusos no 1º ano</li>
+          </ul>
+          <div class="phase-ticket">
+            <div class="phase-ticket-label">Ticket</div>
+            <div class="phase-ticket-val hi">R$ 1.500</div>
+            <div class="phase-ticket-val hi" style="font-size:.8rem;margin-top:.2rem">+ R$ 79,90/mês</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 2 -->
+    <div class="phase">
+      <div class="phase-num soon">2</div>
+      <div class="phase-card soon">
+        <div class="phase-header">
+          <div>
+            <div class="phase-name">Google Business Profile</div>
+            <div class="phase-goal">A Anacleto depende muito de busca local — esta é a alavanca mais rápida de resultado visível.</div>
+          </div>
+          <div class="phase-when d30">Após 30 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot b"></div>Otimização completa do perfil</li>
+            <li><div class="dot b"></div>Fotos, categorias e descrição</li>
+            <li><div class="dot b"></div>Cadastro de produtos e serviços</li>
+            <li><div class="dot b"></div>Postagens periódicas (opcional mensal)</li>
+          </ul>
+          <div class="phase-ticket">
+            <div class="phase-ticket-label">Implantação</div>
+            <div class="phase-ticket-val bl">R$ 300–600</div>
+            <div class="phase-ticket-label" style="margin-top:.5rem">Manutenção/mês</div>
+            <div class="phase-ticket-val bl" style="font-size:.82rem">R$ 49,90–99,90</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 3 -->
+    <div class="phase">
+      <div class="phase-num">3</div>
+      <div class="phase-card">
+        <div class="phase-header">
+          <div>
+            <div class="phase-name">Programa de Avaliações Google</div>
+            <div class="phase-goal">Muitos clientes satisfeitos, poucas avaliações. Isso freia novos clientes na decisão de compra.</div>
+          </div>
+          <div class="phase-when d60">Após 60 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot"></div>QR Code impresso para o balcão</li>
+            <li><div class="dot"></div>Link direto de avaliação</li>
+            <li><div class="dot"></div>Automação de solicitação via WhatsApp</li>
+          </ul>
+          <div class="phase-ticket">
+            <div class="phase-ticket-label">Ticket</div>
+            <div class="phase-ticket-val">R$ 300–800</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 4 -->
+    <div class="phase">
+      <div class="phase-num">4</div>
+      <div class="phase-card">
+        <div class="phase-header">
+          <div>
+            <div class="phase-name">Catálogo Digital</div>
+            <div class="phase-goal">Pneus, reformas e serviços com medidas, marcas e preços — reduz atendimento repetitivo no balcão.</div>
+          </div>
+          <div class="phase-when d90">Após 90 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot"></div>Catálogo online com medidas e marcas</li>
+            <li><div class="dot"></div>Listagem completa de serviços</li>
+            <li><div class="dot"></div>Integrado ao site existente</li>
+          </ul>
+          <div class="phase-ticket">
+            <div class="phase-ticket-label">Ticket</div>
+            <div class="phase-ticket-val">R$ 1.000–2.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 5 -->
+    <div class="phase">
+      <div class="phase-num">5</div>
+      <div class="phase-card">
+        <div class="phase-header">
+          <div>
+            <div class="phase-name">Captação de Dados e Leads</div>
+            <div class="phase-goal">Instalar rastreamento e mostrar dados reais — abre a porta para tráfego pago com argumento concreto.</div>
+          </div>
+          <div class="phase-when d120">Após 120 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot"></div>Google Analytics 4</li>
+            <li><div class="dot"></div>Google Search Console</li>
+            <li><div class="dot"></div>Meta Pixel</li>
+            <li><div class="dot"></div>Relatório mensal simples para o cliente</li>
+          </ul>
+          <div class="phase-ticket">
+            <div class="phase-ticket-label">Implantação</div>
+            <div class="phase-ticket-val">Incluso no plano<br><span style="font-size:.72rem;color:var(--muted);font-weight:500">ou R$ 200–400 avulso</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 6 -->
+    <div class="phase">
+      <div class="phase-num">6</div>
+      <div class="phase-card">
+        <div class="phase-header">
+          <div>
+            <div class="phase-name">Tráfego Pago — Google Ads Local</div>
+            <div class="phase-goal">Com o site funcionando e dados de visitas em mãos, fica fácil justificar o investimento em anúncios.</div>
+          </div>
+          <div class="phase-when mature">Quando o site performar</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot"></div>Campanha de busca local</li>
+            <li><div class="dot"></div>Segmentação por região e serviço</li>
+            <li><div class="dot"></div>Relatório de resultados</li>
+          </ul>
+          <div class="phase-ticket">
+            <div class="phase-ticket-label">Implantação</div>
+            <div class="phase-ticket-val">R$ 500–1.000</div>
+            <div class="phase-ticket-label" style="margin-top:.5rem">Gestão/mês</div>
+            <div class="phase-ticket-val" style="font-size:.82rem">R$ 300–800</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 7 -->
+    <div class="phase">
+      <div class="phase-num">7</div>
+      <div class="phase-card">
+        <div class="phase-header">
+          <div>
+            <div class="phase-name">Automação WhatsApp</div>
+            <div class="phase-goal">Quando a relação estiver madura e o cliente enxergar valor em tecnologia. Alta percepção de inovação.</div>
+          </div>
+          <div class="phase-when mature">Relação madura</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot"></div>Atendimento automático via WhatsApp</li>
+            <li><div class="dot"></div>Qualificação do cliente antes do atendimento humano</li>
+            <li><div class="dot"></div>Ex: "Qual medida do pneu você procura?"</li>
+          </ul>
+          <div class="phase-ticket">
+            <div class="phase-ticket-label">Ticket</div>
+            <div class="phase-ticket-val">R$ 1.500–3.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Potencial -->
+  <div class="potential">
+    <div class="potential-title">De R$ 1.500 para um cliente de <span>vários anos</span></div>
+    <div class="potential-sub">Seguindo a escada completa, a receita total acumulada com a Anacleto Pneus pode ultrapassar R$ 10.000 em 12 meses, mais recorrência contínua.</div>
+    <div class="potential-nums">
+      <div>
+        <div class="pot-num-label">Hoje</div>
+        <div class="pot-num-val">R$ 1.500</div>
+        <div class="pot-num-note">site + R$ 79,90/mês</div>
+      </div>
+      <div>
+        <div class="pot-num-label">Em 6 meses</div>
+        <div class="pot-num-val">+R$ 2.000</div>
+        <div class="pot-num-note">Google + avaliações</div>
+      </div>
+      <div>
+        <div class="pot-num-label">Em 12 meses</div>
+        <div class="pot-num-val">+R$ 3.000</div>
+        <div class="pot-num-note">catálogo + ads</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resumo -->
+  <div class="sec-label">Calendário de abordagem</div>
+
+  <div class="summary-grid">
+
+    <div class="sum-card hi">
+      <div class="sum-when hi">Agora — Fechar</div>
+      <ul class="sum-list">
+        <li><div class="dot y"></div><div><strong>Site Institucional</strong><small>R$ 1.500</small></div></li>
+        <li><div class="dot y"></div><div><strong>Plano Profissional</strong><small>R$ 79,90/mês</small></div></li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-when">Após 30 dias</div>
+      <ul class="sum-list">
+        <li><div class="dot b"></div><div><strong>Google Business Profile</strong><small>R$ 300–600</small></div></li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-when">Após 60–90 dias</div>
+      <ul class="sum-list">
+        <li><div class="dot"></div><div><strong>Sistema de avaliações</strong><small>R$ 300–800</small></div></li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-when">Após 120 dias</div>
+      <ul class="sum-list">
+        <li><div class="dot"></div><div><strong>Google Ads Local</strong><small>R$ 500–1.000 + gestão</small></div></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      <div class="footer-brand">Oryga</div>
+      <div class="footer-sub">Consultoria Digital · Documento interno</div>
+    </div>
+    <div class="footer-right">
+      Uso exclusivo da equipe Oryga.<br>
+      Não compartilhar com o cliente.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+  const PWD = 'oryga@vendas';
+
+  document.getElementById('pwdInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPwd(); });
+
+  function checkPwd() {
+    if (document.getElementById('pwdInput').value === PWD) {
+      document.getElementById('lock').style.display = 'none';
+      document.getElementById('page').style.display = 'block';
+    } else {
+      const el = document.getElementById('lockErr');
+      el.style.display = 'block';
+      document.getElementById('pwdInput').value = '';
+      setTimeout(() => el.style.display = 'none', 3000);
+    }
+  }
+</script>
+</body>
+</html>
