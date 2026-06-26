@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Estratégia Digital — Sandrith Lozano × Oryga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:   #D3A6B3;
+      --rose-l: #E4C2CC;
+      --rose-d: rgba(211,166,179,.08);
+      --rose-b: rgba(211,166,179,.28);
+      --lilac:  #CBB7E8;
+      --lilac-d:rgba(203,183,232,.08);
+      --lilac-b:rgba(203,183,232,.28);
+      --bg:     #0d0b10;
+      --bg1:    #121018;
+      --bg2:    #181520;
+      --bg3:    #1e1a28;
+      --border: rgba(255,255,255,.07);
+      --border2:rgba(255,255,255,.11);
+      --muted:  #555566;
+      --gray:   #888899;
+      --text:   #f0eef4;
+      --text2:  #c0bace;
+      --green:  #25D366;
+      --teal:   #5eead4;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      border: 1px solid var(--border2); border-radius: 24px;
+      padding: 3rem; margin-bottom: 3rem; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(203,183,232,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .hero-brand     { font-size: 1.8rem; font-weight: 900; color: var(--lilac); letter-spacing: -.04em; }
+    .hero-brand-sub { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; }
+    .hero-badge {
+      background: var(--rose-d); border: 1px solid var(--rose-b);
+      border-radius: 8px; padding: .4rem .875rem;
+      font-size: .72rem; color: var(--rose); font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .hero-divider { height: 1px; background: var(--border); margin-bottom: 2rem; }
+    .hero-tag  { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: .75rem; }
+    .hero-title {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700;
+      letter-spacing: -.02em; line-height: 1.2; margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-title span { color: var(--rose); }
+    .hero-desc { font-size: .92rem; color: var(--text2); line-height: 1.8; max-width: 600px; }
+
+    /* ── 7 Serviços ── */
+    .seven-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem; margin-bottom: 3rem;
+    }
+    .seven-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.5rem;
+      display: flex; flex-direction: column; gap: .5rem;
+      transition: border-color .2s;
+    }
+    .seven-card:hover { border-color: rgba(255,255,255,.18); }
+    .seven-card.seven-active {
+      background: linear-gradient(135deg, #150f20 0%, #121018 100%);
+      border-color: rgba(211,166,179,.38);
+    }
+    .seven-num {
+      font-size: 1.5rem; font-weight: 900; color: var(--muted);
+      letter-spacing: -.04em; line-height: 1; margin-bottom: .25rem;
+    }
+    .seven-num.lilac { color: var(--lilac); }
+    .seven-active .seven-num { color: var(--rose); }
+    .seven-name { font-size: .92rem; font-weight: 800; color: var(--text); }
+    .seven-desc { font-size: .78rem; color: var(--text2); line-height: 1.55; flex: 1; }
+    .seven-tag {
+      font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--muted); margin-top: .25rem;
+    }
+    .seven-tag-now   { color: var(--rose); }
+    .seven-tag-lilac { color: var(--lilac); }
+
+    /* ── Sec label ── */
+    .sec-label {
+      font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em;
+      color: var(--muted); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; }
+
+    .phase { display: grid; grid-template-columns: 56px 1fr; gap: 1.25rem; align-items: start; }
+
+    .phase-num {
+      width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 900;
+      background: var(--bg2); border: 1px solid var(--border2); color: var(--muted);
+    }
+    .phase-num.now  { background: var(--rose-d);  border-color: var(--rose-b);  color: var(--rose); }
+    .phase-num.next { background: var(--lilac-d); border-color: var(--lilac-b); color: var(--lilac); }
+
+    .phase-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 18px; padding: 1.75rem;
+    }
+    .phase-card.now  { border-color: rgba(211,166,179,.35); background: linear-gradient(135deg, #150f20 0%, #121018 100%); }
+    .phase-card.next { border-color: rgba(203,183,232,.2); }
+
+    .phase-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .875rem; flex-wrap: wrap; }
+
+    .phase-when {
+      font-size: .63rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+      padding: .28rem .75rem; border-radius: 50px; white-space: nowrap;
+    }
+    .pw-now    { background: var(--rose-d);              color: var(--rose);  border: 1px solid var(--rose-b); }
+    .pw-30     { background: var(--lilac-d);             color: var(--lilac); border: 1px solid var(--lilac-b); }
+    .pw-60     { background: rgba(203,183,232,.06);      color: #b8a8d8;      border: 1px solid rgba(203,183,232,.18); }
+    .pw-90     { background: rgba(203,183,232,.06);      color: #b8a8d8;      border: 1px solid rgba(203,183,232,.18); }
+    .pw-120    { background: rgba(203,183,232,.06);      color: #b8a8d8;      border: 1px solid rgba(203,183,232,.18); }
+    .pw-future { background: rgba(255,255,255,.04);      color: var(--muted); border: 1px solid var(--border); }
+
+    .phase-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .3rem; }
+    .phase-result {
+      font-size: .82rem; font-weight: 700;
+      color: var(--rose); margin-bottom: .875rem; line-height: 1.4;
+    }
+    .phase-result.lc { color: var(--lilac); }
+    .phase-result.wh { color: var(--text2); }
+
+    .phase-body { display: grid; grid-template-columns: 1fr auto; gap: 1.25rem; align-items: start; }
+
+    .phase-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .phase-list li {
+      display: flex; align-items: flex-start; gap: .65rem;
+      font-size: .83rem; color: var(--text2); line-height: 1.5;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: .38rem; }
+    .dot.r { background: var(--rose); }
+    .dot.l { background: var(--lilac); }
+    .dot.g { background: var(--muted); }
+
+    .phase-box {
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 12px; padding: 1rem 1.25rem; min-width: 130px; text-align: center;
+    }
+    .phase-box-label { font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .35rem; }
+    .phase-box-val   { font-size: .92rem; font-weight: 800; color: var(--text); line-height: 1.35; }
+    .phase-box-val.r { color: var(--rose); }
+    .phase-box-val.l { color: var(--lilac); }
+    .phase-box-note  { font-size: .7rem; color: var(--muted); margin-top: .25rem; line-height: 1.4; }
+
+    /* ── Impacto ── */
+    .impact {
+      background: linear-gradient(135deg, var(--rose-d) 0%, var(--lilac-d) 100%);
+      border: 1px solid var(--rose-b); border-radius: 22px;
+      padding: 2.5rem 3rem; margin-bottom: 3rem; text-align: center;
+    }
+    .impact-icon  { font-size: 2.5rem; margin-bottom: 1rem; }
+    .impact-title { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: .75rem; font-family: 'Playfair Display', serif; }
+    .impact-title span { color: var(--rose); }
+    .impact-desc  { font-size: .9rem; color: var(--gray); line-height: 1.8; max-width: 580px; margin: 0 auto 2rem; }
+    .impact-nums  { display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; }
+    .imp-num-label { font-size: .63rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .35rem; }
+    .imp-num-val   { font-size: 1.8rem; font-weight: 900; color: var(--rose); letter-spacing: -.04em; line-height: 1; }
+    .imp-num-note  { font-size: .72rem; color: var(--gray); margin-top: .25rem; }
+
+    /* ── Próximos Passos ── */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem; margin-bottom: 3rem;
+    }
+    .step-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.5rem;
+    }
+    .step-card.hi {
+      background: linear-gradient(135deg, #150f20 0%, #121018 100%);
+      border-color: var(--rose-b);
+    }
+    .step-when { font-size: .63rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 1rem; }
+    .step-when.hi { color: var(--rose); }
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .step-list li { display: flex; gap: .6rem; font-size: .82rem; color: var(--text2); line-height: 1.45; }
+    .step-list li strong { color: var(--text); display: block; font-size: .85rem; }
+    .step-list li small  { color: var(--muted); font-size: .73rem; }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 2.5rem; text-align: center; margin-bottom: 3rem;
+    }
+    .cta-title { font-size: 1.1rem; font-weight: 900; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .cta-desc  { font-size: .88rem; color: var(--gray); line-height: 1.75; margin-bottom: 1.75rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: .75rem;
+      background: linear-gradient(135deg, var(--rose), var(--lilac));
+      color: #12101a; border: none;
+      font-family: inherit; font-size: .95rem; font-weight: 800;
+      padding: 1rem 2.5rem; border-radius: 12px; cursor: pointer; text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+    .cta-btn:hover { opacity: .9; transform: translateY(-2px); }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--border); padding-top: 2rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand { font-size: 1rem; font-weight: 900; color: var(--lilac); letter-spacing: -.02em; }
+    .footer-sub   { font-size: .72rem; color: var(--muted); }
+    .footer-right { font-size: .75rem; color: var(--muted); text-align: right; line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      .wrap  { padding: 2rem 1rem 4rem; }
+      .hero  { padding: 2rem 1.5rem; }
+      .phase { grid-template-columns: 42px 1fr; gap: 1rem; }
+      .phase-num { width: 42px; height: 42px; font-size: 1rem; border-radius: 10px; }
+      .phase-body { grid-template-columns: 1fr; }
+      .impact { padding: 2rem 1.5rem; }
+      .impact-nums { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="hero-brand">Oryga</div>
+        <div class="hero-brand-sub">Consultoria Digital</div>
+      </div>
+      <div class="hero-badge">Sandrith Lozano</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-tag">Planejamento Estratégico Digital</div>
+    <div class="hero-title">O caminho para a <span>Sandrith Lozano</span><br>atrair mais pacientes online</div>
+    <div class="hero-desc">
+      A landing page é o primeiro passo de uma jornada maior. Cada fase foi planejada para gerar resultado real antes de avançar — sem investimentos desnecessários, sem pressa. A Oryga estará ao lado da Sandrith em cada etapa.
+    </div>
+  </div>
+
+  <!-- 7 Serviços -->
+  <div class="sec-label">7 serviços para crescer</div>
+
+  <div class="seven-grid">
+    <div class="seven-card seven-active">
+      <div class="seven-num">1</div>
+      <div class="seven-name">Landing Page Profissional</div>
+      <div class="seven-desc">Quando alguém pesquisa "psicóloga online" no Google, a Sandrith aparece com uma página profissional que transmite credibilidade, apresenta sua formação e convida ao agendamento — em português e espanhol.</div>
+      <div class="seven-tag seven-tag-now">Fase atual</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num seven-num lilac">2</div>
+      <div class="seven-name">Google Meu Negócio</div>
+      <div class="seven-desc">Mesmo atendendo online, um perfil completo no Google gera confiança imediata. Pacientes veem avaliações, localização e horários antes de entrar no site — e tomam a decisão de contato muito mais rápido.</div>
+      <div class="seven-tag seven-tag-lilac">Após 30 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">3</div>
+      <div class="seven-name">SEO Orgânico</div>
+      <div class="seven-desc">Aparecer naturalmente nas buscas do Google para "psicóloga online", "terapia online" e "psicóloga para hispanos" traz pacientes sem pagar por anúncio — uma fonte de agendamentos que cresce com o tempo.</div>
+      <div class="seven-tag">Após 60 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">4</div>
+      <div class="seven-name">Instagram Estratégico</div>
+      <div class="seven-desc">Conteúdo educativo sobre saúde mental posiciona a Sandrith como referência antes mesmo do agendamento. Quem segue já confia — e o caminho da consulta fica muito mais curto e natural.</div>
+      <div class="seven-tag">Após 90 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">5</div>
+      <div class="seven-name">Google Ads para Consultas</div>
+      <div class="seven-desc">Anúncios direcionados para quem já está procurando por psicóloga online agora mesmo. Você aparece no topo das buscas antes da concorrência — e só paga quando a pessoa clica para saber mais.</div>
+      <div class="seven-tag">Após 120 dias</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">6</div>
+      <div class="seven-name">Automação de Agendamento</div>
+      <div class="seven-desc">O WhatsApp responde automaticamente, coleta informações do paciente e oferece os horários disponíveis — mesmo quando a Sandrith está em sessão. Nenhum paciente em potencial fica sem retorno.</div>
+      <div class="seven-tag">Fase avançada</div>
+    </div>
+    <div class="seven-card">
+      <div class="seven-num">7</div>
+      <div class="seven-name">Blog e Autoridade</div>
+      <div class="seven-desc">Artigos sobre ansiedade, autoestima, relacionamentos e desenvolvimento pessoal atraem visitantes que pesquisam sobre saúde mental — e os convertem em pacientes ao longo do tempo, de forma orgânica e sustentável.</div>
+      <div class="seven-tag">Fase avançada</div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="sec-label">Detalhamento de cada fase</div>
+
+  <div class="timeline">
+
+    <!-- Fase 1 -->
+    <div class="phase">
+      <div class="phase-num now">1</div>
+      <div class="phase-card now">
+        <div class="phase-top">
+          <div>
+            <div class="phase-name">Landing Page Profissional no Ar</div>
+            <div class="phase-result">A Sandrith passa a existir no Google — recebendo contatos e agendamentos 24h por dia, em dois idiomas, mesmo durante as sessões</div>
+          </div>
+          <div class="phase-when pw-now">Fase atual</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot r"></div>Página bilíngue PT/ES com apresentação, especialidades, depoimentos e FAQ</li>
+            <li><div class="dot r"></div>Aparece nas buscas do Google para "psicóloga online" — Brasil e países hispânicos</li>
+            <li><div class="dot r"></div>Botão de WhatsApp com mensagem pré-formatada para agendamento</li>
+            <li><div class="dot r"></div>Domínio próprio, hospedagem profissional e certificado de segurança</li>
+            <li><div class="dot r"></div>Gestão e manutenção mensal pela equipe Oryga</li>
+          </ul>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val r">R$ 1.500</div>
+            <div class="phase-box-note">+ R$ 79,90/mês<br>gestão profissional</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 2 -->
+    <div class="phase">
+      <div class="phase-num next">2</div>
+      <div class="phase-card next">
+        <div class="phase-top">
+          <div>
+            <div class="phase-name">Google Meu Negócio Otimizado</div>
+            <div class="phase-result lc">Apareça com autoridade no Google antes mesmo de qualquer busca específica — avaliações reais constroem confiança antes do primeiro contato</div>
+          </div>
+          <div class="phase-when pw-30">Após 30 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot l"></div>Perfil completo no Google Business com foto profissional, especialidades e descrição estratégica</li>
+            <li><div class="dot l"></div>Configuração de horários, modalidade de atendimento e categorias corretas</li>
+            <li><div class="dot l"></div>Programa para coleta de avaliações de pacientes satisfeitos</li>
+            <li><div class="dot l"></div>Impacto direto: mais visualizações no Google e mais cliques para o site</li>
+          </ul>
+          <div class="phase-box">
+            <div class="phase-box-label">Implantação</div>
+            <div class="phase-box-val l">R$ 300–500</div>
+            <div class="phase-box-note">gestão mensal<br>disponível</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 3 -->
+    <div class="phase">
+      <div class="phase-num">3</div>
+      <div class="phase-card">
+        <div class="phase-top">
+          <div>
+            <div class="phase-name">SEO Orgânico — Aparecer Sem Pagar por Clique</div>
+            <div class="phase-result wh">Pacientes que pesquisam "psicóloga online" no Google encontram a Sandrith naturalmente — uma fonte de agendamentos que cresce todo mês</div>
+          </div>
+          <div class="phase-when pw-60">Após 60 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot g"></div>Otimização da landing page para palavras-chave de alta intenção</li>
+            <li><div class="dot g"></div>Mapeamento de termos buscados por pacientes brasileiros e hispânicos</li>
+            <li><div class="dot g"></div>Estrutura técnica do site otimizada para rastreadores do Google</li>
+            <li><div class="dot g"></div>Resultado cresce com o tempo — sem custo por visita</li>
+          </ul>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val">R$ 500–900</div>
+            <div class="phase-box-note">+ gestão mensal<br>disponível</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 4 -->
+    <div class="phase">
+      <div class="phase-num">4</div>
+      <div class="phase-card">
+        <div class="phase-top">
+          <div>
+            <div class="phase-name">Instagram Estratégico para Psicóloga</div>
+            <div class="phase-result wh">Quem segue já confia — o conteúdo educativo sobre saúde mental posiciona a Sandrith como referência antes mesmo do agendamento</div>
+          </div>
+          <div class="phase-when pw-90">Após 90 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot g"></div>Estratégia de conteúdo alinhada às especialidades da psicóloga</li>
+            <li><div class="dot g"></div>Calendário editorial com temas de ansiedade, autoestima, relacionamentos e luto</li>
+            <li><div class="dot g"></div>Bio e destaques otimizados para converter seguidores em pacientes</li>
+            <li><div class="dot g"></div>Integração entre Instagram e landing page para jornada fluida</li>
+          </ul>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val">R$ 800–1.500</div>
+            <div class="phase-box-note">gestão mensal<br>disponível</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 5 -->
+    <div class="phase">
+      <div class="phase-num">5</div>
+      <div class="phase-card">
+        <div class="phase-top">
+          <div>
+            <div class="phase-name">Google Ads — Apareça Antes da Concorrência</div>
+            <div class="phase-result wh">Enquanto o paciente ainda está pesquisando, a Sandrith já aparece em primeiro lugar — e você só paga quando ele clica</div>
+          </div>
+          <div class="phase-when pw-120">Após 120 dias</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot g"></div>Anúncios direcionados para quem busca psicóloga online agora mesmo</li>
+            <li><div class="dot g"></div>Segmentação por idioma — alcança brasileiros e hispânicos separadamente</li>
+            <li><div class="dot g"></div>Você define o orçamento mensal — sem surpresas no investimento</li>
+            <li><div class="dot g"></div>Relatório de cliques, contatos gerados e custo por agendamento</li>
+          </ul>
+          <div class="phase-box">
+            <div class="phase-box-label">Implantação</div>
+            <div class="phase-box-val">R$ 500–1.000</div>
+            <div class="phase-box-note">+ gestão mensal<br>R$ 300–800</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 6 -->
+    <div class="phase">
+      <div class="phase-num">6</div>
+      <div class="phase-card">
+        <div class="phase-top">
+          <div>
+            <div class="phase-name">Automação de Agendamento via WhatsApp</div>
+            <div class="phase-result wh">Nenhum paciente fica sem resposta — mesmo durante sessões ou fora do horário, o atendimento começa na hora</div>
+          </div>
+          <div class="phase-when pw-future">Fase avançada</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot g"></div>Resposta automática imediata ao primeiro contato no WhatsApp</li>
+            <li><div class="dot g"></div>Coleta disponibilidade, motivo de contato e formato de atendimento preferido</li>
+            <li><div class="dot g"></div>Agendamento guiado com confirmação automática da consulta</li>
+            <li><div class="dot g"></div>Reduz perda de pacientes por demora no retorno e melhora a experiência</li>
+          </ul>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val">R$ 1.500–3.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 7 -->
+    <div class="phase">
+      <div class="phase-num">7</div>
+      <div class="phase-card">
+        <div class="phase-top">
+          <div>
+            <div class="phase-name">Blog e Portal de Autoridade em Saúde Mental</div>
+            <div class="phase-result wh">Artigos que respondem dúvidas reais de pacientes atraem visitantes do Google organicamente — e os convertem em agendamentos ao longo do tempo</div>
+          </div>
+          <div class="phase-when pw-future">Fase avançada</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li><div class="dot g"></div>Artigos sobre ansiedade, autoestima, relacionamentos, luto e desenvolvimento pessoal</li>
+            <li><div class="dot g"></div>Cada artigo é otimizado para um termo de busca real do Google</li>
+            <li><div class="dot g"></div>Publicações em português e espanhol — dobra o alcance orgânico</li>
+            <li><div class="dot g"></div>Posiciona a Sandrith como referência nacional e internacional em psicologia online</li>
+          </ul>
+          <div class="phase-box">
+            <div class="phase-box-label">Investimento</div>
+            <div class="phase-box-val">R$ 1.000–2.500</div>
+            <div class="phase-box-note">por artigo ou<br>pacote mensal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Impacto -->
+  <div class="impact">
+    <div class="impact-icon">🌸</div>
+    <div class="impact-title">Uma parceria que <span>cresce com a sua prática</span></div>
+    <div class="impact-desc">
+      Cada fase é projetada para gerar resultado antes de avançar para a próxima. Sem pressão, sem investimentos desnecessários. O ritmo é o da Sandrith.
+    </div>
+    <div class="impact-nums">
+      <div>
+        <div class="imp-num-label">Fase 1</div>
+        <div class="imp-num-val">Online</div>
+        <div class="imp-num-note">landing page bilíngue</div>
+      </div>
+      <div>
+        <div class="imp-num-label">Fases 2–3</div>
+        <div class="imp-num-val">Visível</div>
+        <div class="imp-num-note">Google + SEO orgânico</div>
+      </div>
+      <div>
+        <div class="imp-num-label">Fases 4–5</div>
+        <div class="imp-num-val">Atrativa</div>
+        <div class="imp-num-note">redes sociais + Ads</div>
+      </div>
+      <div>
+        <div class="imp-num-label">Fases 6–7</div>
+        <div class="imp-num-val">Escalável</div>
+        <div class="imp-num-note">automação + autoridade</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Próximos Passos -->
+  <div class="sec-label">Nosso planejamento juntos</div>
+
+  <div class="steps-grid">
+    <div class="step-card hi">
+      <div class="step-when hi">Agora</div>
+      <ul class="step-list">
+        <li><div class="dot r"></div><div><strong>Landing Page Bilíngue</strong><small>Presença digital completa</small></div></li>
+        <li><div class="dot r"></div><div><strong>Plano Profissional</strong><small>Gestão contínua pela Oryga</small></div></li>
+      </ul>
+    </div>
+    <div class="step-card">
+      <div class="step-when">Após 30 dias</div>
+      <ul class="step-list">
+        <li><div class="dot l"></div><div><strong>Google Meu Negócio</strong><small>Credibilidade e avaliações</small></div></li>
+      </ul>
+    </div>
+    <div class="step-card">
+      <div class="step-when">Após 90 dias</div>
+      <ul class="step-list">
+        <li><div class="dot g"></div><div><strong>Instagram Estratégico</strong><small>Autoridade em saúde mental</small></div></li>
+      </ul>
+    </div>
+    <div class="step-card">
+      <div class="step-when">Após 120 dias</div>
+      <ul class="step-list">
+        <li><div class="dot g"></div><div><strong>Google Ads</strong><small>Captar pacientes ativamente</small></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div class="cta-title">Pronta para dar o primeiro passo?</div>
+    <div class="cta-desc">A landing page é a base de tudo. Com ela no ar e bem feita, cada etapa seguinte fica mais fácil, mais rápida e mais eficiente.</div>
+    <a href="../proposta/" class="cta-btn">
+      Ver a Proposta Comercial →
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      <div class="footer-brand">Oryga</div>
+      <div class="footer-sub">Consultoria Digital · orygaconsultoria.com.br</div>
+    </div>
+    <div class="footer-right">
+      Dúvidas? Entre em contato.<br>
+      WhatsApp: (37) 9 9801-9444
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

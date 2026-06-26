@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandrith Lozano — Psicóloga Clínica | Atendimento Online</title>
+  <meta name="description" content="Psicoterapia online para adultos. Apoio profissional para ansiedade, autoestima, relacionamentos, luto e desenvolvimento emocional." />
+  <meta property="og:title" content="Sandrith Lozano — Psicóloga Clínica" />
+  <meta property="og:description" content="Psicoterapia para quem deseja viver com mais equilíbrio emocional e bem-estar. Atendimento online." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:        #D3A6B3;
+      --rose-deep:   #C08FA0;
+      --rose-light:  #EDD5DE;
+      --beige:       #F5EFE8;
+      --beige-deep:  #EDE4D9;
+      --lilac:       #CBB7E8;
+      --lilac-deep:  #B89FD8;
+      --lilac-light: #E8DEFF;
+      --text:        #333333;
+      --text-soft:   #5A5A6E;
+      --text-muted:  #8B8B9E;
+      --warm-white:  #FAF9F7;
+      --white:       #FFFFFF;
+      --border:      rgba(211,166,179,0.25);
+      --shadow:      0 4px 32px rgba(180,140,160,0.12);
+      --shadow-lg:   0 12px 48px rgba(180,140,160,0.18);
+      --r:    16px;
+      --r-lg: 24px;
+      --r-xl: 32px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--warm-white);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal       { opacity: 0; transform: translateY(32px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+    .reveal-left  { opacity: 0; transform: translateX(-32px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+    .reveal-right { opacity: 0; transform: translateX(32px);  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+    .reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
+    .delay-1 { transition-delay: .10s; }
+    .delay-2 { transition-delay: .20s; }
+    .delay-3 { transition-delay: .30s; }
+    .delay-4 { transition-delay: .40s; }
+    .delay-5 { transition-delay: .50s; }
+    .delay-6 { transition-delay: .60s; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.25rem 0;
+      transition: background .4s ease, box-shadow .4s ease, padding .4s ease;
+    }
+    nav.scrolled {
+      background: rgba(250,249,247,.95);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--border);
+      padding: .9rem 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; gap: .35rem; }
+    .nav-logo-img {
+      height: 96px; width: auto; display: block;
+      transition: opacity .2s;
+    }
+    .nav-logo:hover .nav-logo-img { opacity: .85; }
+    .nav-logo-text { display: flex; flex-direction: column; gap: .1rem; }
+    .nav-logo-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+    .nav-logo-sub { font-size: .72rem; font-weight: 500; color: var(--rose-deep); letter-spacing: .06em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; white-space: nowrap; }
+    .nav-links a { font-size: .82rem; font-weight: 500; color: var(--text-soft); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--rose-deep); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-instagram {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 10px;
+      color: var(--text-soft);
+      transition: color .2s, background .2s, transform .2s;
+    }
+    .nav-instagram:hover { color: #C13584; background: rgba(193,53,132,.08); transform: translateY(-1px); }
+    .nav-instagram svg { width: 20px; height: 20px; }
+
+    /* LANG TOGGLE */
+    .lang-toggle {
+      display: flex; align-items: center;
+      background: var(--beige); border-radius: 100px;
+      padding: 3px; gap: 2px; border: 1px solid var(--border);
+    }
+    .lang-btn {
+      font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+      padding: .3rem .7rem; border-radius: 100px; border: none;
+      background: transparent; color: var(--text-muted);
+      cursor: pointer; transition: all .25s ease;
+    }
+    .lang-btn.active {
+      background: var(--rose-deep); color: var(--white);
+      box-shadow: 0 2px 8px rgba(192,143,160,.35);
+    }
+
+    /* BTNS */
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.625rem; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-size: .9rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: all .25s cubic-bezier(.22,1,.36,1);
+      border: none; white-space: nowrap;
+    }
+    .btn-primary { background: var(--rose-deep); color: var(--white); }
+    .btn-primary:hover { background: #B07D8E; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,143,160,.35); }
+    .btn-outline { background: transparent; color: var(--rose-deep); border: 1.5px solid var(--rose-deep); }
+    .btn-outline:hover { background: var(--rose-light); transform: translateY(-2px); }
+    .btn-whatsapp { background: #25D366; color: var(--white); }
+    .btn-whatsapp:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.35); }
+    .btn-white { background: var(--white); color: var(--text); }
+    .btn-white:hover { background: var(--beige); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+    .btn-lg  { padding: .8rem 1.875rem; font-size: .9rem; }
+    .btn-xl  { padding: 1rem 2.25rem; font-size: 1rem; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: .25rem; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #FAF9F7 0%, #F7F0EC 55%, #F2EBF3 100%);
+      padding: 8rem 0 5rem;
+    }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+    .hero-blob-1 { position: absolute; top: -160px; right: -160px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(203,183,232,.38) 0%, transparent 65%); border-radius: 50%; }
+    .hero-blob-2 { position: absolute; bottom: -100px; left: -100px; width: 560px; height: 560px; background: radial-gradient(circle, rgba(211,166,179,.30) 0%, transparent 65%); border-radius: 50%; }
+    .hero-blob-3 { position: absolute; top: 40%; left: 38%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(245,239,232,.6) 0%, transparent 70%); border-radius: 50%; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
+    .hero-online-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 1.75rem;
+    }
+    .hero-online-tag::before { content: ''; width: 20px; height: 1.5px; background: var(--rose-deep); display: block; }
+    .hero-name {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700; color: var(--text);
+      line-height: 1.0; letter-spacing: -.035em;
+      margin-bottom: .5rem;
+    }
+    .hero-role {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--rose-deep); font-weight: 600;
+      letter-spacing: .04em; text-transform: uppercase;
+      font-size: .85rem; margin-bottom: .375rem;
+    }
+    .hero-service {
+      font-size: clamp(.95rem, 1.5vw, 1.1rem);
+      color: var(--text-soft); margin-bottom: 2rem;
+    }
+    .hero-checks {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-bottom: 2rem;
+    }
+    .hero-check {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,.8); border: 1px solid rgba(211,166,179,.3);
+      border-radius: 100px; padding: .45rem 1rem;
+      font-size: .82rem; color: var(--text); font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+      backdrop-filter: blur(4px);
+    }
+    .hero-check-dot {
+      width: 16px; height: 16px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--rose-deep), var(--lilac-deep));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-check-dot svg { width: 8px; height: 8px; color: white; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; }
+    .hero-trust-bar {
+      display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+      padding-top: .75rem; border-top: 1px solid rgba(211,166,179,.2);
+    }
+    .hero-trust-item {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .75rem; color: var(--text-soft); font-weight: 500;
+    }
+    .hero-trust-item svg { color: var(--rose-deep); flex-shrink: 0; }
+    .hero-sub {
+      font-size: .975rem; color: var(--text-soft);
+      line-height: 1.7; margin-bottom: 1.5rem;
+      max-width: 420px;
+    }
+    /* credential floating card */
+    .hero-cred-badge {
+      position: absolute; top: 1.5rem; right: -1rem; z-index: 3;
+      background: white; border-radius: var(--r-lg);
+      padding: .875rem 1.25rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      display: flex; flex-direction: column; gap: .2rem;
+      min-width: 180px; border-left: 3px solid var(--rose-deep);
+    }
+    .hero-cred-label { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--rose-deep); }
+    .hero-cred-value { font-size: .8rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .hero-ig-row {
+      display: flex; align-items: center; gap: .625rem;
+      font-size: .85rem; color: var(--text-muted);
+      text-decoration: none; transition: color .2s;
+    }
+    .hero-ig-row svg { color: #C13584; flex-shrink: 0; }
+    .hero-ig-row:hover { color: #C13584; }
+    /* legacy kept for mobile align */
+    .hero-trust { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .hero-trust-item { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: var(--text-soft); }
+    .hero-trust-item svg { color: var(--rose-deep); flex-shrink: 0; }
+    .hero-ig-link { text-decoration: none; transition: color .2s; }
+    .hero-ig-link svg { color: #C13584; transition: color .2s; }
+    .hero-ig-link:hover { color: #C13584; }
+
+    .hero-photo-wrap { position: relative; display: flex; justify-content: center; }
+    .hero-photo-frame { position: relative; width: 480px; max-width: 100%; }
+    .hero-photo-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--beige) 0%, var(--rose-light) 100%); border-radius: var(--r-xl); transform: rotate(3deg); }
+    .hero-photo-img {
+      position: relative; z-index: 1; width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(160deg, var(--beige-deep) 0%, var(--rose-light) 50%, var(--lilac-light) 100%);
+      border-radius: var(--r-xl); display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .hero-photo-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; border-radius: var(--r-xl); }
+    .photo-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--rose-deep); opacity: .6; text-align: center; padding: 2rem; }
+    .photo-placeholder svg { width: 64px; height: 64px; }
+    .photo-placeholder p { font-size: .85rem; line-height: 1.5; }
+
+    .hero-badge {
+      position: absolute; bottom: -1.5rem; left: -1.5rem; z-index: 2;
+      background: var(--white); border-radius: var(--r-lg);
+      padding: 1rem 1.5rem; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 1rem; min-width: 220px;
+    }
+    .hero-badge-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--rose-light), var(--lilac-light)); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hero-badge-text strong { display: block; font-size: .9rem; font-weight: 600; color: var(--text); }
+    .hero-badge-text span { font-size: .75rem; color: var(--text-muted); }
+    .hero-badge-2 { display: none; } /* movido para inline no hero-text */
+    .hero-open-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .78rem; font-weight: 500; color: var(--text-soft);
+      margin-bottom: 1.25rem;
+    }
+    .hero-open-dot { width: 8px; height: 8px; background: #25D366; border-radius: 50%; animation: pulse-dot 2s infinite; flex-shrink: 0; }
+    @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.4); } 50% { box-shadow: 0 0 0 5px rgba(37,211,102,0); } }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 6rem 0; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--rose-deep); margin-bottom: 1rem;
+    }
+    .section-label::before { content: ''; width: 20px; height: 2px; background: var(--rose-deep); display: block; }
+    .section-title { font-size: clamp(1.875rem,3.5vw,2.75rem); font-weight: 600; color: var(--text); line-height: 1.2; letter-spacing: -.02em; margin-bottom: 1rem; }
+    .section-desc { font-size: 1.05rem; color: var(--text-soft); line-height: 1.75; max-width: 560px; }
+
+    /* ── DOR ── */
+    #dor { background: var(--beige); }
+    .dor-header { text-align: center; margin-bottom: 3.5rem; }
+    .dor-header .section-label { justify-content: center; }
+    .dor-header .section-label::before { display: none; }
+    .dor-header .section-title, .dor-header .section-desc { max-width: 640px; margin: 0 auto 1rem; }
+    .dor-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 3rem; }
+    .dor-card { background: var(--white); border-radius: var(--r-lg); padding: 1.75rem; display: flex; align-items: flex-start; gap: 1rem; box-shadow: 0 2px 16px rgba(180,140,160,.08); border: 1px solid var(--border); transition: transform .3s ease, box-shadow .3s ease; }
+    .dor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .dor-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--rose-light), var(--lilac-light)); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.25rem; }
+    .dor-card-text strong { display: block; font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .35rem; }
+    .dor-card-text p { font-size: .875rem; color: var(--text-muted); line-height: 1.6; }
+    .dor-footer { background: linear-gradient(135deg, var(--rose-light) 0%, var(--lilac-light) 100%); border-radius: var(--r-lg); padding: 2rem 2.5rem; text-align: center; }
+    .dor-footer p { font-family: 'Playfair Display', serif; font-size: clamp(1rem,2vw,1.25rem); font-style: italic; color: var(--text); line-height: 1.65; }
+
+    /* ── SOBRE ── */
+    #sobre { background: var(--warm-white); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; }
+    .sobre-photo-frame { position: relative; width: 100%; max-width: 460px; }
+    .sobre-photo-bg { position: absolute; bottom: -1.5rem; right: -1.5rem; width: 85%; height: 85%; background: linear-gradient(135deg, var(--beige) 0%, var(--rose-light) 100%); border-radius: var(--r-lg); }
+    .sobre-photo-img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4/5; background: linear-gradient(160deg, var(--beige-deep) 0%, var(--lilac-light) 100%); border-radius: var(--r-lg); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .sobre-photo-img img { width: 100%; height: 100%; object-fit: cover; }
+    .sobre-badge { position: absolute; top: 2rem; right: -2rem; z-index: 2; background: var(--white); border-radius: var(--r); padding: 1rem 1.25rem; box-shadow: var(--shadow); text-align: center; min-width: 140px; }
+    .sobre-badge strong { display: block; font-size: 1.75rem; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--rose-deep); }
+    .sobre-badge span { font-size: .75rem; color: var(--text-muted); }
+    .sobre-name { font-size: clamp(1.75rem,3vw,2.5rem); font-weight: 600; color: var(--text); margin-bottom: .5rem; letter-spacing: -.02em; }
+    .sobre-crp { font-size: .85rem; color: var(--rose-deep); font-weight: 600; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .sobre-bio { font-size: 1rem; color: var(--text-soft); line-height: 1.8; margin-bottom: 2rem; }
+    .sobre-items { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2.5rem; }
+    .sobre-item { display: flex; align-items: center; gap: .75rem; font-size: .9rem; color: var(--text-soft); }
+    .sobre-item-dot { width: 20px; height: 20px; background: linear-gradient(135deg, var(--rose-deep), var(--lilac-deep)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .sobre-item-dot svg { width: 11px; height: 11px; color: white; }
+    .sobre-langs { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .lang-badge { display: flex; align-items: center; gap: .5rem; background: var(--beige); border: 1px solid var(--border); border-radius: 100px; padding: .5rem 1rem; font-size: .8rem; font-weight: 500; color: var(--text); }
+    .lang-badge .flag { font-size: 1rem; }
+
+    /* ── ESPECIALIDADES ── */
+    #especialidades { background: var(--beige); }
+    .esp-header { text-align: center; margin-bottom: 3.5rem; }
+    .esp-header .section-label { justify-content: center; }
+    .esp-header .section-label::before { display: none; }
+    .esp-header .section-title, .esp-header .section-desc { max-width: 560px; margin: 0 auto 1rem; }
+    .esp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .esp-card { background: var(--white); border-radius: var(--r-lg); padding: 2rem; border: 1px solid var(--border); transition: all .35s cubic-bezier(.22,1,.36,1); position: relative; overflow: hidden; }
+    .esp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--rose-deep), var(--lilac-deep)); opacity: 0; transition: opacity .3s; }
+    .esp-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .esp-card:hover::before { opacity: 1; }
+    .esp-card-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--beige) 0%, var(--rose-light) 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .esp-card-icon svg { width: 16px; height: 16px; color: var(--rose-deep); }
+    .esp-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: .625rem; }
+    .esp-card p { font-size: .875rem; color: var(--text-soft); line-height: 1.7; }
+
+    /* ── COMO FUNCIONA ── */
+    #como-funciona { background: var(--warm-white); }
+    .como-header { text-align: center; margin-bottom: 4rem; }
+    .como-header .section-label { justify-content: center; }
+    .como-header .section-label::before { display: none; }
+    .como-header .section-title { max-width: 500px; margin: 0 auto 1rem; }
+    .como-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; position: relative; }
+    .como-steps::before { content: ''; position: absolute; top: 2.5rem; left: calc(12.5% + 1rem); right: calc(12.5% + 1rem); height: 2px; background: linear-gradient(90deg, var(--rose-light), var(--lilac-light)); }
+    .como-step { position: relative; text-align: center; padding: 0 1rem; }
+    .step-num { width: 52px; height: 52px; background: var(--warm-white); border: 2px solid var(--rose-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--rose-deep); margin: 0 auto 1.25rem; position: relative; z-index: 1; }
+    .como-step.active .step-num { background: linear-gradient(135deg, var(--rose-deep), var(--lilac-deep)); color: var(--white); border-color: transparent; box-shadow: 0 8px 24px rgba(192,143,160,.4); }
+    .step-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 1.5rem; margin-top: 1rem; }
+    .step-emoji { font-size: 1.5rem; margin-bottom: .75rem; display: block; }
+    .step-card h3 { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .5rem; }
+    .step-card p { font-size: .8rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── BENEFÍCIOS ── */
+    #beneficios { background: linear-gradient(160deg, var(--rose-light) 0%, var(--lilac-light) 100%); }
+    .ben-header { text-align: center; margin-bottom: 3.5rem; }
+    .ben-header .section-label { justify-content: center; color: var(--rose-deep); }
+    .ben-header .section-label::before { display: none; }
+    .ben-header .section-title, .ben-header .section-desc { max-width: 560px; margin: 0 auto 1rem; }
+    .ben-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .ben-card { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); border-radius: var(--r-lg); padding: 1.75rem; border: 1px solid rgba(255,255,255,.8); transition: all .3s ease; }
+    .ben-card:hover { background: rgba(255,255,255,.9); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .ben-icon { width: 28px; height: 28px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(211,166,179,.15), rgba(203,183,232,.15)); border-radius: 8px; flex-shrink: 0; }
+    .ben-icon svg { width: 13px; height: 13px; color: var(--rose-deep); }
+    .ben-card h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .5rem; }
+    .ben-card p { font-size: .875rem; color: var(--text-soft); line-height: 1.65; }
+
+    /* ── DEPOIMENTOS ── */
+    #depoimentos { background: var(--warm-white); }
+    .dep-header { text-align: center; margin-bottom: 3.5rem; }
+    .dep-header .section-label { justify-content: center; }
+    .dep-header .section-label::before { display: none; }
+    .dep-header .section-title { max-width: 520px; margin: 0 auto 1rem; }
+    .dep-stars-main { display: flex; justify-content: center; gap: 3px; margin-bottom: .75rem; font-size: 1.1rem; }
+    .dep-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .dep-card { background: var(--white); border-radius: var(--r-lg); padding: 2rem; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(180,140,160,.07); transition: all .3s ease; }
+    .dep-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .dep-quote { font-size: 3rem; line-height: 1; color: var(--rose-light); font-family: 'Playfair Display', serif; margin-bottom: .5rem; }
+    .dep-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--text); line-height: 1.7; margin-bottom: 1.5rem; }
+    .dep-footer { display: flex; align-items: center; gap: .75rem; }
+    .dep-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, var(--rose-light), var(--lilac-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .9rem; font-weight: 600; color: var(--rose-deep); flex-shrink: 0; }
+    .dep-info strong { display: block; font-size: .875rem; font-weight: 600; color: var(--text); }
+    .dep-info span { font-size: .775rem; color: var(--text-muted); }
+    .dep-stars-mini { font-size: .75rem; color: #F59E0B; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--beige); }
+    .faq-header { text-align: center; margin-bottom: 3.5rem; }
+    .faq-header .section-label { justify-content: center; }
+    .faq-header .section-label::before { display: none; }
+    .faq-list { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+    .faq-item { background: var(--white); border-radius: var(--r); border: 1px solid var(--border); overflow: hidden; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.375rem 1.5rem; cursor: pointer; font-size: .95rem; font-weight: 600; color: var(--text); transition: background .2s; user-select: none; }
+    .faq-q:hover { background: var(--beige); }
+    .faq-arrow { width: 28px; height: 28px; background: var(--beige); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .3s ease, background .3s; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--rose-light); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s cubic-bezier(.22,1,.36,1); }
+    .faq-a-inner { padding: 0 1.5rem 1.5rem; font-size: .9rem; color: var(--text-soft); line-height: 1.75; }
+
+    /* ── CTA FINAL ── */
+    #cta-final { background: linear-gradient(135deg, var(--text) 0%, #4A3D52 100%); position: relative; overflow: hidden; }
+    .cta-bg-blob { position: absolute; border-radius: 50%; pointer-events: none; }
+    .cta-bg-blob:first-child { top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(203,183,232,.15) 0%, transparent 70%); }
+    .cta-bg-blob:last-child { bottom: -80px; left: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(211,166,179,.12) 0%, transparent 70%); }
+    .cta-inner { position: relative; z-index: 1; text-align: center; }
+    .cta-inner .section-label { justify-content: center; color: var(--lilac); }
+    .cta-inner .section-label::before { background: var(--lilac); }
+    .cta-title { font-size: clamp(2rem,4vw,3.25rem); font-weight: 600; color: var(--white); letter-spacing: -.02em; margin-bottom: 1.25rem; max-width: 620px; margin-left: auto; margin-right: auto; }
+    .cta-desc { font-size: 1.05rem; color: rgba(255,255,255,.7); line-height: 1.75; max-width: 500px; margin: 0 auto 3rem; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .cta-reassure { margin-top: 2rem; font-size: .825rem; color: rgba(255,255,255,.4); }
+
+    /* ── BENEFÍCIOS COM FOTO ── */
+    .ben-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+    .ben-photo-wrap { position: sticky; top: 100px; border-radius: var(--r-lg); overflow: hidden; height: 520px; }
+    .ben-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    @media (max-width: 768px) { .ben-layout { grid-template-columns: 1fr; } .ben-photo-wrap { height: 300px; position: static; } }
+
+    /* ── SOBRE ACCENT PHOTO ── */
+    .sobre-photo-accent {
+      position: absolute; bottom: -28px; right: -28px;
+      width: 54%; aspect-ratio: 3/4;
+      border-radius: var(--r); overflow: hidden;
+      border: 5px solid var(--white);
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+      z-index: 2;
+    }
+    .sobre-photo-accent img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+    /* ── FOTO STRIP ── */
+    .foto-strip { overflow: hidden; }
+    .foto-strip-inner { display: flex; height: 340px; }
+    .foto-strip-item { flex: 1; overflow: hidden; position: relative; }
+    .foto-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; display: block; }
+    .foto-strip-item:hover img { transform: scale(1.05); }
+    .foto-strip-center { flex: 1.5; }
+    .foto-strip-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(44,29,43,.75) 0%, transparent 55%); display: flex; align-items: flex-end; padding: 2rem; }
+    .foto-strip-overlay p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: #fff; line-height: 1.55; }
+    @media (max-width: 640px) { .foto-strip-inner { flex-direction: column; height: auto; } .foto-strip-item { height: 220px; } }
+
+    /* ── DEP COM FOTO ── */
+    .dep-layout { display: grid; grid-template-columns: 1fr 1.7fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+    .dep-photo-wrap { position: sticky; top: 100px; border-radius: var(--r-lg); overflow: hidden; height: 520px; }
+    .dep-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .dep-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(44,29,43,.8) 0%, transparent 50%); display: flex; align-items: flex-end; padding: 2rem; }
+    .dep-photo-caption { color: rgba(255,255,255,.85); font-size: .85rem; font-style: italic; line-height: 1.5; }
+    .dep-cards-col { display: flex; flex-direction: column; gap: 1.25rem; }
+    @media (max-width: 768px) { .dep-layout { grid-template-columns: 1fr; } .dep-photo-wrap { height: 280px; position: static; } }
+
+    /* ── CTA COM FOTO ── */
+    .cta-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
+    .cta-photo-wrap { position: relative; border-radius: var(--r-lg); overflow: hidden; height: 480px; }
+    .cta-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .cta-photo-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(44,29,43,.25) 0%, transparent 60%); }
+    .cta-content { text-align: left; }
+    .cta-content .section-label { text-align: left; margin: 0 0 1rem; }
+    .cta-content .cta-title { text-align: left; }
+    .cta-content .cta-desc { text-align: left; margin: 0 0 2rem; }
+    .cta-content .cta-actions { justify-content: flex-start; }
+    .cta-content .cta-reassure { text-align: left; }
+    @media (max-width: 768px) { .cta-layout { grid-template-columns: 1fr; } .cta-photo-wrap { height: 280px; } .cta-content { text-align: center; } .cta-content .section-label, .cta-content .cta-title, .cta-content .cta-desc, .cta-content .cta-reassure { text-align: center; } .cta-content .cta-actions { justify-content: center; } }
+
+    /* ── FOOTER ── */
+    footer { background: #1C1C24; color: rgba(255,255,255,.6); padding: 2rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-left { display: flex; flex-direction: column; gap: .3rem; }
+    .footer-crp { font-size: .8rem; color: rgba(255,255,255,.4); }
+    footer p { font-size: .775rem; color: rgba(255,255,255,.25); }
+    .footer-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: .825rem; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--rose-light); }
+    .footer-right { display: flex; align-items: center; gap: .875rem; }
+    .footer-logo-wrap { display: none; }
+    .footer-logo-img { height: 120px; width: auto; display: block; filter: brightness(0) invert(1) opacity(0.85); }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; text-align: center; } .footer-right { justify-content: center; } }
+
+    /* ── GALERIA ── */
+    #galeria { background: var(--warm-white); padding: 0 0 6rem; }
+    .galeria-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.25rem;
+    }
+    .galeria-img {
+      border-radius: var(--r-lg); overflow: hidden;
+      position: relative;
+    }
+    .galeria-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .6s cubic-bezier(.22,1,.36,1);
+    }
+    .galeria-img:hover img { transform: scale(1.04); }
+    .galeria-img:nth-child(1) { aspect-ratio: 16/10; grid-column: 1 / 2; }
+    .galeria-img:nth-child(2) { aspect-ratio: 4/5;   grid-column: 2 / 3; grid-row: 1 / 3; }
+    .galeria-img:nth-child(3) { aspect-ratio: 4/3;   grid-column: 1 / 2; }
+    .galeria-img:nth-child(4) { display: none; }
+    .galeria-caption {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(51,51,51,.55) 0%, transparent 55%);
+      opacity: 0; transition: opacity .4s;
+      display: flex; align-items: flex-end;
+      padding: 1.25rem;
+    }
+    .galeria-img:hover .galeria-caption { opacity: 1; }
+    .galeria-caption span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: .9rem;
+      color: rgba(255,255,255,.9);
+    }
+
+    /* ── BANNER SESSÃO ── */
+    #banner-sessao {
+      position: relative; overflow: hidden;
+      height: 480px;
+    }
+    .banner-img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 20%;
+      display: block;
+    }
+    .banner-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(51,33,50,.55) 0%,
+        rgba(51,33,50,.30) 55%,
+        rgba(51,33,50,.08) 100%
+      );
+      display: flex; align-items: center;
+    }
+    .banner-content {
+      max-width: 560px;
+      padding: 0 2rem 0 calc((100vw - 1140px) / 2 + 1.5rem);
+    }
+    .banner-label {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .75rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--rose-light);
+      margin-bottom: 1rem;
+    }
+    .banner-label::before { content: ''; width: 20px; height: 2px; background: var(--rose-light); display: block; }
+    .banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 600; font-style: italic;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+    .banner-tags {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-bottom: 1.75rem;
+    }
+    .banner-tags span {
+      font-size: .8rem; font-weight: 500;
+      color: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 100px;
+      padding: .3rem .85rem;
+    }
+    .banner-cta {
+      display: inline-flex; align-items: center; gap: .625rem;
+      background: #C89AA5;
+      color: var(--white);
+      padding: 1rem 2.25rem; border-radius: 100px;
+      font-size: 1rem; font-weight: 700;
+      text-decoration: none;
+      transition: all .3s ease;
+      box-shadow: 0 8px 24px rgba(192,143,160,.45);
+    }
+    .banner-cta:hover {
+      background: #B07D8E;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(192,143,160,.55);
+    }
+    .banner-authority {
+      display: flex; align-items: center; gap: .75rem;
+      margin-top: 1.5rem;
+      font-size: .8rem;
+      color: rgba(255,255,255,.65);
+    }
+    @media (max-width: 768px) {
+      #banner-sessao { height: 360px; }
+      .banner-content { padding: 0 1.5rem; }
+    }
+
+    /* "Como funciona" com imagem lateral */
+    .como-with-img { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .como-img-wrap { position: relative; border-radius: var(--r-lg); overflow: hidden; }
+    .como-img-wrap::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(135deg, rgba(211,166,179,.18) 0%, rgba(203,183,232,.18) 100%);
+    }
+    .como-img-wrap img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; border-radius: var(--r-lg); }
+    .como-img-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; z-index: 2;
+      background: rgba(250,249,247,.92);
+      backdrop-filter: blur(12px);
+      border-radius: var(--r);
+      padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .como-img-badge-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--rose-light), var(--lilac-light));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .como-img-badge strong { display: block; font-size: .85rem; font-weight: 600; color: var(--text); }
+    .como-img-badge span { font-size: .75rem; color: var(--text-muted); }
+    .como-steps-col { display: flex; flex-direction: column; gap: 1.25rem; }
+    .como-step-row {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      background: var(--white); border-radius: var(--r-lg);
+      padding: 1.375rem 1.5rem; border: 1px solid var(--border);
+      transition: box-shadow .3s ease, transform .3s ease;
+    }
+    .como-step-row:hover { box-shadow: var(--shadow); transform: translateX(4px); }
+    .step-num-sm {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--rose-deep), var(--lilac-deep));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      color: var(--white); font-size: 1rem;
+    }
+    .como-step-row h3 { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; }
+    .como-step-row p { font-size: .825rem; color: var(--text-muted); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .galeria-inner { grid-template-columns: 1fr 1fr; }
+      .galeria-img:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+      .galeria-img:nth-child(3) { margin-top: 0; }
+      .como-with-img { grid-template-columns: 1fr; gap: 2.5rem; }
+      .como-img-wrap { max-width: 420px; }
+      .como-img-wrap img { aspect-ratio: 16/9; }
+    }
+    @media (max-width: 480px) {
+      .galeria-inner { grid-template-columns: 1fr; }
+      .galeria-img:first-child { aspect-ratio: 4/3; }
+      .galeria-img:nth-child(2), .galeria-img:nth-child(3) { aspect-ratio: 4/3; }
+    }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed; bottom: 2rem; left: 2rem; z-index: 50;
+      width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,.4);
+      cursor: pointer; text-decoration: none;
+      transition: all .3s cubic-bezier(.22,1,.36,1);
+      animation: float-in .5s cubic-bezier(.22,1,.36,1) 2s both;
+    }
+    @keyframes float-in { from { opacity: 0; transform: translateY(20px) scale(.8); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 12px 32px rgba(37,211,102,.5); }
+    .wa-float svg { width: 30px; height: 30px; color: white; }
+    .wa-tooltip { position: absolute; left: 72px; top: 50%; transform: translateY(-50%); background: var(--text); color: var(--white); font-size: .8rem; font-weight: 500; white-space: nowrap; padding: .5rem .875rem; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity .2s; }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(250,249,247,.97); backdrop-filter: blur(16px); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 600; color: var(--text); text-decoration: none; transition: color .2s; }
+    .mobile-menu a:hover { color: var(--rose-deep); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; cursor: pointer; padding: .5rem; }
+    .mobile-lang { display: flex; gap: .5rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-grid { gap: 3rem; }
+      .sobre-grid { gap: 3rem; }
+      .hero-photo-frame { width: 420px; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 4.5rem 0; }
+      nav { padding: 1rem 0; }
+      .nav-links, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo-frame { width: 100%; max-width: 340px; margin: 0 auto; }
+      .hero-actions, .hero-trust { justify-content: center; }
+      .hero-badge { left: 0; bottom: -1rem; }
+      .hero-badge-2 { right: 0; }
+      .dor-grid { grid-template-columns: 1fr; }
+      .esp-grid, .ben-grid { grid-template-columns: 1fr 1fr; }
+      .como-steps { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .como-steps::before { display: none; }
+      .dep-grid { grid-template-columns: 1fr; }
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-photo-frame { max-width: 360px; margin: 0 auto; }
+      .sobre-badge { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2rem; }
+      .esp-grid, .ben-grid { grid-template-columns: 1fr; }
+      .como-steps { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════
+       MODAIS ORYGA
+    ═══════════════════════════════ */
+    .oryga-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,.72); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s ease;
+    }
+    .oryga-overlay.show { opacity: 1; pointer-events: all; }
+    .oryga-modal {
+      background: #12101A;
+      border: 1px solid rgba(211,166,179,.25);
+      border-radius: 20px;
+      max-width: 500px; width: 100%;
+      padding: 2.25rem;
+      position: relative;
+      box-shadow: 0 0 0 1px rgba(203,183,232,.08), 0 40px 80px rgba(0,0,0,.6);
+      transform: translateY(20px) scale(.97);
+      transition: transform .4s ease;
+    }
+    .oryga-overlay.show .oryga-modal { transform: translateY(0) scale(1); }
+    .oryga-modal-close {
+      position: absolute; top: 1.1rem; right: 1.1rem;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px; width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #777; font-size: .9rem;
+      transition: background .2s, color .2s;
+    }
+    .oryga-modal-close:hover { background: rgba(255,255,255,.12); color: #eee; }
+    .oryga-modal-badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: rgba(211,166,179,.12); border: 1px solid rgba(211,166,179,.3);
+      color: #D3A6B3; font-size: .68rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .28rem .75rem; border-radius: 50px; margin-bottom: 1.25rem;
+    }
+    .oryga-modal-badge-dot {
+      width: 6px; height: 6px; background: #D3A6B3;
+      border-radius: 50%;
+      animation: orygaBlink 2s ease-in-out infinite;
+    }
+    @keyframes orygaBlink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .oryga-modal h2 {
+      font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 800;
+      line-height: 1.25; margin-bottom: .8rem; letter-spacing: -.02em;
+      color: #f0ecf0; font-family: 'Playfair Display', serif;
+    }
+    .oryga-modal h2 em { color: #CBB7E8; font-style: normal; }
+    .oryga-modal p { font-size: .88rem; color: #888; line-height: 1.75; margin-bottom: 1.4rem; }
+    .oryga-modal-proof { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.6rem; }
+    .oryga-proof-item { display: flex; align-items: center; gap: .4rem; font-size: .77rem; color: #999; }
+    .oryga-proof-ok { color: #CBB7E8; font-weight: 900; font-size: .82rem; }
+    .oryga-modal-btns { display: flex; flex-direction: column; gap: .7rem; }
+    .oryga-btn-main {
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      background: linear-gradient(135deg, #D3A6B3, #CBB7E8);
+      color: #12101A; font-weight: 800; font-size: .92rem;
+      padding: .9rem 1.5rem; border-radius: 10px; border: none;
+      cursor: pointer; width: 100%;
+      transition: opacity .2s, transform .2s;
+      text-decoration: none; font-family: inherit;
+    }
+    .oryga-btn-main:hover { opacity: .9; transform: translateY(-2px); }
+    .oryga-btn-dismiss {
+      background: none; border: none; color: #555; font-size: .78rem;
+      cursor: pointer; font-family: inherit; text-align: center; padding: .25rem;
+      transition: color .2s;
+    }
+    .oryga-btn-dismiss:hover { color: #888; }
+    .oryga-modal-divider { border: none; border-top: 1px solid rgba(255,255,255,.06); margin: 1.4rem 0 1.1rem; }
+    .oryga-modal-brand { display: flex; align-items: center; justify-content: center; gap: .4rem; font-size: .75rem; color: #555; }
+    .oryga-modal-brand strong { color: #CBB7E8; }
+    .oryga-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1.5rem; }
+    .oryga-service-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px; padding: .85rem;
+      transition: border-color .2s;
+    }
+    .oryga-service-card:hover { border-color: rgba(203,183,232,.25); }
+    .oryga-service-icon { font-size: 1.2rem; margin-bottom: .35rem; }
+    .oryga-service-title { font-size: .84rem; font-weight: 700; color: #e8e0f0; margin-bottom: .2rem; }
+    .oryga-service-desc { font-size: .75rem; color: #666; line-height: 1.5; }
+    @media (max-width: 480px) {
+      .oryga-modal { padding: 1.75rem 1.4rem; }
+      .oryga-services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="images/logo icon.png" alt="Sandrith Lozano — Psicóloga" class="nav-logo-img" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Sandrith Lozano</span>
+        <span class="nav-logo-sub" data-i18n="hero.role">Psicóloga Clínica</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#sobre"          data-i18n="nav.sobre">Sobre</a></li>
+      <li><a href="#especialidades" data-i18n="nav.especialidades">Especialidades</a></li>
+      <li><a href="#como-funciona"  data-i18n="nav.como">Como funciona</a></li>
+      <li><a href="#faq"            data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn"        data-lang="es" onclick="setLang('es')">ES</button>
+      </div>
+      <a href="https://wa.me/5527996994595?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta"
+         class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.cta">Agendar consulta</a>
+    </div>
+
+    <div class="hamburger" id="hamburger" role="button" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-close" id="mobile-close" role="button" aria-label="Fechar">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </div>
+  <div class="mobile-lang">
+    <button class="lang-btn active" data-lang="pt" onclick="setLang('pt');closeMobile()">PT</button>
+    <button class="lang-btn"        data-lang="es" onclick="setLang('es');closeMobile()">ES</button>
+  </div>
+  <a href="#sobre"          class="mobile-link" data-i18n="nav.sobre">Sobre</a>
+  <a href="#especialidades" class="mobile-link" data-i18n="nav.especialidades">Especialidades</a>
+  <a href="#como-funciona"  class="mobile-link" data-i18n="nav.como">Como funciona</a>
+  <a href="#faq"            class="mobile-link" data-i18n="nav.faq">FAQ</a>
+  <a href="https://www.instagram.com/psicologasandrithlozano/"
+     target="_blank" rel="noopener" style="font-size:1rem;color:var(--text-soft);display:flex;align-items:center;gap:.5rem;">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    @psicologasandrithlozano
+  </a>
+  <a href="https://wa.me/5527996994595?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta"
+     class="btn btn-primary btn-lg" target="_blank" rel="noopener" data-i18n="nav.cta">Agendar consulta</a>
+</div>
+
+<!-- ══════════════════════════════════
+     1. HERO
+══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-blob-1"></div>
+    <div class="hero-blob-2"></div>
+    <div class="hero-blob-3"></div>
+  </div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Texto -->
+      <div class="reveal-left">
+        <span class="hero-online-tag" data-i18n="hero.tag">Atendimento Online</span>
+
+        <h1 class="hero-name">Sandrith Lozano</h1>
+        <p class="hero-role" data-i18n="hero.role">Psicóloga Clínica</p>
+        <p class="hero-service" data-i18n="hero.service">Terapia Online para Adultos</p>
+        <p class="hero-sub" data-i18n="hero.sub">Um espaço seguro para acolher suas emoções e promover mudanças reais.</p>
+
+        <div class="hero-checks">
+          <div class="hero-check">
+            <div class="hero-check-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="hero.c1">Ansiedade</span>
+          </div>
+          <div class="hero-check">
+            <div class="hero-check-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="hero.c2">Autoestima</span>
+          </div>
+          <div class="hero-check">
+            <div class="hero-check-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="hero.c3">Relacionamentos</span>
+          </div>
+          <div class="hero-check">
+            <div class="hero-check-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="hero.c4">Luto e Desenvolvimento Pessoal</span>
+          </div>
+        </div>
+
+        <div class="hero-open-tag">
+          <span class="hero-open-dot"></span>
+          <span data-i18n="hero.open">Agenda aberta para novos pacientes</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/5527996994595?text=Ol%C3%A1%20Sandrith%2C%20gostaria%20de%20agendar%20uma%20consulta"
+             class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="hero.btn1">Agendar Consulta</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-bar">
+          <div class="hero-trust-item">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span data-i18n="hero.trust1">CRP Registrada</span>
+          </div>
+          <div class="hero-trust-item">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span data-i18n="hero.trust2">Mestre e Doutoranda em Psicologia</span>
+          </div>
+          <div class="hero-trust-item">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-i18n="hero.trust3">+5 anos de experiência</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto -->
+      <div class="hero-photo-wrap reveal-right">
+        <div class="hero-photo-frame">
+          <div class="hero-photo-bg"></div>
+          <div class="hero-photo-img">
+            <img src="images/pose.png" alt="Sandrith Lozano — Psicóloga Clínica" />
+          </div>
+          <div class="hero-cred-badge">
+            <span class="hero-cred-label" data-i18n="hero.credLabel">Formação Acadêmica</span>
+            <span class="hero-cred-value" data-i18n="hero.credValue">Mestre · Doutoranda em Psicologia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     2. DOR DO PACIENTE
+══════════════════════════════════ -->
+<section id="dor">
+  <div class="container">
+    <div class="dor-header">
+      <span class="section-label" data-i18n="dor.label">Você se identifica?</span>
+      <h2 class="section-title reveal" data-i18n="dor.title">Você sente que está carregando tudo sozinho?</h2>
+      <p class="section-desc reveal delay-1" data-i18n="dor.desc">
+        Muitas pessoas chegam até mim com esses sentimentos. Reconhecê-los é o primeiro passo para a mudança.
+      </p>
+    </div>
+
+    <div class="dor-grid">
+      <div class="dor-card reveal delay-1">
+        <div class="dor-icon">😰</div>
+        <div class="dor-card-text">
+          <strong data-i18n="dor.c1.title">Ansiedade constante</strong>
+          <p data-i18n="dor.c1.desc">Preocupações que não saem da cabeça e aquela sensação de que algo ruim vai acontecer.</p>
+        </div>
+      </div>
+      <div class="dor-card reveal delay-2">
+        <div class="dor-icon">🌀</div>
+        <div class="dor-card-text">
+          <strong data-i18n="dor.c2.title">Excesso de preocupação</strong>
+          <p data-i18n="dor.c2.desc">Pensamentos acelerados que impedem de dormir, relaxar ou simplesmente curtir a vida.</p>
+        </div>
+      </div>
+      <div class="dor-card reveal delay-3">
+        <div class="dor-icon">⚡</div>
+        <div class="dor-card-text">
+          <strong data-i18n="dor.c3.title">Dificuldade para decidir</strong>
+          <p data-i18n="dor.c3.desc">Medo de errar que paralisa e faz adiar escolhas importantes por muito tempo.</p>
+        </div>
+      </div>
+      <div class="dor-card reveal delay-1">
+        <div class="dor-icon">💔</div>
+        <div class="dor-card-text">
+          <strong data-i18n="dor.c4.title">Relacionamentos desgastantes</strong>
+          <p data-i18n="dor.c4.desc">Conflitos repetitivos, dificuldade de se comunicar ou sensação de não ser compreendida.</p>
+        </div>
+      </div>
+      <div class="dor-card reveal delay-2">
+        <div class="dor-icon">🪞</div>
+        <div class="dor-card-text">
+          <strong data-i18n="dor.c5.title">Baixa autoestima</strong>
+          <p data-i18n="dor.c5.desc">Autocrítica excessiva, comparações e dificuldade de enxergar o próprio valor.</p>
+        </div>
+      </div>
+      <div class="dor-card reveal delay-3">
+        <div class="dor-icon">🏋️</div>
+        <div class="dor-card-text">
+          <strong data-i18n="dor.c6.title">Sobrecarga emocional</strong>
+          <p data-i18n="dor.c6.desc">Sensação de cansaço que não passa, mesmo descansando. Emoções intensas difíceis de controlar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dor-footer reveal">
+      <p data-i18n="dor.quote">"A terapia oferece um espaço seguro para compreender suas emoções, desenvolver novas perspectivas e construir mudanças duradouras."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     3. SOBRE
+══════════════════════════════════ -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="reveal-left">
+        <div class="sobre-photo-frame">
+          <div class="sobre-photo-bg"></div>
+          <div class="sobre-photo-img">
+            <img src="images/rj.png" alt="Sandrith Lozano" loading="lazy" />
+          </div>
+
+          <div class="sobre-badge">
+            <strong>+5</strong>
+            <span data-i18n-html="sobre.badgeYears">anos de<br/>experiência</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <span class="section-label" data-i18n="sobre.label">Quem sou eu</span>
+        <h2 class="sobre-name" data-i18n-html="sobre.name">Olá, sou<br/>Sandrith Lozano</h2>
+        <p class="sobre-crp">Psicóloga Clínica · CRP 00/00000</p>
+        <p class="sobre-bio" data-i18n="sobre.bio1">
+          Sou psicóloga clínica dedicada a acompanhar adultos em momentos de transição, crescimento e transformação emocional.
+          Acredito que cada pessoa tem um ritmo único e meu papel é caminhar ao seu lado,
+          criando um espaço de escuta genuína, sem julgamentos.
+        </p>
+        <p class="sobre-bio" data-i18n="sobre.bio2">
+          Minha abordagem une técnica e humanidade, sempre com foco em resultados reais e bem-estar duradouro.
+          Atendo online, o que permite que você faça terapia de qualquer lugar do mundo.
+        </p>
+        <div class="sobre-items">
+          <div class="sobre-item">
+            <div class="sobre-item-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="sobre.item1">Graduação em Psicologia</span>
+          </div>
+          <div class="sobre-item">
+            <div class="sobre-item-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="sobre.item2">Mestrado em Psicologia</span>
+          </div>
+          <div class="sobre-item">
+            <div class="sobre-item-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="sobre.item2b">Doutoranda em Psicologia</span>
+          </div>
+          <div class="sobre-item">
+            <div class="sobre-item-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="sobre.item3">Atendimento a adultos — individual e online</span>
+          </div>
+          <div class="sobre-item">
+            <div class="sobre-item-dot"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="sobre.item4">Experiência com ansiedade, luto e relacionamentos</span>
+          </div>
+        </div>
+        <div class="sobre-langs">
+          <div class="lang-badge"><span class="flag">🇧🇷</span> <span data-i18n="sobre.langPT">Atendimento em português</span></div>
+          <div class="lang-badge"><span class="flag">🇪🇸</span> <span data-i18n="sobre.langES">Atendimento em espanhol</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     4. ESPECIALIDADES
+══════════════════════════════════ -->
+<section id="especialidades">
+  <div class="container">
+    <div class="esp-header">
+      <span class="section-label" data-i18n="esp.label">Áreas de atuação</span>
+      <h2 class="section-title reveal" data-i18n="esp.title">Como posso te ajudar</h2>
+      <p class="section-desc reveal delay-1" data-i18n="esp.desc">Cada área de atuação é trabalhada com cuidado, técnica e escuta personalizada.</p>
+    </div>
+    <div class="esp-grid">
+      <div class="esp-card reveal delay-1">
+        <div class="esp-card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09z"/></svg></div>
+        <h3 data-i18n="esp.c1.title">Ansiedade</h3>
+        <p data-i18n="esp.c1.desc">Aprenda a lidar com preocupações excessivas, pensamentos acelerados e recupere o equilíbrio emocional no dia a dia.</p>
+      </div>
+      <div class="esp-card reveal delay-2">
+        <div class="esp-card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5z"/></svg></div>
+        <h3 data-i18n="esp.c2.title">Autoestima</h3>
+        <p data-i18n="esp.c2.desc">Fortaleça sua confiança, dissolva a autocrítica excessiva e desenvolva uma relação mais saudável e amorosa consigo mesma.</p>
+      </div>
+      <div class="esp-card reveal delay-3">
+        <div class="esp-card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0z"/></svg></div>
+        <h3 data-i18n="esp.c3.title">Relacionamentos</h3>
+        <p data-i18n="esp.c3.desc">Entenda padrões emocionais repetitivos e construa vínculos mais saudáveis, comunicativos e genuínos.</p>
+      </div>
+      <div class="esp-card reveal delay-4">
+        <div class="esp-card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg></div>
+        <h3 data-i18n="esp.c4.title">Luto</h3>
+        <p data-i18n="esp.c4.desc">Acolhimento cuidadoso e suporte profissional durante processos de perda, separação e grandes transformações de vida.</p>
+      </div>
+      <div class="esp-card reveal delay-5">
+        <div class="esp-card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div>
+        <h3 data-i18n="esp.c5.title">Procrastinação</h3>
+        <p data-i18n="esp.c5.desc">Identifique os bloqueios emocionais por trás do adiamento e desenvolva estratégias mais funcionais e saudáveis.</p>
+      </div>
+      <div class="esp-card reveal delay-6">
+        <div class="esp-card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></div>
+        <h3 data-i18n="esp.c6.title">Desenvolvimento Pessoal</h3>
+        <p data-i18n="esp.c6.desc">Autoconhecimento profundo, crescimento emocional e construção de uma vida mais alinhada com quem você realmente é.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOTO STRIP ── -->
+<div class="foto-strip">
+  <div class="foto-strip-inner">
+    <div class="foto-strip-item">
+      <img src="images/caneta.png" alt="Sandrith Lozano" loading="lazy" />
+    </div>
+    <div class="foto-strip-item foto-strip-center">
+      <img src="images/oculos.png" alt="Sandrith Lozano" loading="lazy" />
+      <div class="foto-strip-overlay">
+        <p data-i18n="strip.quote">"Cada sessão é um espaço criado exclusivamente para você crescer."</p>
+      </div>
+    </div>
+    <div class="foto-strip-item">
+      <img src="images/xicara.png" alt="Sandrith Lozano" loading="lazy" />
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     5. DEPOIMENTOS
+══════════════════════════════════ -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="dep-header">
+      <span class="section-label" data-i18n="dep.label">Depoimentos</span>
+      <h2 class="section-title reveal" data-i18n="dep.title">O que dizem as pacientes</h2>
+      <div class="dep-stars-main reveal delay-1">⭐⭐⭐⭐⭐</div>
+      <p class="section-desc reveal delay-2" style="margin: 0 auto;" data-i18n="dep.desc">Depoimentos anônimos de pacientes que já vivenciaram a transformação.</p>
+    </div>
+    <div class="dep-layout">
+      <!-- Foto lateral -->
+      <div class="dep-photo-wrap reveal-left">
+        <img src="images/consulta.png" alt="Sandrith Lozano em atendimento" loading="lazy" />
+        <div class="dep-photo-overlay">
+          <p class="dep-photo-caption" data-i18n="dep.photoCaption">Escuta genuína · Sem julgamentos · 100% online</p>
+        </div>
+      </div>
+      <!-- Cards -->
+      <div class="dep-cards-col">
+      <div class="dep-card reveal delay-1">
+        <div class="dep-quote">"</div>
+        <p class="dep-text" data-i18n="dep.t1.text">Me senti acolhida desde a primeira sessão. A Sandrith tem uma escuta incrível — sem julgamentos, sem pressa. Pela primeira vez consegui falar sobre o que realmente me incomodava.</p>
+        <div class="dep-footer">
+          <div class="dep-avatar">M</div>
+          <div class="dep-info">
+            <strong data-i18n="dep.t1.name">M. C., 34 anos · São Paulo</strong>
+            <span data-i18n="dep.t1.detail">Ansiedade · 8 meses de terapia</span>
+            <div class="dep-stars-mini">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card reveal delay-2">
+        <div class="dep-quote">"</div>
+        <p class="dep-text" data-i18n="dep.t2.text">Aprendi a lidar melhor com minha ansiedade de um jeito que nunca achei que seria possível. Hoje consigo respirar antes de reagir. Isso mudou meus relacionamentos completamente.</p>
+        <div class="dep-footer">
+          <div class="dep-avatar">A</div>
+          <div class="dep-info">
+            <strong data-i18n="dep.t2.name">A. L., 29 anos · Rio de Janeiro</strong>
+            <span data-i18n="dep.t2.detail">Ansiedade e relacionamentos · 6 meses</span>
+            <div class="dep-stars-mini">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card reveal delay-3">
+        <div class="dep-quote">"</div>
+        <p class="dep-text" data-i18n="dep.t3.text">Hoje consigo tomar decisões com muito mais segurança e clareza. A procrastinação que me paralisava por anos foi diminuindo gradativamente. A terapia foi um divisor de águas.</p>
+        <div class="dep-footer">
+          <div class="dep-avatar">R</div>
+          <div class="dep-info">
+            <strong data-i18n="dep.t3.name">R. M., 38 anos · Portugal</strong>
+            <span data-i18n="dep.t3.detail">Desenvolvimento pessoal · 1 ano</span>
+            <div class="dep-stars-mini">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+      </div>
+      </div><!-- /dep-cards-col -->
+    </div><!-- /dep-layout -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     6. COMO FUNCIONA
+══════════════════════════════════ -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="como-header">
+      <span class="section-label" data-i18n="como.label">Processo</span>
+      <h2 class="section-title reveal" data-i18n="como.title">Como funciona o atendimento</h2>
+      <p class="section-desc reveal delay-1" style="margin: 0 auto 3.5rem;" data-i18n="como.desc">Simples, seguro e completamente online — do agendamento à sessão.</p>
+    </div>
+
+    <div class="como-with-img">
+      <!-- Imagem lateral -->
+      <div class="como-img-wrap reveal-left">
+        <img src="images/pc.png"
+             alt="Sandrith Lozano em atendimento online" loading="lazy" />
+        <div class="como-img-badge">
+          <div class="como-img-badge-icon">💻</div>
+          <div>
+            <strong data-i18n="como.badgeTitle">Sessões de 50 minutos</strong>
+            <span data-i18n="como.badgeSub">100% online · seguro · sigiloso</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Passos -->
+      <div class="como-steps-col reveal-right">
+        <div class="como-step-row delay-1">
+          <div class="step-num-sm">1</div>
+          <div>
+            <h3 data-i18n="como.s1.title">Contato inicial</h3>
+            <p data-i18n="como.s1.desc">Entre em contato pelo WhatsApp. Conversamos brevemente sobre o que você está sentindo e suas expectativas.</p>
+          </div>
+        </div>
+        <div class="como-step-row delay-2">
+          <div class="step-num-sm">2</div>
+          <div>
+            <h3 data-i18n="como.s2.title">Agendamento</h3>
+            <p data-i18n="como.s2.desc">Escolhemos juntos o melhor horário para você. Flexibilidade para encaixar na sua rotina.</p>
+          </div>
+        </div>
+        <div class="como-step-row delay-3">
+          <div class="step-num-sm">3</div>
+          <div>
+            <h3 data-i18n="como.s3.title">Sessão online</h3>
+            <p data-i18n="como.s3.desc">Sessão de 50 minutos por videochamada. Espaço seguro, sigiloso e acolhedor — de onde você estiver.</p>
+          </div>
+        </div>
+        <div class="como-step-row delay-4">
+          <div class="step-num-sm">4</div>
+          <div>
+            <h3 data-i18n="como.s4.title">Acompanhamento</h3>
+            <p data-i18n="como.s4.desc">Evoluímos juntas ao longo do tempo. A frequência das sessões é adaptada às suas necessidades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     6. BENEFÍCIOS
+══════════════════════════════════ -->
+<section id="beneficios">
+  <div class="container">
+    <div class="ben-header">
+      <span class="section-label" data-i18n="ben.label">O que você ganha</span>
+      <h2 class="section-title reveal" data-i18n="ben.title">Transformações que a terapia traz</h2>
+      <p class="section-desc reveal delay-1" data-i18n="ben.desc">A terapia não é só sobre resolver problemas — é sobre construir uma vida que faça sentido para você.</p>
+    </div>
+    <div class="ben-layout">
+      <div class="ben-photo-wrap reveal-left">
+        <img src="images/parede.png" alt="Sandrith Lozano" loading="lazy" />
+      </div>
+      <div class="ben-grid">
+      <div class="ben-card reveal delay-1">
+        <div class="ben-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+        <h3 data-i18n="ben.c1.title">Clareza emocional</h3>
+        <p data-i18n="ben.c1.desc">Você passa a entender o que sente, por que sente e o que fazer com isso — sem ficar refém das próprias emoções.</p>
+      </div>
+      <div class="ben-card reveal delay-2">
+        <div class="ben-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z"/></svg></div>
+        <h3 data-i18n="ben.c2.title">Leveza no dia a dia</h3>
+        <p data-i18n="ben.c2.desc">Aquela tensão constante vai cedendo. Você respira mais fundo, dorme melhor e aproveita o presente com mais presença.</p>
+      </div>
+      <div class="ben-card reveal delay-3">
+        <div class="ben-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg></div>
+        <h3 data-i18n="ben.c3.title">Conexões mais reais</h3>
+        <p data-i18n="ben.c3.desc">Você passa a se comunicar com mais honestidade, estabelece limites sem culpa e atrai relações que de verdade te fazem bem.</p>
+      </div>
+      <div class="ben-card reveal delay-4">
+        <div class="ben-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12z"/></svg></div>
+        <h3 data-i18n="ben.c4.title">Confiança em si mesma</h3>
+        <p data-i18n="ben.c4.desc">A voz que antes te criticava começa a te apoiar. Você age com mais segurança e para de precisar da aprovação dos outros.</p>
+      </div>
+      <div class="ben-card reveal delay-5">
+        <div class="ben-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125z"/></svg></div>
+        <h3 data-i18n="ben.c5.title">Decisões mais seguras</h3>
+        <p data-i18n="ben.c5.desc">Sem o peso do medo e da dúvida, você age no tempo certo — e para de adiar o que importa para a sua vida.</p>
+      </div>
+      <div class="ben-card reveal delay-6">
+        <div class="ben-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></div>
+        <h3 data-i18n="ben.c6.title">Vida com propósito</h3>
+        <p data-i18n="ben.c6.desc">Mais do que resolver problemas, você descobre o que realmente quer — e constrói uma vida que faz sentido pra você.</p>
+      </div>
+      </div><!-- /ben-grid -->
+    </div><!-- /ben-layout -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     8. FAQ
+══════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-label" data-i18n="faq.label">Dúvidas frequentes</span>
+      <h2 class="section-title reveal" data-i18n="faq.title">Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list reveal delay-1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span data-i18n="faq.q1">A terapia online funciona da mesma forma que a presencial?</span>
+          <div class="faq-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a1">Sim. Diversas pesquisas confirmam que a eficácia da terapia online é equivalente à presencial. O vínculo terapêutico e os resultados são igualmente sólidos. A vantagem é a comodidade: você faz a sessão de onde se sentir mais confortável, sem deslocamento.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span data-i18n="faq.q2">Quanto tempo dura cada sessão?</span>
+          <div class="faq-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a2">Cada sessão tem duração de 50 minutos, tempo padrão da sessão psicoterapêutica. As sessões são realizadas por videochamada em plataforma segura e sigilosa.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span data-i18n="faq.q3">Você atende convênio?</span>
+          <div class="faq-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a3">No momento o atendimento é particular. Entre em contato pelo WhatsApp para saber mais sobre os valores e condições de pagamento disponíveis.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span data-i18n="faq.q4">Como funciona o pagamento?</span>
+          <div class="faq-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a4">O pagamento é realizado antes de cada sessão, via Pix, transferência bancária ou cartão de crédito. Após a confirmação do pagamento, o link da videochamada é enviado.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span data-i18n="faq.q5">Posso fazer terapia morando em outro país?</span>
+          <div class="faq-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a5">Sim! Atendo brasileiros e hispânicos em qualquer parte do mundo. Basta ter conexão com internet. Adaptamos o horário de acordo com o seu fuso horário. O atendimento é em português ou espanhol.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span data-i18n="faq.q6">Como sei se a terapia é para mim?</span>
+          <div class="faq-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a6">A terapia é para qualquer pessoa que deseja se conhecer melhor, superar dificuldades emocionais ou simplesmente viver com mais qualidade. Não é preciso estar em crise. Se você sente que algo pode melhorar, já é razão suficiente para começar.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     9. CTA FINAL
+══════════════════════════════════ -->
+<section id="cta-final">
+  <div class="cta-bg-blob"></div>
+  <div class="cta-bg-blob"></div>
+  <div class="container cta-layout">
+    <!-- Conteúdo -->
+    <div class="cta-content cta-inner">
+      <span class="section-label reveal" data-i18n="cta.label">Pronta para começar?</span>
+      <h2 class="cta-title reveal delay-1" data-i18n="cta.title">Você não precisa enfrentar tudo sozinha.</h2>
+      <p class="cta-desc reveal delay-2" data-i18n="cta.desc">Dar o primeiro passo pode parecer difícil, mas pode transformar a sua vida. Estou aqui para caminhar com você.</p>
+      <div class="cta-actions reveal delay-3">
+        <a href="https://wa.me/5527996994595?text=Ol%C3%A1%20Sandrith%2C%20gostaria%20de%20agendar%20uma%20consulta"
+           class="btn btn-whatsapp btn-xl" target="_blank" rel="noopener">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n="cta.btn1">Agendar Consulta</span>
+        </a>
+        <a href="https://wa.me/5527996994595" class="btn btn-white btn-xl"
+           target="_blank" rel="noopener" data-i18n="cta.btn2">Tirar uma dúvida primeiro</a>
+      </div>
+      <p class="cta-reassure reveal delay-4" data-i18n="cta.reassure">Sigilo garantido · Sem compromisso · Respondo em até 24h</p>
+    </div>
+    <!-- Foto -->
+    <div class="cta-photo-wrap reveal-right">
+      <img src="images/pc.png" alt="Sandrith Lozano em consulta" loading="lazy" />
+      <div class="cta-photo-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container footer-inner">
+    <!-- Esquerda: copyright + crédito -->
+    <div class="footer-left">
+      <div class="footer-crp">Psicóloga Clínica · CRP 00/00000</div>
+      <p data-i18n="footer.copy">© 2026 Sandrith Lozano. Todos os direitos reservados.</p>
+      <p>Desenvolvido por <a href="https://orygaconsultoria.com.br/" target="_blank" rel="noopener"
+         style="color:rgba(255,255,255,.45);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);transition:color .2s;"
+         onmouseover="this.style.color='rgba(255,255,255,.8)'"
+         onmouseout="this.style.color='rgba(255,255,255,.45)'">Oryga</a></p>
+      <p style="margin-top:.5rem">
+        <a href="proposta/" style="font-size:.68rem;color:rgba(255,255,255,.12);text-decoration:none;letter-spacing:.06em;transition:color .2s;"
+           onmouseover="this.style.color='rgba(211,166,179,.5)'"
+           onmouseout="this.style.color='rgba(255,255,255,.12)'">Proposta Comercial</a>
+        &nbsp;·&nbsp;
+        <a href="estrategia/" style="font-size:.68rem;color:rgba(255,255,255,.12);text-decoration:none;letter-spacing:.06em;transition:color .2s;"
+           onmouseover="this.style.color='rgba(203,183,232,.5)'"
+           onmouseout="this.style.color='rgba(255,255,255,.12)'">Estratégia Digital</a>
+      </p>
+    </div>
+
+    <!-- Centro: links de navegação -->
+    <ul class="footer-links">
+      <li><a href="#sobre"          data-i18n="nav.sobre">Sobre</a></li>
+      <li><a href="#especialidades" data-i18n="nav.especialidades">Especialidades</a></li>
+      <li><a href="#como-funciona"  data-i18n="nav.como">Como funciona</a></li>
+      <li><a href="#faq"            data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+
+    <!-- Direita: redes sociais -->
+    <div class="footer-right">
+      <a href="https://www.instagram.com/psicologasandrithlozano/"
+         target="_blank" rel="noopener" aria-label="Instagram"
+         style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.5);transition:all .2s;"
+         onmouseover="this.style.background='rgba(193,53,132,.25)';this.style.color='#fff'"
+         onmouseout="this.style.background='rgba(255,255,255,.07)';this.style.color='rgba(255,255,255,.5)'">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/5527996994595"
+         target="_blank" rel="noopener" aria-label="WhatsApp"
+         style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.5);transition:all .2s;"
+         onmouseover="this.style.background='rgba(37,211,102,.25)';this.style.color='#fff'"
+         onmouseout="this.style.background='rgba(255,255,255,.07)';this.style.color='rgba(255,255,255,.5)'">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ MODAL ORYGA 1 ══════════════ -->
+<div class="oryga-overlay" id="orygaOverlay">
+  <div class="oryga-modal" id="orygaModal">
+    <button class="oryga-modal-close" id="orygaClose" aria-label="Fechar">✕</button>
+    <div class="oryga-modal-badge">
+      <div class="oryga-modal-badge-dot"></div>
+      Oryga · Presença Digital
+    </div>
+    <h2>Seu site pode <em>atrair clientes</em> enquanto você atende</h2>
+    <p>Este site foi criado pela <strong style="color:#D3A6B3;">Oryga</strong> para a <strong style="color:#f0ecf0;">Sandrith Lozano</strong>. Um exemplo real do que entregamos para psicólogas e profissionais de saúde que querem crescer online.</p>
+    <div class="oryga-modal-proof">
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Site profissional e moderno</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Aparece no Google</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Agenda pelo WhatsApp 24h</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Entrega rápida</div>
+      <div class="oryga-proof-item"><span class="oryga-proof-ok">✓</span> Investimento acessível</div>
+    </div>
+    <div class="oryga-modal-btns">
+      <a href="https://wa.me/5537998019444?text=Ol%C3%A1%2C+Alana!+Vi+o+site+da+Sandrith+e+quero+um+site+assim+para+minha+cl%C3%ADnica."
+         target="_blank" rel="noopener"
+         class="oryga-btn-main" id="orygaCTA">
+        💬 Quero um site assim
+      </a>
+      <button class="oryga-btn-dismiss" id="orygaDismiss">Agora não, ver o site primeiro</button>
+    </div>
+    <hr class="oryga-modal-divider">
+    <div class="oryga-modal-brand">
+      Criado por <strong>Oryga</strong> &nbsp;·&nbsp;
+      <a href="estrategia/" target="_blank" style="color:#CBB7E8;text-decoration:none;font-weight:600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Ver Estratégia Digital →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MODAL ORYGA 2 ══════════════ -->
+<div class="oryga-overlay" id="orygaOverlay2">
+  <div class="oryga-modal" id="orygaModal2">
+    <button class="oryga-modal-close" id="orygaClose2" aria-label="Fechar">✕</button>
+    <div class="oryga-modal-badge">
+      <div class="oryga-modal-badge-dot"></div>
+      Oryga · Consultoria Digital
+    </div>
+    <h2>Estratégia e tecnologia para <em>fazer seu negócio crescer</em></h2>
+    <p>A Oryga ajuda psicólogas, clínicas e pequenas empresas a crescer com sites que convertem, automações e estratégia digital.</p>
+    <div class="oryga-services-grid">
+      <div class="oryga-service-card">
+        <div class="oryga-service-icon">🤖</div>
+        <div class="oryga-service-title">Automação</div>
+        <div class="oryga-service-desc">Chatbot WhatsApp, agendamento automático e follow-up sem esforço manual.</div>
+      </div>
+      <div class="oryga-service-card">
+        <div class="oryga-service-icon">📊</div>
+        <div class="oryga-service-title">Estratégia</div>
+        <div class="oryga-service-desc">Consultoria de presença digital para quem quer escalar o atendimento.</div>
+      </div>
+      <div class="oryga-service-card">
+        <div class="oryga-service-icon">🌐</div>
+        <div class="oryga-service-title">Sites & Landing Pages</div>
+        <div class="oryga-service-desc">Como este — profissionais, rápidos e feitos para converter visitantes em clientes.</div>
+      </div>
+      <div class="oryga-service-card">
+        <div class="oryga-service-icon">📍</div>
+        <div class="oryga-service-title">Google & SEO</div>
+        <div class="oryga-service-desc">Apareça para quem pesquisa psicólogo na sua cidade ou online.</div>
+      </div>
+    </div>
+    <div class="oryga-modal-btns">
+      <a href="https://wa.me/5537998019444?text=Ol%C3%A1%2C+Alana!+Quero+saber+mais+sobre+os+servi%C3%A7os+da+Oryga+para+minha+cl%C3%ADnica."
+         target="_blank" rel="noopener"
+         class="oryga-btn-main" id="orygaCTA2">
+        💬 Falar com a Oryga agora
+      </a>
+      <button class="oryga-btn-dismiss" id="orygaDismiss2">Ver mais tarde</button>
+    </div>
+    <hr class="oryga-modal-divider">
+    <div class="oryga-modal-brand">
+      <strong>Oryga</strong> &nbsp;·&nbsp;
+      <a href="estrategia/" target="_blank" style="color:#CBB7E8;text-decoration:none;font-weight:600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Ver Estratégia Digital →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FLOATING WA ── -->
+<a href="https://wa.me/5527996994595?text=Ol%C3%A1%20Sandrith%2C%20gostaria%20de%20agendar%20uma%20consulta"
+   class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <div class="wa-tooltip" data-i18n="wa.tooltip">Falar no WhatsApp</div>
+</a>
+
+<!-- ══════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════ -->
+<script>
+// ─────────────────────────────────
+//  TRANSLATIONS
+// ─────────────────────────────────
+const T = {
+  pt: {
+    "nav.sobre":           "Sobre",
+    "nav.especialidades":  "Especialidades",
+    "nav.como":            "Como funciona",
+    "nav.faq":             "FAQ",
+    "nav.cta":             "Agendar consulta",
+
+    "hero.tag":     "Atendimento Online",
+    "hero.role":    "Psicóloga Clínica",
+    "hero.service": "Terapia Online para Adultos",
+    "hero.sub":     "Um espaço seguro para acolher suas emoções e promover mudanças reais.",
+    "hero.open":    "Agenda aberta para novos pacientes",
+    "hero.c1":      "Ansiedade",
+    "hero.c2":      "Autoestima",
+    "hero.c3":      "Relacionamentos",
+    "hero.c4":      "Luto e Desenvolvimento Pessoal",
+    "hero.btn1":      "Agendar Consulta",
+    "hero.btn2":      "Falar no WhatsApp",
+    "hero.badgeSub":  "Psicóloga Clínica · CRP",
+    "hero.trust1":    "CRP Registrada",
+    "hero.trust2":    "Mestre e Doutoranda em Psicologia",
+    "hero.trust3":    "+5 anos de experiência",
+    "hero.credLabel": "Formação Acadêmica",
+    "hero.credValue": "Mestre · Doutoranda em Psicologia",
+
+    "dor.label": "Você se identifica?",
+    "dor.title": "Você sente que está carregando tudo sozinho?",
+    "dor.desc":  "Muitas pessoas chegam até mim com esses sentimentos. Reconhecê-los é o primeiro passo para a mudança.",
+    "dor.c1.title": "Ansiedade constante",
+    "dor.c1.desc":  "Preocupações que não saem da cabeça e aquela sensação de que algo ruim vai acontecer.",
+    "dor.c2.title": "Excesso de preocupação",
+    "dor.c2.desc":  "Pensamentos acelerados que impedem de dormir, relaxar ou simplesmente curtir a vida.",
+    "dor.c3.title": "Dificuldade para decidir",
+    "dor.c3.desc":  "Medo de errar que paralisa e faz adiar escolhas importantes por muito tempo.",
+    "dor.c4.title": "Relacionamentos desgastantes",
+    "dor.c4.desc":  "Conflitos repetitivos, dificuldade de se comunicar ou sensação de não ser compreendida.",
+    "dor.c5.title": "Baixa autoestima",
+    "dor.c5.desc":  "Autocrítica excessiva, comparações e dificuldade de enxergar o próprio valor.",
+    "dor.c6.title": "Sobrecarga emocional",
+    "dor.c6.desc":  "Sensação de cansaço que não passa, mesmo descansando. Emoções intensas difíceis de controlar.",
+    "dor.quote":    "\"A terapia oferece um espaço seguro para compreender suas emoções, desenvolver novas perspectivas e construir mudanças duradouras.\"",
+
+    "sobre.label":     "Quem sou eu",
+    "sobre.name":      "Olá, sou<br/>Sandrith Lozano",
+    "sobre.photoHint": "Foto humanizada<br/>(ao ar livre)",
+    "sobre.badgeYears":"anos de<br/>experiência",
+    "sobre.bio1": "Sou psicóloga clínica dedicada a acompanhar adultos em momentos de transição, crescimento e transformação emocional. Acredito que cada pessoa tem um ritmo único e meu papel é caminhar ao seu lado, criando um espaço de escuta genuína, sem julgamentos.",
+    "sobre.bio2": "Minha abordagem une técnica e humanidade, sempre com foco em resultados reais e bem-estar duradouro. Atendo online, o que permite que você faça terapia de qualquer lugar do mundo.",
+    "sobre.item1":  "Graduação em Psicologia",
+    "sobre.item2":  "Mestrado em Psicologia",
+    "sobre.item2b": "Doutoranda em Psicologia",
+    "sobre.item3": "Atendimento a adultos — individual e online",
+    "sobre.item4": "Experiência com ansiedade, luto e relacionamentos",
+    "sobre.langPT": "Atendimento em português",
+    "sobre.langES": "Atendimento em espanhol",
+
+    "esp.label": "Áreas de atuação",
+    "esp.title": "Como posso te ajudar",
+    "esp.desc":  "Cada área de atuação é trabalhada com cuidado, técnica e escuta personalizada.",
+    "esp.c1.title": "Ansiedade",
+    "esp.c1.desc":  "Aprenda a lidar com preocupações excessivas, pensamentos acelerados e recupere o equilíbrio emocional no dia a dia.",
+    "esp.c2.title": "Autoestima",
+    "esp.c2.desc":  "Fortaleça sua confiança, dissolva a autocrítica excessiva e desenvolva uma relação mais saudável e amorosa consigo mesma.",
+    "esp.c3.title": "Relacionamentos",
+    "esp.c3.desc":  "Entenda padrões emocionais repetitivos e construa vínculos mais saudáveis, comunicativos e genuínos.",
+    "esp.c4.title": "Luto",
+    "esp.c4.desc":  "Acolhimento cuidadoso e suporte profissional durante processos de perda, separação e grandes transformações de vida.",
+    "esp.c5.title": "Procrastinação",
+    "esp.c5.desc":  "Identifique os bloqueios emocionais por trás do adiamento e desenvolva estratégias mais funcionais e saudáveis.",
+    "esp.c6.title": "Desenvolvimento Pessoal",
+    "esp.c6.desc":  "Autoconhecimento profundo, crescimento emocional e construção de uma vida mais alinhada com quem você realmente é.",
+
+    "como.label": "Processo",
+    "como.title": "Como funciona o atendimento",
+    "como.desc":  "Simples, seguro e completamente online — do agendamento à sessão.",
+    "como.s1.title": "Contato inicial",
+    "como.s1.desc":  "Entre em contato pelo WhatsApp. Conversamos brevemente sobre o que você está sentindo e suas expectativas.",
+    "como.s2.title": "Agendamento",
+    "como.s2.desc":  "Escolhemos juntos o melhor horário para você. Flexibilidade para encaixar na sua rotina.",
+    "como.s3.title": "Sessão online",
+    "como.s3.desc":  "Sessão de 50 minutos por videochamada. Espaço seguro, sigiloso e acolhedor — de onde você estiver.",
+    "como.s4.title": "Acompanhamento",
+    "como.s4.desc":  "Evoluímos juntas ao longo do tempo. A frequência das sessões é adaptada às suas necessidades.",
+
+    "ben.label": "O que você ganha",
+    "ben.title": "Transformações que a terapia traz",
+    "ben.desc":  "A terapia não é só sobre resolver problemas — é sobre construir uma vida que faça sentido para você.",
+    "ben.c1.title": "Clareza emocional",
+    "ben.c1.desc":  "Você passa a entender o que sente, por que sente e o que fazer com isso — sem ficar refém das próprias emoções.",
+    "ben.c2.title": "Leveza no dia a dia",
+    "ben.c2.desc":  "Aquela tensão constante vai cedendo. Você respira mais fundo, dorme melhor e aproveita o presente com mais presença.",
+    "ben.c3.title": "Conexões mais reais",
+    "ben.c3.desc":  "Você passa a se comunicar com mais honestidade, estabelece limites sem culpa e atrai relações que de verdade te fazem bem.",
+    "ben.c4.title": "Confiança em si mesma",
+    "ben.c4.desc":  "A voz que antes te criticava começa a te apoiar. Você age com mais segurança e para de precisar da aprovação dos outros.",
+    "ben.c5.title": "Decisões mais seguras",
+    "ben.c5.desc":  "Sem o peso do medo e da dúvida, você age no tempo certo — e para de adiar o que importa para a sua vida.",
+    "ben.c6.title": "Vida com propósito",
+    "ben.c6.desc":  "Mais do que resolver problemas, você descobre o que realmente quer — e constrói uma vida que faz sentido pra você.",
+
+    "dep.label": "Depoimentos",
+    "dep.title": "O que dizem as pacientes",
+    "dep.desc":  "Depoimentos anônimos de pacientes que já vivenciaram a transformação.",
+    "dep.t1.text":   "Me senti acolhida desde a primeira sessão. A Sandrith tem uma escuta incrível — sem julgamentos, sem pressa. Pela primeira vez consegui falar sobre o que realmente me incomodava.",
+    "dep.t1.name":   "M. C., 34 anos · São Paulo",
+    "dep.t1.detail": "Ansiedade · 8 meses de terapia",
+    "dep.t2.text":   "Aprendi a lidar melhor com minha ansiedade de um jeito que nunca achei que seria possível. Hoje consigo respirar antes de reagir. Isso mudou meus relacionamentos completamente.",
+    "dep.t2.name":   "A. L., 29 anos · Rio de Janeiro",
+    "dep.t2.detail": "Ansiedade e relacionamentos · 6 meses",
+    "dep.t3.text":   "Hoje consigo tomar decisões com muito mais segurança e clareza. A procrastinação que me paralisava por anos foi diminuindo gradativamente. A terapia foi um divisor de águas.",
+    "dep.t3.name":   "R. M., 38 anos · Portugal",
+    "dep.t3.detail": "Desenvolvimento pessoal · 1 ano",
+
+    "faq.label": "Dúvidas frequentes",
+    "faq.title": "Perguntas frequentes",
+    "faq.q1": "A terapia online funciona da mesma forma que a presencial?",
+    "faq.a1": "Sim. Diversas pesquisas confirmam que a eficácia da terapia online é equivalente à presencial. O vínculo terapêutico e os resultados são igualmente sólidos. A vantagem é a comodidade: você faz a sessão de onde se sentir mais confortável, sem deslocamento.",
+    "faq.q2": "Quanto tempo dura cada sessão?",
+    "faq.a2": "Cada sessão tem duração de 50 minutos, tempo padrão da sessão psicoterapêutica. As sessões são realizadas por videochamada em plataforma segura e sigilosa.",
+    "faq.q3": "Você atende convênio?",
+    "faq.a3": "No momento o atendimento é particular. Entre em contato pelo WhatsApp para saber mais sobre os valores e condições de pagamento disponíveis.",
+    "faq.q4": "Como funciona o pagamento?",
+    "faq.a4": "O pagamento é realizado antes de cada sessão, via Pix, transferência bancária ou cartão de crédito. Após a confirmação do pagamento, o link da videochamada é enviado.",
+    "faq.q5": "Posso fazer terapia morando em outro país?",
+    "faq.a5": "Sim! Atendo brasileiros e hispânicos em qualquer parte do mundo. Basta ter conexão com internet. Adaptamos o horário de acordo com o seu fuso horário. O atendimento é em português ou espanhol.",
+    "faq.q6": "Como sei se a terapia é para mim?",
+    "faq.a6": "A terapia é para qualquer pessoa que deseja se conhecer melhor, superar dificuldades emocionais ou simplesmente viver com mais qualidade. Não é preciso estar em crise. Se você sente que algo pode melhorar, já é razão suficiente para começar.",
+
+    "cta.label":    "Pronta para começar?",
+    "cta.title":    "Você não precisa enfrentar tudo sozinha.",
+    "cta.desc":     "Dar o primeiro passo pode parecer difícil, mas pode transformar a sua vida. Estou aqui para caminhar com você.",
+    "cta.btn1":     "Agendar Consulta",
+    "cta.btn2":     "Tirar uma dúvida primeiro",
+    "cta.reassure": "Sigilo garantido · Sem compromisso · Respondo em até 24h",
+
+    "strip.quote":      "\"Cada sessão é um espaço criado exclusivamente para você crescer.\"",
+    "dep.photoCaption": "Escuta genuína · Sem julgamentos · 100% online",
+    "footer.copy": "© 2026 Sandrith Lozano. Todos os direitos reservados.",
+    "wa.tooltip":  "Falar no WhatsApp",
+
+    "como.badgeTitle": "Sessões de 50 minutos",
+    "como.badgeSub":   "100% online · seguro · sigiloso",
+
+    "galeria.c1": "Presença e cuidado em cada sessão",
+    "galeria.c2": "Escuta genuína e sem julgamentos",
+    "galeria.c3": "Um espaço só seu",
+    "galeria.c4": "Autoconhecimento que transforma",
+
+    "banner.label":     "Psicóloga Clínica",
+    "banner.title":     "Terapia online para quem busca equilíbrio, clareza e bem-estar.",
+    "banner.cta":       "Agendar Consulta",
+    "banner.authority": "CRP · Atendimento em Português e Espanhol"
+  },
+
+  es: {
+    "nav.sobre":           "Sobre mí",
+    "nav.especialidades":  "Especialidades",
+    "nav.como":            "Cómo funciona",
+    "nav.faq":             "Preguntas",
+    "nav.cta":             "Agendar consulta",
+
+    "hero.tag":     "Atención Online",
+    "hero.role":    "Psicóloga Clínica",
+    "hero.service": "Terapia Online para Adultos",
+    "hero.sub":     "Un espacio seguro para acoger tus emociones y promover cambios reales.",
+    "hero.open":    "Agenda abierta para nuevos pacientes",
+    "hero.c1":      "Ansiedad",
+    "hero.c2":      "Autoestima",
+    "hero.c3":      "Relaciones",
+    "hero.c4":      "Duelo y Desarrollo Personal",
+    "hero.btn1":      "Agendar Consulta",
+    "hero.btn2":      "Hablar por WhatsApp",
+    "hero.trust1":    "CRP Registrada",
+    "hero.trust2":    "Máster y Doctoranda en Psicología",
+    "hero.trust3":    "+5 años de experiencia",
+    "hero.credLabel": "Formación Académica",
+    "hero.credValue": "Máster · Doctoranda en Psicología",
+    "hero.trust1":    "Atención segura y confidencial",
+    "hero.trust2":    "Psicóloga registrada en el CRP",
+    "hero.photoHint": "Foto profesional<br/>de la psicóloga aquí",
+    "hero.badgeSub":  "Psicóloga Clínica · CRP",
+    "hero.badge2":    "Agenda abierta",
+
+    "dor.label": "¿Te identificas?",
+    "dor.title": "¿Sientes que estás cargando todo solo?",
+    "dor.desc":  "Muchas personas llegan a mí con estos sentimientos. Reconocerlos es el primer paso para el cambio.",
+    "dor.c1.title": "Ansiedad constante",
+    "dor.c1.desc":  "Preocupaciones que no se van de la mente y esa sensación de que algo malo va a pasar.",
+    "dor.c2.title": "Exceso de preocupación",
+    "dor.c2.desc":  "Pensamientos acelerados que impiden dormir, relajarse o simplemente disfrutar la vida.",
+    "dor.c3.title": "Dificultad para decidir",
+    "dor.c3.desc":  "Miedo a equivocarse que paraliza y hace postergar decisiones importantes por mucho tiempo.",
+    "dor.c4.title": "Relaciones desgastantes",
+    "dor.c4.desc":  "Conflictos repetitivos, dificultad para comunicarse o sensación de no ser comprendida.",
+    "dor.c5.title": "Baja autoestima",
+    "dor.c5.desc":  "Autocrítica excesiva, comparaciones y dificultad para reconocer el propio valor.",
+    "dor.c6.title": "Sobrecarga emocional",
+    "dor.c6.desc":  "Sensación de cansancio que no pasa, incluso descansando. Emociones intensas difíciles de controlar.",
+    "dor.quote":    "\"La terapia ofrece un espacio seguro para comprender tus emociones, desarrollar nuevas perspectivas y construir cambios duraderos.\"",
+
+    "sobre.label":     "Quién soy",
+    "sobre.name":      "Hola, soy<br/>Sandrith Lozano",
+    "sobre.photoHint": "Foto natural<br/>(al aire libre)",
+    "sobre.badgeYears":"años de<br/>experiencia",
+    "sobre.bio1": "Soy psicóloga clínica dedicada a acompañar a adultos en momentos de transición, crecimiento y transformación emocional. Creo que cada persona tiene un ritmo único y mi papel es caminar a tu lado, creando un espacio de escucha genuina, sin juicios.",
+    "sobre.bio2": "Mi enfoque une técnica y humanidad, siempre con foco en resultados reales y bienestar duradero. Atiendo online, lo que te permite hacer terapia desde cualquier lugar del mundo.",
+    "sobre.item1":  "Licenciatura en Psicología",
+    "sobre.item2":  "Maestría en Psicología",
+    "sobre.item2b": "Doctoranda en Psicología",
+    "sobre.item3": "Atención a adultos — individual y online",
+    "sobre.item4": "Experiencia con ansiedad, duelo y relaciones",
+    "sobre.langPT": "Atención en portugués",
+    "sobre.langES": "Atención en español",
+
+    "esp.label": "Áreas de actuación",
+    "esp.title": "Cómo puedo ayudarte",
+    "esp.desc":  "Cada área de actuación se trabaja con cuidado, técnica y escucha personalizada.",
+    "esp.c1.title": "Ansiedad",
+    "esp.c1.desc":  "Aprende a manejar las preocupaciones excesivas, los pensamientos acelerados y recupera el equilibrio emocional en el día a día.",
+    "esp.c2.title": "Autoestima",
+    "esp.c2.desc":  "Fortalece tu confianza, disuelve la autocrítica excesiva y desarrolla una relación más sana y amorosa contigo misma.",
+    "esp.c3.title": "Relaciones",
+    "esp.c3.desc":  "Comprende patrones emocionales repetitivos y construye vínculos más saludables, comunicativos y genuinos.",
+    "esp.c4.title": "Duelo",
+    "esp.c4.desc":  "Acompañamiento cuidadoso y apoyo profesional durante procesos de pérdida, separación y grandes transformaciones de vida.",
+    "esp.c5.title": "Procrastinación",
+    "esp.c5.desc":  "Identifica los bloqueos emocionales detrás de la postergación y desarrolla estrategias más funcionales y saludables.",
+    "esp.c6.title": "Desarrollo Personal",
+    "esp.c6.desc":  "Autoconocimiento profundo, crecimiento emocional y construcción de una vida más alineada con quien realmente eres.",
+
+    "como.label": "Proceso",
+    "como.title": "Cómo funciona la atención",
+    "como.desc":  "Simple, seguro y completamente online — desde el agendamiento hasta la sesión.",
+    "como.s1.title": "Contacto inicial",
+    "como.s1.desc":  "Ponte en contacto por WhatsApp. Conversamos brevemente sobre lo que estás sintiendo y tus expectativas.",
+    "como.s2.title": "Agendamiento",
+    "como.s2.desc":  "Elegimos juntas el mejor horario para ti. Flexibilidad para encajar en tu rutina.",
+    "como.s3.title": "Sesión online",
+    "como.s3.desc":  "Sesión de 50 minutos por videollamada. Espacio seguro, confidencial y acogedor — desde donde estés.",
+    "como.s4.title": "Seguimiento",
+    "como.s4.desc":  "Evolucionamos juntas a lo largo del tiempo. La frecuencia de las sesiones se adapta a tus necesidades.",
+
+    "ben.label": "Qué ganas",
+    "ben.title": "Transformaciones que trae la terapia",
+    "ben.desc":  "La terapia no solo resuelve problemas — construye una vida que tenga sentido para ti.",
+    "ben.c1.title": "Claridad emocional",
+    "ben.c1.desc":  "Empiezas a entender lo que sientes, por qué lo sientes y qué hacer con eso — sin ser prisionera de tus propias emociones.",
+    "ben.c2.title": "Ligereza en el día a día",
+    "ben.c2.desc":  "Esa tensión constante va cediendo. Respiras más profundo, duermes mejor y disfrutas el presente con más presencia.",
+    "ben.c3.title": "Conexiones más reales",
+    "ben.c3.desc":  "Te comunicas con más honestidad, estableces límites sin culpa y atraes relaciones que de verdad te hacen bien.",
+    "ben.c4.title": "Confianza en ti misma",
+    "ben.c4.desc":  "La voz que antes te criticaba empieza a apoyarte. Actúas con más seguridad y dejas de necesitar la aprobación de los demás.",
+    "ben.c5.title": "Decisiones más seguras",
+    "ben.c5.desc":  "Sin el peso del miedo y la duda, actúas en el momento justo — y dejas de posponer lo que importa en tu vida.",
+    "ben.c6.title": "Vida con propósito",
+    "ben.c6.desc":  "Más que resolver problemas, descubres lo que realmente quieres — y construyes una vida que tiene sentido para ti.",
+
+    "dep.label": "Testimonios",
+    "dep.title": "Lo que dicen las pacientes",
+    "dep.desc":  "Testimonios anónimos de pacientes que ya vivieron la transformación.",
+    "dep.t1.text":   "Me sentí acogida desde la primera sesión. Sandrith tiene una escucha increíble — sin juicios, sin prisas. Por primera vez pude hablar de lo que realmente me molestaba.",
+    "dep.t1.name":   "M. C., 34 años · São Paulo",
+    "dep.t1.detail": "Ansiedad · 8 meses de terapia",
+    "dep.t2.text":   "Aprendí a manejar mi ansiedad de una manera que nunca pensé que sería posible. Hoy puedo respirar antes de reaccionar. Eso cambió mis relaciones por completo.",
+    "dep.t2.name":   "A. L., 29 años · Río de Janeiro",
+    "dep.t2.detail": "Ansiedad y relaciones · 6 meses",
+    "dep.t3.text":   "Hoy puedo tomar decisiones con mucha más seguridad y claridad. La procrastinación que me paralizaba por años fue disminuyendo poco a poco. La terapia fue un divisor de aguas en mi vida.",
+    "dep.t3.name":   "R. M., 38 años · Portugal",
+    "dep.t3.detail": "Desarrollo personal · 1 año",
+
+    "faq.label": "Preguntas frecuentes",
+    "faq.title": "Preguntas frecuentes",
+    "faq.q1": "¿La terapia online funciona igual que la presencial?",
+    "faq.a1": "Sí. Diversas investigaciones confirman que la eficacia de la terapia online es equivalente a la presencial. El vínculo terapéutico y los resultados son igualmente sólidos. La ventaja es la comodidad: haces la sesión desde donde te sientas más cómoda, sin desplazamiento.",
+    "faq.q2": "¿Cuánto dura cada sesión?",
+    "faq.a2": "Cada sesión tiene una duración de 50 minutos, el tiempo estándar de la sesión psicoterapéutica. Las sesiones se realizan por videollamada en una plataforma segura y confidencial.",
+    "faq.q3": "¿Atiendes con seguro médico?",
+    "faq.a3": "Por el momento la atención es privada. Contáctame por WhatsApp para saber más sobre los valores y condiciones de pago disponibles.",
+    "faq.q4": "¿Cómo funciona el pago?",
+    "faq.a4": "El pago se realiza antes de cada sesión, mediante transferencia bancaria o tarjeta de crédito. Tras la confirmación del pago, se envía el enlace de la videollamada.",
+    "faq.q5": "¿Puedo hacer terapia viviendo en otro país?",
+    "faq.a5": "¡Sí! Atiendo a hispanohablantes y brasileños en cualquier parte del mundo. Solo necesitas conexión a internet. Adaptamos el horario según tu zona horaria. La atención es en español o portugués.",
+    "faq.q6": "¿Cómo sé si la terapia es para mí?",
+    "faq.a6": "La terapia es para cualquier persona que desea conocerse mejor, superar dificultades emocionales o simplemente vivir con más calidad. No es necesario estar en crisis. Si sientes que algo puede mejorar, ya es razón suficiente para comenzar.",
+
+    "cta.label":    "¿Lista para empezar?",
+    "cta.title":    "No tienes que enfrentar todo sola.",
+    "cta.desc":     "Dar el primer paso puede parecer difícil, pero puede transformar tu vida. Estoy aquí para caminar contigo.",
+    "cta.btn1":     "Agendar Consulta",
+    "cta.btn2":     "Hacer una pregunta primero",
+    "cta.reassure": "Confidencialidad garantizada · Sin compromiso · Respondo en 24h",
+
+    "strip.quote":      "\"Cada sesión es un espacio creado exclusivamente para que crezcas.\"",
+    "dep.photoCaption": "Escucha genuina · Sin juicios · 100% online",
+    "footer.copy": "© 2026 Sandrith Lozano. Todos los derechos reservados.",
+    "wa.tooltip":  "Hablar por WhatsApp",
+
+    "como.badgeTitle": "Sesiones de 50 minutos",
+    "como.badgeSub":   "100% online · seguro · confidencial",
+
+    "galeria.c1": "Presencia y cuidado en cada sesión",
+    "galeria.c2": "Escucha genuina y sin juicios",
+    "galeria.c3": "Un espacio solo para ti",
+    "galeria.c4": "Autoconocimiento que transforma",
+
+    "banner.label":     "Psicóloga Clínica",
+    "banner.title":     "Terapia online para quien busca equilibrio, claridad y bienestar.",
+    "banner.cta":       "Agendar Consulta",
+    "banner.authority": "CRP · Atención en Portugués y Español"
+  }
+};
+
+// ─────────────────────────────────
+//  LANG SWITCH
+// ─────────────────────────────────
+let currentLang = localStorage.getItem('sl-lang') || 'pt';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('sl-lang', lang);
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'es';
+
+  // Update text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang][key] !== undefined) el.textContent = T[lang][key];
+  });
+
+  // Update HTML nodes (for elements with tags inside)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+  });
+
+  // Update lang toggle buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+
+  // Update <html> meta
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.content = lang === 'pt'
+      ? 'Psicoterapia online para adultos. Apoio profissional para ansiedade, autoestima, relacionamentos, luto e desenvolvimento emocional.'
+      : 'Psicoterapia online para adultos. Apoyo profesional para ansiedad, autoestima, relaciones, duelo y desarrollo emocional.';
+  }
+}
+
+// ─────────────────────────────────
+//  INIT
+// ─────────────────────────────────
+setLang(currentLang);
+
+// ─────────────────────────────────
+//  NAV SCROLL
+// ─────────────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ─────────────────────────────────
+//  HIDE FLOATING WA ON FOOTER
+// ─────────────────────────────────
+const waFloat  = document.querySelector('.wa-float');
+const footerEl = document.querySelector('footer');
+new IntersectionObserver((entries) => {
+  waFloat.style.opacity   = entries[0].isIntersecting ? '0' : '1';
+  waFloat.style.pointerEvents = entries[0].isIntersecting ? 'none' : 'auto';
+}, { threshold: 0.01 }).observe(footerEl);
+
+// ─────────────────────────────────
+//  REVEAL ON SCROLL
+// ─────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+// ─────────────────────────────────
+//  FAQ ACCORDION
+// ─────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item   = q.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+// ─────────────────────────────────
+//  MOBILE MENU
+// ─────────────────────────────────
+function closeMobile() { document.getElementById('mobile-menu').classList.remove('open'); }
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.add('open');
+});
+document.getElementById('mobile-close').addEventListener('click', closeMobile);
+document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', closeMobile));
+
+// ─────────────────────────────────
+//  SMOOTH SCROLL
+// ─────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    }
+  });
+});
+
+// ─────────────────────────────────
+//  MODAIS ORYGA
+// ─────────────────────────────────
+(function () {
+  const FIRST_DELAY = 12 * 1000;   // 12s para primeira exibição
+  const RESHOW      = 55 * 1000;   // 55s entre alternâncias
+
+  const modals = [
+    {
+      overlay: document.getElementById('orygaOverlay'),
+      close:   document.getElementById('orygaClose'),
+      dismiss: document.getElementById('orygaDismiss'),
+      cta:     document.getElementById('orygaCTA'),
+      ctaKey:  'oryga_cta1_clicked',
+    },
+    {
+      overlay: document.getElementById('orygaOverlay2'),
+      close:   document.getElementById('orygaClose2'),
+      dismiss: document.getElementById('orygaDismiss2'),
+      cta:     document.getElementById('orygaCTA2'),
+      ctaKey:  'oryga_cta2_clicked',
+    },
+  ];
+
+  let timer;
+
+  function showModal(idx) {
+    modals[idx].overlay.classList.add('show');
+  }
+
+  function hideModal(idx, reshow) {
+    modals[idx].overlay.classList.remove('show');
+    if (reshow) {
+      const next = (idx + 1) % modals.length;
+      timer = setTimeout(() => showModal(next), RESHOW);
+    }
+  }
+
+  timer = setTimeout(() => showModal(0), FIRST_DELAY);
+
+  modals.forEach((m, idx) => {
+    m.close.addEventListener('click',   () => hideModal(idx, true));
+    m.dismiss.addEventListener('click', () => hideModal(idx, true));
+    m.overlay.addEventListener('click', (e) => {
+      if (e.target === m.overlay) hideModal(idx, true);
+    });
+    m.cta.addEventListener('click', () => {
+      localStorage.setItem(m.ctaKey, '1');
+      clearTimeout(timer);
+      const next = (idx + 1) % modals.length;
+      hideModal(idx, false);
+      timer = setTimeout(() => showModal(next), RESHOW);
+    });
+  });
+})();
+</script>
+</body>
+</html>

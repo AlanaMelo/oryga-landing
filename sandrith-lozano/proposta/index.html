@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Proposta Comercial — Oryga × Sandrith Lozano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:    #D3A6B3;
+      --rose-l:  #E4C2CC;
+      --rose-d:  rgba(211,166,179,.08);
+      --rose-b:  rgba(211,166,179,.28);
+      --lilac:   #CBB7E8;
+      --lilac-d: rgba(203,183,232,.08);
+      --lilac-b: rgba(203,183,232,.28);
+      --bg:      #0d0b10;
+      --bg1:     #121018;
+      --bg2:     #181520;
+      --bg3:     #1e1a28;
+      --border:  rgba(255,255,255,.07);
+      --border2: rgba(255,255,255,.11);
+      --muted:   #555566;
+      --gray:    #888899;
+      --text:    #f0eef4;
+      --text2:   #c0bace;
+      --green:   #25D366;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ════ LOCK ════ */
+    #lock {
+      min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; padding: 1.5rem;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(203,183,232,.07) 0%, transparent 70%), var(--bg);
+    }
+    .lock-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 24px; padding: 3.5rem 2.75rem;
+      width: 100%; max-width: 440px; text-align: center;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5);
+    }
+    .lock-logo     { font-size: 2rem; font-weight: 900; color: var(--lilac); letter-spacing: -.04em; }
+    .lock-logo-sub { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin-bottom: .5rem; }
+    .lock-divider  { height: 1px; background: var(--border); margin: 1.5rem 0 2rem; }
+    .lock-title    { font-size: 1.2rem; font-weight: 800; margin-bottom: .4rem; }
+    .lock-desc     { font-size: .82rem; color: var(--gray); margin-bottom: 2rem; line-height: 1.6; }
+    .lock-input {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 12px; padding: .9rem 1rem; color: var(--text);
+      font-family: inherit; font-size: 1rem; text-align: center;
+      letter-spacing: .15em; outline: none; margin-bottom: 1rem;
+      transition: border-color .2s, background .2s;
+    }
+    .lock-input:focus { border-color: rgba(203,183,232,.6); background: rgba(203,183,232,.04); }
+    .lock-btn {
+      width: 100%; padding: 1rem; border: none; border-radius: 12px;
+      background: linear-gradient(135deg, var(--rose), var(--lilac));
+      color: #12101a; font-family: inherit; font-size: .95rem; font-weight: 800; cursor: pointer;
+      transition: opacity .2s, transform .15s;
+    }
+    .lock-btn:hover { opacity: .9; transform: translateY(-1px); }
+    .lock-err { color: #ff7b7b; font-size: .8rem; margin-top: .875rem; display: none; }
+
+    /* ════ VENDOR BAR ════ */
+    #vbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(8,6,14,.97); backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(203,183,232,.4);
+      padding: .65rem 1.5rem;
+      display: none; align-items: center; gap: .625rem; flex-wrap: wrap;
+    }
+    .vbadge {
+      background: linear-gradient(135deg, var(--rose), var(--lilac)); color: #12101a;
+      font-size: .65rem; font-weight: 900; letter-spacing: .12em;
+      text-transform: uppercase; padding: .3rem .75rem; border-radius: 6px; flex-shrink: 0;
+    }
+    .vhint { font-size: .77rem; color: var(--muted); flex: 1; min-width: 80px; }
+    .vbtn {
+      background: var(--bg2); border: 1px solid var(--border2); color: var(--text);
+      font-family: inherit; font-size: .78rem; font-weight: 600;
+      padding: .4rem .825rem; border-radius: 8px; cursor: pointer;
+      transition: background .15s; white-space: nowrap;
+    }
+    .vbtn:hover { background: #221e30; }
+    .vbtn.hi { background: linear-gradient(135deg, var(--rose), var(--lilac)); border-color: transparent; color: #12101a; font-weight: 800; }
+    .vbar-price-label { display:flex; align-items:center; gap:.35rem; font-size:.8rem; color:#aaa; white-space:nowrap; }
+    .vbar-price-input { width:72px; background:#1a1525; border:1px solid #444; border-radius:5px; color:var(--lilac); font-size:.85rem; font-weight:700; padding:.25rem .5rem; text-align:center; }
+
+    /* ════ PROPOSTA ════ */
+    #proposta { display: none; }
+
+    .prop-page {
+      max-width: 960px; margin: 0 auto;
+      padding: 5.5rem 2rem 5rem;
+    }
+
+    /* ── Hero header ── */
+    .prop-hero {
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      border: 1px solid var(--border2);
+      border-radius: 24px; padding: 3rem;
+      margin-bottom: 3rem;
+      position: relative; overflow: hidden;
+    }
+    .prop-hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(203,183,232,.1) 0%, transparent 70%);
+    }
+    .prop-hero-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .prop-brand     { font-size: 2rem; font-weight: 900; color: var(--lilac); letter-spacing: -.04em; }
+    .prop-brand-sub { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin-top: -.1rem; }
+    .prop-meta-badge {
+      background: var(--lilac-d); border: 1px solid var(--lilac-b);
+      border-radius: 8px; padding: .5rem 1rem;
+      font-size: .72rem; color: var(--lilac); font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .prop-hero-divider { height: 1px; background: var(--border); margin-bottom: 2rem; }
+    .prop-hero-body { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; flex-wrap: wrap; }
+    .prop-hero-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: .5rem; }
+    .prop-hero-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; letter-spacing: -.03em; line-height: 1.2; font-family: 'Playfair Display', serif; }
+    .prop-hero-title span { color: var(--rose); }
+    .prop-hero-sub { font-size: .88rem; color: var(--gray); margin-top: .5rem; }
+    .prop-hero-meta { text-align: right; }
+    .prop-hero-meta-line { font-size: .78rem; color: var(--gray); margin-bottom: .3rem; }
+    .prop-hero-meta-line strong { color: var(--text2); }
+    .prop-hero-ref { font-size: .75rem; color: var(--lilac); font-weight: 700; letter-spacing: .08em; }
+
+    /* ── Destinatário ── */
+    .prop-to {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 18px; padding: 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem; margin-bottom: 3rem;
+    }
+    .prop-to-f label {
+      font-size: .65rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em; display: block; margin-bottom: .3rem;
+    }
+    .prop-to-f .fv { font-size: .92rem; font-weight: 600; color: var(--text); }
+
+    /* ── Seções genéricas ── */
+    .prop-sec { margin-bottom: 3rem; }
+    .prop-sec-header {
+      display: flex; align-items: center; gap: .875rem; margin-bottom: 1.5rem;
+    }
+    .prop-sec-icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      background: var(--rose-d); border: 1px solid var(--rose-b);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; line-height: 1;
+    }
+    .prop-sec-title { font-size: 1.1rem; font-weight: 800; letter-spacing: -.02em; }
+    .prop-sec-divider { flex: 1; height: 1px; background: var(--border); }
+
+    .prop-text { font-size: .9rem; color: var(--text2); line-height: 1.85; }
+
+    /* ── Demo box ── */
+    .prop-demo {
+      background: var(--bg2); border: 1px solid rgba(211,166,179,.3);
+      border-radius: 14px; padding: 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem; margin-top: 1.25rem;
+    }
+    .prop-demo-icon { font-size: 1.75rem; flex-shrink: 0; }
+    .prop-demo-text { font-size: .88rem; color: var(--text2); line-height: 1.7; }
+    .prop-demo-text a { color: var(--rose); font-weight: 700; text-decoration: none; word-break: break-all; }
+    .prop-demo-text a:hover { text-decoration: underline; }
+    .prop-demo-note { font-size: .78rem; color: var(--muted); margin-top: .4rem; }
+
+    /* ── Objetivos cards ── */
+    .obj-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .obj-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 14px; padding: 1.25rem;
+      transition: border-color .2s, background .2s;
+    }
+    .obj-card:hover { border-color: var(--rose-b); background: var(--bg2); }
+    .obj-icon { font-size: 1.5rem; margin-bottom: .625rem; }
+    .obj-text { font-size: .82rem; color: var(--text2); line-height: 1.55; font-weight: 500; }
+
+    /* ── Escopo grid (2 colunas) ── */
+    .escopo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .escopo-col {
+      background: var(--bg1); border: 1px solid var(--border2); border-radius: 16px; padding: 1.75rem;
+    }
+    .escopo-col-title {
+      font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--rose); margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem;
+    }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .85rem; color: var(--text2); line-height: 1.5; }
+    .check-dot {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: .08rem;
+      background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; color: #25D366; font-weight: 900;
+    }
+
+    /* ── Benefícios chips ── */
+    .ben-grid { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .ben-chip {
+      display: flex; align-items: center; gap: .625rem;
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 50px; padding: .6rem 1.1rem;
+      font-size: .82rem; color: var(--text2); font-weight: 500;
+      transition: border-color .2s;
+    }
+    .ben-chip:hover { border-color: var(--rose-b); }
+    .ben-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
+
+    /* ── Prazo ── */
+    .prazo-box {
+      background: var(--bg1); border: 1px solid var(--border2); border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .prazo-num {
+      font-size: 3rem; font-weight: 900; color: var(--lilac); line-height: 1;
+      flex-shrink: 0; letter-spacing: -.04em;
+    }
+    .prazo-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .3rem; }
+    .prazo-desc { font-size: .9rem; color: var(--text2); line-height: 1.6; }
+    .prazo-desc strong { color: var(--text); }
+
+    /* ── Planos ── */
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-bottom: 1.75rem;
+    }
+    .plan-card {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 18px; padding: 1.75rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0; position: relative;
+      transition: border-color .2s;
+    }
+    .plan-card:hover { border-color: rgba(255,255,255,.18); }
+    .plan-card-hi {
+      background: linear-gradient(160deg, #150f20 0%, #1a122a 100%);
+      border-color: rgba(203,183,232,.35);
+    }
+    .plan-card-hi:hover { border-color: rgba(203,183,232,.55); }
+
+    .plan-popular {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--rose), var(--lilac)); color: #12101a;
+      font-size: .65rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase;
+      padding: .25rem .875rem; border-radius: 50px; white-space: nowrap;
+    }
+    .plan-badge {
+      font-size: .65rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--muted); margin-bottom: .5rem;
+    }
+    .plan-badge-hi { color: var(--lilac); }
+    .plan-name { font-size: .92rem; font-weight: 800; margin-bottom: 1.25rem; line-height: 1.3; }
+
+    .plan-price-wrap { margin-bottom: 1.5rem; }
+    .plan-price-label { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .25rem; }
+    .plan-price { font-size: 1.5rem; font-weight: 900; color: var(--text); letter-spacing: -.02em; }
+    .plan-price span { font-size: .9rem; font-weight: 700; }
+    .plan-price-hi { color: var(--lilac); }
+    .plan-monthly { font-size: .85rem; font-weight: 700; color: var(--text2); margin-top: .25rem; }
+    .plan-monthly small { font-size: .75rem; font-weight: 500; }
+    .plan-monthly-none { color: var(--muted); font-weight: 500; font-size: .8rem; }
+    .plan-monthly-hi { color: var(--lilac); }
+
+    .plan-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; flex: 1; margin-bottom: 1.25rem; }
+    .plan-list li { display: flex; align-items: flex-start; gap: .625rem; font-size: .8rem; color: var(--text2); line-height: 1.45; }
+    .check-dot-hi { background: rgba(203,183,232,.12) !important; border-color: rgba(203,183,232,.35) !important; color: var(--lilac) !important; }
+
+    .plan-tag { font-size: .73rem; color: var(--muted); font-style: italic; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--border); }
+    .plan-tag-hi { color: rgba(203,183,232,.6); border-color: rgba(203,183,232,.15); }
+    .plan-sub-list { font-size: .72rem; color: var(--muted); margin-top: .3rem; padding-left: .1rem; line-height: 1.6; }
+
+    .plans-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(255,255,255,.04); border-left: 3px solid var(--border); border-radius: 6px; font-size: .85rem; color: var(--muted); line-height: 1.7; }
+    .plans-sale { margin-top: 1.25rem; padding: 1.1rem 1.25rem; background: var(--rose-d); border: 1px solid var(--rose-b); border-radius: 8px; font-size: .88rem; color: #ccc; line-height: 1.75; }
+
+    /* Seleção de plano */
+    .plan-selectable { cursor: pointer; transition: border-color .2s, box-shadow .2s, transform .15s; }
+    .plan-selectable:hover { transform: translateY(-3px); }
+    .plan-selectable.plan-active { border-color: rgba(37,211,102,.6) !important; box-shadow: 0 0 0 3px rgba(37,211,102,.15); }
+    .plan-card-hi.plan-active  { border-color: rgba(203,183,232,.8) !important; box-shadow: 0 0 0 3px rgba(203,183,232,.2); }
+
+    .plan-selected-badge {
+      display: none; background: var(--green); color: #fff;
+      font-size: .65rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase;
+      padding: .25rem .75rem; border-radius: 50px; margin-bottom: .625rem;
+      width: fit-content;
+    }
+    .plan-selected-badge-hi { background: linear-gradient(135deg, var(--rose), var(--lilac)); color: #12101a; }
+    .plan-active .plan-selected-badge { display: block; }
+
+    .plan-fidelidade {
+      font-size: .72rem; color: var(--muted); font-weight: 600;
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: .3rem .625rem; margin-bottom: .625rem; width: fit-content;
+    }
+    .plan-fidelidade-hi { border-color: rgba(203,183,232,.2); color: rgba(203,183,232,.6); }
+
+    /* Pagamento */
+    .plan-payment-full {
+      background: var(--bg1); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.5rem 2rem;
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
+      align-items: center; margin-top: 1rem;
+    }
+    .plan-pay-divider { width: 1px; height: 40px; background: var(--border2); }
+    .plan-pay-label { font-size: .72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .4rem; }
+    .plan-pay-desc { font-size: .88rem; color: var(--text2); line-height: 1.5; }
+    .plan-pay-desc strong { color: var(--text); }
+
+    /* ── Obs / Validade ── */
+    .info-box {
+      background: var(--bg1); border: 1px solid var(--border2); border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .info-box p { font-size: .85rem; color: var(--text2); line-height: 1.8; }
+    .info-box p + p { margin-top: .625rem; }
+    .info-box strong { color: var(--text); }
+
+    .valid-box {
+      background: var(--rose-d); border: 1px solid var(--rose-b);
+      border-radius: 14px; padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .valid-icon { font-size: 1.75rem; flex-shrink: 0; }
+    .valid-text { font-size: .88rem; color: var(--text2); line-height: 1.65; }
+    .valid-text strong { color: var(--rose); font-size: 1.1em; }
+
+    /* ── Aceitar ── */
+    .sign-cta {
+      background: linear-gradient(135deg, var(--rose-d) 0%, var(--lilac-d) 100%);
+      border: 1px solid var(--rose-b); border-radius: 20px;
+      padding: 2.5rem; text-align: center; margin-bottom: 3rem;
+    }
+    .sign-cta-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .sign-cta-title { font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 900; margin-bottom: .75rem; letter-spacing: -.02em; font-family: 'Playfair Display', serif; }
+    .sign-cta-title span { color: var(--rose); }
+    .sign-cta-desc { font-size: .9rem; color: var(--gray); line-height: 1.75; max-width: 560px; margin: 0 auto; }
+
+    .aceitar-wrap { margin-top: 1.5rem; }
+    .aceitar-btn {
+      display: flex; align-items: center; gap: 1.1rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #22a860 100%);
+      color: #fff; border: none; border-radius: 14px;
+      padding: 1.1rem 2rem; cursor: pointer; width: 100%;
+      box-shadow: 0 6px 28px rgba(26,122,74,.45);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .aceitar-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(26,122,74,.55); }
+    .aceitar-btn:disabled { opacity: .65; cursor: default; transform: none !important; box-shadow: none !important; }
+    .aceitar-icon-wrap { font-size: 2.2rem; flex-shrink: 0; }
+    .aceitar-text { text-align: left; }
+    .aceitar-label { font-size: 1.15rem; font-weight: 800; letter-spacing: -.01em; }
+    .aceitar-sub { font-size: .78rem; opacity: .85; margin-top: .15rem; font-weight: 400; }
+    .aceitar-ok { display:flex; align-items:center; gap:1rem; background:rgba(34,168,96,.12); border:1px solid rgba(34,168,96,.3); border-radius:12px; padding:1.1rem 1.4rem; margin-top:1rem; }
+    .aceitar-ok-icon { font-size:2rem; flex-shrink:0; }
+    .aceitar-ok-title { font-size:1rem; font-weight:700; color:#22a860; }
+    .aceitar-ok-sub { font-size:.8rem; color:var(--muted); margin-top:.2rem; }
+
+    /* ── Footer da proposta ── */
+    .prop-footer {
+      margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .prop-footer-brand { font-size: 1rem; font-weight: 900; color: var(--lilac); letter-spacing: -.02em; }
+    .prop-footer-sub   { font-size: .72rem; color: var(--muted); }
+    .prop-footer-right { font-size: .75rem; color: var(--muted); text-align: right; line-height: 1.6; }
+
+    /* Toast */
+    #toast {
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      background: var(--green); color: #fff; font-size: .82rem; font-weight: 700;
+      padding: .55rem 1.25rem; border-radius: 50px; z-index: 9999;
+      opacity: 0; transition: opacity .3s; pointer-events: none;
+    }
+
+    /* Editable fields */
+    [contenteditable="true"] { outline: none; border-radius: 5px; cursor: text; min-width: 2ch; }
+    [contenteditable="true"]:hover { background: rgba(211,166,179,.06); box-shadow: 0 0 0 1px rgba(211,166,179,.25); }
+    [contenteditable="true"]:focus { background: rgba(211,166,179,.09); box-shadow: 0 0 0 2px rgba(211,166,179,.4); }
+
+    /* Print */
+    @media print {
+      #vbar, #lock, .modal-overlay { display: none !important; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      :root {
+        --rose:   #a06070; --rose-l:#c07080; --rose-d:rgba(160,96,112,.08); --rose-b:rgba(160,96,112,.25);
+        --lilac:  #8070b0; --lilac-d:rgba(128,112,176,.08); --lilac-b:rgba(128,112,176,.25);
+        --bg:#fff; --bg1:#f7f5fa; --bg2:#f0eef5; --bg3:#e8e5f0;
+        --border:rgba(0,0,0,.1); --border2:rgba(0,0,0,.15);
+        --muted:#888; --gray:#666; --text:#111; --text2:#333; --green:#1a9955;
+      }
+      body { background:#fff !important; color:#111 !important; }
+      .prop-page { padding: 1rem !important; background:#fff !important; }
+      .prop-hero { background:#f7f5fa !important; border-color:#e0dce8 !important; box-shadow:none !important; }
+      .prop-hero::before { display:none !important; }
+      .prop-brand { color:#8070b0 !important; }
+      .prop-hero-title span { color:#a06070 !important; }
+      .prop-hero-ref { color:#8070b0 !important; }
+      .prop-footer-brand { color:#8070b0 !important; }
+      .plan-card-hi { background:#f5f2fc !important; border-color:rgba(128,112,176,.3) !important; }
+      .plan-price-hi, .plan-monthly-hi, .plan-badge-hi { color:#8070b0 !important; }
+      .prop-hero, .prop-to, .prop-sec, .prop-demo,
+      .obj-card, .escopo-col, .escopo-grid,
+      .prazo-box, .plan-card, .plan-payment-full,
+      .info-box, .valid-box, .plans-note, .plans-sale,
+      .prop-footer { break-inside:avoid; page-break-inside:avoid; }
+    }
+
+    @media (max-width: 720px) {
+      .prop-page      { padding: 4.5rem 1rem 3rem; }
+      .prop-hero      { padding: 2rem; }
+      .prop-hero-body { grid-template-columns: 1fr; }
+      .prop-hero-meta { text-align: left; }
+      .obj-grid       { grid-template-columns: 1fr 1fr; }
+      .escopo-grid    { grid-template-columns: 1fr; }
+      .plans-grid     { grid-template-columns: 1fr; }
+      .plan-card-hi   { margin-top: 1.25rem; }
+      .prop-to        { grid-template-columns: 1fr 1fr; }
+      .plan-payment-full { grid-template-columns: 1fr; }
+      .plan-pay-divider  { width: 100%; height: 1px; }
+    }
+    @media (max-width: 480px) {
+      .obj-grid  { grid-template-columns: 1fr; }
+      .prop-to   { grid-template-columns: 1fr; }
+      .lock-card { padding: 2.5rem 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════ LOCK ════ -->
+<div id="lock">
+  <div class="lock-card">
+    <div class="lock-logo">Oryga</div>
+    <div class="lock-logo-sub">Consultoria Digital</div>
+    <div class="lock-divider"></div>
+    <div class="lock-title">Proposta Comercial</div>
+    <div class="lock-desc">Acesso restrito.<br>Insira a senha para visualizar a proposta.</div>
+    <input type="password" id="pwdInput" class="lock-input" placeholder="••••••••••••" autocomplete="off">
+    <button class="lock-btn" onclick="checkPwd()">Acessar proposta →</button>
+    <div class="lock-err" id="lockErr">Senha incorreta. Tente novamente.</div>
+  </div>
+</div>
+
+<!-- ════ VENDOR BAR ════ -->
+<div id="vbar">
+  <span class="vbadge">✏ Modo Vendedor</span>
+  <span class="vhint">Clique em qualquer campo destacado para editar.</span>
+  <label class="vbar-price-label">💰 Investimento R$<input type="text" id="investInput" class="vbar-price-input" value="1.500" oninput="updateInvestimento(this.value)"></label>
+  <button class="vbtn" onclick="saveData()">💾 Salvar</button>
+  <button class="vbtn" onclick="window.print()">🖨 Imprimir</button>
+  <a href="../estrategia/" target="_blank" class="vbtn" style="text-decoration:none">📈 Estratégia</a>
+</div>
+<div id="eInvestimento" style="display:none">1.500</div>
+
+<!-- ════ PROPOSTA ════ -->
+<div id="proposta">
+<div class="prop-page">
+
+  <!-- ── Hero header ── -->
+  <div class="prop-hero">
+    <div class="prop-hero-top">
+      <div>
+        <div class="prop-brand">Oryga</div>
+        <div class="prop-brand-sub">Consultoria Digital</div>
+      </div>
+      <div class="prop-meta-badge">Proposta Comercial</div>
+    </div>
+    <div class="prop-hero-divider"></div>
+    <div class="prop-hero-body">
+      <div>
+        <div class="prop-hero-label">Objeto desta proposta</div>
+        <div class="prop-hero-title">Desenvolvimento de<br><span>Landing Page Profissional</span></div>
+        <div class="prop-hero-sub">Sandrith Lozano × Oryga Consultoria</div>
+      </div>
+      <div class="prop-hero-meta">
+        <div class="prop-hero-meta-line">Emitida em <strong id="eDate"></strong></div>
+        <div class="prop-hero-meta-line">Validade: <strong>15 dias</strong></div>
+        <div class="prop-hero-ref" id="eRef">Ref. ORY-2026-002</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Destinatário ── -->
+  <div class="prop-to">
+    <div class="prop-to-f"><label>Cliente</label><div class="fv" id="eEmpresa">Sandrith Lozano</div></div>
+    <div class="prop-to-f"><label>CRP</label><div class="fv" id="eCnpj">—</div></div>
+    <div class="prop-to-f"><label>Responsável</label><div class="fv" id="eResponsavel">Sandrith Lozano</div></div>
+    <div class="prop-to-f"><label>WhatsApp</label><div class="fv" id="eFone">(27) 9 9699-4595</div></div>
+    <div class="prop-to-f"><label>E-mail</label><div class="fv" id="eEmail">—</div></div>
+    <div class="prop-to-f"><label>Cidade</label><div class="fv" id="eCidade">Atendimento Online</div></div>
+    <div class="prop-to-f"><label>Proponente</label><div class="fv">Oryga Consultoria</div></div>
+    <div class="prop-to-f"><label>Contato Oryga</label><div class="fv" id="eContatoOryga">(37) 9 9801-9444</div></div>
+  </div>
+
+  <!-- ── Apresentação ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">📋</div>
+      <div class="prop-sec-title">Apresentação</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <p class="prop-text" id="eApres">
+      A <strong style="color:var(--text)">Sandrith Lozano</strong> é psicóloga clínica com Mestrado e formação em andamento no Doutorado em Psicologia, com mais de 5 anos de experiência no atendimento online a adultos em português e espanhol.<br><br>
+      Para ampliar a captação de pacientes e fortalecer sua presença digital, desenvolvemos esta proposta de criação de uma <strong style="color:var(--text)">landing page profissional e bilíngue</strong>, capaz de transmitir credibilidade, apresentar a psicóloga e seus serviços, e converter visitantes em agendamentos pelo WhatsApp.
+    </p>
+    <div class="prop-demo">
+      <div class="prop-demo-icon">🌐</div>
+      <div class="prop-demo-text">
+        Uma demonstração real do projeto pode ser acessada agora:<br>
+        <a href="https://orygaconsultoria.com.br/sandrith-lozano/" target="_blank">orygaconsultoria.com.br/sandrith-lozano</a>
+        <div class="prop-demo-note">Esta é exatamente a entrega que será publicada no domínio da Sandrith Lozano.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Objetivos ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">🎯</div>
+      <div class="prop-sec-title">Objetivos do Projeto</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="obj-grid">
+      <div class="obj-card"><div class="obj-icon">🌐</div><div class="obj-text">Fortalecer a presença digital da psicóloga com uma página profissional</div></div>
+      <div class="obj-card"><div class="obj-icon">🏆</div><div class="obj-text">Transmitir credibilidade, formação acadêmica e especialidades</div></div>
+      <div class="obj-card"><div class="obj-icon">💬</div><div class="obj-text">Converter visitantes em agendamentos pelo WhatsApp</div></div>
+      <div class="obj-card"><div class="obj-icon">🌎</div><div class="obj-text">Atender pacientes brasileiros e hispânicos com versão bilíngue PT/ES</div></div>
+      <div class="obj-card"><div class="obj-icon">🔍</div><div class="obj-text">Aparecer nas pesquisas do Google por psicólogo online</div></div>
+      <div class="obj-card"><div class="obj-icon">🤝</div><div class="obj-text">Gerar confiança e conexão emocional antes mesmo do primeiro contato</div></div>
+    </div>
+  </div>
+
+  <!-- ── Escopo ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">⚙️</div>
+      <div class="prop-sec-title">Escopo do Projeto</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="escopo-grid">
+      <div class="escopo-col">
+        <div class="escopo-col-title">🖥️ Desenvolvimento da Landing Page</div>
+        <ul class="check-list">
+          <li><div class="check-dot">✓</div><span>Página única com múltiplas seções (hero, sobre, especialidades, depoimentos, FAQ, CTA)</span></li>
+          <li><div class="check-dot">✓</div><span>Versão bilíngue integrada (Português e Espanhol) com troca por botão</span></li>
+          <li><div class="check-dot">✓</div><span>Seção "Sobre" com apresentação pessoal e formação acadêmica</span></li>
+          <li><div class="check-dot">✓</div><span>Seção de especialidades com descrições detalhadas</span></li>
+          <li><div class="check-dot">✓</div><span>Depoimentos de pacientes (fornecidos pela psicóloga)</span></li>
+          <li><div class="check-dot">✓</div><span>FAQ com perguntas frequentes</span></li>
+          <li><div class="check-dot">✓</div><span>Botão flutuante do WhatsApp com mensagem pré-formatada</span></li>
+          <li><div class="check-dot">✓</div><span>Layout responsivo para celulares, tablets e computadores</span></li>
+          <li><div class="check-dot">✓</div><span>Otimização básica para mecanismos de busca (SEO)</span></li>
+        </ul>
+      </div>
+      <div class="escopo-col">
+        <div class="escopo-col-title">✅ Serviços Inclusos</div>
+        <ul class="check-list">
+          <li><div class="check-dot">✓</div><span>Desenvolvimento completo da landing page</span></li>
+          <li><div class="check-dot">✓</div><span>Registro e configuração do domínio da psicóloga</span></li>
+          <li><div class="check-dot">✓</div><span>Configuração de hospedagem</span></li>
+          <li><div class="check-dot">✓</div><span>Certificado SSL — site seguro (https)</span></li>
+          <li><div class="check-dot">✓</div><span>Publicação em ambiente de produção</span></li>
+          <li><div class="check-dot">✓</div><span>Testes e validação completa antes da entrega</span></li>
+          <li><div class="check-dot">✓</div><span>Até 2 rodadas de ajustes após a versão inicial</span></li>
+          <li><div class="check-dot">✓</div><span>Garantia de correção de erros por 15 dias após a entrega</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Benefícios ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">⭐</div>
+      <div class="prop-sec-title">Benefícios para a Sandrith Lozano</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Presença profissional na internet</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Maior credibilidade com novos pacientes</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Alcance ampliado para pacientes hispânicos</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Agendamentos pelo WhatsApp 24h</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Maior visibilidade no Google</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Diferencial frente a outros psicólogos online</div>
+      <div class="ben-chip"><div class="ben-chip-dot"></div>Página que funciona mesmo fora do horário de atendimento</div>
+    </div>
+  </div>
+
+  <!-- ── Prazo ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">📅</div>
+      <div class="prop-sec-title">Prazo de Entrega</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="prazo-box">
+      <div class="prazo-num" id="ePrazoNum">7</div>
+      <div>
+        <div class="prazo-label">Dias úteis</div>
+        <p class="prazo-desc" id="ePrazo">
+          Prazo de até <strong>7 dias úteis</strong> após a aprovação desta proposta e envio dos materiais necessários (fotos, textos, depoimentos).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Gestão e Hospedagem ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">💰</div>
+      <div class="prop-sec-title">Gestão e Hospedagem</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+
+    <p class="prop-text" style="margin-bottom:2rem" id="eHostingIntro">
+      Após a entrega do projeto, você poderá escolher entre receber a landing page e administrá-la de forma independente ou contratar um dos planos de gestão da Oryga Consultoria.<br><br>
+      A maioria das profissionais prefere deixar toda a gestão conosco para não precisar se preocupar com domínio, segurança, backup, monitoramento e atualizações técnicas.
+    </p>
+
+    <div class="plans-grid">
+
+      <!-- Opção A -->
+      <div class="plan-card plan-selectable" id="planA" onclick="selectPlan('A')">
+        <div class="plan-selected-badge" id="planA-badge">✓ Plano escolhido</div>
+        <div class="plan-badge">Opção A</div>
+        <div class="plan-name">Site Independente</div>
+        <div class="plan-price-wrap">
+          <div class="plan-price-label">Investimento inicial</div>
+          <div class="plan-price">R$ <span class="price-dyn">1.500</span><span>,00</span></div>
+          <div class="plan-monthly plan-monthly-none">Sem mensalidade</div>
+        </div>
+        <ul class="plan-list">
+          <li><div class="check-dot">✓</div><span>Desenvolvimento completo da landing page</span></li>
+          <li><div class="check-dot">✓</div><span>Publicação e configuração do site</span></li>
+          <li><div class="check-dot">✓</div><span>Domínio e hospedagem inclusos durante os primeiros 12 meses</span></li>
+          <li><div class="check-dot">✓</div><span>Certificado SSL</span></li>
+          <li><div class="check-dot">✓</div><span>Entrega do site funcionando</span></li>
+          <li><div class="check-dot">✓</div><span>Alterações e atualizações podem ser contratadas sob demanda</span></li>
+        </ul>
+        <div class="plan-tag">Solicite alterações quando precisar</div>
+      </div>
+
+      <!-- Opção B -->
+      <div class="plan-card plan-selectable" id="planB" onclick="selectPlan('B')">
+        <div class="plan-selected-badge" id="planB-badge">✓ Plano escolhido</div>
+        <div class="plan-badge">Opção B</div>
+        <div class="plan-name">Site + Plano Essencial</div>
+        <div class="plan-price-wrap">
+          <div class="plan-price-label">Investimento inicial</div>
+          <div class="plan-price">R$ <span class="price-dyn">1.500</span><span>,00</span></div>
+          <div class="plan-monthly">+ R$ 39,90<small>/mês</small></div>
+        </div>
+        <ul class="plan-list">
+          <li><div class="check-dot">✓</div><span>Hospedagem do site</span></li>
+          <li><div class="check-dot">✓</div><span>Renovação e gerenciamento do domínio</span></li>
+          <li><div class="check-dot">✓</div><span>Certificado SSL</span></li>
+          <li><div class="check-dot">✓</div><span>Backup periódico</span></li>
+          <li><div class="check-dot">✓</div><span>Monitoramento básico</span></li>
+          <li><div class="check-dot">✓</div><span>Garantia de funcionamento</span></li>
+          <li><div class="check-dot">✓</div><span>Suporte técnico relacionado à disponibilidade e infraestrutura</span></li>
+        </ul>
+        <div class="plan-fidelidade">Fidelidade mínima de 12 meses</div>
+        <div class="plan-tag">Sem preocupação com questões técnicas</div>
+      </div>
+
+      <!-- Opção C -->
+      <div class="plan-card plan-card-hi plan-selectable" id="planC" onclick="selectPlan('C')">
+        <div class="plan-selected-badge plan-selected-badge-hi" id="planC-badge">✓ Plano escolhido</div>
+        <div class="plan-popular">🏆 Mais vantajoso</div>
+        <div class="plan-badge plan-badge-hi">Opção C</div>
+        <div class="plan-name">Site + Plano Profissional</div>
+        <div class="plan-price-wrap">
+          <div class="plan-price-label">Investimento inicial</div>
+          <div class="plan-price plan-price-hi">R$ <span class="price-dyn">1.500</span><span>,00</span></div>
+          <div class="plan-monthly plan-monthly-hi">+ R$ 79,90<small>/mês</small></div>
+        </div>
+        <ul class="plan-list">
+          <li><div class="check-dot check-dot-hi">✓</div><span>Tudo do Plano Essencial</span></li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Até 2 pequenas solicitações de atualização por mês</span>
+            <div class="plan-sub-list">Textos · Fotos · Depoimentos · Horários · Especialidades</div>
+          </li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Cada solicitação contempla até 30 minutos de trabalho técnico</span></li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Suporte prioritário e atendimento preferencial</span></li>
+          <li><div class="check-dot check-dot-hi">✓</div><span>Não inclui criação de novas páginas, funcionalidades ou reformulação de layout</span></li>
+        </ul>
+        <div class="plan-fidelidade plan-fidelidade-hi">Fidelidade mínima de 12 meses</div>
+        <div class="plan-tag plan-tag-hi">Site sempre atualizado e funcionando</div>
+      </div>
+
+    </div>
+
+    <div class="plans-sale">
+      <p><strong>A landing page será desenvolvida exclusivamente para a <span id="notaEmpresa">Sandrith Lozano</span> e pertence integralmente à profissional após a entrega.</strong></p>
+      <p style="margin-top:.75rem">O investimento para desenvolvimento é de <strong>R$ <span class="price-dyn">1.500</span></strong>, incluindo criação, publicação, configuração do domínio, certificado SSL e entrega do site em funcionamento.</p>
+      <p style="margin-top:.75rem">Após a entrega, a profissional pode administrar tudo por conta própria ou optar pelos planos de gestão da Oryga para manter o site seguro, atualizado e funcionando sem preocupações técnicas.</p>
+    </div>
+
+    <!-- Pagamento -->
+    <div class="plan-payment-full">
+      <div class="plan-pay-col">
+        <div class="plan-pay-label">💰 Desenvolvimento do Site</div>
+        <div class="plan-pay-desc">50% na contratação e 50% na entrega do projeto</div>
+      </div>
+      <div class="plan-pay-divider"></div>
+      <div class="plan-pay-col">
+        <div class="plan-pay-label">🛡️ Gestão Digital Mensal</div>
+        <div class="plan-pay-desc">Cobrança mensal recorrente via <strong>PIX</strong> ou cartão de crédito</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Condições do plano escolhido ── -->
+  <div class="prop-sec" id="obsSection">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">📌</div>
+      <div class="prop-sec-title">Condições do Plano Escolhido</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="info-box" id="eObs">
+      <p style="color:var(--muted);font-style:italic">Selecione um plano acima para ver as condições específicas.</p>
+    </div>
+  </div>
+
+  <!-- ── Validade ── -->
+  <div class="prop-sec">
+    <div class="prop-sec-header">
+      <div class="prop-sec-icon">⏳</div>
+      <div class="prop-sec-title">Validade da Proposta</div>
+      <div class="prop-sec-divider"></div>
+    </div>
+    <div class="valid-box">
+      <div class="valid-icon">⏳</div>
+      <div class="valid-text" id="eValidade">
+        Esta proposta possui validade de <strong>15 dias</strong> a partir da data de emissão. Após esse prazo, condições e valores poderão ser revisados.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Aceitar ── -->
+  <div class="sign-cta">
+    <div class="sign-cta-icon">🌸</div>
+    <div class="sign-cta-title">Pronta para <span>ampliar seus atendimentos</span>?</div>
+    <div class="sign-cta-desc">Ao aprovar a proposta, entraremos em contato para formalizar a contratação, alinhar os detalhes finais e iniciar o desenvolvimento da sua landing page.</div>
+
+    <div class="aceitar-wrap">
+      <button id="btnAceitar" class="aceitar-btn" onclick="aceitarProposta()">
+        <div class="aceitar-icon-wrap">✅</div>
+        <div class="aceitar-text">
+          <div class="aceitar-label">Aprovar Proposta e Iniciar Projeto</div>
+          <div class="aceitar-sub">Abre o diálogo de impressão para salvar como PDF</div>
+        </div>
+      </button>
+    </div>
+
+    <div id="aceitarSucesso" style="display:none">
+      <div class="aceitar-ok">
+        <div class="aceitar-ok-icon">🎉</div>
+        <div>
+          <div class="aceitar-ok-title">Proposta aceita com sucesso!</div>
+          <div class="aceitar-ok-sub">Salve como PDF no diálogo de impressão. Em breve a Oryga entrará em contato.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <div class="prop-footer">
+    <div>
+      <div class="prop-footer-brand">Oryga</div>
+      <div class="prop-footer-sub">Consultoria Digital · orygaconsultoria.com.br</div>
+    </div>
+    <div class="prop-footer-right">
+      Dúvidas? Entre em contato.<br>
+      WhatsApp: (37) 9 9801-9444
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  /* ════ SENHAS ════ */
+  const VENDOR_PWD = 'oryga@vendas';
+  const CLIENT_PWD = 'sandrith@2026';
+  const STORE_KEY  = 'proposta_sandrith_v1';
+
+  /* Data */
+  const hoje = new Date();
+  document.getElementById('eDate').textContent =
+    hoje.toLocaleDateString('pt-BR', {day:'2-digit', month:'long', year:'numeric'});
+
+  /* ── Senha ── */
+  document.getElementById('pwdInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPwd(); });
+
+  function checkPwd() {
+    const v = document.getElementById('pwdInput').value;
+    if      (v === VENDOR_PWD) enter('vendor');
+    else if (v === CLIENT_PWD) enter('client');
+    else {
+      const el = document.getElementById('lockErr');
+      el.style.display = 'block';
+      document.getElementById('pwdInput').value = '';
+      setTimeout(() => el.style.display = 'none', 3000);
+    }
+  }
+
+  function enter(mode) {
+    document.getElementById('lock').style.display = 'none';
+    document.getElementById('proposta').style.display = 'block';
+    loadFromHash() || loadFromStorage();
+    syncPrices();
+
+    if (mode === 'vendor') {
+      document.getElementById('vbar').style.display = 'flex';
+      enableEdit();
+    }
+    const emp     = document.getElementById('eEmpresa');
+    const empName = emp ? emp.textContent.trim() : '';
+    const nota    = document.getElementById('notaEmpresa');
+    if (nota) nota.textContent = empName || 'contratante';
+  }
+
+  /* ── Edição ── */
+  const EIDS = ['eRef','eEmpresa','eCnpj','eResponsavel','eFone','eEmail','eCidade','eContatoOryga',
+                'eApres','eHostingIntro','ePrazoNum','ePrazo','eValidade','eInvestimento'];
+
+  function enableEdit() {
+    EIDS.forEach(id => { const el = document.getElementById(id); if (el) el.contentEditable = 'true'; });
+  }
+
+  /* ── Storage ── */
+  function getStorage() {
+    try { return JSON.parse(localStorage.getItem(STORE_KEY)) || null; } catch { return null; }
+  }
+
+  function collectFields() {
+    const f = {};
+    EIDS.forEach(id => { const el = document.getElementById(id); if (el) f[id] = el.innerHTML; });
+    return f;
+  }
+
+  function applyFields(f) {
+    Object.entries(f).forEach(([id, html]) => { const el = document.getElementById(id); if (el) el.innerHTML = html; });
+  }
+
+  function loadFromStorage() {
+    const d = getStorage();
+    if (!d || !d.fields) return false;
+    applyFields(d.fields); return true;
+  }
+
+  function saveData() {
+    const d = getStorage() || {};
+    d.fields = collectFields();
+    localStorage.setItem(STORE_KEY, JSON.stringify(d));
+    showToast('Proposta salva!');
+  }
+
+  function loadFromHash() {
+    if (!location.hash.startsWith('#data=')) return false;
+    try {
+      applyFields(JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(6))))));
+      return true;
+    } catch { return false; }
+  }
+
+  /* ── Investimento dinâmico ── */
+  function updateInvestimento(val) {
+    document.getElementById('eInvestimento').textContent = val;
+    document.querySelectorAll('.price-dyn').forEach(el => el.textContent = val);
+  }
+
+  function syncPrices() {
+    const val = document.getElementById('eInvestimento').textContent.trim() || '1.500';
+    const input = document.getElementById('investInput');
+    if (input) input.value = val;
+    document.querySelectorAll('.price-dyn').forEach(el => el.textContent = val);
+  }
+
+  /* ── Aceitar Proposta ── */
+  function aceitarProposta() {
+    if (!selectedPlan) { showToast('Selecione um plano antes de aceitar.'); return; }
+    const btn = document.getElementById('btnAceitar');
+    btn.disabled = true;
+    btn.style.display = 'none';
+    document.getElementById('aceitarSucesso').style.display = 'block';
+    setTimeout(() => window.print(), 150);
+    showToast('Proposta aceita! Salve como PDF no diálogo.');
+  }
+
+  /* ── Toast ── */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.style.opacity = '1';
+    clearTimeout(t._t);
+    t._t = setTimeout(() => t.style.opacity = '0', 2200);
+  }
+
+  /* ── Seleção de plano ── */
+  let selectedPlan = null;
+
+  const OBS_TEXTS = {
+    A: `<p>Com o <strong>Plano A — Site Independente</strong>, a landing page será desenvolvida, publicada e entregue com domínio, hospedagem e certificado SSL ativos durante os primeiros 12 meses.</p>
+        <p>Após esse período, a renovação do domínio, hospedagem e demais serviços passa a ser de responsabilidade da contratante.</p>
+        <p>A profissional receberá acesso completo ao site e poderá administrar sua infraestrutura com qualquer fornecedor de sua preferência.</p>
+        <p>Alterações, atualizações de conteúdo, suporte técnico ou novas funcionalidades poderão ser contratadas separadamente mediante orçamento.</p>`,
+    B: `<p>Com o <strong>Plano B — Site + Plano Essencial</strong>, a Oryga é responsável pela hospedagem, domínio, certificado SSL, backup e monitoramento do site.</p>
+        <p>O plano inclui suporte técnico relacionado ao funcionamento da infraestrutura e garantia de disponibilidade do site.</p>
+        <p>Alterações de conteúdo, inclusão de imagens, mudanças de textos ou atualizações visuais não estão inclusas e serão cobradas à parte, <strong>a partir de R$ 100 por solicitação</strong>.</p>
+        <p>Fidelidade mínima de 12 meses.</p>
+        <p>O investimento inicial é cobrado na contratação e a mensalidade garante a continuidade dos serviços de hospedagem e gestão básica da infraestrutura.</p>`,
+    C: `<p>Com o <strong>Plano C — Site + Plano Profissional</strong>, a Oryga realiza até <strong>2 pequenas solicitações de atualização por mês</strong>, incluindo alteração de textos, substituição de fotos, atualização de depoimentos, especialidades e informações da profissional.</p>
+        <p>Cada solicitação contempla até <strong>30 minutos de trabalho técnico</strong>.</p>
+        <p>O plano inclui todos os benefícios do Plano Essencial, além de suporte prioritário e atendimento preferencial.</p>
+        <p>Não estão inclusos serviços de desenvolvimento, criação de novas páginas, integrações, reformulações visuais ou novas funcionalidades.</p>
+        <p>Solicitações excedentes ou fora do escopo serão orçadas separadamente.</p>
+        <p>Fidelidade mínima de 12 meses.</p>`,
+    none: `<p style="color:var(--muted);font-style:italic">Selecione um plano acima para ver as condições específicas.</p>`
+  };
+
+  function selectPlan(letter) {
+    ['A','B','C'].forEach(l => document.getElementById('plan'+l).classList.remove('plan-active'));
+    if (selectedPlan === letter) {
+      selectedPlan = null;
+    } else {
+      selectedPlan = letter;
+      document.getElementById('plan'+letter).classList.add('plan-active');
+    }
+    document.getElementById('eObs').innerHTML = OBS_TEXTS[selectedPlan || 'none'];
+    const d = getStorage() || {};
+    d.selectedPlan = selectedPlan;
+    localStorage.setItem(STORE_KEY, JSON.stringify(d));
+  }
+
+  function restoreSelectedPlan() {
+    const d = getStorage();
+    if (d && d.selectedPlan) selectPlan(d.selectedPlan);
+    else document.getElementById('eObs').innerHTML = OBS_TEXTS['none'];
+  }
+
+  loadFromHash();
+  restoreSelectedPlan();
+</script>
+</body>
+</html>
